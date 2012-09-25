@@ -1,0 +1,157 @@
+   1               		.file	"lightsensordriver.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__ = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.main,"ax",@progbits
+  17               	.global	main
+  19               	main:
+  20               	.LFB8:
+  21               	.LSM0:
+  22 0000 EF92      		push r14
+  23 0002 FF92      		push r15
+  24 0004 0F93      		push r16
+  25 0006 1F93      		push r17
+  26 0008 CF93      		push r28
+  27 000a DF93      		push r29
+  28               	/* prologue: function */
+  29               	/* frame size = 0 */
+  30               	/* stack size = 6 */
+  31               	.L__stack_usage = 6
+  32               	.LSM1:
+  33 000c 569A      		sbi 42-32,6
+  34               	.LSM2:
+  35 000e 5E98      		cbi 43-32,6
+  36               	.LSM3:
+  37 0010 0E94 0000 		call usb_init
+  38               	.LSM4:
+  39 0014 80E4      		ldi r24,lo8(64)
+  40 0016 0E94 0000 		call analog_reference
+  41               	.LSM5:
+  42 001a 209A      		sbi 36-32,0
+  43               	.LSM6:
+  44 001c 219A      		sbi 36-32,1
+  45               	.LSM7:
+  46 001e 299A      		sbi 37-32,1
+  47               	.L6:
+  48               	.LBB2:
+  49               	.LSM8:
+  50 0020 80E0      		ldi r24,lo8(0)
+  51 0022 0E94 0000 		call analog_read
+  52 0026 D82F      		mov r29,r24
+  53 0028 C92F      		mov r28,r25
+  54               	.LVL0:
+  55               	.LSM9:
+  56 002a 81E0      		ldi r24,lo8(1)
+  57               	.LVL1:
+  58 002c 0E94 0000 		call analog_read
+  59               	.LVL2:
+  60 0030 7C01      		movw r14,r24
+  61               	.LVL3:
+  62               	.LSM10:
+  63 0032 80E0      		ldi r24,lo8(__c.1705)
+  64 0034 90E0      		ldi r25,hi8(__c.1705)
+  65 0036 0E94 0000 		call print_P
+  66               	.LSM11:
+  67 003a 0D2F      		mov r16,r29
+  68 003c 1C2F      		mov r17,r28
+  69 003e C801      		movw r24,r16
+  70 0040 0E94 0000 		call phex16
+  71               	.LSM12:
+  72 0044 80E0      		ldi r24,lo8(__c.1707)
+  73 0046 90E0      		ldi r25,hi8(__c.1707)
+  74 0048 0E94 0000 		call print_P
+  75               	.LSM13:
+  76 004c E701      		movw r28,r14
+  77               	.LVL4:
+  78 004e C701      		movw r24,r14
+  79 0050 0E94 0000 		call phex16
+  80               	.LSM14:
+  81 0054 82E0      		ldi r24,hi8(512)
+  82 0056 0030      		cpi r16,lo8(512)
+  83 0058 1807      		cpc r17,r24
+  84 005a 00F0      		brlo .L2
+  85               	.LSM15:
+  86 005c 5E9A      		sbi 43-32,6
+  87               	.LSM16:
+  88 005e 289A      		sbi 37-32,0
+  89 0060 00C0      		rjmp .L3
+  90               	.L2:
+  91               	.LSM17:
+  92 0062 5E98      		cbi 43-32,6
+  93               	.LSM18:
+  94 0064 2898      		cbi 37-32,0
+  95               	.L3:
+  96               	.LSM19:
+  97 0066 82E0      		ldi r24,hi8(512)
+  98 0068 C030      		cpi r28,lo8(512)
+  99 006a D807      		cpc r29,r24
+ 100 006c 00F0      		brlo .L4
+ 101               	.LSM20:
+ 102 006e 299A      		sbi 37-32,1
+ 103 0070 00C0      		rjmp .L5
+ 104               	.L4:
+ 105               	.LSM21:
+ 106 0072 2998      		cbi 37-32,1
+ 107               	.L5:
+ 108               	.LSM22:
+ 109 0074 80E0      		ldi r24,lo8(__c.1709)
+ 110 0076 90E0      		ldi r25,hi8(__c.1709)
+ 111 0078 0E94 0000 		call print_P
+ 112               	.LBE2:
+ 113               	.LSM23:
+ 114 007c 00C0      		rjmp .L6
+ 115               	.LFE8:
+ 117               		.section	.text.write_to_usb_debug,"ax",@progbits
+ 118               	.global	write_to_usb_debug
+ 120               	write_to_usb_debug:
+ 121               	.LFB9:
+ 122               	.LSM24:
+ 123               	.LVL5:
+ 124               	/* prologue: function */
+ 125               	/* frame size = 0 */
+ 126               	/* stack size = 0 */
+ 127               	.L__stack_usage = 0
+ 128               	.LSM25:
+ 129 0000 8AE0      		ldi r24,lo8(10)
+ 130               	.LVL6:
+ 131 0002 0E94 0000 		call usb_debug_putchar
+ 132               	.LSM26:
+ 133 0006 0E94 0000 		call usb_debug_flush_output
+ 134               	/* epilogue start */
+ 135               	.LSM27:
+ 136 000a 0895      		ret
+ 137               	.LFE9:
+ 139               		.section	.progmem.data,"a",@progbits
+ 142               	__c.1709:
+ 143 0000 0A00      		.string	"\n"
+ 146               	__c.1707:
+ 147 0002 2030 7800 		.string	" 0x"
+ 150               	__c.1705:
+ 151 0006 3078 00   		.string	"0x"
+ 184               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 lightsensordriver.c
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:2      *ABS*:0000003f __SREG__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:3      *ABS*:0000003e __SP_H__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:4      *ABS*:0000003d __SP_L__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:5      *ABS*:00000034 __CCP__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:19     .text.main:00000000 main
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:150    .progmem.data:00000006 __c.1705
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:146    .progmem.data:00000002 __c.1707
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:142    .progmem.data:00000000 __c.1709
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccrRyA9a.s:120    .text.write_to_usb_debug:00000000 write_to_usb_debug
+
+UNDEFINED SYMBOLS
+usb_init
+analog_reference
+analog_read
+print_P
+phex16
+usb_debug_putchar
+usb_debug_flush_output

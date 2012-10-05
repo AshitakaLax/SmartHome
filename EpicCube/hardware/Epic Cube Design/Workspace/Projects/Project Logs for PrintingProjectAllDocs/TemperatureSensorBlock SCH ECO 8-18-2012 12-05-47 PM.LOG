@@ -1,0 +1,16 @@
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U1
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U3
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U4
+Added Parameter Price=0.03 to Part C1
+Added Parameter Price=0.03 to Part C2
+Added Parameter Price=0.03 to Part C3
+Added Parameter Price=0.03 to Part C4
+Added Parameter Price=0.03 to Part C5
+Added Parameter Price=0.23 to Part U4
+Added Parameter Vendor=Taydaelectronics to Part C1
+Added Parameter Vendor=Taydaelectronics to Part C2
+Added Parameter Vendor=Taydaelectronics to Part C3
+Added Parameter Vendor=Taydaelectronics to Part C4
+Added Parameter Vendor=Taydaelectronics to Part C5
+Added Parameter Vendor=Taydaelectronics to Part U4

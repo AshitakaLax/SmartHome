@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="289577eb-c85a-4712-b0e0-1a5a0a3a25f4" name="SmartHomeMaster" linkedPackageId="cf90f30c-d3de-44e8-8955-6b7c59f73b90" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="de39d019-d1d8-42e1-98dc-6b22a2e897ad">
+      <profileInstance Id="8c5764b0-2078-4d4b-a6f6-a3e21432476a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="de462fe3-6213-471c-80e2-2ca2cf4db62c">
+      <profileInstance Id="a60250f7-8df2-42a7-90ff-25217d48f9c3" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5e571f33-ec16-4fa4-a159-09afa5d898a4" name="MainControlPanel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="55504c82-346c-4cca-8a85-dfc84d9cea45" />
+        <targetEnds>
+          <association Id="b8e1913e-a533-4236-8e35-55fd0aece2b2" isDerived="false" sourceEndRoleName="MainControlPanel" targetEndRoleName="RecognitionMain" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e25d630d-38e7-41e7-8000-a1fe9cc886f6" LastKnownName="RecognitionMain" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d909a819-05bf-4943-a7e2-3090257f37eb" name="MainControlPanel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="dd106de5-8797-4883-8a3d-ce4735b90a54" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cb9d5b05-a7c8-4faa-b8e1-c8127611c96a" name="RecognitionMain" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="92c09c33-008c-469e-a696-a5f1b562a5c4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="251c4b3b-1692-4765-b93e-140890b1f2f6" />
+          </association>
+          <association Id="9431d813-ff28-436e-abde-16b8ae23d0f3" isDerived="false" sourceEndRoleName="MainControlPanel" targetEndRoleName="SpeechMain" isLeaf="false" isAbstract="false">
+            <classMoniker Id="0bbfef57-69e4-4529-a672-6e1a50bf121b" LastKnownName="SpeechMain" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4092b584-2283-4aca-a69a-20d7dad3525a" name="MainControlPanel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="02fc7132-641b-49e2-8a7d-70764a233f58" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9bca4f04-fdd2-458d-829e-e31ad6558e70" name="SpeechMain" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c0e9ec92-6ec8-4fa4-b8e6-f952ae91a479" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b598c475-8127-4cb1-b9c5-81019a2d0c93" />
+          </association>
+          <association Id="f8458346-6476-49e2-9d9d-495d335f272d" isDerived="false" sourceEndRoleName="MainControlPanel" targetEndRoleName="EpicCubeCntrl" isLeaf="false" isAbstract="false">
+            <classMoniker Id="17100176-d472-4ad9-8a2a-5ddad08e8148" LastKnownName="EpicCubeCntrl" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a0e32f73-bfec-45cf-889a-55b94f9987fa" name="MainControlPanel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="407f1876-82ce-4b5c-98e9-ec8ad40febeb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5ab99edd-1f85-472d-b800-d352d7b5408e" name="EpicCubeCntrl" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9750699a-4c49-42a5-a939-befdbbbff692" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c1c13ee7-bc62-4de4-8b60-f28f30ae9293" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e25d630d-38e7-41e7-8000-a1fe9cc886f6" name="RecognitionMain" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b03be8b1-9b93-41ca-8c6d-223d15541aa8" />
+        <targetEnds>
+          <association Id="de67be22-ae73-491d-9a7f-45171e8c835b" isDerived="false" sourceEndRoleName="RecognitionMain" targetEndRoleName="GarageCntrl" isLeaf="false" isAbstract="false">
+            <classMoniker Id="66ccd2fb-e1b9-453a-8034-399ef1b15eb4" LastKnownName="GarageCntrl" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="91b1d418-5eff-4b7c-9604-ef9ca0f4c932" name="RecognitionMain" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8e5a6e83-8029-4f29-856f-bd4c30955630" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7866dd4a-972d-42f8-a403-9d4a728ad848" name="GarageCntrl" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7dec0838-ce2a-41f5-a5ca-9be0ba371b76" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="04a9c4d0-20b0-4ece-afae-ddcfca9540ff" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0bbfef57-69e4-4529-a672-6e1a50bf121b" name="SpeechMain" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="288dc032-1950-4104-b5c1-8b134ab1dbd1" />
+        <targetEnds>
+          <association Id="ea1b0ce3-9b8c-4d4c-96b5-02e7c57d9d15" isDerived="false" sourceEndRoleName="SpeechMain" targetEndRoleName="GarageCntrl" isLeaf="false" isAbstract="false">
+            <classMoniker Id="66ccd2fb-e1b9-453a-8034-399ef1b15eb4" LastKnownName="GarageCntrl" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0d1a4c0-c880-4571-a785-10972d4037c4" name="SpeechMain" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="77ae5048-0f19-41ee-a216-58a4a053bd4c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="04bc0e30-a6db-4c08-b52f-bb6bbca1300a" name="GarageCntrl" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c788d2e6-c18e-4d3b-a2d2-727288601eeb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e22e81d2-6303-43f8-81e4-48b8a5769d2e" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="17100176-d472-4ad9-8a2a-5ddad08e8148" name="EpicCubeCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="11429d1c-1fa8-4b8b-ba4c-5e5481e5bc3a" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="66ccd2fb-e1b9-453a-8034-399ef1b15eb4" name="GarageCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c21cbf7e-e896-4f47-b1cd-3299642d9415" />
+        <ownedAttributesInternal>
+          <property Id="69d088b0-9815-4f52-a8ef-3657fd2c0400" name="Recog" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8d175fe8-0675-4b97-9b4b-1e4b2658cf36" />
+          </property>
+          <property Id="dd3d1d35-077e-4e51-9735-e23e2a7ed703" name="Spee" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="89e0ae02-d18d-47b4-a563-2cd6c840bf4b" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5eba9cae-83cb-46b2-a96c-a8ec572db7a9" name="PhoneCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="063c38ae-a7e9-42ae-8db5-cdea3bd5ee5a" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7b24aed3-a369-4bdd-b985-00c43d652114" name="PasswordCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="80122e2d-9db6-40a1-a1e9-2e51718c320b" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="51629e43-258a-4921-83b9-8275cfbb6c67" name="SprinklerCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ebbc5d4e-8bcb-4d19-a119-95a58da5a8a4" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="667521dc-d99b-455e-ba42-1b4dc0bb8e3d" name="TemperatureCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="071a9898-9b60-48af-a7db-14d537035b4a" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="017a7e30-1314-49a4-a7ca-daa3942fb64d" name="TrafficCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6f8159bd-1184-4b51-af93-dfd7046eab75" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3929e7d7-2d34-4161-bf0f-04c93ef94ae4" name="WeatherCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="237e4603-ecdc-46df-84a2-b6c4829b2004" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b936f295-a1c5-4a00-bc02-9c0d8509cb78" name="AudioCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b4e48417-d177-4fdf-bacc-5761d60484cb" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="252da3df-67f7-41dc-9fe8-cd3611fd20bb" name="GoogleCntrl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1af852a1-f8b2-42b3-806c-bb9579e30e09" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="cf90f30c-d3de-44e8-8955-6b7c59f73b90" name="SmartHomeModel">
+    <elementDefinition Id="5aec9883-6c1a-4918-a676-cac9eed48e4a" />
+  </package>
+</logicalClassDesignerModel>

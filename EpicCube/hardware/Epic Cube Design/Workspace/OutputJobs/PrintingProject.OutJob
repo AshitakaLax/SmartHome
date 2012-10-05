@@ -1,0 +1,1227 @@
+[OutputJobFile]
+Version=1.0
+
+[OutputGroup1]
+Name=PrintingProject.OutJob
+Description=
+TargetOutputMedium=Everything
+VariantName=[No Variations]
+VariantScope=0
+CurrentConfigurationName=
+TargetPrinter=\\JEN\hp LaserJet 1300 PCL 6
+PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
+OutputMedium1=GroupSchematic
+OutputMedium1_Type=Publish
+OutputMedium2=SeparateSchematic
+OutputMedium2_Type=Publish
+OutputMedium3=BOM group Designators
+OutputMedium3_Type=Publish
+OutputMedium4=BOM Group Values
+OutputMedium4_Type=Publish
+OutputMedium5=All Layout Prints
+OutputMedium5_Type=Publish
+OutputMedium6=New Folder Structure
+OutputMedium6_Type=GeneratedFiles
+OutputMedium7=test
+OutputMedium7_Type=Printer
+OutputMedium7_Printer=PDFCreator
+OutputMedium7_PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
+OutputMedium8=Everything
+OutputMedium8_Type=Publish
+OutputType1=Schematic Print
+OutputName1=The Epic Cube Print
+OutputCategory1=Documentation
+OutputDocumentPath1=TheEpicCube.SchDoc
+OutputVariantName1=
+OutputEnabled1=1
+OutputEnabled1_OutputMedium1=1
+OutputEnabled1_OutputMedium2=1
+OutputEnabled1_OutputMedium3=0
+OutputEnabled1_OutputMedium4=0
+OutputEnabled1_OutputMedium5=0
+OutputEnabled1_OutputMedium6=0
+OutputEnabled1_OutputMedium7=0
+OutputEnabled1_OutputMedium8=1
+OutputDefault1=0
+PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=1|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=600|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration1_Name1=OutputConfigurationParameter1
+Configuration1_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType2=Schematic Print
+OutputName2=Epic Cube Diagram 1 Print
+OutputCategory2=Documentation
+OutputDocumentPath2=EpicCubeDiagram.SchDoc
+OutputVariantName2=
+OutputEnabled2=1
+OutputEnabled2_OutputMedium1=2
+OutputEnabled2_OutputMedium2=2
+OutputEnabled2_OutputMedium3=0
+OutputEnabled2_OutputMedium4=0
+OutputEnabled2_OutputMedium5=0
+OutputEnabled2_OutputMedium6=0
+OutputEnabled2_OutputMedium7=10
+OutputEnabled2_OutputMedium8=2
+OutputDefault2=0
+PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration2_Name1=OutputConfigurationParameter1
+Configuration2_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType3=Schematic Print
+OutputName3=Epic Cube Diagram 2 Print
+OutputCategory3=Documentation
+OutputDocumentPath3=EpicCubeDiagram2.SchDoc
+OutputVariantName3=
+OutputEnabled3=1
+OutputEnabled3_OutputMedium1=3
+OutputEnabled3_OutputMedium2=3
+OutputEnabled3_OutputMedium3=0
+OutputEnabled3_OutputMedium4=0
+OutputEnabled3_OutputMedium5=0
+OutputEnabled3_OutputMedium6=0
+OutputEnabled3_OutputMedium7=0
+OutputEnabled3_OutputMedium8=3
+OutputDefault3=0
+PageOptions3=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration3_Name1=OutputConfigurationParameter1
+Configuration3_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType4=Schematic Print
+OutputName4=Main Controller Print
+OutputCategory4=Documentation
+OutputDocumentPath4=MainController.SchDoc
+OutputVariantName4=
+OutputEnabled4=1
+OutputEnabled4_OutputMedium1=4
+OutputEnabled4_OutputMedium2=4
+OutputEnabled4_OutputMedium3=0
+OutputEnabled4_OutputMedium4=0
+OutputEnabled4_OutputMedium5=0
+OutputEnabled4_OutputMedium6=0
+OutputEnabled4_OutputMedium7=0
+OutputEnabled4_OutputMedium8=4
+OutputDefault4=0
+PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration4_Name1=OutputConfigurationParameter1
+Configuration4_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType5=Schematic Print
+OutputName5=Power Board Print
+OutputCategory5=Documentation
+OutputDocumentPath5=PowerAndFanBoard.SchDoc
+OutputVariantName5=
+OutputEnabled5=1
+OutputEnabled5_OutputMedium1=5
+OutputEnabled5_OutputMedium2=5
+OutputEnabled5_OutputMedium3=0
+OutputEnabled5_OutputMedium4=0
+OutputEnabled5_OutputMedium5=0
+OutputEnabled5_OutputMedium6=0
+OutputEnabled5_OutputMedium7=0
+OutputEnabled5_OutputMedium8=5
+OutputDefault5=0
+PageOptions5=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration5_Name1=OutputConfigurationParameter1
+Configuration5_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType6=Schematic Print
+OutputName6=HVAC and Garage Print
+OutputCategory6=Documentation
+OutputDocumentPath6=HeatingAC_Garage.SchDoc
+OutputVariantName6=
+OutputEnabled6=1
+OutputEnabled6_OutputMedium1=6
+OutputEnabled6_OutputMedium2=6
+OutputEnabled6_OutputMedium3=0
+OutputEnabled6_OutputMedium4=0
+OutputEnabled6_OutputMedium5=0
+OutputEnabled6_OutputMedium6=0
+OutputEnabled6_OutputMedium7=0
+OutputEnabled6_OutputMedium8=6
+OutputDefault6=0
+PageOptions6=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration6_Name1=OutputConfigurationParameter1
+Configuration6_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType7=Schematic Print
+OutputName7=Bi-Polar Motor driver Print
+OutputCategory7=Documentation
+OutputDocumentPath7=MotorController.SchDoc
+OutputVariantName7=
+OutputEnabled7=1
+OutputEnabled7_OutputMedium1=7
+OutputEnabled7_OutputMedium2=7
+OutputEnabled7_OutputMedium3=0
+OutputEnabled7_OutputMedium4=0
+OutputEnabled7_OutputMedium5=0
+OutputEnabled7_OutputMedium6=0
+OutputEnabled7_OutputMedium7=0
+OutputEnabled7_OutputMedium8=7
+OutputDefault7=0
+PageOptions7=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration7_Name1=OutputConfigurationParameter1
+Configuration7_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType8=Schematic Print
+OutputName8=Damper Section Print
+OutputCategory8=Documentation
+OutputDocumentPath8=DamperSection.SchDoc
+OutputVariantName8=
+OutputEnabled8=1
+OutputEnabled8_OutputMedium1=8
+OutputEnabled8_OutputMedium2=8
+OutputEnabled8_OutputMedium3=0
+OutputEnabled8_OutputMedium4=0
+OutputEnabled8_OutputMedium5=0
+OutputEnabled8_OutputMedium6=0
+OutputEnabled8_OutputMedium7=0
+OutputEnabled8_OutputMedium8=8
+OutputDefault8=0
+PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration8_Name1=OutputConfigurationParameter1
+Configuration8_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType9=Schematic Print
+OutputName9=Sprinkler Control Print
+OutputCategory9=Documentation
+OutputDocumentPath9=SprinklerBoard.SchDoc
+OutputVariantName9=
+OutputEnabled9=1
+OutputEnabled9_OutputMedium1=9
+OutputEnabled9_OutputMedium2=9
+OutputEnabled9_OutputMedium3=0
+OutputEnabled9_OutputMedium4=0
+OutputEnabled9_OutputMedium5=0
+OutputEnabled9_OutputMedium6=0
+OutputEnabled9_OutputMedium7=0
+OutputEnabled9_OutputMedium8=9
+OutputDefault9=0
+PageOptions9=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration9_Name1=OutputConfigurationParameter1
+Configuration9_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType10=Schematic Print
+OutputName10=Temperature Sensor Controller Print
+OutputCategory10=Documentation
+OutputDocumentPath10=TemperatureSensorBlock.SchDoc
+OutputVariantName10=
+OutputEnabled10=1
+OutputEnabled10_OutputMedium1=10
+OutputEnabled10_OutputMedium2=10
+OutputEnabled10_OutputMedium3=0
+OutputEnabled10_OutputMedium4=0
+OutputEnabled10_OutputMedium5=0
+OutputEnabled10_OutputMedium6=0
+OutputEnabled10_OutputMedium7=0
+OutputEnabled10_OutputMedium8=10
+OutputDefault10=0
+PageOptions10=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration10_Name1=OutputConfigurationParameter1
+Configuration10_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType11=Schematic Print
+OutputName11=Wireless Communication controller Print
+OutputCategory11=Documentation
+OutputDocumentPath11=WirelessCommunications.SchDoc
+OutputVariantName11=
+OutputEnabled11=1
+OutputEnabled11_OutputMedium1=11
+OutputEnabled11_OutputMedium2=11
+OutputEnabled11_OutputMedium3=0
+OutputEnabled11_OutputMedium4=0
+OutputEnabled11_OutputMedium5=0
+OutputEnabled11_OutputMedium6=0
+OutputEnabled11_OutputMedium7=0
+OutputEnabled11_OutputMedium8=11
+OutputDefault11=0
+PageOptions11=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration11_Name1=OutputConfigurationParameter1
+Configuration11_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType12=Schematic Print
+OutputName12=Mic Mixer Print
+OutputCategory12=Documentation
+OutputDocumentPath12=MicMixer.SchDoc
+OutputVariantName12=
+OutputEnabled12=1
+OutputEnabled12_OutputMedium1=12
+OutputEnabled12_OutputMedium2=12
+OutputEnabled12_OutputMedium3=0
+OutputEnabled12_OutputMedium4=0
+OutputEnabled12_OutputMedium5=0
+OutputEnabled12_OutputMedium6=0
+OutputEnabled12_OutputMedium7=0
+OutputEnabled12_OutputMedium8=12
+OutputDefault12=0
+PageOptions12=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration12_Name1=OutputConfigurationParameter1
+Configuration12_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType13=Schematic Print
+OutputName13=Speaker Mixer Print
+OutputCategory13=Documentation
+OutputDocumentPath13=SpeakerMixer.SchDoc
+OutputVariantName13=
+OutputEnabled13=1
+OutputEnabled13_OutputMedium1=13
+OutputEnabled13_OutputMedium2=13
+OutputEnabled13_OutputMedium3=0
+OutputEnabled13_OutputMedium4=0
+OutputEnabled13_OutputMedium5=0
+OutputEnabled13_OutputMedium6=0
+OutputEnabled13_OutputMedium7=0
+OutputEnabled13_OutputMedium8=13
+OutputDefault13=0
+PageOptions13=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.64|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=B5 (JIS)|PrintScaleMode=1
+Configuration13_Name1=OutputConfigurationParameter1
+Configuration13_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+OutputType14=BOM_PartType
+OutputName14=Main Controller BOM
+OutputCategory14=Report
+OutputDocumentPath14=MainController.SchDoc
+OutputVariantName14=
+OutputEnabled14=1
+OutputEnabled14_OutputMedium1=0
+OutputEnabled14_OutputMedium2=0
+OutputEnabled14_OutputMedium3=1
+OutputEnabled14_OutputMedium4=0
+OutputEnabled14_OutputMedium5=0
+OutputEnabled14_OutputMedium6=0
+OutputEnabled14_OutputMedium7=0
+OutputEnabled14_OutputMedium8=23
+OutputDefault14=0
+PageOptions14=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=1|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration14_Name1=Filter
+Configuration14_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration14_Name2=General
+Configuration14_Item2=OpenExported=False|AddToProject=False|ForceFit=False|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration14_Name3=GroupOrder
+Configuration14_Item3=Comment=True|Footprint=True
+Configuration14_Name4=OutputConfigurationParameter1
+Configuration14_Item4==SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+Configuration14_Name5=SortOrder
+Configuration14_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration14_Name6=VisibleOrder
+Configuration14_Item6=Comment=99|Description=262|Designator=184|Footprint=110|LibRef=83|Quantity=62|Price=47|Vendor=89
+OutputType15=BOM_PartType
+OutputName15=Power Board BOM
+OutputCategory15=Report
+OutputDocumentPath15=PowerAndFanBoard.SchDoc
+OutputVariantName15=
+OutputEnabled15=1
+OutputEnabled15_OutputMedium1=0
+OutputEnabled15_OutputMedium2=0
+OutputEnabled15_OutputMedium3=2
+OutputEnabled15_OutputMedium4=0
+OutputEnabled15_OutputMedium5=0
+OutputEnabled15_OutputMedium6=0
+OutputEnabled15_OutputMedium7=0
+OutputEnabled15_OutputMedium8=24
+OutputDefault15=0
+PageOptions15=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=1|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration15_Name1=Filter
+Configuration15_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration15_Name2=General
+Configuration15_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration15_Name3=GroupOrder
+Configuration15_Item3=Comment=True|Footprint=True
+Configuration15_Name4=OutputConfigurationParameter1
+Configuration15_Item4=??
+Configuration15_Name5=SortOrder
+Configuration15_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration15_Name6=VisibleOrder
+Configuration15_Item6=Comment=56|Description=86|Designator=203|Footprint=70|LibRef=71|Pins=25|Quantity=28|Value=120|Price=41|Vendor=50
+OutputType16=BOM_PartType
+OutputName16=HVAC and Garage BOM
+OutputCategory16=Report
+OutputDocumentPath16=HeatingAC_Garage.SchDoc
+OutputVariantName16=
+OutputEnabled16=1
+OutputEnabled16_OutputMedium1=0
+OutputEnabled16_OutputMedium2=0
+OutputEnabled16_OutputMedium3=3
+OutputEnabled16_OutputMedium4=0
+OutputEnabled16_OutputMedium5=0
+OutputEnabled16_OutputMedium6=0
+OutputEnabled16_OutputMedium7=0
+OutputEnabled16_OutputMedium8=25
+OutputDefault16=0
+PageOptions16=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=1|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration16_Name1=Filter
+Configuration16_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration16_Name2=General
+Configuration16_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1176|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration16_Name3=GroupOrder
+Configuration16_Item3=Comment=True|Footprint=True
+Configuration16_Name4=OutputConfigurationParameter1
+Configuration16_Item4=??
+Configuration16_Name5=SortOrder
+Configuration16_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration16_Name6=VisibleOrder
+Configuration16_Item6=Comment=77|Description=262|Designator=546|Footprint=88|LibRef=77|Price=47|Quantity=62|Vendor=89
+OutputType17=BOM_PartType
+OutputName17=Bi-Polar Motor driver BOM
+OutputCategory17=Report
+OutputDocumentPath17=MotorController.SchDoc
+OutputVariantName17=
+OutputEnabled17=1
+OutputEnabled17_OutputMedium1=0
+OutputEnabled17_OutputMedium2=0
+OutputEnabled17_OutputMedium3=4
+OutputEnabled17_OutputMedium4=0
+OutputEnabled17_OutputMedium5=0
+OutputEnabled17_OutputMedium6=0
+OutputEnabled17_OutputMedium7=0
+OutputEnabled17_OutputMedium8=26
+OutputDefault17=0
+PageOptions17=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=1|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration17_Name1=Filter
+Configuration17_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration17_Name2=General
+Configuration17_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration17_Name3=GroupOrder
+Configuration17_Item3=Comment=True|Footprint=True
+Configuration17_Name4=OutputConfigurationParameter1
+Configuration17_Item4=??
+Configuration17_Name5=SortOrder
+Configuration17_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration17_Name6=VisibleOrder
+Configuration17_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Vendor=100
+OutputType18=BOM_PartType
+OutputName18=Damper Section BOM
+OutputCategory18=Report
+OutputDocumentPath18=DamperSection.SchDoc
+OutputVariantName18=
+OutputEnabled18=1
+OutputEnabled18_OutputMedium1=0
+OutputEnabled18_OutputMedium2=0
+OutputEnabled18_OutputMedium3=5
+OutputEnabled18_OutputMedium4=0
+OutputEnabled18_OutputMedium5=0
+OutputEnabled18_OutputMedium6=0
+OutputEnabled18_OutputMedium7=0
+OutputEnabled18_OutputMedium8=27
+OutputDefault18=0
+PageOptions18=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration18_Name1=Filter
+Configuration18_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration18_Name2=General
+Configuration18_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration18_Name3=GroupOrder
+Configuration18_Item3=Comment=True|Footprint=True
+Configuration18_Name4=OutputConfigurationParameter1
+Configuration18_Item4=??
+Configuration18_Name5=SortOrder
+Configuration18_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration18_Name6=VisibleOrder
+Configuration18_Item6=Comment=123|Description=123|Designator=225|Footprint=102|LibRef=102|Price=102|Quantity=36|Value=136|Vendor=173
+OutputType19=BOM_PartType
+OutputName19=Sprinkler Control BOM
+OutputCategory19=Report
+OutputDocumentPath19=SprinklerBoard.SchDoc
+OutputVariantName19=
+OutputEnabled19=1
+OutputEnabled19_OutputMedium1=0
+OutputEnabled19_OutputMedium2=0
+OutputEnabled19_OutputMedium3=6
+OutputEnabled19_OutputMedium4=0
+OutputEnabled19_OutputMedium5=0
+OutputEnabled19_OutputMedium6=0
+OutputEnabled19_OutputMedium7=0
+OutputEnabled19_OutputMedium8=28
+OutputDefault19=0
+PageOptions19=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration19_Name1=Filter
+Configuration19_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration19_Name2=General
+Configuration19_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration19_Name3=GroupOrder
+Configuration19_Item3=Comment=True|Footprint=True
+Configuration19_Name4=OutputConfigurationParameter1
+Configuration19_Item4=??
+Configuration19_Name5=SortOrder
+Configuration19_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration19_Name6=VisibleOrder
+Configuration19_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType20=BOM_PartType
+OutputName20=Temperature Sensor Control BOM
+OutputCategory20=Report
+OutputDocumentPath20=TemperatureSensorBlock.SchDoc
+OutputVariantName20=
+OutputEnabled20=1
+OutputEnabled20_OutputMedium1=0
+OutputEnabled20_OutputMedium2=0
+OutputEnabled20_OutputMedium3=7
+OutputEnabled20_OutputMedium4=0
+OutputEnabled20_OutputMedium5=0
+OutputEnabled20_OutputMedium6=0
+OutputEnabled20_OutputMedium7=0
+OutputEnabled20_OutputMedium8=29
+OutputDefault20=0
+PageOptions20=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration20_Name1=Filter
+Configuration20_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration20_Name2=General
+Configuration20_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration20_Name3=GroupOrder
+Configuration20_Item3=Comment=True|Footprint=True
+Configuration20_Name4=OutputConfigurationParameter1
+Configuration20_Item4=??
+Configuration20_Name5=SortOrder
+Configuration20_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration20_Name6=VisibleOrder
+Configuration20_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType21=BOM_PartType
+OutputName21=Wireless Communication Controller BOM
+OutputCategory21=Report
+OutputDocumentPath21=WirelessCommunications.SchDoc
+OutputVariantName21=
+OutputEnabled21=1
+OutputEnabled21_OutputMedium1=0
+OutputEnabled21_OutputMedium2=0
+OutputEnabled21_OutputMedium3=8
+OutputEnabled21_OutputMedium4=0
+OutputEnabled21_OutputMedium5=0
+OutputEnabled21_OutputMedium6=0
+OutputEnabled21_OutputMedium7=0
+OutputEnabled21_OutputMedium8=30
+OutputDefault21=0
+PageOptions21=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration21_Name1=Filter
+Configuration21_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration21_Name2=General
+Configuration21_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration21_Name3=GroupOrder
+Configuration21_Item3=Comment=True|Footprint=True
+Configuration21_Name4=OutputConfigurationParameter1
+Configuration21_Item4=??
+Configuration21_Name5=SortOrder
+Configuration21_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration21_Name6=VisibleOrder
+Configuration21_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType22=BOM_PartType
+OutputName22=Mic Mixer BOM
+OutputCategory22=Report
+OutputDocumentPath22=MicMixer.SchDoc
+OutputVariantName22=
+OutputEnabled22=1
+OutputEnabled22_OutputMedium1=0
+OutputEnabled22_OutputMedium2=0
+OutputEnabled22_OutputMedium3=9
+OutputEnabled22_OutputMedium4=0
+OutputEnabled22_OutputMedium5=0
+OutputEnabled22_OutputMedium6=0
+OutputEnabled22_OutputMedium7=0
+OutputEnabled22_OutputMedium8=31
+OutputDefault22=0
+PageOptions22=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration22_Name1=Filter
+Configuration22_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration22_Name2=General
+Configuration22_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration22_Name3=GroupOrder
+Configuration22_Item3=Comment=True|Footprint=True
+Configuration22_Name4=OutputConfigurationParameter1
+Configuration22_Item4=??
+Configuration22_Name5=SortOrder
+Configuration22_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration22_Name6=VisibleOrder
+Configuration22_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType23=BOM_PartType
+OutputName23=Speaker Mixer BOM
+OutputCategory23=Report
+OutputDocumentPath23=SpeakerMixer.SchDoc
+OutputVariantName23=
+OutputEnabled23=1
+OutputEnabled23_OutputMedium1=0
+OutputEnabled23_OutputMedium2=0
+OutputEnabled23_OutputMedium3=10
+OutputEnabled23_OutputMedium4=0
+OutputEnabled23_OutputMedium5=0
+OutputEnabled23_OutputMedium6=0
+OutputEnabled23_OutputMedium7=0
+OutputEnabled23_OutputMedium8=32
+OutputDefault23=0
+PageOptions23=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration23_Name1=Filter
+Configuration23_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration23_Name2=General
+Configuration23_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\BOM SmartHomeTemplate.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration23_Name3=GroupOrder
+Configuration23_Item3=Comment=True|Footprint=True
+Configuration23_Name4=OutputConfigurationParameter1
+Configuration23_Item4=??
+Configuration23_Name5=SortOrder
+Configuration23_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration23_Name6=VisibleOrder
+Configuration23_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType24=BOM_PartType
+OutputName24=Main Controller BOM 2
+OutputCategory24=Report
+OutputDocumentPath24=MainController.SchDoc
+OutputVariantName24=
+OutputEnabled24=1
+OutputEnabled24_OutputMedium1=0
+OutputEnabled24_OutputMedium2=0
+OutputEnabled24_OutputMedium3=0
+OutputEnabled24_OutputMedium4=1
+OutputEnabled24_OutputMedium5=0
+OutputEnabled24_OutputMedium6=0
+OutputEnabled24_OutputMedium7=0
+OutputEnabled24_OutputMedium8=33
+OutputDefault24=0
+PageOptions24=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration24_Name1=Filter
+Configuration24_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration24_Name2=General
+Configuration24_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1201|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration24_Name3=GroupOrder
+Configuration24_Item3=Value=True|Comment=True|Footprint=True
+Configuration24_Name4=OutputConfigurationParameter1
+Configuration24_Item4=??
+Configuration24_Name5=SortOrder
+Configuration24_Item5=Value=Up
+Configuration24_Name6=VisibleOrder
+Configuration24_Item6=Value=83|Quantity=62|Designator=181|Vendor=75|Comment=84|Description=291|Footprint=92|LibRef=101|Price=42
+OutputType25=BOM_PartType
+OutputName25=Power Board BOM 2
+OutputCategory25=Report
+OutputDocumentPath25=PowerAndFanBoard.SchDoc
+OutputVariantName25=
+OutputEnabled25=1
+OutputEnabled25_OutputMedium1=0
+OutputEnabled25_OutputMedium2=0
+OutputEnabled25_OutputMedium3=0
+OutputEnabled25_OutputMedium4=2
+OutputEnabled25_OutputMedium5=0
+OutputEnabled25_OutputMedium6=0
+OutputEnabled25_OutputMedium7=0
+OutputEnabled25_OutputMedium8=34
+OutputDefault25=0
+PageOptions25=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration25_Name1=Filter
+Configuration25_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration25_Name2=General
+Configuration25_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration25_Name3=GroupOrder
+Configuration25_Item3=Value=True|Comment=True|Footprint=True
+Configuration25_Name4=OutputConfigurationParameter1
+Configuration25_Item4=??
+Configuration25_Name5=SortOrder
+Configuration25_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration25_Name6=VisibleOrder
+Configuration25_Item6=Comment=56|Description=86|Designator=203|Footprint=70|LibRef=71|Pins=25|Quantity=28|Value=120|Price=41|Vendor=50
+OutputType26=BOM_PartType
+OutputName26=HVAC and Garage BOM 2
+OutputCategory26=Report
+OutputDocumentPath26=HeatingAC_Garage.SchDoc
+OutputVariantName26=
+OutputEnabled26=1
+OutputEnabled26_OutputMedium1=0
+OutputEnabled26_OutputMedium2=0
+OutputEnabled26_OutputMedium3=0
+OutputEnabled26_OutputMedium4=3
+OutputEnabled26_OutputMedium5=0
+OutputEnabled26_OutputMedium6=0
+OutputEnabled26_OutputMedium7=0
+OutputEnabled26_OutputMedium8=35
+OutputDefault26=0
+PageOptions26=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration26_Name1=Filter
+Configuration26_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration26_Name2=General
+Configuration26_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1176|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration26_Name3=GroupOrder
+Configuration26_Item3=Value=True|Comment=True|Footprint=True
+Configuration26_Name4=OutputConfigurationParameter1
+Configuration26_Item4=??
+Configuration26_Name5=SortOrder
+Configuration26_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration26_Name6=VisibleOrder
+Configuration26_Item6=Comment=77|Description=262|Designator=546|Footprint=88|LibRef=77|Price=47|Quantity=62|Vendor=89|Value=100
+OutputType27=BOM_PartType
+OutputName27=Bi-Polar Motor driver BOM 2
+OutputCategory27=Report
+OutputDocumentPath27=MotorController.SchDoc
+OutputVariantName27=
+OutputEnabled27=1
+OutputEnabled27_OutputMedium1=0
+OutputEnabled27_OutputMedium2=0
+OutputEnabled27_OutputMedium3=0
+OutputEnabled27_OutputMedium4=4
+OutputEnabled27_OutputMedium5=0
+OutputEnabled27_OutputMedium6=0
+OutputEnabled27_OutputMedium7=0
+OutputEnabled27_OutputMedium8=36
+OutputDefault27=0
+PageOptions27=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration27_Name1=Filter
+Configuration27_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration27_Name2=General
+Configuration27_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration27_Name3=GroupOrder
+Configuration27_Item3=Value=True|Comment=True|Footprint=True
+Configuration27_Name4=OutputConfigurationParameter1
+Configuration27_Item4=??
+Configuration27_Name5=SortOrder
+Configuration27_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration27_Name6=VisibleOrder
+Configuration27_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Vendor=100|Value=100
+OutputType28=BOM_PartType
+OutputName28=Damper Section BOM 2
+OutputCategory28=Report
+OutputDocumentPath28=DamperSection.SchDoc
+OutputVariantName28=
+OutputEnabled28=1
+OutputEnabled28_OutputMedium1=0
+OutputEnabled28_OutputMedium2=0
+OutputEnabled28_OutputMedium3=0
+OutputEnabled28_OutputMedium4=5
+OutputEnabled28_OutputMedium5=0
+OutputEnabled28_OutputMedium6=0
+OutputEnabled28_OutputMedium7=0
+OutputEnabled28_OutputMedium8=37
+OutputDefault28=0
+PageOptions28=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration28_Name1=Filter
+Configuration28_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration28_Name2=General
+Configuration28_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration28_Name3=GroupOrder
+Configuration28_Item3=Value=True|Comment=True|Footprint=True
+Configuration28_Name4=OutputConfigurationParameter1
+Configuration28_Item4=??
+Configuration28_Name5=SortOrder
+Configuration28_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration28_Name6=VisibleOrder
+Configuration28_Item6=Comment=123|Description=123|Designator=225|Footprint=102|LibRef=102|Price=102|Quantity=36|Value=136|Vendor=173
+OutputType29=BOM_PartType
+OutputName29=Sprinkler Control BOM 2
+OutputCategory29=Report
+OutputDocumentPath29=SprinklerBoard.SchDoc
+OutputVariantName29=
+OutputEnabled29=1
+OutputEnabled29_OutputMedium1=0
+OutputEnabled29_OutputMedium2=0
+OutputEnabled29_OutputMedium3=0
+OutputEnabled29_OutputMedium4=6
+OutputEnabled29_OutputMedium5=0
+OutputEnabled29_OutputMedium6=0
+OutputEnabled29_OutputMedium7=0
+OutputEnabled29_OutputMedium8=38
+OutputDefault29=0
+PageOptions29=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration29_Name1=Filter
+Configuration29_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration29_Name2=General
+Configuration29_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration29_Name3=GroupOrder
+Configuration29_Item3=Value=True|Comment=True|Footprint=True
+Configuration29_Name4=OutputConfigurationParameter1
+Configuration29_Item4=??
+Configuration29_Name5=SortOrder
+Configuration29_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration29_Name6=VisibleOrder
+Configuration29_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType30=BOM_PartType
+OutputName30=Temperature Sensor Control BOM 2
+OutputCategory30=Report
+OutputDocumentPath30=TemperatureSensorBlock.SchDoc
+OutputVariantName30=
+OutputEnabled30=1
+OutputEnabled30_OutputMedium1=0
+OutputEnabled30_OutputMedium2=0
+OutputEnabled30_OutputMedium3=0
+OutputEnabled30_OutputMedium4=7
+OutputEnabled30_OutputMedium5=0
+OutputEnabled30_OutputMedium6=0
+OutputEnabled30_OutputMedium7=0
+OutputEnabled30_OutputMedium8=39
+OutputDefault30=0
+PageOptions30=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration30_Name1=Filter
+Configuration30_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration30_Name2=General
+Configuration30_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration30_Name3=GroupOrder
+Configuration30_Item3=Value=True|Comment=True|Footprint=True
+Configuration30_Name4=OutputConfigurationParameter1
+Configuration30_Item4=??
+Configuration30_Name5=SortOrder
+Configuration30_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration30_Name6=VisibleOrder
+Configuration30_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType31=BOM_PartType
+OutputName31=Wireless Communication Controller BOM 2
+OutputCategory31=Report
+OutputDocumentPath31=WirelessCommunications.SchDoc
+OutputVariantName31=
+OutputEnabled31=1
+OutputEnabled31_OutputMedium1=0
+OutputEnabled31_OutputMedium2=0
+OutputEnabled31_OutputMedium3=0
+OutputEnabled31_OutputMedium4=8
+OutputEnabled31_OutputMedium5=0
+OutputEnabled31_OutputMedium6=0
+OutputEnabled31_OutputMedium7=0
+OutputEnabled31_OutputMedium8=40
+OutputDefault31=0
+PageOptions31=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration31_Name1=Filter
+Configuration31_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration31_Name2=General
+Configuration31_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration31_Name3=GroupOrder
+Configuration31_Item3=Value=True|Comment=True|Footprint=True
+Configuration31_Name4=OutputConfigurationParameter1
+Configuration31_Item4=??
+Configuration31_Name5=SortOrder
+Configuration31_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration31_Name6=VisibleOrder
+Configuration31_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType32=BOM_PartType
+OutputName32=Mic Mixer BOM 2
+OutputCategory32=Report
+OutputDocumentPath32=MicMixer.SchDoc
+OutputVariantName32=
+OutputEnabled32=1
+OutputEnabled32_OutputMedium1=0
+OutputEnabled32_OutputMedium2=0
+OutputEnabled32_OutputMedium3=0
+OutputEnabled32_OutputMedium4=9
+OutputEnabled32_OutputMedium5=0
+OutputEnabled32_OutputMedium6=0
+OutputEnabled32_OutputMedium7=0
+OutputEnabled32_OutputMedium8=41
+OutputDefault32=0
+PageOptions32=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration32_Name1=Filter
+Configuration32_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration32_Name2=General
+Configuration32_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration32_Name3=GroupOrder
+Configuration32_Item3=Vendor=True|Comment=True|Footprint=True
+Configuration32_Name4=OutputConfigurationParameter1
+Configuration32_Item4=??
+Configuration32_Name5=SortOrder
+Configuration32_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration32_Name6=VisibleOrder
+Configuration32_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType33=BOM_PartType
+OutputName33=Speaker Mixer BOM 2
+OutputCategory33=Report
+OutputDocumentPath33=SpeakerMixer.SchDoc
+OutputVariantName33=
+OutputEnabled33=1
+OutputEnabled33_OutputMedium1=0
+OutputEnabled33_OutputMedium2=0
+OutputEnabled33_OutputMedium3=0
+OutputEnabled33_OutputMedium4=10
+OutputEnabled33_OutputMedium5=0
+OutputEnabled33_OutputMedium6=0
+OutputEnabled33_OutputMedium7=0
+OutputEnabled33_OutputMedium8=42
+OutputDefault33=0
+PageOptions33=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=1
+Configuration33_Name1=Filter
+Configuration33_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration33_Name2=General
+Configuration33_Item2=OpenExported=False|AddToProject=False|ForceFit=True|NotFitted=False|Database=False|IncludePCBData=False|ShowExportOptions=True|TemplateFilename=..\..\TemplateAndImages\Component Default Template.xlt|BatchMode=5|FormWidth=1170|FormHeight=641|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration33_Name3=GroupOrder
+Configuration33_Item3=Value=True|Comment=True|Footprint=True
+Configuration33_Name4=OutputConfigurationParameter1
+Configuration33_Item4=??
+Configuration33_Name5=SortOrder
+Configuration33_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration33_Name6=VisibleOrder
+Configuration33_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Price=100|Quantity=100|Value=100|Vendor=100
+OutputType34=PCB Print
+OutputName34=Main PCB
+OutputCategory34=Documentation
+OutputDocumentPath34=MainControllerPCB.PcbDoc
+OutputVariantName34=
+OutputEnabled34=1
+OutputEnabled34_OutputMedium1=0
+OutputEnabled34_OutputMedium2=0
+OutputEnabled34_OutputMedium3=0
+OutputEnabled34_OutputMedium4=0
+OutputEnabled34_OutputMedium5=1
+OutputEnabled34_OutputMedium6=0
+OutputEnabled34_OutputMedium7=1
+OutputEnabled34_OutputMedium8=14
+OutputDefault34=0
+PageOptions34=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration34_Name1=OutputConfigurationParameter1
+Configuration34_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration34_Name2=OutputConfigurationParameter2
+Configuration34_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=MainControllerBoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=False|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration34_Name3=OutputConfigurationParameter3
+Configuration34_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration34_Name4=OutputConfigurationParameter4
+Configuration34_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration34_Name5=OutputConfigurationParameter5
+Configuration34_Item5=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomPaste|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration34_Name6=OutputConfigurationParameter6
+Configuration34_Item6=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=MainControllerEtchOutline|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration34_Name7=OutputConfigurationParameter7
+Configuration34_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration34_Name8=OutputConfigurationParameter8
+Configuration34_Item8=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType35=PCB Print
+OutputName35=HVACandGarage PCB
+OutputCategory35=Documentation
+OutputDocumentPath35=HeatingAC_Garage.PcbDoc
+OutputVariantName35=
+OutputEnabled35=1
+OutputEnabled35_OutputMedium1=0
+OutputEnabled35_OutputMedium2=0
+OutputEnabled35_OutputMedium3=0
+OutputEnabled35_OutputMedium4=0
+OutputEnabled35_OutputMedium5=2
+OutputEnabled35_OutputMedium6=0
+OutputEnabled35_OutputMedium7=2
+OutputEnabled35_OutputMedium8=15
+OutputDefault35=0
+PageOptions35=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=600|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration35_Name1=OutputConfigurationParameter1
+Configuration35_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration35_Name2=OutputConfigurationParameter2
+Configuration35_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration35_Name3=OutputConfigurationParameter3
+Configuration35_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration35_Name4=OutputConfigurationParameter4
+Configuration35_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration35_Name5=OutputConfigurationParameter5
+Configuration35_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=PCB Layout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration35_Name6=OutputConfigurationParameter6
+Configuration35_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration35_Name7=OutputConfigurationParameter7
+Configuration35_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType36=PCB Print
+OutputName36=Motor Controller PCB
+OutputCategory36=Documentation
+OutputDocumentPath36=HighPowerMotorController.PcbDoc
+OutputVariantName36=
+OutputEnabled36=1
+OutputEnabled36_OutputMedium1=0
+OutputEnabled36_OutputMedium2=0
+OutputEnabled36_OutputMedium3=0
+OutputEnabled36_OutputMedium4=0
+OutputEnabled36_OutputMedium5=3
+OutputEnabled36_OutputMedium6=0
+OutputEnabled36_OutputMedium7=3
+OutputEnabled36_OutputMedium8=16
+OutputDefault36=0
+PageOptions36=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration36_Name1=OutputConfigurationParameter1
+Configuration36_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration36_Name2=OutputConfigurationParameter2
+Configuration36_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=Component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration36_Name3=OutputConfigurationParameter3
+Configuration36_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration36_Name4=OutputConfigurationParameter4
+Configuration36_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration36_Name5=OutputConfigurationParameter5
+Configuration36_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=BoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration36_Name6=OutputConfigurationParameter6
+Configuration36_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration36_Name7=OutputConfigurationParameter7
+Configuration36_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType37=PCB Print
+OutputName37=Damper Section PCB
+OutputCategory37=Documentation
+OutputDocumentPath37=
+OutputVariantName37=
+OutputEnabled37=1
+OutputEnabled37_OutputMedium1=0
+OutputEnabled37_OutputMedium2=0
+OutputEnabled37_OutputMedium3=0
+OutputEnabled37_OutputMedium4=0
+OutputEnabled37_OutputMedium5=4
+OutputEnabled37_OutputMedium6=0
+OutputEnabled37_OutputMedium7=4
+OutputEnabled37_OutputMedium8=17
+OutputDefault37=0
+PageOptions37=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration37_Name1=OutputConfigurationParameter1
+Configuration37_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration37_Name2=OutputConfigurationParameter2
+Configuration37_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=Component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration37_Name3=OutputConfigurationParameter3
+Configuration37_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration37_Name4=OutputConfigurationParameter4
+Configuration37_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration37_Name5=OutputConfigurationParameter5
+Configuration37_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=BoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration37_Name6=OutputConfigurationParameter6
+Configuration37_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration37_Name7=OutputConfigurationParameter7
+Configuration37_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType38=PCB Print
+OutputName38=Power Board PCB
+OutputCategory38=Documentation
+OutputDocumentPath38=PowerBoard.PcbDoc
+OutputVariantName38=
+OutputEnabled38=1
+OutputEnabled38_OutputMedium1=0
+OutputEnabled38_OutputMedium2=0
+OutputEnabled38_OutputMedium3=0
+OutputEnabled38_OutputMedium4=0
+OutputEnabled38_OutputMedium5=5
+OutputEnabled38_OutputMedium6=0
+OutputEnabled38_OutputMedium7=5
+OutputEnabled38_OutputMedium8=18
+OutputDefault38=0
+PageOptions38=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration38_Name1=OutputConfigurationParameter1
+Configuration38_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration38_Name2=OutputConfigurationParameter2
+Configuration38_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=Component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration38_Name3=OutputConfigurationParameter3
+Configuration38_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration38_Name4=OutputConfigurationParameter4
+Configuration38_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration38_Name5=OutputConfigurationParameter5
+Configuration38_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=BoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration38_Name6=OutputConfigurationParameter6
+Configuration38_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration38_Name7=OutputConfigurationParameter7
+Configuration38_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType39=PCB Print
+OutputName39=Temperature Section PCB
+OutputCategory39=Documentation
+OutputDocumentPath39=TemperatureSensorBlockPCB.PcbDoc
+OutputVariantName39=
+OutputEnabled39=1
+OutputEnabled39_OutputMedium1=0
+OutputEnabled39_OutputMedium2=0
+OutputEnabled39_OutputMedium3=0
+OutputEnabled39_OutputMedium4=0
+OutputEnabled39_OutputMedium5=6
+OutputEnabled39_OutputMedium6=0
+OutputEnabled39_OutputMedium7=6
+OutputEnabled39_OutputMedium8=19
+OutputDefault39=0
+PageOptions39=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration39_Name1=OutputConfigurationParameter1
+Configuration39_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration39_Name2=OutputConfigurationParameter2
+Configuration39_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=Component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration39_Name3=OutputConfigurationParameter3
+Configuration39_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration39_Name4=OutputConfigurationParameter4
+Configuration39_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration39_Name5=OutputConfigurationParameter5
+Configuration39_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=BoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration39_Name6=OutputConfigurationParameter6
+Configuration39_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration39_Name7=OutputConfigurationParameter7
+Configuration39_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType40=PCB Print
+OutputName40=Sprinkler Board PCB
+OutputCategory40=Documentation
+OutputDocumentPath40=SprinklerBoard.PcbDoc
+OutputVariantName40=
+OutputEnabled40=1
+OutputEnabled40_OutputMedium1=0
+OutputEnabled40_OutputMedium2=0
+OutputEnabled40_OutputMedium3=0
+OutputEnabled40_OutputMedium4=0
+OutputEnabled40_OutputMedium5=7
+OutputEnabled40_OutputMedium6=0
+OutputEnabled40_OutputMedium7=7
+OutputEnabled40_OutputMedium8=20
+OutputDefault40=0
+PageOptions40=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration40_Name1=OutputConfigurationParameter1
+Configuration40_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration40_Name2=OutputConfigurationParameter2
+Configuration40_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=Component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration40_Name3=OutputConfigurationParameter3
+Configuration40_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration40_Name4=OutputConfigurationParameter4
+Configuration40_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration40_Name5=OutputConfigurationParameter5
+Configuration40_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=BoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration40_Name6=OutputConfigurationParameter6
+Configuration40_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration40_Name7=OutputConfigurationParameter7
+Configuration40_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType41=PCB Print
+OutputName41=Wireless Communications PCB
+OutputCategory41=Documentation
+OutputDocumentPath41=WirelessCommunications.PcbDoc
+OutputVariantName41=
+OutputEnabled41=1
+OutputEnabled41_OutputMedium1=0
+OutputEnabled41_OutputMedium2=0
+OutputEnabled41_OutputMedium3=0
+OutputEnabled41_OutputMedium4=0
+OutputEnabled41_OutputMedium5=8
+OutputEnabled41_OutputMedium6=0
+OutputEnabled41_OutputMedium7=8
+OutputEnabled41_OutputMedium8=21
+OutputDefault41=0
+PageOptions41=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration41_Name1=OutputConfigurationParameter1
+Configuration41_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration41_Name2=OutputConfigurationParameter2
+Configuration41_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=Component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration41_Name3=OutputConfigurationParameter3
+Configuration41_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration41_Name4=OutputConfigurationParameter4
+Configuration41_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration41_Name5=OutputConfigurationParameter5
+Configuration41_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=BoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration41_Name6=OutputConfigurationParameter6
+Configuration41_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration41_Name7=OutputConfigurationParameter7
+Configuration41_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+OutputType42=PCB Print
+OutputName42=Speaker Mixer BoardPCB
+OutputCategory42=Documentation
+OutputDocumentPath42=SpeakerMixerBoard.PcbDoc
+OutputVariantName42=
+OutputEnabled42=1
+OutputEnabled42_OutputMedium1=0
+OutputEnabled42_OutputMedium2=0
+OutputEnabled42_OutputMedium3=0
+OutputEnabled42_OutputMedium4=0
+OutputEnabled42_OutputMedium5=9
+OutputEnabled42_OutputMedium6=0
+OutputEnabled42_OutputMedium7=9
+OutputEnabled42_OutputMedium8=22
+OutputDefault42=0
+PageOptions42=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PaperKind=Letter|PrintScaleMode=0
+Configuration42_Name1=OutputConfigurationParameter1
+Configuration42_Item1=PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration42_Name2=OutputConfigurationParameter2
+Configuration42_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=0|Mirror=False|Name=Component Placement|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration42_Name3=OutputConfigurationParameter3
+Configuration42_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration42_Name4=OutputConfigurationParameter4
+Configuration42_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
+Configuration42_Name5=OutputConfigurationParameter5
+Configuration42_Item5=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|Index=1|Mirror=False|Name=BoardLayout|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
+Configuration42_Name6=OutputConfigurationParameter6
+Configuration42_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+Configuration42_Name7=OutputConfigurationParameter7
+Configuration42_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|DDSymbolKind=0|DDSymbolSize=500000|DDSymbolSortKind=0|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=1|Record=PcbPrintLayer
+
+[PublishSettings]
+OutputFilePath1=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Printouts\The Epic Cube(Smart Home).PDF
+ReleaseManaged1=0
+OutputBasePath1=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Printouts\
+OutputPathMedia1=
+OutputPathOutputer1=[Output Type]
+OutputFileName1=The Epic Cube(Smart Home).PDF
+OpenOutput1=1
+PromptOverwrite1=1
+PublishMethod1=0
+ZoomLevel1=50
+FitSCHPrintSizeToDoc1=0
+FitPCBPrintSizeToDoc1=1
+GenerateNetsInfo1=1
+MarkPins1=1
+MarkNetLabels1=1
+MarkPortsId1=1
+GenerateTOC=1
+OutputFilePath2=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Printouts\SeparateSchematic\
+ReleaseManaged2=0
+OutputBasePath2=..\Printouts\
+OutputPathMedia2=[Media Name]
+OutputPathOutputer2=
+OutputFileName2=PrintingProject.PDF
+OpenOutput2=1
+PromptOverwrite2=1
+PublishMethod2=1
+ZoomLevel2=50
+FitSCHPrintSizeToDoc2=1
+FitPCBPrintSizeToDoc2=1
+GenerateNetsInfo2=1
+MarkPins2=1
+MarkNetLabels2=1
+MarkPortsId2=1
+OutputFilePath3=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\BOM\DesignBOM.PDF
+ReleaseManaged3=0
+OutputBasePath3=..\BOM\
+OutputPathMedia3=
+OutputPathOutputer3=[Output Type]
+OutputFileName3=DesignBOM.PDF
+OpenOutput3=1
+PromptOverwrite3=1
+PublishMethod3=0
+ZoomLevel3=50
+FitSCHPrintSizeToDoc3=1
+FitPCBPrintSizeToDoc3=1
+GenerateNetsInfo3=1
+MarkPins3=1
+MarkNetLabels3=1
+MarkPortsId3=1
+OutputFilePath4=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\BOM\ValuesBOM.PDF
+ReleaseManaged4=0
+OutputBasePath4=..\BOM\
+OutputPathMedia4=
+OutputPathOutputer4=[Output Type]
+OutputFileName4=ValuesBOM.PDF
+OpenOutput4=1
+PromptOverwrite4=1
+PublishMethod4=0
+ZoomLevel4=50
+FitSCHPrintSizeToDoc4=1
+FitPCBPrintSizeToDoc4=1
+GenerateNetsInfo4=1
+MarkPins4=1
+MarkNetLabels4=1
+MarkPortsId4=1
+OutputFilePath5=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\LayoutPrintouts\InitialLayoutsPrintout.PDF
+ReleaseManaged5=0
+OutputBasePath5=..\LayoutPrintouts\
+OutputPathMedia5=
+OutputPathOutputer5=[Output Type]
+OutputFileName5=InitialLayoutsPrintout.PDF
+OpenOutput5=1
+PromptOverwrite5=1
+PublishMethod5=0
+ZoomLevel5=50
+FitSCHPrintSizeToDoc5=1
+FitPCBPrintSizeToDoc5=1
+GenerateNetsInfo5=1
+MarkPins5=1
+MarkNetLabels5=1
+MarkPortsId5=1
+OutputFilePath6=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\Project Outputs for PrintingProjectAllDocs\
+ReleaseManaged6=1
+OutputBasePath6=Project Outputs for PrintingProjectAllDocs
+OutputPathMedia6=
+OutputPathOutputer6=[Output Type]
+OutputFileName6=
+OpenOutput6=1
+OutputFilePath8=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\Project Outputs for PrintingProjectAllDocs\Everything.PDF
+ReleaseManaged8=1
+OutputBasePath8=Project Outputs for PrintingProjectAllDocs
+OutputPathMedia8=
+OutputPathOutputer8=[Output Type]
+OutputFileName8=Everything.PDF
+OpenOutput8=1
+PromptOverwrite8=1
+PublishMethod8=0
+ZoomLevel8=50
+FitSCHPrintSizeToDoc8=1
+FitPCBPrintSizeToDoc8=1
+GenerateNetsInfo8=1
+MarkPins8=1
+MarkNetLabels8=1
+MarkPortsId8=1
+
+[GeneratedFilesSettings]
+RelativeOutputPath1=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Printouts\The Epic Cube(Smart Home).PDF
+OpenOutputs1=1
+RelativeOutputPath2=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Printouts\SeparateSchematic\
+OpenOutputs2=1
+RelativeOutputPath3=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\BOM\DesignBOM.PDF
+OpenOutputs3=1
+RelativeOutputPath4=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\BOM\ValuesBOM.PDF
+OpenOutputs4=1
+RelativeOutputPath5=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\LayoutPrintouts\InitialLayoutsPrintout.PDF
+OpenOutputs5=1
+RelativeOutputPath6=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\Project Outputs for PrintingProjectAllDocs\
+OpenOutputs6=1
+AddToProject6=1
+TimestampFolder6=0
+UseOutputName6=0
+OpenODBOutput6=0
+OpenGerberOutput6=0
+OpenNCDrillOutput6=0
+OpenIPCOutput6=0
+EnableReload6=0
+RelativeOutputPath8=C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\Project Outputs for PrintingProjectAllDocs\Everything.PDF
+OpenOutputs8=1
+

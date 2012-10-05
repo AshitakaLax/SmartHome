@@ -1,0 +1,1201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="67c1b1b7-62b0-4348-a719-fab3a05fe7d7" name="Master_Diagram_Commands" linkedPackageId="1d98af34-906c-4fe4-9c99-f7b95b3d5e6a" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="75ccab1e-4b57-488c-b49d-831c80c30031">
+      <elementDefinition Id="11258101-eee0-4088-9ec8-13dfc56a1602" />
+      <body>Invalid Password</body>
+    </comment>
+    <comment Id="113e2086-86d9-4327-ae8e-b66d4ba83808">
+      <elementDefinition Id="aa054d3c-d2e1-402c-841f-b2eebd508ea6" />
+      <body>Time out error</body>
+    </comment>
+    <comment Id="275be668-f7c3-4bab-81a0-33d8b7dd6892">
+      <elementDefinition Id="e53ccaf4-1d53-4700-aed7-1d06271acc28" />
+      <body>Time Out Error</body>
+    </comment>
+    <comment Id="2aa77619-2262-4878-86c2-d57288960354">
+      <elementDefinition Id="de41771f-1969-4b2a-83a3-cc0f30e94930" />
+      <body>It will only offer you to hear them if you have them.</body>
+    </comment>
+    <comment Id="844c698a-65ea-481f-a8a9-48c01e126ebb">
+      <elementDefinition Id="8f37bb3a-5f76-4704-81ae-c6b44783897e" />
+      <body>This message may be in accurate due to it being the whole dictionary.</body>
+    </comment>
+    <comment Id="8182023f-6719-480e-b4f8-fa20de1bb661">
+      <elementDefinition Id="84d0c2db-a076-41d4-8c91-3d6ab911f926" />
+      <body>Ports all audio, but still listens for the word "end", no restart</body>
+    </comment>
+    <comment Id="0579ce1d-9cdb-4bcc-aafc-f116bb215220">
+      <elementDefinition Id="74443205-0fed-4333-b54a-db21f34b8159" />
+      <body>Predefined locations</body>
+    </comment>
+    <comment Id="8103bb23-dbdd-40a3-8d9e-4c1b78c479a6">
+      <elementDefinition Id="a0e227ab-d25b-404c-9db6-4056bb7b8fab" />
+      <body>The architecture of this program must work like a tree, alternating between human and hal.  
+After each response it must load a new dictionary/grammar.
+It needs to be able to communicate with the web.
+	*from the web it needs to be able to.
+		*find traffic reports
+		*find weather conditions
+
+It also needs to be able to communicate with a serial com port to arduino devices.
+It will need to communicate over a file in order to update information from a server, and send information to the server.
+	The server may not be fast, but you can use one file and parse everything in s systimatical way.
+
+Design for voice and speech
+there will be one file that will organize all the little files and what they should do.  for all the information the initial communications so till it gets to the second human response.  Then it will pass the recognition and speech into a new object that will handle all of the other things seperately.
+
+I should have an interface that all of the sub catagories have to abide by.
+and then based on what is said just use that. or just have a bunch of classes.</body>
+    </comment>
+    <comment Id="10cc71e8-1134-4d73-b6a7-90fc888386db">
+      <elementDefinition Id="56a59b59-abd8-4fa9-845c-4198fab3efd1" />
+      <body>UDOT online resources</body>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="fb4940c4-7f49-4864-8591-090eea07acdd" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e67f862f-5a6f-41d3-8557-fbc4b6decd19" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="88e14259-32c9-4187-8925-a0869198553b" name="&quot;Good (time frame response) what can I do for you today?&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e02a6045-425a-4c9f-abf6-7528b43f20f0" />
+        <generalsInternal>
+          <generalization Id="729be764-6893-44b7-ae26-036611ac0232" isSubstitutable="false">
+            <useCaseMoniker Id="a482f36f-f3a6-4f34-a803-e56943717cb7" LastKnownName="&quot;Hal&quot;" />
+            <elementDefinition Id="538dd8d7-7a87-4178-9cb3-110f7f539508" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a482f36f-f3a6-4f34-a803-e56943717cb7" name="&quot;Hal&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9f9f828b-3dd1-49db-822c-d10054402c2a" />
+        <generalsInternal>
+          <generalization Id="180f2157-b4ea-4aa8-83fb-a17f9980bf9b" isSubstitutable="false">
+            <useCaseMoniker Id="fafe7e00-5423-4223-87bc-72b708d63793" LastKnownName="&quot;Yes Master&quot;" />
+            <elementDefinition Id="f1f3b85c-cfc5-456c-8aca-581a24044f7e" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fafe7e00-5423-4223-87bc-72b708d63793" name="&quot;Yes Master&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="03a1a65a-2a43-4b4d-9ab2-6662305b96cd" />
+        <generalsInternal>
+          <generalization Id="4af55ea8-63e2-433a-a642-64b4488d16d2" isSubstitutable="false">
+            <useCaseMoniker Id="899f5dd0-a67e-4291-8865-36790198d868" LastKnownName="&quot;Garage&quot;" />
+            <elementDefinition Id="c3e2ff1c-a858-47b3-82ae-87db26348b5c" />
+          </generalization>
+          <generalization Id="37f7d139-b1a9-4037-b1ce-836a3a52cd69" isSubstitutable="false">
+            <useCaseMoniker Id="3275be6a-d909-4108-9991-daaad10d2c62" LastKnownName="&quot;Room#&quot;, # being 1-9/&quot;RoomName&quot;" />
+            <elementDefinition Id="0f467d2b-900f-471e-bdfe-8d953c0c2984" />
+          </generalization>
+          <generalization Id="3227de5a-f4af-4f17-9af1-9337e96e8cf4" isSubstitutable="false">
+            <useCaseMoniker Id="0590a33e-3e06-49cb-b0c6-b2853318fca1" LastKnownName="&quot;Password&quot;" />
+            <elementDefinition Id="6f0a1490-9976-4b17-b3fb-49e72a651e55" />
+          </generalization>
+          <generalization Id="e36027f7-73a3-48b5-bbbd-ed99c0b06ca1" isSubstitutable="false">
+            <useCaseMoniker Id="92340d75-61a1-4a43-aec4-53c5f11d4f6e" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="39b974a9-8d61-4b5e-8813-b9ae6211399d" />
+          </generalization>
+          <generalization Id="72ae443a-6a4e-4472-a9f6-6a98bf7b09dd" isSubstitutable="false">
+            <useCaseMoniker Id="55a0d33c-fd5f-4da1-a612-c59a53256349" LastKnownName="&quot;Phone&quot;" />
+            <elementDefinition Id="7927106c-a330-4c9c-aaaf-ea7620e08cd0" />
+          </generalization>
+          <generalization Id="0db891f9-51fc-43a6-9639-37ed6ec51a07" isSubstitutable="false">
+            <useCaseMoniker Id="12e0d317-2e3c-40e3-859f-196e40fd5592" LastKnownName="&quot;Weather&quot;" />
+            <elementDefinition Id="a7bac896-e2d0-4bea-913d-1c51abe5f072" />
+          </generalization>
+          <generalization Id="a4b6313b-bef6-4a79-97c7-f547d8ecbed8" isSubstitutable="false">
+            <useCaseMoniker Id="37615546-e1cc-4282-b42b-7ff49075ef44" LastKnownName="&quot;Traffic&quot;" />
+            <elementDefinition Id="c787f6c4-36ca-4b49-acf1-78d4a8351928" />
+          </generalization>
+          <generalization Id="14a39ea5-8e72-41f6-af01-e972c2593f0d" isSubstitutable="false">
+            <useCaseMoniker Id="c608c367-07df-4bf4-a4d7-1e3d0d329bef" LastKnownName="&quot;Sprinkler&quot;" />
+            <elementDefinition Id="5bbd57bf-0d0c-443c-bd09-6d21109e5fbe" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="83b3f646-d789-46ac-93e8-c3cc3ff5d67b" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="23657ba3-2e54-45f8-8e04-56508540cc6e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="690901c8-18c6-4fab-a858-90b48727c3a6" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4984909d-45fb-4fed-9ae4-045188d9ab4e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3275be6a-d909-4108-9991-daaad10d2c62" name="&quot;Room#&quot;, # being 1-9/&quot;RoomName&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1d65e1c0-6d4b-4896-bdb0-f7f4b5343ba9" />
+        <generalsInternal>
+          <generalization Id="d8f3d247-f9e9-4385-b012-786cfaf1cea3" isSubstitutable="false">
+            <useCaseMoniker Id="943deff0-8a8d-48a6-8260-62e01a05d854" LastKnownName="&quot;What would you like&quot;" />
+            <elementDefinition Id="ebf909e9-8938-4930-b6b1-7c5e9b6bac65" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="899f5dd0-a67e-4291-8865-36790198d868" name="&quot;Garage&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3283d329-0834-4b45-85cd-1ffa74bb68d0" />
+        <generalsInternal>
+          <generalization Id="843bf617-ad70-424d-b11c-1a74d0d854b2" isSubstitutable="false">
+            <useCaseMoniker Id="bbd03efc-cee6-414f-adef-529cc834369b" LastKnownName="&quot;Password Please&quot;" />
+            <elementDefinition Id="d671c4e9-6f1c-440b-a3ba-e72ff8dcb285" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0590a33e-3e06-49cb-b0c6-b2853318fca1" name="&quot;Password&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="aafc4641-10c5-4575-b474-972099da320f" />
+        <generalsInternal>
+          <generalization Id="5ff0fb5a-3e76-437e-9531-8baa1be6b907" isSubstitutable="false">
+            <useCaseMoniker Id="ab3f859b-2c17-4bf9-98fd-805b3d4314a6" LastKnownName="&quot;Please Give Me your Current Password&quot;" />
+            <elementDefinition Id="1d6ec8d4-9709-486f-a153-0c27fde5b538" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="92340d75-61a1-4a43-aec4-53c5f11d4f6e" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fab94e2f-ca66-4100-96e7-deb06b36592f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bbd03efc-cee6-414f-adef-529cc834369b" name="&quot;Password Please&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9174fb51-9158-428f-8ce6-f071f6d918aa" />
+        <generalsInternal>
+          <generalization Id="76924366-a883-4935-b1ac-f8a68da68d8e" isSubstitutable="false">
+            <useCaseMoniker Id="26cb5dcf-1f94-42c7-8003-60d0dfae13c8" LastKnownName="&quot;Password&quot;," />
+            <elementDefinition Id="04f0d661-e334-48a2-9c98-26a845b34db9" />
+          </generalization>
+          <generalization Id="8e83306b-00de-457d-ad80-fad7fe880ff4" isSubstitutable="false">
+            <useCaseMoniker Id="bf49e594-3287-43ff-889e-2076bc3af763" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="c433bfe3-bc34-47c8-8486-c43c1ced3d77" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="306bd2cf-2366-45b3-bceb-64616b7c52a3" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="60656656-0025-4c81-b5d8-745ca14bca64" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="26cb5dcf-1f94-42c7-8003-60d0dfae13c8" name="&quot;Password&quot;," isAbstract="false" isLeaf="false">
+        <elementDefinition Id="64f9c58a-5233-4f65-8b2d-896f143b0ea0" />
+        <generalsInternal>
+          <generalization Id="18d0f8ed-975b-4acf-9a2b-8b0932c2942f" isSubstitutable="false">
+            <useCaseMoniker Id="75ff40d0-4aea-4dd3-a3bd-02d357be79c2" LastKnownName="&quot;I'm Afraid I can't do that&quot;" />
+            <description>If incorrect reply invalid</description>
+            <elementDefinition Id="3c4e4fca-0ddd-4563-bb17-94ee14798426" />
+          </generalization>
+          <generalization Id="3cb74dbc-8a5b-4a2f-8606-e8887d01dcb6" isSubstitutable="false">
+            <useCaseMoniker Id="2acc6085-f1a7-4fcb-84da-798cca741dda" LastKnownName="&quot;Garage Has been Pressed&quot;, sends reply after completetion of opening the garage door." />
+            <elementDefinition Id="69939e79-2caf-4054-9385-773a84ad1764" />
+          </generalization>
+          <generalization Id="790b3fa2-42e5-4342-b6fa-87a6d0b88027" isSubstitutable="false">
+            <useCaseMoniker Id="47b31302-b5f3-46de-88de-30461c27790d" LastKnownName="&quot;I'm sorry there is an error with the Epic Cube&quot;" />
+            <elementDefinition Id="47d84000-e8c0-4f7c-9507-29d5aad1da99" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="75ff40d0-4aea-4dd3-a3bd-02d357be79c2" name="&quot;I'm Afraid I can't do that&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="67b5c3b8-ea74-4558-bf3c-f62ba787af6a" />
+        <generalsInternal>
+          <generalization Id="99db1590-6337-498b-8cd1-66b336e93445" isSubstitutable="false">
+            <useCaseMoniker Id="bbd03efc-cee6-414f-adef-529cc834369b" LastKnownName="&quot;Password Please&quot;" />
+            <elementDefinition Id="b4dbb0c4-76be-48f2-a91f-3addfe4c680d" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2acc6085-f1a7-4fcb-84da-798cca741dda" name="&quot;Garage Has been Pressed&quot;, sends reply after completetion of opening the garage door." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="51558498-74d0-4f8f-978c-5e129d66de15" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="c3de3136-6385-48ff-95d8-fdbaf478d3e9" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4984909d-45fb-4fed-9ae4-045188d9ab4e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="94c33f13-bdf9-4d9e-94c5-367df20d6d06" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="60656656-0025-4c81-b5d8-745ca14bca64" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="47b31302-b5f3-46de-88de-30461c27790d" name="&quot;I'm sorry there is an error with the Epic Cube&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4128579f-ed6c-473d-8a82-c3d3f48aef2d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bf49e594-3287-43ff-889e-2076bc3af763" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="59e9ad2e-9528-4b62-b5ad-89d8fc9d704e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="943deff0-8a8d-48a6-8260-62e01a05d854" name="&quot;What would you like&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7c758adb-1afd-4f59-9436-48d5a4c94718" />
+        <generalsInternal>
+          <generalization Id="ef9a97af-3087-4701-987f-fabc39b266df" isSubstitutable="false">
+            <useCaseMoniker Id="e9182d67-528c-479c-b283-5d122fed4827" LastKnownName="&quot;TempXX ON/OFF&quot;, x being 1-9" />
+            <elementDefinition Id="724cef66-c727-43f4-af4f-1c1cafb60e5f" />
+          </generalization>
+          <generalization Id="e2f356d6-836c-47e6-b55d-a0a41f2ceeef" isSubstitutable="false">
+            <useCaseMoniker Id="cbac098c-cc7f-4f16-9300-2c9841b7a097" LastKnownName="&quot;Outlet#ON/OFF/Power&quot;, or OutletName+&quot;#ON/OFF/Power&quot;" />
+            <elementDefinition Id="e597bb5c-8d6f-4a5d-bf60-19a71f152568" />
+          </generalization>
+          <generalization Id="2d8159c9-31dd-4ca0-8b51-bd1c0d15eba2" isSubstitutable="false">
+            <useCaseMoniker Id="bf49e594-3287-43ff-889e-2076bc3af763" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="8bee975e-3505-4f90-8c02-92ac6bbf6940" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="57f85260-4209-49d3-9fc5-cf8bded5e53c" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="60656656-0025-4c81-b5d8-745ca14bca64" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e9182d67-528c-479c-b283-5d122fed4827" name="&quot;TempXX ON/OFF&quot;, x being 1-9" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a441e4a4-d852-4390-b37f-65ed9c3280a2" />
+        <generalsInternal>
+          <generalization Id="9b54b286-50b0-4c01-a759-c6e5da0d3029" isSubstitutable="false">
+            <useCaseMoniker Id="34d228fe-80e9-433e-8d0a-2cffae3f9b92" LastKnownName="&quot;I'm sorry there is an error with the Epic Cube&quot;" />
+            <elementDefinition Id="1c68e320-61a3-4697-b7d8-62afbfe4bbb3" />
+          </generalization>
+          <generalization Id="de129dac-645b-46de-8dc9-aadf22f9e4b0" isSubstitutable="false">
+            <useCaseMoniker Id="5f3a8ee6-f702-4837-885b-fa7bb1a8b536" LastKnownName="&quot;Temperature is set as you wish&quot;" />
+            <elementDefinition Id="ce2904a7-942b-4375-9311-d2e0822bb8a9" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="52b8adcc-884b-4e95-9262-d0da62c3f1ca" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4984909d-45fb-4fed-9ae4-045188d9ab4e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cbac098c-cc7f-4f16-9300-2c9841b7a097" name="&quot;Outlet#ON/OFF/Power&quot;, or OutletName+&quot;#ON/OFF/Power&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1ae5c829-9f54-41c7-b5f1-674a03450899" />
+        <generalsInternal>
+          <generalization Id="5063cace-4444-4c2e-bcf8-2da0acd9ffc4" isSubstitutable="false">
+            <useCaseMoniker Id="606b8dc5-8739-4666-8340-34379d79efda" LastKnownName="&quot;outlet is OFF/ON/Power&quot;" />
+            <elementDefinition Id="eebc1ea5-9173-4d96-98a9-5267f109c6df" />
+          </generalization>
+          <generalization Id="0590e483-ad43-4054-bad9-f69e1585da5d" isSubstitutable="false">
+            <useCaseMoniker Id="34d228fe-80e9-433e-8d0a-2cffae3f9b92" LastKnownName="&quot;I'm sorry there is an error with the Epic Cube&quot;" />
+            <elementDefinition Id="895314c8-698a-41f6-8968-0b4c2883d98f" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="606b8dc5-8739-4666-8340-34379d79efda" name="&quot;outlet is OFF/ON/Power&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0ba758b9-4a90-4a59-a5fa-93666b68e9dc" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="34d228fe-80e9-433e-8d0a-2cffae3f9b92" name="&quot;I'm sorry there is an error with the Epic Cube&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="68dc6635-1b42-4448-9193-ebffc8dcf202" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5f3a8ee6-f702-4837-885b-fa7bb1a8b536" name="&quot;Temperature is set as you wish&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9f27cfe4-c7df-46ce-b58e-eaaefa6a6799" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="3c659117-8ed9-4289-8042-577694418228" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="23657ba3-2e54-45f8-8e04-56508540cc6e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="55a0d33c-fd5f-4da1-a612-c59a53256349" name="&quot;Phone&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="063ad1ba-cbf7-4a96-b4d0-dc66c2117f88" />
+        <generalsInternal>
+          <generalization Id="83efa7ed-2f08-4cce-b6fd-5ed075254aeb" isSubstitutable="false">
+            <useCaseMoniker Id="1b03c608-e1c4-44f8-a883-b8c26f590ad3" LastKnownName="&quot;You have X messages, Would you like to hear them?&quot;" />
+            <elementDefinition Id="b1ec0f28-d525-4901-b15b-275058c4b380" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="12e0d317-2e3c-40e3-859f-196e40fd5592" name="&quot;Weather&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1495f540-6500-4f7b-aab3-883170b4344f" />
+        <generalsInternal>
+          <generalization Id="8001955a-d6ee-40a8-a7b4-3beddfd1637d" isSubstitutable="false">
+            <useCaseMoniker Id="4c328407-3105-414c-9836-7fedd244ccd9" LastKnownName="&quot;What Location&quot;" />
+            <elementDefinition Id="f5165791-c9c0-4a74-b392-afd24a62d0e6" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="37615546-e1cc-4282-b42b-7ff49075ef44" name="&quot;Traffic&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5942992b-8e89-4393-90d9-12110459bc48" />
+        <generalsInternal>
+          <generalization Id="974fa590-988c-4b4a-b2fc-85d0c777ae31" isSubstitutable="false">
+            <useCaseMoniker Id="bf146f9f-bbee-4d50-85ea-2e6c8fa8c5aa" LastKnownName="&quot;There are No accidents/There are accidents x place and x place.&quot;" />
+            <elementDefinition Id="f261844d-bcbb-450a-936d-e917ce29cf2d" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ab3f859b-2c17-4bf9-98fd-805b3d4314a6" name="&quot;Please Give Me your Current Password&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f2eaeecd-5c36-4dc6-b768-95b7f1d212fe" />
+        <generalsInternal>
+          <generalization Id="d9c09a24-4ff8-4bdc-b929-1b237d4521ec" isSubstitutable="false">
+            <useCaseMoniker Id="e34de974-bc27-4982-915a-30a9a3ebb203" LastKnownName="&quot;Current Password&quot;" />
+            <elementDefinition Id="3839a4ad-9bed-4ba0-8200-004a04e00149" />
+          </generalization>
+          <generalization Id="e35ab7c4-85e8-4552-a2a6-681a97fd171c" isSubstitutable="false">
+            <useCaseMoniker Id="b496d9dd-016f-4d2e-80db-37c25c39cfec" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="785d5bfd-fc6b-4180-82ca-dd67baf1bb29" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3efd40d3-649c-486f-b2a4-6e0630768075" name="&quot;Please give me your new Password&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7df91c50-056c-4897-99f0-7b6f9f6e0342" />
+        <generalsInternal>
+          <generalization Id="cd983e7a-1a85-45bc-b85e-34272fc434e2" isSubstitutable="false">
+            <useCaseMoniker Id="f1869dc8-3876-4db1-865f-2e5f53673de8" LastKnownName="&quot;new Password&quot;" />
+            <elementDefinition Id="52d03c08-1635-4597-aefa-2a26a5459f2c" />
+          </generalization>
+          <generalization Id="6ef3a894-3668-4e69-964f-4439dd053950" isSubstitutable="false">
+            <useCaseMoniker Id="3cf6cb94-d4b1-49b8-851e-d212d1ec9596" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="5cc49129-3b8c-4072-bf15-e62b6bd5ce56" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="87b37f5f-f79e-4df2-8833-df398460f00e" name="&quot;I'm Sorry that is incorrect&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fd8b54a3-5ccb-46f9-b92a-03c55d8fd2e5" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="81fbcff2-7060-4d7c-ad2a-551ffbd2d66c" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0ec28e09-c053-4707-8dc8-d0ee70f3b863" name="&quot;Is your password&quot;, repeat Password back" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a7d08882-fb7f-4eb8-9587-974accba126c" />
+        <generalsInternal>
+          <generalization Id="8c9cf8e2-999e-480a-a005-b421e0196acd" isSubstitutable="false">
+            <useCaseMoniker Id="f63e1fe0-0f92-4575-8a0c-74ed9941d728" LastKnownName="&quot;Yes&quot;" />
+            <elementDefinition Id="f38127eb-6383-40a0-8633-cc38990beb4b" />
+          </generalization>
+          <generalization Id="a0cd86b3-ca4d-46db-b50c-1da9f4dabd85" isSubstitutable="false">
+            <useCaseMoniker Id="274417ee-4bf7-437c-aef6-59205254b8f6" LastKnownName="&quot;No&quot;" />
+            <elementDefinition Id="4f1f5ac9-74c4-46de-bf3c-79404b66f79d" />
+          </generalization>
+          <generalization Id="39db665f-8118-4e57-94db-95a320043d89" isSubstitutable="false">
+            <useCaseMoniker Id="ae55f2be-7e77-4e96-a6d2-82956da40517" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="50f8577b-da97-4e06-9bf6-f34aae29921a" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f63e1fe0-0f92-4575-8a0c-74ed9941d728" name="&quot;Yes&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4b63a80c-958b-4677-af07-cb74545a2430" />
+        <generalsInternal>
+          <generalization Id="0de9699f-d992-4e25-83e4-92814c82bbfd" isSubstitutable="false">
+            <useCaseMoniker Id="2c6067cb-6d7d-4f50-823d-d205495d28a0" LastKnownName="&quot;Password has been saved&quot;" />
+            <elementDefinition Id="6fa75dc2-16ca-45d8-b98c-e40fe1940966" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="274417ee-4bf7-437c-aef6-59205254b8f6" name="&quot;No&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="af4ab55b-7a98-495c-a459-73fe4302bcca" />
+        <generalsInternal>
+          <generalization Id="45ff392c-25ef-4bc3-a05d-fe8b9de9c809" isSubstitutable="false">
+            <useCaseMoniker Id="3efd40d3-649c-486f-b2a4-6e0630768075" LastKnownName="&quot;Please give me your new Password&quot;" />
+            <elementDefinition Id="4830dc9b-173c-44fe-a02c-90245537b996" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2c6067cb-6d7d-4f50-823d-d205495d28a0" name="&quot;Password has been saved&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9e5067d3-1164-45bb-b8b9-711882fcda5a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="a96539e9-fa26-455b-819e-55e08417cffc" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="ac807630-c203-4b2e-ab95-e6f418bd683c" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4984909d-45fb-4fed-9ae4-045188d9ab4e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2941983f-6752-4fc9-8963-792dd31dfd8f" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4984909d-45fb-4fed-9ae4-045188d9ab4e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e34de974-bc27-4982-915a-30a9a3ebb203" name="&quot;Current Password&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3c845a4d-5427-439b-8fe6-cca996dff075" />
+        <generalsInternal>
+          <generalization Id="25f936b2-1de1-4e48-b902-c71bc03ffc36" isSubstitutable="false">
+            <useCaseMoniker Id="3efd40d3-649c-486f-b2a4-6e0630768075" LastKnownName="&quot;Please give me your new Password&quot;" />
+            <elementDefinition Id="2dba0a93-6d26-42cf-bfbc-9b274c642cef" />
+          </generalization>
+          <generalization Id="3961c421-e55a-4107-bf76-aafbcf20c390" isSubstitutable="false">
+            <useCaseMoniker Id="87b37f5f-f79e-4df2-8833-df398460f00e" LastKnownName="&quot;I'm Sorry that is incorrect&quot;" />
+            <elementDefinition Id="399ecf55-eada-4238-8684-a7610017c44a" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2e901ccf-d397-4e96-82b5-abd63d4a0861" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f1869dc8-3876-4db1-865f-2e5f53673de8" name="&quot;new Password&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="eddab9f4-2169-478c-9ea2-f7861f219cba" />
+        <generalsInternal>
+          <generalization Id="82cf98ed-b784-467c-a4af-3659d7cc87b2" isSubstitutable="false">
+            <useCaseMoniker Id="0ec28e09-c053-4707-8dc8-d0ee70f3b863" LastKnownName="&quot;Is your password&quot;, repeat Password back" />
+            <elementDefinition Id="89d2a747-89bc-4e5e-ba6c-feb0404b209e" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="c441ed19-2022-4ec4-8d9e-0be28a2e2a3f" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="693aa367-2ba6-4926-8143-bf919cbdd24c" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b496d9dd-016f-4d2e-80db-37c25c39cfec" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4d98201c-c148-424c-b8c7-75d322425cb6" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3cf6cb94-d4b1-49b8-851e-d212d1ec9596" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2a18bb68-5b65-45cf-b2ea-79208ba6bcd8" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ae55f2be-7e77-4e96-a6d2-82956da40517" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="92bf8323-4cc5-450b-ab97-a59a3e7e6052" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1b03c608-e1c4-44f8-a883-b8c26f590ad3" name="&quot;You have X messages, Would you like to hear them?&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8f0d4cf7-85e0-41aa-92e3-39792413fb42" />
+        <generalsInternal>
+          <generalization Id="efcec7e4-059c-4788-846e-fa4ed998e9d1" isSubstitutable="false">
+            <useCaseMoniker Id="b496d9dd-016f-4d2e-80db-37c25c39cfec" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="813417a2-108f-4ee7-a3cd-d69bbc28f38a" />
+          </generalization>
+          <generalization Id="56102d3b-56d7-4863-b655-48d1d621c72e" isSubstitutable="false">
+            <useCaseMoniker Id="d98682de-ff2c-432e-8171-4f06c50e2d79" LastKnownName="&quot;Yes&quot;" />
+            <elementDefinition Id="12481d65-3b86-4c66-bca9-9b9c3378cf23" />
+          </generalization>
+          <generalization Id="bed9eb35-6f14-4e06-a814-be35e4f59693" isSubstitutable="false">
+            <useCaseMoniker Id="d994e07f-2b56-4385-b097-a39938a7d4ac" LastKnownName="&quot;No&quot;" />
+            <elementDefinition Id="c213ae1d-0370-4f17-8967-067008c8470e" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d98682de-ff2c-432e-8171-4f06c50e2d79" name="&quot;Yes&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4c6e8f7a-9ec4-465d-9867-e100ad52850a" />
+        <generalsInternal>
+          <generalization Id="9dec1ffa-1590-4cbc-8afc-e898815d0fc6" isSubstitutable="false">
+            <useCaseMoniker Id="d7547833-24c3-4440-ab62-f5f7b63dc946" LastKnownName="&quot;plays your message/ voices your message&quot; Would you like to hear the next/you have no more messages" />
+            <elementDefinition Id="4cc84b56-b32b-4eca-b3b3-6352d865638f" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="c6fdaea5-bc6e-4e48-8d16-f85d94c7ed0d" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2d902988-1f87-4f9e-a47f-883099761b41" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4984909d-45fb-4fed-9ae4-045188d9ab4e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d7547833-24c3-4440-ab62-f5f7b63dc946" name="&quot;plays your message/ voices your message&quot; Would you like to hear the next/you have no more messages" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="72bc021d-f657-43f4-acfb-4089115893f7" />
+        <generalsInternal>
+          <generalization Id="e05b377f-b070-4d71-af94-12642917a06b" isSubstitutable="false">
+            <useCaseMoniker Id="d98682de-ff2c-432e-8171-4f06c50e2d79" LastKnownName="&quot;Yes&quot;" />
+            <elementDefinition Id="487f9a02-0fd1-4812-92b5-17864dbda1f6" />
+          </generalization>
+          <generalization Id="674b3121-4ed8-473a-bbc9-80c89fb692d9" isSubstitutable="false">
+            <useCaseMoniker Id="e8dcb537-9ef9-410f-b828-45930083b8c6" LastKnownName="&quot;No&quot;" />
+            <elementDefinition Id="3dd06530-ee6e-421e-8ba8-3966a1cd70f0" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d994e07f-2b56-4385-b097-a39938a7d4ac" name="&quot;No&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="34a175fb-4a9c-4f6e-9d38-77f584cfcb8c" />
+        <generalsInternal>
+          <generalization Id="dedaf270-990b-4606-867b-947d0df6f3d8" isSubstitutable="false">
+            <useCaseMoniker Id="2c992f04-f8ea-4aaf-8ecb-f50bb8945fc3" LastKnownName="&quot;what would you like to do with your phone?&quot;" />
+            <elementDefinition Id="e41c0e0b-8989-4e53-8f4b-c968120f0eaf" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2c992f04-f8ea-4aaf-8ecb-f50bb8945fc3" name="&quot;what would you like to do with your phone?&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6abb880d-8b96-40ee-a6c0-0dd7e329c760" />
+        <generalsInternal>
+          <generalization Id="cb4267d1-7919-4c12-a5c7-76bb2a8e0f0c" isSubstitutable="false">
+            <useCaseMoniker Id="d6d6a462-aed7-4ae5-a3eb-8506f2c20ed9" LastKnownName="&quot;Call Contact&quot;" />
+            <elementDefinition Id="1ab335ca-c89b-471f-9b25-7ef4fe6dedb5" />
+          </generalization>
+          <generalization Id="6d0f2a91-f97b-42a2-9647-c645ee564063" isSubstitutable="false">
+            <useCaseMoniker Id="29f71f66-b917-40ea-b38d-816206a98741" LastKnownName="&quot;Text Contact" />
+            <elementDefinition Id="28ee0959-b82c-4549-8783-26508fc31a84" />
+          </generalization>
+          <generalization Id="5e1f4d14-d818-4785-9a2c-48a847d63699" isSubstitutable="false">
+            <useCaseMoniker Id="3f7c9a54-32e5-450f-b752-525fe90fc3d9" LastKnownName="&quot;Call Number&quot;" />
+            <elementDefinition Id="c540ea41-d514-4d88-afe2-68bf8115fd0d" />
+          </generalization>
+          <generalization Id="68595816-27b6-44e9-a367-941dc1da5c28" isSubstitutable="false">
+            <useCaseMoniker Id="31dedf49-f3ae-45f5-9ae1-ed3101ee2ae4" LastKnownName="&quot;Text Number&quot;" />
+            <elementDefinition Id="048fd083-e86c-497d-99da-b7eaaa55e43e" />
+          </generalization>
+          <generalization Id="ed67695b-1c93-4a39-a139-170d37e5ba31" isSubstitutable="false">
+            <useCaseMoniker Id="5f693b0f-5eeb-4d8d-b706-7a49482d22cf" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="e898be13-8092-459a-b98d-1567953e3c27" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d6d6a462-aed7-4ae5-a3eb-8506f2c20ed9" name="&quot;Call Contact&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c6751bbb-b292-474c-bd4c-f6d810a0beb4" />
+        <generalsInternal>
+          <generalization Id="6d6c3404-2da0-4e1c-bd4b-1788885a0cb5" isSubstitutable="false">
+            <useCaseMoniker Id="03933563-9c99-4857-8696-d01898211e1a" LastKnownName="&quot;Who Would you like to call&quot;" />
+            <elementDefinition Id="8b43564f-9822-494b-b297-c318c417b64e" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="29f71f66-b917-40ea-b38d-816206a98741" name="&quot;Text Contact" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="efc740a2-9191-41f7-9131-db24db76ef8e" />
+        <generalsInternal>
+          <generalization Id="8336235c-7180-4cbb-86ac-5357164b91f7" isSubstitutable="false">
+            <useCaseMoniker Id="b5b9de9d-3575-41a0-8744-344bf53bd722" LastKnownName="&quot;Who Would you Like to Text&quot;" />
+            <elementDefinition Id="fc421bb6-1d3f-4ac8-a5c3-b200ad16cff2" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3f7c9a54-32e5-450f-b752-525fe90fc3d9" name="&quot;Call Number&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="96aa6b12-040b-47d3-972f-129032a3c703" />
+        <generalsInternal>
+          <generalization Id="7372d359-f735-4cae-ac50-1772312a3aca" isSubstitutable="false">
+            <useCaseMoniker Id="763a16b1-1403-4568-945e-f7d427d4ab7a" LastKnownName="&quot;What is the number you would like to call?&quot;" />
+            <elementDefinition Id="41e852db-3f2e-4904-b736-bb45bfe24c87" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="31dedf49-f3ae-45f5-9ae1-ed3101ee2ae4" name="&quot;Text Number&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c393ff9f-d4b3-4673-aa23-755476b7dc03" />
+        <generalsInternal>
+          <generalization Id="d02bbcfd-274e-4d48-971a-fb8828a32780" isSubstitutable="false">
+            <useCaseMoniker Id="fc945087-dbc8-46e0-b4a9-a17a8ea9f28d" LastKnownName="&quot;What is the number you would like to text&quot;" />
+            <elementDefinition Id="12881b64-661a-4a18-b605-1edc690a1a3c" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5f693b0f-5eeb-4d8d-b706-7a49482d22cf" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="187e6205-ed23-4bda-85da-b4774f377b20" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="03933563-9c99-4857-8696-d01898211e1a" name="&quot;Who Would you like to call&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c3dd7417-c9af-49b0-898f-7aefe8c808a9" />
+        <generalsInternal>
+          <generalization Id="03ebcad1-8b4d-4432-9194-5a6a8712f470" isSubstitutable="false">
+            <useCaseMoniker Id="7a9990e6-a005-4d0e-8118-01dc1327ef57" LastKnownName="&quot;Name of Contact&quot;" />
+            <elementDefinition Id="641bf791-40ad-40d8-ac5c-f24430f877ce" />
+          </generalization>
+          <generalization Id="15dfe09c-2ef2-4339-9e19-9733c4fc56f7" isSubstitutable="false">
+            <useCaseMoniker Id="72ba39d6-01f2-4272-8403-5e002ca68da0" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="c1e1e951-c147-47e6-b644-3c8ae127b0f6" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b5b9de9d-3575-41a0-8744-344bf53bd722" name="&quot;Who Would you Like to Text&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e54fdb1d-019e-48ef-b666-13343ed1d920" />
+        <generalsInternal>
+          <generalization Id="aa6ecb6b-af19-4d4c-8cb6-e368c64aa8fa" isSubstitutable="false">
+            <useCaseMoniker Id="7a9990e6-a005-4d0e-8118-01dc1327ef57" LastKnownName="&quot;Name of Contact&quot;" />
+            <elementDefinition Id="15a3eaf6-2545-4ab2-b4a6-adddde62a273" />
+          </generalization>
+          <generalization Id="e11e1015-c52d-4c32-ac0f-da7e7af08a56" isSubstitutable="false">
+            <useCaseMoniker Id="72ba39d6-01f2-4272-8403-5e002ca68da0" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="3bcfab74-f4ec-4804-a713-34f6665c94c7" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="763a16b1-1403-4568-945e-f7d427d4ab7a" name="&quot;What is the number you would like to call?&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e8658f27-ba21-4d73-9059-f360eaa05d88" />
+        <generalsInternal>
+          <generalization Id="5582a70d-6700-40e6-88c4-d8bea5e47e23" isSubstitutable="false">
+            <useCaseMoniker Id="2213ed93-10e3-481a-96f5-527884a3168a" LastKnownName="&quot;Phone Number&quot;" />
+            <elementDefinition Id="5abbc259-8620-455b-9879-766f8767f07d" />
+          </generalization>
+          <generalization Id="ce6f4321-8105-4072-8a60-ef18b76d7c43" isSubstitutable="false">
+            <useCaseMoniker Id="72ba39d6-01f2-4272-8403-5e002ca68da0" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="8fd523ca-31b8-4a07-8344-3c44a2b4c9f5" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fc945087-dbc8-46e0-b4a9-a17a8ea9f28d" name="&quot;What is the number you would like to text&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d9c42f6f-6b5b-4382-8f07-74d13b145ec8" />
+        <generalsInternal>
+          <generalization Id="ef254073-2446-4459-b81a-511ccf1f0ae2" isSubstitutable="false">
+            <useCaseMoniker Id="2213ed93-10e3-481a-96f5-527884a3168a" LastKnownName="&quot;Phone Number&quot;" />
+            <elementDefinition Id="29fdcebe-0f54-47f9-985a-8e72730f2c90" />
+          </generalization>
+          <generalization Id="c69cf9a5-98a6-4522-8d6d-abd50994363f" isSubstitutable="false">
+            <useCaseMoniker Id="72ba39d6-01f2-4272-8403-5e002ca68da0" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="fa5d4278-09a4-46af-a217-b9ab787f930f" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7a9990e6-a005-4d0e-8118-01dc1327ef57" name="&quot;Name of Contact&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f4f6934f-4d77-4770-9d4a-417362fe4c9a" />
+        <generalsInternal>
+          <generalization Id="c451d77a-3db1-4692-8c83-d381387616d7" isSubstitutable="false">
+            <useCaseMoniker Id="34b8e902-d30b-496f-bcb0-053585bc1d68" LastKnownName="&quot;Calling Name of Contact&quot;" />
+            <elementDefinition Id="c7ffade9-f08d-408f-a242-6e2d6df94dc1" />
+          </generalization>
+          <generalization Id="59c5a52f-a4d8-47eb-9e88-d2618ac16744" isSubstitutable="false">
+            <useCaseMoniker Id="810ba88a-2854-47a0-baf8-30c3d0227631" LastKnownName="&quot;What Message would you like to send Name of contact&quot;" />
+            <elementDefinition Id="fbe1b45b-f1be-49a7-abb8-66fe64572788" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2213ed93-10e3-481a-96f5-527884a3168a" name="&quot;Phone Number&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1ef1d20c-4616-46ee-9214-cb6578cbe2c7" />
+        <generalsInternal>
+          <generalization Id="64fecbdc-12cf-415d-a2fd-44dcf8a56455" isSubstitutable="false">
+            <useCaseMoniker Id="b9936287-612c-4a2a-b791-71df9975eacc" LastKnownName="&quot;Calling number&quot;" />
+            <elementDefinition Id="33f1a334-757c-47bb-9f8b-7b2b4c915645" />
+          </generalization>
+          <generalization Id="1a649600-8bf6-44a0-8c38-7b7742a8bf67" isSubstitutable="false">
+            <useCaseMoniker Id="26bca3bd-9fdb-4c7f-97bf-41a0c6e702cb" LastKnownName="&quot;What text would you like to Send Number&quot;" />
+            <elementDefinition Id="f498f710-93b2-40d1-9a30-0a83fa9f7719" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="72ba39d6-01f2-4272-8403-5e002ca68da0" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="111971a2-4484-49f6-b17a-28d81d0eb811" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="34b8e902-d30b-496f-bcb0-053585bc1d68" name="&quot;Calling Name of Contact&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2995d170-670d-434b-b011-4c1220983fa9" />
+        <generalsInternal>
+          <generalization Id="73155a59-e426-4d59-b41b-3abae8605622" isSubstitutable="false">
+            <useCaseMoniker Id="25fd7809-f615-431f-9b61-e31704c07514" LastKnownName="&quot;Speak phone conversation&quot;, Key word to disconnect &quot;End&quot;" />
+            <elementDefinition Id="83806d0b-2748-4c4d-98a9-48d368e5e0e9" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="810ba88a-2854-47a0-baf8-30c3d0227631" name="&quot;What Message would you like to send Name of contact&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fd679de6-a2d8-45bd-ba80-b5248c88d583" />
+        <generalsInternal>
+          <generalization Id="f20da920-e147-4cdc-a23b-346f30542b9d" isSubstitutable="false">
+            <useCaseMoniker Id="9f07993a-0f66-4ab9-a87f-be4b8fc9c3b7" LastKnownName="&quot;Speak text Message&quot;, Key word to end message is &quot;end&quot;" />
+            <elementDefinition Id="c6d192fc-a6e2-49f0-822b-57529a1bedfd" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b9936287-612c-4a2a-b791-71df9975eacc" name="&quot;Calling number&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ecf632c0-149c-439b-8086-0d160dde3ce2" />
+        <generalsInternal>
+          <generalization Id="66eacdc5-0515-469a-bf70-d5a9a10d5a7a" isSubstitutable="false">
+            <useCaseMoniker Id="25fd7809-f615-431f-9b61-e31704c07514" LastKnownName="&quot;Speak phone conversation&quot;, Key word to disconnect &quot;End&quot;" />
+            <elementDefinition Id="a1ed8c01-f77c-43f2-9a93-29b9c92cb615" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="26bca3bd-9fdb-4c7f-97bf-41a0c6e702cb" name="&quot;What text would you like to Send Number&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9be322cf-bbcf-4acb-bb77-3a66f3710794" />
+        <generalsInternal>
+          <generalization Id="0937d5d5-0be8-486d-b638-2b51c4599eb5" isSubstitutable="false">
+            <useCaseMoniker Id="9f07993a-0f66-4ab9-a87f-be4b8fc9c3b7" LastKnownName="&quot;Speak text Message&quot;, Key word to end message is &quot;end&quot;" />
+            <elementDefinition Id="11fbf0d1-d21e-4873-99c8-5315b73942e0" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9f07993a-0f66-4ab9-a87f-be4b8fc9c3b7" name="&quot;Speak text Message&quot;, Key word to end message is &quot;end&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ebdbcafb-4ad4-4e8a-b2b8-5b9ca95e300a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="25fd7809-f615-431f-9b61-e31704c07514" name="&quot;Speak phone conversation&quot;, Key word to disconnect &quot;End&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="eb200933-6afa-4c65-b305-73aaa68a30eb" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e8dcb537-9ef9-410f-b828-45930083b8c6" name="&quot;No&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d0cb76eb-3d41-49d8-9cd1-b6cc1cdadc4b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4c328407-3105-414c-9836-7fedd244ccd9" name="&quot;What Location&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="17dc4bcf-8d59-45c8-8ffb-20947f1b536b" />
+        <generalsInternal>
+          <generalization Id="4d6c5f24-25ee-49ba-8843-59c4caf3acab" isSubstitutable="false">
+            <useCaseMoniker Id="0cc2c394-8d1a-4bc7-bf07-1590dafffc76" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="e5872c4b-898b-4a97-b5f0-336eb1b841b6" />
+          </generalization>
+          <generalization Id="e7dd39b4-c8ea-413d-b8ef-81048a0e7991" isSubstitutable="false">
+            <useCaseMoniker Id="68c0f363-37f0-4ec2-97bc-fe4dbfe19e7c" LastKnownName="&quot;Location&quot;" />
+            <elementDefinition Id="e06386ad-9527-4579-85e9-1590ed7d0196" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0cc2c394-8d1a-4bc7-bf07-1590dafffc76" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="74bb411c-ff68-4fc5-b31b-f8cb565168d8" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="68c0f363-37f0-4ec2-97bc-fe4dbfe19e7c" name="&quot;Location&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6ad62ba0-6332-4f16-acab-440fe1b880df" />
+        <generalsInternal>
+          <generalization Id="8fbd01c8-5495-4c8c-af7e-133ecbcc3362" isSubstitutable="false">
+            <useCaseMoniker Id="16fe32b3-dfe0-47fe-92a6-daf8b58847f6" LastKnownName="&quot;What would you like to know about the weather in Location&quot;" />
+            <elementDefinition Id="2d5d1d71-6138-4221-b79d-eae5d9fa5d24" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="16fe32b3-dfe0-47fe-92a6-daf8b58847f6" name="&quot;What would you like to know about the weather in Location&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f0b2c0d0-5314-414c-94a1-58fb8d9594e5" />
+        <generalsInternal>
+          <generalization Id="b57cf2d0-b1cc-483e-874f-7450d4479bfb" isSubstitutable="false">
+            <useCaseMoniker Id="e994ee6f-d276-48eb-9c82-e29b84c856ce" LastKnownName="&quot;5-day&quot;" />
+            <elementDefinition Id="f7bd0d20-2fd9-4711-b818-14f6c7692ab7" />
+          </generalization>
+          <generalization Id="fa40c355-5ffb-4a94-97a1-8f65e7311c40" isSubstitutable="false">
+            <useCaseMoniker Id="3ff8bae1-e045-4078-ae43-cad1fcf0f896" LastKnownName="&quot;Wind&quot;" />
+            <elementDefinition Id="3198bbbf-4f22-4535-af61-176c65513020" />
+          </generalization>
+          <generalization Id="35d0aa7b-d302-4657-a79f-11e77545ab8d" isSubstitutable="false">
+            <useCaseMoniker Id="c44b43e4-e749-444a-abe3-fc769ec73dfe" LastKnownName="&quot;today&quot;" />
+            <elementDefinition Id="c0b3b190-6597-41c3-8400-50b4a498d27e" />
+          </generalization>
+          <generalization Id="cff18f18-bc7a-46e9-a7c4-ce7267d396f2" isSubstitutable="false">
+            <useCaseMoniker Id="02524cea-da66-4cdf-9844-6b1160c67111" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="8f1a04c8-46cb-43f0-b341-ec622d99693f" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e994ee6f-d276-48eb-9c82-e29b84c856ce" name="&quot;5-day&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a3862654-88ef-47d5-ab2e-7a07c3ab51d1" />
+        <generalsInternal>
+          <generalization Id="340a7268-a1f2-42b7-833c-1f1fb3694f00" isSubstitutable="false">
+            <useCaseMoniker Id="a3e31475-7873-4775-9cc9-35ef233b522e" LastKnownName="&quot;Hi/Lo for the next 5 Days&quot;" />
+            <elementDefinition Id="0d1d3a36-fbe5-4837-acd5-3d38f9959ce1" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c44b43e4-e749-444a-abe3-fc769ec73dfe" name="&quot;today&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="deb9d5c7-7a28-4ba3-9a6c-9f2503993019" />
+        <generalsInternal>
+          <generalization Id="83e06cfc-d42d-4417-befc-f1e04bde9469" isSubstitutable="false">
+            <useCaseMoniker Id="32cf5832-afe6-456b-bfe8-733dc101efd3" LastKnownName="&quot;todays weather&quot;" />
+            <elementDefinition Id="cadd2019-0d8d-4cac-9b86-6d295f8b65df" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3ff8bae1-e045-4078-ae43-cad1fcf0f896" name="&quot;Wind&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="908dffbb-6540-4b5e-9bcf-14ecee7de7d7" />
+        <generalsInternal>
+          <generalization Id="962a98ee-8a9b-4edc-81bc-b6b00c08a981" isSubstitutable="false">
+            <useCaseMoniker Id="ba7640b4-3eca-43bb-ad9f-c1b48779ed95" LastKnownName="&quot;Wind Report&quot;" />
+            <elementDefinition Id="4aaa6d25-bef6-4948-8a56-1deac756462a" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="02524cea-da66-4cdf-9844-6b1160c67111" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5c8e588a-1e9b-4d4d-b8b1-5c58dc3cd953" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="15c15b4e-cb45-4023-bd34-c4bb3ee5846e" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="f57f409e-3538-4ef2-80ef-f38dfe5575fb" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="cc4fb001-d1d6-4abe-af5a-b87d17417b75" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="be387ed9-cefa-439b-8e0a-cd36685571be" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="0c9db64d-a61f-471d-b21d-c8a1d73b0b0b" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="a6f2458b-259d-4d28-b86f-d6ca36a1e86e" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="7d181cef-b157-45f2-b679-12750f240969" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="24eb5b7c-ac6a-464e-8660-d23c62fe7045" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557ca6cd-0d17-439e-a394-0d701c51436b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="6caf1cf4-e671-4740-a989-aaea0a384256" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="fce3de01-eae2-457c-8a8e-e5d20b0c074b" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ba7640b4-3eca-43bb-ad9f-c1b48779ed95" name="&quot;Wind Report&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="193ffb03-6b84-4848-9026-8a21275d1a22" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="32cf5832-afe6-456b-bfe8-733dc101efd3" name="&quot;todays weather&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6d8b28de-82d1-489e-a494-aac66673748f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a3e31475-7873-4775-9cc9-35ef233b522e" name="&quot;Hi/Lo for the next 5 Days&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="207c6854-41ab-4d5d-acc7-345b5fa972e2" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2a2dce95-e9f7-4935-8844-646cc1aaa29c" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="60656656-0025-4c81-b5d8-745ca14bca64" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bf146f9f-bbee-4d50-85ea-2e6c8fa8c5aa" name="&quot;There are No accidents/There are accidents x place and x place.&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8b766c79-88a9-4363-9a36-69c1bf4b0c70" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c608c367-07df-4bf4-a4d7-1e3d0d329bef" name="&quot;Sprinkler&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ac366cca-e0bf-4058-95a1-9d7ebb61a6ec" />
+        <generalsInternal>
+          <generalization Id="e5703d7e-0b39-4ab4-8653-9f78159f6b14" isSubstitutable="false">
+            <useCaseMoniker Id="6b44d368-d223-436c-ae74-fc870ff1ca96" LastKnownName="&quot;Which Sprinker Station&quot;, 1-6" />
+            <elementDefinition Id="285a097d-02af-41f8-b424-b4060c5ee71d" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6b44d368-d223-436c-ae74-fc870ff1ca96" name="&quot;Which Sprinker Station&quot;, 1-6" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2845844a-6d97-42ff-9cce-5a67f0ca0592" />
+        <generalsInternal>
+          <generalization Id="65a4ec9e-89f2-46f7-9a31-412a28fedd68" isSubstitutable="false">
+            <useCaseMoniker Id="756164b0-a64b-4007-9b0e-b979fc020e08" LastKnownName="&quot;1-6&quot;" />
+            <elementDefinition Id="cca98e07-3f7b-48ab-a3c0-2a8b56548c6a" />
+          </generalization>
+          <generalization Id="4b5aee15-d7bc-4f8b-bd9b-507ec6947167" isSubstitutable="false">
+            <useCaseMoniker Id="e47338b7-cc2d-4576-89b7-e9c0219bbcce" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="fe8ebbb1-9e27-4b87-872a-c720e0d984e1" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="756164b0-a64b-4007-9b0e-b979fc020e08" name="&quot;1-6&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bda01739-aee7-43f3-888c-f54b340a52b3" />
+        <generalsInternal>
+          <generalization Id="20cc226f-f561-4a06-93c2-ee4ed84065af" isSubstitutable="false">
+            <useCaseMoniker Id="117faf2e-5e5a-4eda-a541-5614521988c4" LastKnownName="&quot;How Long would you like it on&quot;" />
+            <elementDefinition Id="536043a2-21bc-44cd-bed0-8fa18d1dcc55" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="117faf2e-5e5a-4eda-a541-5614521988c4" name="&quot;How Long would you like it on&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ef566715-bb25-411d-8df2-04201f659c65" />
+        <generalsInternal>
+          <generalization Id="9ddc8d8a-202b-4078-b10f-acce5a869b29" isSubstitutable="false">
+            <useCaseMoniker Id="0693241e-dd29-4c87-ad08-e4cf7614a926" LastKnownName="&quot;# of minutes&quot;, minutes from 1 - 90" />
+            <elementDefinition Id="d834ebbf-f7bc-4149-baf9-740eb0e44af8" />
+          </generalization>
+          <generalization Id="ffc6f557-debf-4ea7-837a-7442d32ce73b" isSubstitutable="false">
+            <useCaseMoniker Id="8f9aa488-2140-46ae-872a-fa6198329b20" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="1a7b1c21-a693-41f0-be93-717cb125a82c" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0693241e-dd29-4c87-ad08-e4cf7614a926" name="&quot;# of minutes&quot;, minutes from 1 - 90" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ef44ebca-f04f-43d7-a0ef-72e5d6698f59" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e47338b7-cc2d-4576-89b7-e9c0219bbcce" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e52fad1f-8474-44f4-8cc6-ae5d7c727b92" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8f9aa488-2140-46ae-872a-fa6198329b20" name="&quot;Restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d5044b8d-7d49-43dd-a2fa-a6386a31fab9" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e02de985-33b8-478c-9f39-2783052eacc4" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="23657ba3-2e54-45f8-8e04-56508540cc6e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="6767e874-91b1-4436-b491-6666f304535f" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="23657ba3-2e54-45f8-8e04-56508540cc6e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="d0a01cb0-1be2-4d07-ac05-57b635553b81" name="Computer(Hal)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="23657ba3-2e54-45f8-8e04-56508540cc6e" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="af4ad0a7-3250-4403-9203-431458bb8bcb" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="186cda5c-5e1c-4444-8ac8-fae814898dc8" name="Human" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a36522c3-97cc-4eb7-9682-47ef71445f39" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b631569b-e9a6-4538-a05a-3fc5d43d19c5" name="&quot;Volume&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cfafcae0-fb16-4e25-bef3-64639b62e9e2" />
+        <generalsInternal>
+          <generalization Id="37fd8873-750c-433c-9a00-e715a111e08e" isSubstitutable="false">
+            <useCaseMoniker Id="97596c77-f7df-474b-aa23-7aa065adb9b6" LastKnownName="&quot;How Loud would you like me to be&quot;" />
+            <elementDefinition Id="3a782756-a2e9-49e8-9829-0b55ec145a0c" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="97596c77-f7df-474b-aa23-7aa065adb9b6" name="&quot;How Loud would you like me to be&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="525becd7-2eb7-411e-a7eb-91c680ca0c53" />
+        <generalsInternal>
+          <generalization Id="553d37ae-34c0-46a0-9337-1d48370faa3d" isSubstitutable="false">
+            <useCaseMoniker Id="e47338b7-cc2d-4576-89b7-e9c0219bbcce" LastKnownName="&quot;Restart&quot;" />
+            <elementDefinition Id="a07a9df7-3632-473e-9932-08c000ac6a18" />
+          </generalization>
+          <generalization Id="4824f9e0-8d11-42f7-b18c-7a56270d8acb" isSubstitutable="false">
+            <useCaseMoniker Id="43d238b3-8a62-4a7c-b052-c8415649c142" LastKnownName="&quot;Quiet&quot;" />
+            <elementDefinition Id="ecb5e8df-c17e-491c-a4d3-8068c4431182" />
+          </generalization>
+          <generalization Id="b35e79b3-fc52-4fe4-946e-8d19ffcdd89b" isSubstitutable="false">
+            <useCaseMoniker Id="02bf7e40-a3cc-4a48-ba5e-632b5f6bac34" LastKnownName="&quot;Medium&quot;" />
+            <elementDefinition Id="d981aa13-2b6f-4ed6-a782-7c081259beb0" />
+          </generalization>
+          <generalization Id="e7409e93-7e9d-4718-846b-cc459a455508" isSubstitutable="false">
+            <useCaseMoniker Id="84e992f6-19b8-4762-8eb1-e7e947809cd7" LastKnownName="&quot;Loud&quot;" />
+            <elementDefinition Id="7e27983d-8923-41f1-8cf5-f84acd8baab6" />
+          </generalization>
+          <generalization Id="4ed8cc08-1c81-4160-a453-b1b09a9dfec3" isSubstitutable="false">
+            <useCaseMoniker Id="927732d2-869f-4fff-a7a3-a61873927c96" LastKnownName="&quot;shut up&quot;" />
+            <elementDefinition Id="43de3e27-7c2f-451f-b344-8c6c45ba1232" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="43d238b3-8a62-4a7c-b052-c8415649c142" name="&quot;Quiet&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="eed881cd-c65d-45d9-9d35-054fc795ec88" />
+        <generalsInternal>
+          <generalization Id="46032bc6-691f-4a91-b478-191752c18f1a" isSubstitutable="false">
+            <useCaseMoniker Id="a7d840d9-25e0-4902-abe6-2fdcad2ae7b3" LastKnownName="&quot;ok master, I'll be really really quiet&quot;" />
+            <elementDefinition Id="0b7d11fe-2768-4a42-b0f0-632f0afda907" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="02bf7e40-a3cc-4a48-ba5e-632b5f6bac34" name="&quot;Medium&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7900c6c8-c6bf-4eb8-9c4e-6445ca3cd1e5" />
+        <generalsInternal>
+          <generalization Id="2d1a3986-8d0b-4660-ba11-1927bd8663d0" isSubstitutable="false">
+            <useCaseMoniker Id="d41857b4-ac4a-48cb-9608-d4b68ced3ced" LastKnownName="&quot;Ok master medium volume&quot;" />
+            <elementDefinition Id="6d0513d4-1a09-4ea1-a5e9-670733568045" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="84e992f6-19b8-4762-8eb1-e7e947809cd7" name="&quot;Loud&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2446f20a-3028-4e33-a145-16b4702c306d" />
+        <generalsInternal>
+          <generalization Id="4cebc3a3-7f99-4e8c-b200-3b63a61b1d06" isSubstitutable="false">
+            <useCaseMoniker Id="f0133fa7-0b13-4b6c-9bf4-ba403fec9a45" LastKnownName="&quot;Ok Master Loud Volume&quot;" />
+            <elementDefinition Id="debb6776-d910-466b-8c01-893bac396714" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a7d840d9-25e0-4902-abe6-2fdcad2ae7b3" name="&quot;ok master, I'll be really really quiet&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4047d40f-ae54-4dae-8913-3eacf6c0e92f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="927732d2-869f-4fff-a7a3-a61873927c96" name="&quot;shut up&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="692eac33-d40a-4d29-8582-412b119c9bf2" />
+        <generalsInternal>
+          <generalization Id="d546557a-c5eb-4e56-999c-03bec3c94db3" isSubstitutable="false">
+            <useCaseMoniker Id="dcd3a3b8-2393-49ac-a212-0daed6b6df24" LastKnownName="&quot;ouch master that really hurts.  that hurts... real deep.&quot;" />
+            <elementDefinition Id="5bb8a82a-cf00-42a7-9bd6-c2b156b7e11d" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="dcd3a3b8-2393-49ac-a212-0daed6b6df24" name="&quot;ouch master that really hurts.  that hurts... real deep.&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="18f3194d-dd8a-4f43-b9bb-802bb037d0c8" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d41857b4-ac4a-48cb-9608-d4b68ced3ced" name="&quot;Ok master medium volume&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7e09250-0fad-4268-81d2-5a2445234efd" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f0133fa7-0b13-4b6c-9bf4-ba403fec9a45" name="&quot;Ok Master Loud Volume&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1a01345b-1f86-4acf-bd51-8dbf642b1d8c" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f110db12-2cd7-4373-92e0-7ee8fc9a0bd0" name="&quot;Baby&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5ad70aa6-1f3c-43ac-8358-aecb5e32620d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="1d98af34-906c-4fe4-9c99-f7b95b3d5e6a" name="SmartHomeModel">
+    <elementDefinition Id="5aec9883-6c1a-4918-a676-cac9eed48e4a" />
+    <profileInstances>
+      <packageHasProfileInstances Id="66e57875-afe5-4475-a124-6d0eca923aa9">
+        <profileInstance Id="238fa43f-23a5-4834-b2e9-00bbd7e91ff2" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="13078b04-33e2-4dec-9de3-94f105822b89">
+        <profileInstance Id="3e74a9f7-4004-4291-bf20-a2d64d9e59fd" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

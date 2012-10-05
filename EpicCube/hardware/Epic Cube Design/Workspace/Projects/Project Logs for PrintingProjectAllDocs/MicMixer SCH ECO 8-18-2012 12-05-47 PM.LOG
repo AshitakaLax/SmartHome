@@ -1,0 +1,68 @@
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q1
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q3
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q4
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U1
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U3
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U4
+Added Parameter Price=0.01 to Part Q1
+Added Parameter Price=0.01 to Part Q2
+Added Parameter Price=0.01 to Part Q3
+Added Parameter Price=0.01 to Part Q4
+Added Parameter Price=0.03 to Part C1
+Added Parameter Price=0.03 to Part C2
+Added Parameter Price=0.03 to Part C3
+Added Parameter Price=0.03 to Part C4
+Added Parameter Price=0.03 to Part C5
+Added Parameter Price=0.03 to Part C6
+Added Parameter Price=0.03 to Part C7
+Added Parameter Price=0.03 to Part C8
+Added Parameter Price=0.03 to Part C9
+Added Parameter Price=0.03 to Part C10
+Added Parameter Price=0.25 to Part MK1
+Added Parameter Price=0.25 to Part MK2
+Added Parameter Price=0.25 to Part MK3
+Added Parameter Price=0.25 to Part MK4
+Added Parameter Price=0.25 to Part MK5
+Added Parameter Price=0.25 to Part MK6
+Added Parameter Price=0.25 to Part MK7
+Added Parameter Price=0.25 to Part MK8
+Added Parameter Price=0.25 to Part MK9
+Added Parameter Price=0.25 to Part MK10
+Added Parameter Price=0.25 to Part MK11
+Added Parameter Price=0.25 to Part MK12
+Added Parameter Price=0.25 to Part MK13
+Added Parameter Price=0.25 to Part MK14
+Added Parameter Price=0.25 to Part MK15
+Added Parameter Price=0.25 to Part MK16
+Added Parameter Vendor=Taydaelectronics to Part C1
+Added Parameter Vendor=Taydaelectronics to Part C2
+Added Parameter Vendor=Taydaelectronics to Part C3
+Added Parameter Vendor=Taydaelectronics to Part C4
+Added Parameter Vendor=Taydaelectronics to Part C5
+Added Parameter Vendor=Taydaelectronics to Part C6
+Added Parameter Vendor=Taydaelectronics to Part C7
+Added Parameter Vendor=Taydaelectronics to Part C8
+Added Parameter Vendor=Taydaelectronics to Part C9
+Added Parameter Vendor=Taydaelectronics to Part C10
+Added Parameter Vendor=Taydaelectronics to Part MK1
+Added Parameter Vendor=Taydaelectronics to Part MK2
+Added Parameter Vendor=Taydaelectronics to Part MK3
+Added Parameter Vendor=Taydaelectronics to Part MK4
+Added Parameter Vendor=Taydaelectronics to Part MK5
+Added Parameter Vendor=Taydaelectronics to Part MK6
+Added Parameter Vendor=Taydaelectronics to Part MK7
+Added Parameter Vendor=Taydaelectronics to Part MK8
+Added Parameter Vendor=Taydaelectronics to Part MK9
+Added Parameter Vendor=Taydaelectronics to Part MK10
+Added Parameter Vendor=Taydaelectronics to Part MK11
+Added Parameter Vendor=Taydaelectronics to Part MK12
+Added Parameter Vendor=Taydaelectronics to Part MK13
+Added Parameter Vendor=Taydaelectronics to Part MK14
+Added Parameter Vendor=Taydaelectronics to Part MK15
+Added Parameter Vendor=Taydaelectronics to Part MK16
+Added Parameter Vendor=Taydaelectronics to Part Q1
+Added Parameter Vendor=Taydaelectronics to Part Q2
+Added Parameter Vendor=Taydaelectronics to Part Q3
+Added Parameter Vendor=Taydaelectronics to Part Q4

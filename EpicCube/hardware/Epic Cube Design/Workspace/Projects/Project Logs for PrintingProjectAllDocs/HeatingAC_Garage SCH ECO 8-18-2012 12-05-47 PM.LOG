@@ -1,0 +1,38 @@
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part D5
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part D6
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part D7
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part D8
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part D9
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part D10
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part D11
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q1
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q3
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q4
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q5
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q6
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part Q7
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Removed Parameter ComponentLink1Description:Manufacturer Link from Part U2
+Added Parameter Price=0.01 to Part Q1
+Added Parameter Price=0.01 to Part Q2
+Added Parameter Price=0.01 to Part Q3
+Added Parameter Price=0.01 to Part Q4
+Added Parameter Price=0.01 to Part Q5
+Added Parameter Price=0.01 to Part Q6
+Added Parameter Price=0.01 to Part Q7
+Added Parameter Price=0.03 to Part C1
+Added Parameter Price=0.03 to Part C2
+Added Parameter Vendor=Taydaelectronics to Part C1
+Added Parameter Vendor=Taydaelectronics to Part C2
+Added Parameter Vendor=Taydaelectronics to Part Q1
+Added Parameter Vendor=Taydaelectronics to Part Q2
+Added Parameter Vendor=Taydaelectronics to Part Q3
+Added Parameter Vendor=Taydaelectronics to Part Q4
+Added Parameter Vendor=Taydaelectronics to Part Q5
+Added Parameter Vendor=Taydaelectronics to Part Q6
+Added Parameter Vendor=Taydaelectronics to Part Q7

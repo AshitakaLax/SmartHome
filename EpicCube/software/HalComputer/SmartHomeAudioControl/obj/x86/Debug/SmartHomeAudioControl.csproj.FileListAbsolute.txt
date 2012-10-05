@@ -1,0 +1,5 @@
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeAudioControl\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeAudioControl\bin\Debug\SmartHomeAudioControl.exe
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeAudioControl\bin\Debug\SmartHomeAudioControl.pdb
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeAudioControl\obj\x86\Debug\SmartHomeAudioControl.exe
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeAudioControl\obj\x86\Debug\SmartHomeAudioControl.pdb

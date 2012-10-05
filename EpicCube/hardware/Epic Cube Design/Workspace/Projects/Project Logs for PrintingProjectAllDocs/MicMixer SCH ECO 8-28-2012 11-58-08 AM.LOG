@@ -1,0 +1,39 @@
+Change Component Parameter Signal Integrity in Q1 Old=2N3904 New=BC548B
+Change Component Parameter Simulation in Q1 Old=2N3904 New=BC548B
+Change Component Parameter Signal Integrity in Q2 Old=2N3904 New=BC548B
+Change Component Parameter Simulation in Q2 Old=2N3904 New=BC548B
+Added Parameter Value=2N3904 to Part Q3
+Added Parameter Value=2N3904 to Part Q4
+Added Parameter Value=BC548B to Part Q1
+Added Parameter Value=BC548B to Part Q2
+Added Parameter Value=CD4051BCN to Part U1
+Added Parameter Value=CD4051BCN to Part U2
+Added Parameter Value=CD4051BCN to Part U3
+Added Parameter Value=CD4051BCN to Part U4
+Added Parameter Value=Header 2 to Part P2
+Added Parameter Value=Header 2 to Part P3
+Added Parameter Value=Header 2 to Part P4
+Added Parameter Value=Header 2 to Part P5
+Added Parameter Value=Header 2 to Part P6
+Added Parameter Value=Header 2 to Part P7
+Added Parameter Value=Header 2 to Part P8
+Added Parameter Value=Header 2 to Part P9
+Added Parameter Value=Header 3 to Part P10
+Added Parameter Value=Header 3 to Part P11
+Added Parameter Value=Header 9 to Part P1
+Added Parameter Value=Mic1 to Part MK1
+Added Parameter Value=Mic1 to Part MK2
+Added Parameter Value=Mic1 to Part MK3
+Added Parameter Value=Mic1 to Part MK4
+Added Parameter Value=Mic1 to Part MK5
+Added Parameter Value=Mic1 to Part MK6
+Added Parameter Value=Mic1 to Part MK7
+Added Parameter Value=Mic1 to Part MK8
+Added Parameter Value=Mic1 to Part MK9
+Added Parameter Value=Mic1 to Part MK10
+Added Parameter Value=Mic1 to Part MK11
+Added Parameter Value=Mic1 to Part MK12
+Added Parameter Value=Mic1 to Part MK13
+Added Parameter Value=Mic1 to Part MK14
+Added Parameter Value=Mic1 to Part MK15
+Added Parameter Value=Mic1 to Part MK16

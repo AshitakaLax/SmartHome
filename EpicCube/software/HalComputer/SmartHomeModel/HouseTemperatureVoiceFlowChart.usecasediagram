@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="4ded3336-7a71-4f4a-8cf3-bd54ff1db4a0" name="HouseTemperatureVoiceFlowChart" linkedPackageId="0a635fa3-a000-4956-aec4-ba974097ebaf" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="540f4d3f-88e6-4157-ac8c-29ab83882432">
+      <elementDefinition Id="aa428ae0-34d0-44a3-9cd4-631ae02c4299" />
+      <body>this allows you to change a room that you are not in as well.</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="039e23d9-9a3e-4491-bb57-9adb08efbe90">
+      <profileInstance Id="f90cab17-aefc-4cc0-925d-ed2610ce8bc2" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="be9822ef-8dca-4e4d-91ab-8db082a73591">
+      <profileInstance Id="dfdaabbc-5b14-461b-867b-148a10d32915" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="1acf78be-6db4-4411-be0a-ad5acc06304f" name="HAL(computer)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="40ee888d-e24f-4740-9524-4c9f08f33a14" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="8383cf01-323e-46df-b853-f344c51ad06c" name="user" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e9fd14aa-7d4c-4842-a7e4-e6c6b06433c0" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c2b4688e-b625-48fe-a261-2e6cee764b46" name="&quot;hal&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ccf1f44a-c6ac-480d-a3d7-50cbad730d96" />
+        <targetEnds>
+          <association Id="2cb59dca-cca0-4daa-968a-afa550426ad5" isDerived="false" sourceEndRoleName="&quot;hal&quot;" targetEndRoleName="(Yes Master)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9696935f-853a-4f9b-b357-175fe752b581" LastKnownName="(Yes Master)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="69ec97da-760d-4a45-93ee-31ad1a9d74b4" name="&quot;hal&quot;" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cdb4c445-c7a7-4d2f-8a46-95fe089adbec" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b22f1f89-f919-4c73-ab16-d6e75472fc78" name="(Yes Master)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ca88f6c3-f448-4983-ad7e-1ff2f7bcb998" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8c7c7c27-c661-4e7e-b543-8e8b1a7d34ad" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9696935f-853a-4f9b-b357-175fe752b581" name="(Yes Master)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6fc50c4c-8081-45bc-8756-ac885272537e" />
+        <targetEnds>
+          <association Id="8a6e128c-4535-4d36-862c-04a60024a76b" isDerived="false" sourceEndRoleName="(Yes Master)" targetEndRoleName="&quot;restart&quot;" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2e8832f2-4ef1-416e-ad40-77feb5d521ad" LastKnownName="&quot;restart&quot;" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f9501973-d6c6-41f4-9e67-f9a833a0164d" name="(Yes Master)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="aebd741f-a45c-4070-be1c-8d3d7b2b53f5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d1f1005a-617c-48aa-a699-6f23a61aa70a" name="&quot;restart&quot;" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="859ff10f-f0ef-477c-8ec3-aae8e239029a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1511c880-5bd9-47a1-8a0b-f73a100b3fcc" />
+          </association>
+          <association Id="cdcfa4ac-fa06-46ad-97db-2e0e91c5038c" isDerived="false" sourceEndRoleName="(Yes Master)" targetEndRoleName="&quot;Room#&quot; or roomName" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="19eb5252-425a-42ac-b378-9cde4406277c" LastKnownName="&quot;Room#&quot; or roomName" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b39f7c67-8990-46a7-b884-3eb53eb629ee" name="(Yes Master)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1f23f9f2-a617-477e-bf43-933176bc7fa1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6efd9fb7-e92b-4db0-93e9-fb1fe34ef3b8" name="&quot;Room#&quot; or roomName" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2b044064-f42d-4ec6-bcfa-fa7c409a9393" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f0011acd-c557-4b9e-ae48-d1cd38ab1b09" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="102f74f4-d2d9-478b-9391-2e08b72581ff" name="Starting State" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c6ebb9a0-f221-4a39-9d1f-7546d7f05bc9" />
+        <targetEnds>
+          <association Id="fa6dfc16-e19b-44cf-b232-923479a2655d" isDerived="false" sourceEndRoleName="Starting State" targetEndRoleName="&quot;hal&quot;" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c2b4688e-b625-48fe-a261-2e6cee764b46" LastKnownName="&quot;hal&quot;" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0a97f845-ce9f-425d-b8d4-4d65ba451ad7" name="Starting State" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="799038e4-2d03-4f86-ad78-415ee22ea119" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2f3b1d6a-f1fc-4988-809a-c1d763552cb0" name="&quot;hal&quot;" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d0b63c4d-fd41-4595-92ec-a06730a206ab" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c806cd95-da63-4b18-9156-54a4112429aa" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="19eb5252-425a-42ac-b378-9cde4406277c" name="&quot;Room#&quot; or roomName" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d615c9a9-dcee-4fce-8fb2-67ec416aa258" />
+        <targetEnds>
+          <association Id="b710ff1e-b1b3-4c23-9ae1-542c48fd6a25" isDerived="false" sourceEndRoleName="&quot;Room#&quot; or roomName" targetEndRoleName="(What would you like)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5560ac88-44d4-4bea-ab9e-d3e8fef125a2" LastKnownName="(What would you like)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3a08f1ef-a9b1-46fc-9cb6-8a2593d298e2" name="&quot;Room#&quot; or roomName" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c6f2f319-4e69-409e-9521-2c2505d46a77" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b4a089ac-57ac-4ecf-b3a5-5db50baf9715" name="(What would you like)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a9177eff-eb6a-4185-936d-b0b11487fa72" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a7bce4bd-c21e-4bc5-95cc-bd5c6ef15732" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5560ac88-44d4-4bea-ab9e-d3e8fef125a2" name="(What would you like)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c2f25750-dcfa-4226-81a7-1df8de6311b0" />
+        <targetEnds>
+          <association Id="7a75efff-cbdb-4de2-8381-ddb176639070" isDerived="false" sourceEndRoleName="(What would you like)" targetEndRoleName="&quot;restart&quot;" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2e8832f2-4ef1-416e-ad40-77feb5d521ad" LastKnownName="&quot;restart&quot;" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1e69f874-46bc-4db7-8bfe-c340a1c7a27d" name="(What would you like)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d5b99b1e-93f4-4055-ab22-e2aef03ae3d4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a11f1118-5f50-4ebb-ae87-c11b0f3500ab" name="&quot;restart&quot;" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b942a793-144c-4391-b235-5334afb754e6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="53a50017-a3ae-4f18-8d54-235b8c06e45c" />
+          </association>
+          <association Id="d969f40d-f6d7-4c26-b7de-75f073cec53f" isDerived="false" sourceEndRoleName="(What would you like)" targetEndRoleName="&quot;Temp##&quot;,ON or OFF" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a7012992-38f0-4572-9a43-2f7aa88f5b1a" LastKnownName="&quot;Temp##&quot;,ON or OFF" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b544fae8-8fbd-412b-bf8b-4ef778c2eaf8" name="(What would you like)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b461f7c0-2c0b-45e2-9b75-e47b749f5d3b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4b345343-0386-4980-92b0-5c593ad9d7bf" name="&quot;Temp##&quot;,ON or OFF" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="467b3d29-4489-48c4-8311-159eeb426796" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="88838541-8115-4c1b-8bb5-d58537f9835f" />
+          </association>
+          <association Id="f34582f1-f797-4cd7-8340-aa9e6c60ec2a" isDerived="false" sourceEndRoleName="(What would you like)" targetEndRoleName="&quot;Outlet# Off/ON/Power&quot; or outlet Name..." isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="13c1d9f9-67c7-45a5-a636-051c951858db" LastKnownName="&quot;Outlet# Off/ON/Power&quot; or outlet Name..." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="74cbefc6-d3f0-421f-95be-8165305645e6" name="(What would you like)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="17f6395d-72ab-4917-830f-a727d2a865a5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ca59fcd9-ce94-4071-9507-aeb06a09079b" name="&quot;Outlet# Off/ON/Power&quot; or outlet Name..." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fa62cc16-d1c7-48bc-b72e-f98388394e6a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="350fd640-6323-4fec-bdaf-eaafa6fc809b" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2e8832f2-4ef1-416e-ad40-77feb5d521ad" name="&quot;restart&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="76b9bf3f-75c5-4dd7-9a9e-c7d50c6a022a" />
+        <targetEnds>
+          <association Id="c6ac1c27-61cf-44d5-bf8a-da48ae5a3a9e" isDerived="false" sourceEndRoleName="&quot;restart&quot;" targetEndRoleName="(Resarting now) at lower volume (stupid master doesn't know what he wants)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="edbf8c3b-64ee-49d4-8ec8-a338c0161e06" LastKnownName="(Resarting now) at lower volume (stupid master doesn't know what he wants)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="282bddc0-e5b3-419d-9a22-abaeb8745771" name="&quot;restart&quot;" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="58299327-d132-4e48-bec5-acefefe14956" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0c60f7e9-1cc5-4725-b6f9-0ba082874da9" name="(Resarting now) at lower volume (stupid master doesn't know what he wants)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="80a9d631-6e83-4291-bbdc-4005459fc229" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e964cd11-c242-4c28-8c69-8048706a55fd" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="edbf8c3b-64ee-49d4-8ec8-a338c0161e06" name="(Resarting now) at lower volume (stupid master doesn't know what he wants)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="06576211-87d1-4d01-8c0c-e9c658c443b3" />
+        <targetEnds>
+          <association Id="d0a5a1bb-2c4b-41db-a489-829fe5ee4273" isDerived="false" sourceEndRoleName="(Resarting now) at lower volume (stupid master doesn't know what he wants)" targetEndRoleName="Starting State" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="102f74f4-d2d9-478b-9391-2e08b72581ff" LastKnownName="Starting State" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9914a877-b98d-4d69-ac26-cddfba044899" name="(Resarting now) at lower volume (stupid master doesn't know what he wants)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6121500e-294b-4d0f-a5f5-a30facc62543" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="06c62e74-1cee-4cf9-b4b9-38fcec61c69d" name="Starting State" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="da5aa9b8-3d1d-494e-b83a-2df02cfad243" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7c548fc2-3920-4f47-8855-721f0eee0949" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a7012992-38f0-4572-9a43-2f7aa88f5b1a" name="&quot;Temp##&quot;,ON or OFF" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6aae5138-4bad-4910-8326-e27cc9bf869c" />
+        <targetEnds>
+          <association Id="ecabb13a-6e48-4482-85ac-8bacd2fc3585" isDerived="false" sourceEndRoleName="&quot;Temp##&quot;,ON or OFF" targetEndRoleName="send command to comport and wait for reply" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="11d0524b-a375-41c8-88ca-cf61403cdb43" LastKnownName="send command to comport and wait for reply" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="05700e14-5898-4705-81a9-1865148f44c1" name="&quot;Temp##&quot;,ON or OFF" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a173ec3c-4dec-407e-87fe-767f4291a3b3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7c3c3e2b-f4ae-485f-a6bc-59701584fbf3" name="send command to comport and wait for reply" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2120e0b0-0fe1-4351-a884-73ff2a0aecff" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5ef7aef7-791a-4ceb-a18b-68c34a7d962c" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="13c1d9f9-67c7-45a5-a636-051c951858db" name="&quot;Outlet# Off/ON/Power&quot; or outlet Name..." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cce44452-2a75-4616-b297-0e2098ebde93" />
+        <targetEnds>
+          <association Id="65fd44ac-2ec4-411c-a4b5-f98e449059ea" isDerived="false" sourceEndRoleName="&quot;Outlet# Off/ON/Power&quot; or outlet Name..." targetEndRoleName="send outlet command to comport and wait for reply1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="24bb6c49-788d-404e-ae2d-eb7b13bdc84f" LastKnownName="send outlet command to comport and wait for reply1" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f73f005c-a2c2-43bd-9ffc-44aeb90e0645" name="&quot;Outlet# Off/ON/Power&quot; or outlet Name..." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="36a1a72e-ee5e-4f8d-8a7c-f6966f28ea32" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb3dbed4-1777-41b7-933a-e76ca37f56b9" name="send outlet command to comport and wait for reply1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="188420c2-b9c9-4708-b023-4b80427f2b03" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="dbb93a38-618d-43c6-bada-71d27d7dbb4b" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e560eef7-8af2-4446-b3d5-0c5f99ba2dcd" name="(Temperature is as you wish)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2c83824d-c76c-474b-a211-18d41e60c8b7" />
+        <targetEnds>
+          <association Id="117622ad-878f-43d7-9c4f-26c33ca27fa6" isDerived="false" sourceEndRoleName="(Temperature is as you wish)" targetEndRoleName="Starting State" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="102f74f4-d2d9-478b-9391-2e08b72581ff" LastKnownName="Starting State" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="feb4c88f-84ee-4056-b9c2-688e73d2fc99" name="(Temperature is as you wish)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f4d827e4-aa02-40f6-b7bd-81af2e004cbc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="12db0d94-dad9-4186-965e-0603f851181c" name="Starting State" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="733058a0-8839-42d3-bf54-5b3e6286018b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="71afa690-ad79-40ec-a788-74883462d412" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f362f2b7-9d4d-45a8-87da-3d5dbca9c06c" name="(Outlet is ?) ? = OFF,ON,  or power" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="02f8b114-9b3f-4494-8e4f-24edc483daf8" />
+        <targetEnds>
+          <association Id="be03d96f-13ea-408f-94aa-b52990e3c58a" isDerived="false" sourceEndRoleName="(Outlet is ?) ? = OFF,ON,  or power" targetEndRoleName="Starting State" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="102f74f4-d2d9-478b-9391-2e08b72581ff" LastKnownName="Starting State" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a36676a6-ba73-4590-b65a-bbfd87a62ee8" name="(Outlet is ?) ? = OFF,ON,  or power" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="75bd1e2f-4fa4-4a06-9c97-52795fa6d3a1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="adb7286c-ee8e-4b1e-8a1b-8e20a70f2dda" name="Starting State" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="868aebf7-0b42-4e33-8a59-2f219a4ebfe6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3e5bef74-567b-4fb2-88c6-179231b1621c" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="11d0524b-a375-41c8-88ca-cf61403cdb43" name="send command to comport and wait for reply" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5f03a732-2bf1-4fa4-b94f-5d9027990d77" />
+        <targetEnds>
+          <association Id="56afb9a2-f5d1-4b8e-9394-cc633d8572ad" isDerived="false" sourceEndRoleName="send command to comport and wait for reply" targetEndRoleName="(Master there is an error with Epic Cube)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ba8b7b87-959e-4b6e-b3fa-14ffe842ad71" LastKnownName="(Master there is an error with Epic Cube)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4d03ac5b-169a-4703-90c9-56e7e3e2f4d3" name="send command to comport and wait for reply" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4898df38-af3d-4f36-974d-beb9f8e896f2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4af19aaf-2bb4-4a10-b8c3-81217cdd1d14" name="(Master there is an error with Epic Cube)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f8bf06a9-f7c7-429b-9fb2-c266721497b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0e8275f1-d6d0-461f-9bf4-7c36fa8ef7bd" />
+          </association>
+          <association Id="ca972cac-c032-4ee6-b9bf-df4f851053bf" isDerived="false" sourceEndRoleName="send command to comport and wait for reply" targetEndRoleName="(Temperature is as you wish)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e560eef7-8af2-4446-b3d5-0c5f99ba2dcd" LastKnownName="(Temperature is as you wish)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="11bde943-aed6-4bd4-a9fd-fc4e8ffb4aa6" name="send command to comport and wait for reply" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="74bdd637-5837-4d2a-8400-755abb984cd4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ced904f6-fc3e-4152-bc83-4ef0368aacdf" name="(Temperature is as you wish)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="59605489-0aae-4d4a-9d1c-ceff253779f3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0077c0c9-b7f9-4fd1-a7cb-dd47e3133077" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ba8b7b87-959e-4b6e-b3fa-14ffe842ad71" name="(Master there is an error with Epic Cube)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="59c0fe19-43f6-4408-8b33-cab318a4a3c0" />
+        <targetEnds>
+          <association Id="db82ed12-711f-410a-b6cf-4c631416a6df" isDerived="false" sourceEndRoleName="(Master there is an error with Epic Cube)" targetEndRoleName="Starting State" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="102f74f4-d2d9-478b-9391-2e08b72581ff" LastKnownName="Starting State" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a73ee197-3d00-4e6e-946c-2ffd9fb4f86a" name="(Master there is an error with Epic Cube)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="97e6b528-1ec8-4940-ac35-b60b4ac79823" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3633e7f5-ed03-4143-85d0-9d45fb8029a8" name="Starting State" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d165b934-7f11-47d3-be1e-dd86cee5077f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="792dc74e-bb7e-4745-89ed-da8a8419b886" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="24bb6c49-788d-404e-ae2d-eb7b13bdc84f" name="send outlet command to comport and wait for reply1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="da2cc949-4fe4-4832-a482-a453163666cb" />
+        <targetEnds>
+          <association Id="dc1f0c97-97bb-48e0-9c1a-1a238bb15079" isDerived="false" sourceEndRoleName="send outlet command to comport and wait for reply1" targetEndRoleName="(Outlet is ?) ? = OFF,ON,  or power" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f362f2b7-9d4d-45a8-87da-3d5dbca9c06c" LastKnownName="(Outlet is ?) ? = OFF,ON,  or power" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c3439637-be95-4264-aca9-f98181b71c48" name="send outlet command to comport and wait for reply1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7e405bc8-4bb4-4f52-913b-fa6e25c7fec3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0702b08c-15b0-4bcc-aa5c-8e2dc09faac3" name="(Outlet is ?) ? = OFF,ON,  or power" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="415511d3-2416-4050-89c3-f4b454b73b34" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="395df5fa-f034-4302-84eb-f20c1f74da19" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="0a635fa3-a000-4956-aec4-ba974097ebaf" name="SmartHomeModel">
+    <elementDefinition Id="5aec9883-6c1a-4918-a676-cac9eed48e4a" />
+  </package>
+</useCaseModelRoot>

@@ -1,0 +1,592 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD 10\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">8/10/2012</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">3:43:15 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc" class="file"><acronym title="C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc">C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">1</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">58</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDASAMTC"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEBMTC">Your board contains 1 shelved polygon - copper connectivity will not be reported correctly. Unshelve polygons and re-run DRC check before  producing manufacturing outputs.</a></td>
+<td class="column2">1</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">1</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAOBMTC">Room HeatingAC_Garage (Bounding Region = (2050mil, 3050mil, 8000mil, 8950mil) (InComponentClass('HeatingAC_Garage'))</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA0BMTC">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAACMTC">Clearance Constraint (Gap=25mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAGCMTC">Width Constraint (Min=5mil) (Max=100mil) (Preferred=25mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAMCMTC">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDASCMTC">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDATDMTC">Silkscreen Over Component Pads (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">52</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDATCNTC">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAZCNTC">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA5CNTC">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDARDNTC">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAXDNTC">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA3DNTC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">58</td>
+</tr>
+</table><br><hr><a name="IDABBMTC"><h2>Warnings</h2></a><a name="IDAEBMTC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Your board contains 1 shelved polygon - copper connectivity will not be reported correctly. Unshelve polygons and re-run DRC check before  producing manufacturing outputs.</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: Top Layer-No Net In net GND On Bottom Layer</td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><hr><a name="IDAOBMTC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room HeatingAC_Garage (Bounding Region = (2050mil, 3050mil, 8000mil, 8950mil) (InComponentClass('HeatingAC_Garage'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050mil|Location2.X=8340.157mil|Location1.Y=3050mil|Location2.Y=8950mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050mil|Location2.X=8340.157mil|Location1.Y=3050mil|Location2.Y=8950mil|Absolute=True">Room Definition Between Component on TopLayer And Rule on TopLayer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDASCMTC"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk to Silk (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565mil|Location2.X=2684.968mil|Location1.Y=7015mil|Location2.Y=7094.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565mil|Location2.X=2684.968mil|Location1.Y=7015mil|Location2.Y=7094.981mil|Absolute=True">Text "R3" (2575mil,7025mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2566.063mil|Location2.X=2573.937mil|Location1.Y=6946.063mil|Location2.Y=7153.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2566.063mil|Location2.X=2573.937mil|Location1.Y=6946.063mil|Location2.Y=7153.937mil|Absolute=True">Track (2570mil,6950mil)(2570mil,7150mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565mil|Location2.X=2684.968mil|Location1.Y=7015mil|Location2.Y=7094.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565mil|Location2.X=2684.968mil|Location1.Y=7015mil|Location2.Y=7094.981mil|Absolute=True">Text "R3" (2575mil,7025mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2626.063mil|Location2.X=2633.937mil|Location1.Y=6946.063mil|Location2.Y=7153.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2626.063mil|Location2.X=2633.937mil|Location1.Y=6946.063mil|Location2.Y=7153.937mil|Absolute=True">Track (2630mil,6950mil)(2630mil,7150mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5154mil|Location2.X=5273.968mil|Location1.Y=7401mil|Location2.Y=7480.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5154mil|Location2.X=5273.968mil|Location1.Y=7401mil|Location2.Y=7480.981mil|Absolute=True">Text "K4" (5164mil,7411mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5115mil|Location2.X=5885mil|Location1.Y=7425mil|Location2.Y=7435mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5115mil|Location2.X=5885mil|Location1.Y=7425mil|Location2.Y=7435mil|Absolute=True">Track (5120mil,7430mil)(5880mil,7430mil)  Top Overlay</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDATDMTC"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silkscreen Over Component Pads (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4341mil|Location2.X=4409mil|Location1.Y=4666mil|Location2.Y=4734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4341mil|Location2.X=4409mil|Location1.Y=4666mil|Location2.Y=4734mil|Absolute=True">Pad Q6-3(4375mil,4700mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4380mil|Location2.X=4480mil|Location1.Y=4715mil|Location2.Y=4905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4380mil|Location2.X=4480mil|Location1.Y=4715mil|Location2.Y=4905mil|Absolute=True">Arc (4385mil,4810mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4341mil|Location2.X=4409mil|Location1.Y=4866mil|Location2.Y=4934mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4341mil|Location2.X=4409mil|Location1.Y=4866mil|Location2.Y=4934mil|Absolute=True">Pad Q6-1(4375mil,4900mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4380mil|Location2.X=4480mil|Location1.Y=4715mil|Location2.Y=4905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4380mil|Location2.X=4480mil|Location1.Y=4715mil|Location2.Y=4905mil|Absolute=True">Arc (4385mil,4810mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3041mil|Location2.X=3109mil|Location1.Y=7266mil|Location2.Y=7334mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3041mil|Location2.X=3109mil|Location1.Y=7266mil|Location2.Y=7334mil|Absolute=True">Pad Q2-3(3075mil,7300mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2870mil|Location2.X=3060mil|Location1.Y=7305mil|Location2.Y=7405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2870mil|Location2.X=3060mil|Location1.Y=7305mil|Location2.Y=7405mil|Absolute=True">Arc (2965mil,7310mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841mil|Location2.X=2909mil|Location1.Y=7266mil|Location2.Y=7334mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841mil|Location2.X=2909mil|Location1.Y=7266mil|Location2.Y=7334mil|Absolute=True">Pad Q2-1(2875mil,7300mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2870mil|Location2.X=3060mil|Location1.Y=7305mil|Location2.Y=7405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2870mil|Location2.X=3060mil|Location1.Y=7305mil|Location2.Y=7405mil|Absolute=True">Arc (2965mil,7310mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3141mil|Location2.X=3209mil|Location1.Y=6066mil|Location2.Y=6134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3141mil|Location2.X=3209mil|Location1.Y=6066mil|Location2.Y=6134mil|Absolute=True">Pad Q7-3(3175mil,6100mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970mil|Location2.X=3160mil|Location1.Y=6105mil|Location2.Y=6205mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970mil|Location2.X=3160mil|Location1.Y=6105mil|Location2.Y=6205mil|Absolute=True">Arc (3065mil,6110mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2941mil|Location2.X=3009mil|Location1.Y=6066mil|Location2.Y=6134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2941mil|Location2.X=3009mil|Location1.Y=6066mil|Location2.Y=6134mil|Absolute=True">Pad Q7-1(2975mil,6100mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970mil|Location2.X=3160mil|Location1.Y=6105mil|Location2.Y=6205mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970mil|Location2.X=3160mil|Location1.Y=6105mil|Location2.Y=6205mil|Absolute=True">Arc (3065mil,6110mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3491mil|Location2.X=3559mil|Location1.Y=6566mil|Location2.Y=6634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3491mil|Location2.X=3559mil|Location1.Y=6566mil|Location2.Y=6634mil|Absolute=True">Pad Q5-1(3525mil,6600mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3420mil|Location2.X=3520mil|Location1.Y=6595mil|Location2.Y=6785mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3420mil|Location2.X=3520mil|Location1.Y=6595mil|Location2.Y=6785mil|Absolute=True">Arc (3515mil,6690mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3491mil|Location2.X=3559mil|Location1.Y=6766mil|Location2.Y=6834mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3491mil|Location2.X=3559mil|Location1.Y=6766mil|Location2.Y=6834mil|Absolute=True">Pad Q5-3(3525mil,6800mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3420mil|Location2.X=3520mil|Location1.Y=6595mil|Location2.Y=6785mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3420mil|Location2.X=3520mil|Location1.Y=6595mil|Location2.Y=6785mil|Absolute=True">Arc (3515mil,6690mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4841mil|Location2.X=4909mil|Location1.Y=7316mil|Location2.Y=7384mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4841mil|Location2.X=4909mil|Location1.Y=7316mil|Location2.Y=7384mil|Absolute=True">Pad Q4-3(4875mil,7350mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4880mil|Location2.X=4980mil|Location1.Y=7365mil|Location2.Y=7555mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4880mil|Location2.X=4980mil|Location1.Y=7365mil|Location2.Y=7555mil|Absolute=True">Arc (4885mil,7460mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4841mil|Location2.X=4909mil|Location1.Y=7516mil|Location2.Y=7584mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4841mil|Location2.X=4909mil|Location1.Y=7516mil|Location2.Y=7584mil|Absolute=True">Pad Q4-1(4875mil,7550mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4880mil|Location2.X=4980mil|Location1.Y=7365mil|Location2.Y=7555mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4880mil|Location2.X=4980mil|Location1.Y=7365mil|Location2.Y=7555mil|Absolute=True">Arc (4885mil,7460mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2466mil|Location2.X=2534mil|Location1.Y=7441mil|Location2.Y=7509mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2466mil|Location2.X=2534mil|Location1.Y=7441mil|Location2.Y=7509mil|Absolute=True">Pad Q1-3(2500mil,7475mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515mil|Location2.X=2705mil|Location1.Y=7370mil|Location2.Y=7470mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515mil|Location2.X=2705mil|Location1.Y=7370mil|Location2.Y=7470mil|Absolute=True">Arc (2610mil,7465mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2666mil|Location2.X=2734mil|Location1.Y=7441mil|Location2.Y=7509mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2666mil|Location2.X=2734mil|Location1.Y=7441mil|Location2.Y=7509mil|Absolute=True">Pad Q1-1(2700mil,7475mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515mil|Location2.X=2705mil|Location1.Y=7370mil|Location2.Y=7470mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515mil|Location2.X=2705mil|Location1.Y=7370mil|Location2.Y=7470mil|Absolute=True">Arc (2610mil,7465mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3741mil|Location2.X=3809mil|Location1.Y=8041mil|Location2.Y=8109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3741mil|Location2.X=3809mil|Location1.Y=8041mil|Location2.Y=8109mil|Absolute=True">Pad Q3-1(3775mil,8075mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3590mil|Location2.X=3780mil|Location1.Y=7970mil|Location2.Y=8070mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3590mil|Location2.X=3780mil|Location1.Y=7970mil|Location2.Y=8070mil|Absolute=True">Arc (3685mil,8065mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3541mil|Location2.X=3609mil|Location1.Y=8041mil|Location2.Y=8109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3541mil|Location2.X=3609mil|Location1.Y=8041mil|Location2.Y=8109mil|Absolute=True">Pad Q3-3(3575mil,8075mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3590mil|Location2.X=3780mil|Location1.Y=7970mil|Location2.Y=8070mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3590mil|Location2.X=3780mil|Location1.Y=7970mil|Location2.Y=8070mil|Absolute=True">Arc (3685mil,8065mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5071.063mil|Location2.X=5078.937mil|Location1.Y=7671.063mil|Location2.Y=7687.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5071.063mil|Location2.X=5078.937mil|Location1.Y=7671.063mil|Location2.Y=7687.937mil|Absolute=True">Track (5075mil,7675mil)(5075mil,7684mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5038.268mil|Location2.X=5111.732mil|Location1.Y=7688.268mil|Location2.Y=7761.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5038.268mil|Location2.X=5111.732mil|Location1.Y=7688.268mil|Location2.Y=7761.732mil|Absolute=True">Pad R2-2(5075mil,7725mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5071.063mil|Location2.X=5078.937mil|Location1.Y=7462.063mil|Location2.Y=7478.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5071.063mil|Location2.X=5078.937mil|Location1.Y=7462.063mil|Location2.Y=7478.937mil|Absolute=True">Track (5075mil,7466mil)(5075mil,7475mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5038.268mil|Location2.X=5111.732mil|Location1.Y=7388.268mil|Location2.Y=7461.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5038.268mil|Location2.X=5111.732mil|Location1.Y=7388.268mil|Location2.Y=7461.732mil|Absolute=True">Pad R2-1(5075mil,7425mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3071.063mil|Location2.X=3078.937mil|Location1.Y=6337.063mil|Location2.Y=6353.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3071.063mil|Location2.X=3078.937mil|Location1.Y=6337.063mil|Location2.Y=6353.937mil|Absolute=True">Track (3075mil,6341mil)(3075mil,6350mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.268mil|Location2.X=3111.732mil|Location1.Y=6263.268mil|Location2.Y=6336.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.268mil|Location2.X=3111.732mil|Location1.Y=6263.268mil|Location2.Y=6336.732mil|Absolute=True">Pad R19-2(3075mil,6300mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3071.063mil|Location2.X=3078.937mil|Location1.Y=6546.063mil|Location2.Y=6562.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3071.063mil|Location2.X=3078.937mil|Location1.Y=6546.063mil|Location2.Y=6562.937mil|Absolute=True">Track (3075mil,6550mil)(3075mil,6559mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.268mil|Location2.X=3111.732mil|Location1.Y=6563.268mil|Location2.Y=6636.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.268mil|Location2.X=3111.732mil|Location1.Y=6563.268mil|Location2.Y=6636.732mil|Absolute=True">Pad R19-1(3075mil,6600mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7596.063mil|Location2.Y=7603.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7596.063mil|Location2.Y=7603.937mil|Absolute=True">Track (7066mil,7600mil)(7075mil,7600mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7563.268mil|Location2.Y=7636.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7563.268mil|Location2.Y=7636.732mil|Absolute=True">Pad R12-2(7025mil,7600mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7596.063mil|Location2.Y=7603.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7596.063mil|Location2.Y=7603.937mil|Absolute=True">Track (7275mil,7600mil)(7284mil,7600mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7563.268mil|Location2.Y=7636.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7563.268mil|Location2.Y=7636.732mil|Absolute=True">Pad R12-1(7325mil,7600mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True">Track (7275mil,7400mil)(7284mil,7400mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True">Pad R10-1(7325mil,7400mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True">Track (7066mil,7400mil)(7075mil,7400mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True">Pad R10-2(7025mil,7400mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7296.063mil|Location2.Y=7303.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7296.063mil|Location2.Y=7303.937mil|Absolute=True">Track (7066mil,7300mil)(7075mil,7300mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7263.268mil|Location2.Y=7336.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7263.268mil|Location2.Y=7336.732mil|Absolute=True">Pad R11-1(7025mil,7300mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7296.063mil|Location2.Y=7303.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7296.063mil|Location2.Y=7303.937mil|Absolute=True">Track (7275mil,7300mil)(7284mil,7300mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7263.268mil|Location2.Y=7336.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7263.268mil|Location2.Y=7336.732mil|Absolute=True">Pad R11-2(7325mil,7300mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6071.063mil|Location2.X=6087.937mil|Location1.Y=6271.063mil|Location2.Y=6278.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6071.063mil|Location2.X=6087.937mil|Location1.Y=6271.063mil|Location2.Y=6278.937mil|Absolute=True">Track (6075mil,6275mil)(6084mil,6275mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6088.268mil|Location2.X=6161.732mil|Location1.Y=6238.268mil|Location2.Y=6311.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6088.268mil|Location2.X=6161.732mil|Location1.Y=6238.268mil|Location2.Y=6311.732mil|Absolute=True">Pad R6-2(6125mil,6275mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5862.063mil|Location2.X=5878.937mil|Location1.Y=6271.063mil|Location2.Y=6278.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5862.063mil|Location2.X=5878.937mil|Location1.Y=6271.063mil|Location2.Y=6278.937mil|Absolute=True">Track (5866mil,6275mil)(5875mil,6275mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5788.268mil|Location2.X=5861.732mil|Location1.Y=6238.268mil|Location2.Y=6311.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5788.268mil|Location2.X=5861.732mil|Location1.Y=6238.268mil|Location2.Y=6311.732mil|Absolute=True">Pad R6-1(5825mil,6275mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7796.063mil|Location2.Y=7803.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7796.063mil|Location2.Y=7803.937mil|Absolute=True">Track (7275mil,7800mil)(7284mil,7800mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7763.268mil|Location2.Y=7836.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7763.268mil|Location2.Y=7836.732mil|Absolute=True">Pad R14-1(7325mil,7800mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7796.063mil|Location2.Y=7803.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7796.063mil|Location2.Y=7803.937mil|Absolute=True">Track (7066mil,7800mil)(7075mil,7800mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7763.268mil|Location2.Y=7836.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7763.268mil|Location2.Y=7836.732mil|Absolute=True">Pad R14-2(7025mil,7800mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7496.063mil|Location2.Y=7503.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7496.063mil|Location2.Y=7503.937mil|Absolute=True">Track (7066mil,7500mil)(7075mil,7500mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7463.268mil|Location2.Y=7536.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7463.268mil|Location2.Y=7536.732mil|Absolute=True">Pad R13-1(7025mil,7500mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7496.063mil|Location2.Y=7503.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7496.063mil|Location2.Y=7503.937mil|Absolute=True">Track (7275mil,7500mil)(7284mil,7500mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7463.268mil|Location2.Y=7536.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7463.268mil|Location2.Y=7536.732mil|Absolute=True">Pad R13-2(7325mil,7500mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7696.063mil|Location2.Y=7703.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7062.063mil|Location2.X=7078.937mil|Location1.Y=7696.063mil|Location2.Y=7703.937mil|Absolute=True">Track (7066mil,7700mil)(7075mil,7700mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7663.268mil|Location2.Y=7736.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6988.268mil|Location2.X=7061.732mil|Location1.Y=7663.268mil|Location2.Y=7736.732mil|Absolute=True">Pad R15-1(7025mil,7700mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7696.063mil|Location2.Y=7703.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7271.063mil|Location2.X=7287.937mil|Location1.Y=7696.063mil|Location2.Y=7703.937mil|Absolute=True">Track (7275mil,7700mil)(7284mil,7700mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7663.268mil|Location2.Y=7736.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7288.268mil|Location2.X=7361.732mil|Location1.Y=7663.268mil|Location2.Y=7736.732mil|Absolute=True">Pad R15-2(7325mil,7700mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5471.063mil|Location2.X=5478.937mil|Location1.Y=5312.063mil|Location2.Y=5328.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5471.063mil|Location2.X=5478.937mil|Location1.Y=5312.063mil|Location2.Y=5328.937mil|Absolute=True">Track (5475mil,5316mil)(5475mil,5325mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5438.268mil|Location2.X=5511.732mil|Location1.Y=5238.268mil|Location2.Y=5311.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5438.268mil|Location2.X=5511.732mil|Location1.Y=5238.268mil|Location2.Y=5311.732mil|Absolute=True">Pad R9-2(5475mil,5275mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5471.063mil|Location2.X=5478.937mil|Location1.Y=5521.063mil|Location2.Y=5537.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5471.063mil|Location2.X=5478.937mil|Location1.Y=5521.063mil|Location2.Y=5537.937mil|Absolute=True">Track (5475mil,5525mil)(5475mil,5534mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5438.268mil|Location2.X=5511.732mil|Location1.Y=5538.268mil|Location2.Y=5611.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5438.268mil|Location2.X=5511.732mil|Location1.Y=5538.268mil|Location2.Y=5611.732mil|Absolute=True">Pad R9-1(5475mil,5575mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6396.063mil|Location2.X=6403.937mil|Location1.Y=5721.063mil|Location2.Y=5737.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6396.063mil|Location2.X=6403.937mil|Location1.Y=5721.063mil|Location2.Y=5737.937mil|Absolute=True">Track (6400mil,5725mil)(6400mil,5734mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6363.268mil|Location2.X=6436.732mil|Location1.Y=5738.268mil|Location2.Y=5811.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6363.268mil|Location2.X=6436.732mil|Location1.Y=5738.268mil|Location2.Y=5811.732mil|Absolute=True">Pad R7-2(6400mil,5775mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6396.063mil|Location2.X=6403.937mil|Location1.Y=5512.063mil|Location2.Y=5528.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6396.063mil|Location2.X=6403.937mil|Location1.Y=5512.063mil|Location2.Y=5528.937mil|Absolute=True">Track (6400mil,5516mil)(6400mil,5525mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6363.268mil|Location2.X=6436.732mil|Location1.Y=5438.268mil|Location2.Y=5511.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6363.268mil|Location2.X=6436.732mil|Location1.Y=5438.268mil|Location2.Y=5511.732mil|Absolute=True">Pad R7-1(6400mil,5475mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2596.063mil|Location2.X=2603.937mil|Location1.Y=7146.063mil|Location2.Y=7162.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2596.063mil|Location2.X=2603.937mil|Location1.Y=7146.063mil|Location2.Y=7162.937mil|Absolute=True">Track (2600mil,7150mil)(2600mil,7159mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.268mil|Location2.X=2636.732mil|Location1.Y=7163.268mil|Location2.Y=7236.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.268mil|Location2.X=2636.732mil|Location1.Y=7163.268mil|Location2.Y=7236.732mil|Absolute=True">Pad R3-2(2600mil,7200mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2596.063mil|Location2.X=2603.937mil|Location1.Y=6937.063mil|Location2.Y=6953.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2596.063mil|Location2.X=2603.937mil|Location1.Y=6937.063mil|Location2.Y=6953.937mil|Absolute=True">Track (2600mil,6941mil)(2600mil,6950mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.268mil|Location2.X=2636.732mil|Location1.Y=6863.268mil|Location2.Y=6936.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.268mil|Location2.X=2636.732mil|Location1.Y=6863.268mil|Location2.Y=6936.732mil|Absolute=True">Pad R3-1(2600mil,6900mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4146.063mil|Location2.X=4162.937mil|Location1.Y=4796.063mil|Location2.Y=4803.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4146.063mil|Location2.X=4162.937mil|Location1.Y=4796.063mil|Location2.Y=4803.937mil|Absolute=True">Track (4150mil,4800mil)(4159mil,4800mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4163.268mil|Location2.X=4236.732mil|Location1.Y=4763.268mil|Location2.Y=4836.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4163.268mil|Location2.X=4236.732mil|Location1.Y=4763.268mil|Location2.Y=4836.732mil|Absolute=True">Pad R18-2(4200mil,4800mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3937.063mil|Location2.X=3953.937mil|Location1.Y=4796.063mil|Location2.Y=4803.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3937.063mil|Location2.X=3953.937mil|Location1.Y=4796.063mil|Location2.Y=4803.937mil|Absolute=True">Track (3941mil,4800mil)(3950mil,4800mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3863.268mil|Location2.X=3936.732mil|Location1.Y=4763.268mil|Location2.Y=4836.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3863.268mil|Location2.X=3936.732mil|Location1.Y=4763.268mil|Location2.Y=4836.732mil|Absolute=True">Pad R18-1(3900mil,4800mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5771.063mil|Location2.X=5787.937mil|Location1.Y=7921.063mil|Location2.Y=7928.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5771.063mil|Location2.X=5787.937mil|Location1.Y=7921.063mil|Location2.Y=7928.937mil|Absolute=True">Track (5775mil,7925mil)(5784mil,7925mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5788.268mil|Location2.X=5861.732mil|Location1.Y=7888.268mil|Location2.Y=7961.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5788.268mil|Location2.X=5861.732mil|Location1.Y=7888.268mil|Location2.Y=7961.732mil|Absolute=True">Pad R1-2(5825mil,7925mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5562.063mil|Location2.X=5578.937mil|Location1.Y=7921.063mil|Location2.Y=7928.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5562.063mil|Location2.X=5578.937mil|Location1.Y=7921.063mil|Location2.Y=7928.937mil|Absolute=True">Track (5566mil,7925mil)(5575mil,7925mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5488.268mil|Location2.X=5561.732mil|Location1.Y=7888.268mil|Location2.Y=7961.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5488.268mil|Location2.X=5561.732mil|Location1.Y=7888.268mil|Location2.Y=7961.732mil|Absolute=True">Pad R1-1(5525mil,7925mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2971.063mil|Location2.X=2978.937mil|Location1.Y=7046.063mil|Location2.Y=7062.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2971.063mil|Location2.X=2978.937mil|Location1.Y=7046.063mil|Location2.Y=7062.937mil|Absolute=True">Track (2975mil,7050mil)(2975mil,7059mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2938.268mil|Location2.X=3011.732mil|Location1.Y=7063.268mil|Location2.Y=7136.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2938.268mil|Location2.X=3011.732mil|Location1.Y=7063.268mil|Location2.Y=7136.732mil|Absolute=True">Pad R4-2(2975mil,7100mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2971.063mil|Location2.X=2978.937mil|Location1.Y=6837.063mil|Location2.Y=6853.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2971.063mil|Location2.X=2978.937mil|Location1.Y=6837.063mil|Location2.Y=6853.937mil|Absolute=True">Track (2975mil,6841mil)(2975mil,6850mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2938.268mil|Location2.X=3011.732mil|Location1.Y=6763.268mil|Location2.Y=6836.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2938.268mil|Location2.X=3011.732mil|Location1.Y=6763.268mil|Location2.Y=6836.732mil|Absolute=True">Pad R4-1(2975mil,6800mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.063mil|Location2.X=3678.937mil|Location1.Y=7646.063mil|Location2.Y=7662.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.063mil|Location2.X=3678.937mil|Location1.Y=7646.063mil|Location2.Y=7662.937mil|Absolute=True">Track (3675mil,7650mil)(3675mil,7659mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3638.268mil|Location2.X=3711.732mil|Location1.Y=7663.268mil|Location2.Y=7736.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3638.268mil|Location2.X=3711.732mil|Location1.Y=7663.268mil|Location2.Y=7736.732mil|Absolute=True">Pad R5-2(3675mil,7700mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.063mil|Location2.X=3678.937mil|Location1.Y=7437.063mil|Location2.Y=7453.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.063mil|Location2.X=3678.937mil|Location1.Y=7437.063mil|Location2.Y=7453.937mil|Absolute=True">Track (3675mil,7441mil)(3675mil,7450mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3638.268mil|Location2.X=3711.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3638.268mil|Location2.X=3711.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True">Pad R5-1(3675mil,7400mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5171.063mil|Location2.X=5178.937mil|Location1.Y=6221.063mil|Location2.Y=6237.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5171.063mil|Location2.X=5178.937mil|Location1.Y=6221.063mil|Location2.Y=6237.937mil|Absolute=True">Track (5175mil,6225mil)(5175mil,6234mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5138.268mil|Location2.X=5211.732mil|Location1.Y=6238.268mil|Location2.Y=6311.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5138.268mil|Location2.X=5211.732mil|Location1.Y=6238.268mil|Location2.Y=6311.732mil|Absolute=True">Pad R8-2(5175mil,6275mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5171.063mil|Location2.X=5178.937mil|Location1.Y=6012.063mil|Location2.Y=6028.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5171.063mil|Location2.X=5178.937mil|Location1.Y=6012.063mil|Location2.Y=6028.937mil|Absolute=True">Track (5175mil,6016mil)(5175mil,6025mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5138.268mil|Location2.X=5211.732mil|Location1.Y=5938.268mil|Location2.Y=6011.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5138.268mil|Location2.X=5211.732mil|Location1.Y=5938.268mil|Location2.Y=6011.732mil|Absolute=True">Pad R8-1(5175mil,5975mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3321.063mil|Location2.X=3337.937mil|Location1.Y=6696.063mil|Location2.Y=6703.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3321.063mil|Location2.X=3337.937mil|Location1.Y=6696.063mil|Location2.Y=6703.937mil|Absolute=True">Track (3325mil,6700mil)(3334mil,6700mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3338.268mil|Location2.X=3411.732mil|Location1.Y=6663.268mil|Location2.Y=6736.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3338.268mil|Location2.X=3411.732mil|Location1.Y=6663.268mil|Location2.Y=6736.732mil|Absolute=True">Pad R17-2(3375mil,6700mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3112.063mil|Location2.X=3128.937mil|Location1.Y=6696.063mil|Location2.Y=6703.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3112.063mil|Location2.X=3128.937mil|Location1.Y=6696.063mil|Location2.Y=6703.937mil|Absolute=True">Track (3116mil,6700mil)(3125mil,6700mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.268mil|Location2.X=3111.732mil|Location1.Y=6663.268mil|Location2.Y=6736.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.268mil|Location2.X=3111.732mil|Location1.Y=6663.268mil|Location2.Y=6736.732mil|Absolute=True">Pad R17-1(3075mil,6700mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4346.063mil|Location2.X=4362.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4346.063mil|Location2.X=4362.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True">Track (4350mil,7400mil)(4359mil,7400mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4363.268mil|Location2.X=4436.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4363.268mil|Location2.X=4436.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True">Pad R16-2(4400mil,7400mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4137.063mil|Location2.X=4153.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4137.063mil|Location2.X=4153.937mil|Location1.Y=7396.063mil|Location2.Y=7403.937mil|Absolute=True">Track (4141mil,7400mil)(4150mil,7400mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4063.268mil|Location2.X=4136.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4063.268mil|Location2.X=4136.732mil|Location1.Y=7363.268mil|Location2.Y=7436.732mil|Absolute=True">Pad R16-1(4100mil,7400mil)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDA5CNTC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7661.186mil|Location2.X=7790.783mil|Location1.Y=5968.273mil|Location2.Y=6097.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7661.186mil|Location2.X=7790.783mil|Location1.Y=5968.273mil|Location2.Y=6097.869mil|Absolute=True">Hole Size Constraint (128.346mil &gt; 100mil) : Pad J1-11(7725.984mil,6033.071mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7661.186mil|Location2.X=7790.783mil|Location1.Y=6952.131mil|Location2.Y=7081.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\laptop\Desktop\Levi\SeniorProject\Temperature Board Design\Controller box\HeatingAC_Garage.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7661.186mil|Location2.X=7790.783mil|Location1.Y=6952.131mil|Location2.Y=7081.727mil|Absolute=True">Hole Size Constraint (128.346mil &gt; 100mil) : Pad J1-10(7725.984mil,7016.929mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

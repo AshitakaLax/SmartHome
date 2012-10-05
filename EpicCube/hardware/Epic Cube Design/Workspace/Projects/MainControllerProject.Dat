@@ -1,0 +1,19 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~MainControllerProject.PrjPCB|ReportField=ProjectFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\MainControllerProject.PrjPCB|ReportField=Title~Bill of Materials For Project [MainControllerProject.PrjPCB] (No PCB Document Selected)|ReportField=TotalQuantity~45|ReportField=ReportTime~11:30:06 PM|ReportField=ReportDate~8/17/2012|ReportField=ReportDateTime~8/17/2012 11:30:06 PM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~50 S Central Campus Dr.|ReportField=Address2~Rm. 3280 MEB|ReportField=Address3~SLC, UT 84112|ReportField=Address4~|ReportField=ApprovedBy~Levi Balling|ReportField=Author~Levi Balling|ReportField=CheckedBy~Dell Hanks|ReportField=CompanyName~Smart Home|ReportField=CurrentDate~8/17/2012|ReportField=CurrentTime~11:30:03 PM|ReportField=Date~7/13/2012|ReportField=DocumentFullPathAndName~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Schematics\MainController.SchDoc|ReportField=DocumentName~MainController.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~Levi Balling|ReportField=Engineer~Levi Balling|ReportField=ImagePath~|ReportField=ModifiedDate~8/17/2012|ReportField=Organization~U of U Computer Engineering|ReportField=Project~Smart Home|ReportField=ProjectName~MainControllerProject.PrjPCB|ReportField=Revision~2|ReportField=Rule~|ReportField=SheetNumber~4|ReportField=SheetTotal~13|ReportField=Time~|ReportField=Title~Main Controller|ReportField=Website~www.eng.utah.edu/~lballing/SmartHome|ReportField=DataSourceFileName~MainControllerProject.PrjPCB|ReportField=DataSourceFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\MainControllerProject.PrjPCB
+Cap|Capacitor|C1, C2, C3, C4|RAD-0.3|Cap|4
+Diode 1N4001|1 Amp General Purpose Rectifier|D1, D2|DO-41|Diode 1N4001|2
+D Connector 9|Receptacle Assembly, 9 Position, Right Angle|J1, J2, J3, J4, J5|DSUB1.385-2H9|D Connector 9|5
+Header 5|Header, 5-Pin|P1, P3, P7, P10, P13, P14, P16, P17|HDR1X5|Header 5|8
+Header 4|Header, 4-Pin|P2|MainPowerConnector|Header 4|1
+Header 7|Header, 7-Pin|P4|HDR1X7|Header 7|1
+Header 6|Header, 6-Pin|P5|HDR1X6|Header 6|1
+Header 2|Header, 2-Pin|P6, P15|HDR1X2|Header 2|2
+Garage_HVAC|Header, 6-Pin|P8|HDR1X6|Header 6|1
+TempSenseBoard1|Header, 9-Pin|P9, P12|HDR1X9|Header 9|2
+Header 3|Header, 3-Pin|P11|HDR1X3|Header 3|1
+2N3904|NPN General Purpose Amplifier|Q1, Q2, Q3, Q4, Q5|2N3904|2N3904|5
+Res1|Resistor|R1, R2, R3, R4, R5|AXIAL-0.3|Res1|5
+Teensy2.0++|The teensy 2.0 from www.PJRC.com|Teensy1|Teensy2.0++|Teensy2.0++|1
+SN7416N|Hex Inverter Buffer / Driver with High-Voltage Outputs|U1, U2, U4|N014|SN7416N|3
+SN74HC154NT|4-Line to 16-Line Decoder / Demultiplexer|U3|NT024D|SN74HC154NT|1
+L7805CP|Positive Voltage Regulator|VR1|ISOWATT220AB|L7805CP|1
+L7812CP|Positive Voltage Regulator|VR2|ISOWATT220AB|L7805CP|1

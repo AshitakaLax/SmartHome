@@ -1,0 +1,17 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 9:44:42 PM On 5/21/2012
+
+Output: Gerber Files
+Type  : Gerber
+From  : PCB Document [MotorControllerPCB2.PcbDoc]
+   Generated File[MotorControllerPCB2.GTL]
+   Generated File[MotorControllerPCB2.RUL]
+   Generated File[MotorControllerPCB2.EXTREP]
+   Generated File[MotorControllerPCB2.REP]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 9:44:42 PM On 5/21/2012

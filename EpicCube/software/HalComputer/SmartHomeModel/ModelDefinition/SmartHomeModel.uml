@@ -1,0 +1,4047 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="5aec9883-6c1a-4918-a676-cac9eed48e4a"
+  name="SmartHomeModel" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="74edd3c2-bce0-40ec-afd6-c32d8caef707">
+      <body>All user voice statements are in "" and all HAL statements are in ()</body>
+    </comment>
+    <comment
+      Id="aa428ae0-34d0-44a3-9cd4-631ae02c4299">
+      <body>this allows you to change a room that you are not in as well.</body>
+    </comment>
+    <comment
+      Id="11258101-eee0-4088-9ec8-13dfc56a1602">
+      <body>Invalid Password</body>
+    </comment>
+    <comment
+      Id="aa054d3c-d2e1-402c-841f-b2eebd508ea6">
+      <body>Time out error</body>
+    </comment>
+    <comment
+      Id="e53ccaf4-1d53-4700-aed7-1d06271acc28">
+      <body>Time Out Error</body>
+    </comment>
+    <comment
+      Id="de41771f-1969-4b2a-83a3-cc0f30e94930">
+      <body>It will only offer you to hear them if you have them.</body>
+    </comment>
+    <comment
+      Id="8f37bb3a-5f76-4704-81ae-c6b44783897e">
+      <body>This message may be in accurate due to it being the whole dictionary.</body>
+    </comment>
+    <comment
+      Id="84d0c2db-a076-41d4-8c91-3d6ab911f926">
+      <body>Ports all audio, but still listens for the word "end", no restart</body>
+    </comment>
+    <comment
+      Id="74443205-0fed-4333-b54a-db21f34b8159">
+      <body>Predefined locations</body>
+    </comment>
+    <comment
+      Id="a0e227ab-d25b-404c-9db6-4056bb7b8fab">
+      <body>The architecture of this program must work like a tree, alternating between human and hal.  
+After each response it must load a new dictionary/grammar.
+It needs to be able to communicate with the web.
+	*from the web it needs to be able to.
+		*find traffic reports
+		*find weather conditions
+
+It also needs to be able to communicate with a serial com port to arduino devices.
+It will need to communicate over a file in order to update information from a server, and send information to the server.
+	The server may not be fast, but you can use one file and parse everything in s systimatical way.
+
+Design for voice and speech
+there will be one file that will organize all the little files and what they should do.  for all the information the initial communications so till it gets to the second human response.  Then it will pass the recognition and speech into a new object that will handle all of the other things seperately.
+
+I should have an interface that all of the sub catagories have to abide by.
+and then based on what is said just use that. or just have a bunch of classes.</body>
+    </comment>
+    <comment
+      Id="56a59b59-abd8-4fa9-845c-4198fab3efd1">
+      <body>UDOT online resources</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="40ee888d-e24f-4740-9524-4c9f08f33a14"
+        name="HAL(computer)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="e9fd14aa-7d4c-4842-a7e4-e6c6b06433c0"
+        name="user"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ccf1f44a-c6ac-480d-a3d7-50cbad730d96"
+        name="&quot;hal&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8c7c7c27-c661-4e7e-b543-8e8b1a7d34ad"
+            isDerived="false"
+            sourceEndRoleName="&quot;hal&quot;"
+            targetEndRoleName="(Yes Master)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6fc50c4c-8081-45bc-8756-ac885272537e"
+              LastKnownName="(Yes Master)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cdb4c445-c7a7-4d2f-8a46-95fe089adbec"
+                  name="&quot;hal&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ca88f6c3-f448-4983-ad7e-1ff2f7bcb998"
+                  name="(Yes Master)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6fc50c4c-8081-45bc-8756-ac885272537e"
+        name="(Yes Master)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="1511c880-5bd9-47a1-8a0b-f73a100b3fcc"
+            isDerived="false"
+            sourceEndRoleName="(Yes Master)"
+            targetEndRoleName="&quot;restart&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="76b9bf3f-75c5-4dd7-9a9e-c7d50c6a022a"
+              LastKnownName="&quot;restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aebd741f-a45c-4070-be1c-8d3d7b2b53f5"
+                  name="(Yes Master)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="859ff10f-f0ef-477c-8ec3-aae8e239029a"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5c8681fa-6ee4-4771-beb9-46b962c328c0"
+            isDerived="false"
+            sourceEndRoleName="(Yes Master)"
+            targetEndRoleName="&quot;garage&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6d24f29f-54c8-45a9-bbd9-d53394995de6"
+              LastKnownName="&quot;garage&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2727bda1-6844-4f80-93ed-c37e27975e99"
+                  name="(Yes Master)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cd063824-d9ab-4828-bbe2-c6b74035986f"
+                  name="&quot;garage&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f0011acd-c557-4b9e-ae48-d1cd38ab1b09"
+            isDerived="false"
+            sourceEndRoleName="(Yes Master)"
+            targetEndRoleName="&quot;Room#&quot; or roomName"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d615c9a9-dcee-4fce-8fb2-67ec416aa258"
+              LastKnownName="&quot;Room#&quot; or roomName"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1f23f9f2-a617-477e-bf43-933176bc7fa1"
+                  name="(Yes Master)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2b044064-f42d-4ec6-bcfa-fa7c409a9393"
+                  name="&quot;Room#&quot; or roomName"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2a8da36e-22a4-4b8c-b6d7-f44b4573cae3"
+            isDerived="false"
+            sourceEndRoleName="(Yes Master)"
+            targetEndRoleName="&quot;password&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c61718c8-a836-4929-bc1f-c786656c62b1"
+              LastKnownName="&quot;password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aac82061-5d1a-4bde-96a9-02dde66531d6"
+                  name="(Yes Master)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc95e9a3-36c8-49ce-9f97-9f23af476d55"
+                  name="&quot;password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="76b9bf3f-75c5-4dd7-9a9e-c7d50c6a022a"
+        name="&quot;restart&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e964cd11-c242-4c28-8c69-8048706a55fd"
+            isDerived="false"
+            sourceEndRoleName="&quot;restart&quot;"
+            targetEndRoleName="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="06576211-87d1-4d01-8c0c-e9c658c443b3"
+              LastKnownName="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58299327-d132-4e48-bec5-acefefe14956"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="80a9d631-6e83-4291-bbdc-4005459fc229"
+                  name="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c6ebb9a0-f221-4a39-9d1f-7546d7f05bc9"
+        name="Starting State"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c806cd95-da63-4b18-9156-54a4112429aa"
+            isDerived="false"
+            sourceEndRoleName="Starting State"
+            targetEndRoleName="&quot;hal&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ccf1f44a-c6ac-480d-a3d7-50cbad730d96"
+              LastKnownName="&quot;hal&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="799038e4-2d03-4f86-ad78-415ee22ea119"
+                  name="Starting State"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d0b63c4d-fd41-4595-92ec-a06730a206ab"
+                  name="&quot;hal&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6d24f29f-54c8-45a9-bbd9-d53394995de6"
+        name="&quot;garage&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7460093c-eeeb-4fed-85f3-b7dbffde18dd"
+            isDerived="false"
+            sourceEndRoleName="&quot;garage&quot;"
+            targetEndRoleName="(password Please)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c1adc3b5-7fdc-425c-9b2a-1581125072f5"
+              LastKnownName="(password Please)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="108e3961-8eef-4a41-92fe-aa98c17b9fe1"
+                  name="&quot;garage&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="977cd5aa-2c57-408e-8f00-0b653214d4a5"
+                  name="(password Please)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c1adc3b5-7fdc-425c-9b2a-1581125072f5"
+        name="(password Please)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d45b70bf-5962-4ec2-b6db-47ef8a6f4796"
+            isDerived="false"
+            sourceEndRoleName="(password Please)"
+            targetEndRoleName="&quot;restart&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="76b9bf3f-75c5-4dd7-9a9e-c7d50c6a022a"
+              LastKnownName="&quot;restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a54da604-c065-4ce4-813d-12e2dddfeead"
+                  name="(password Please)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ce35c5c1-098a-48f0-9b76-262514b3bc50"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b886b40b-eada-4108-bd5c-580d59bf7cb5"
+            isDerived="false"
+            sourceEndRoleName="(password Please)"
+            targetEndRoleName="&quot;specific numeric password&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2a730310-9fc7-4a2a-8c61-68e6d197c7e4"
+              LastKnownName="&quot;specific numeric password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="05eee69b-a55f-49b0-b01a-feafaceca834"
+                  name="(password Please)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="79f05101-f85d-4e8c-994f-86745c577600"
+                  name="&quot;specific numeric password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2a730310-9fc7-4a2a-8c61-68e6d197c7e4"
+        name="&quot;specific numeric password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="72152271-b06f-4da6-b673-80a4aef2cd17"
+            isDerived="false"
+            sourceEndRoleName="&quot;specific numeric password&quot;"
+            targetEndRoleName="incorrect password"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0dc306db-2496-4243-95bb-434303fa92d4"
+              LastKnownName="incorrect password"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bb348d2f-ceb8-4055-9ca8-8a54761048f8"
+                  name="&quot;specific numeric password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b9ded5e9-c84a-4ddf-a250-c586e293a40a"
+                  name="incorrect password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b0151f7f-323d-4f28-9414-d50bcb3b5477"
+            isDerived="false"
+            sourceEndRoleName="&quot;specific numeric password&quot;"
+            targetEndRoleName="correct password"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="12726e85-d070-4798-bb4b-8bca1135e654"
+              LastKnownName="correct password"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3b16b430-0978-46ac-80b0-3397662c59a1"
+                  name="&quot;specific numeric password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a82c3fac-5a41-4c2a-a35d-0d71e4b77e1b"
+                  name="correct password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="06576211-87d1-4d01-8c0c-e9c658c443b3"
+        name="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7c548fc2-3920-4f47-8855-721f0eee0949"
+            isDerived="false"
+            sourceEndRoleName="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+            targetEndRoleName="Starting State"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c6ebb9a0-f221-4a39-9d1f-7546d7f05bc9"
+              LastKnownName="Starting State"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6121500e-294b-4d0f-a5f5-a30facc62543"
+                  name="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="da5aa9b8-3d1d-494e-b83a-2df02cfad243"
+                  name="Starting State"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1370e52f-4d78-4d3d-9079-7d9dab7936ad"
+        name="(I'm afraid I can't do that)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="64e1a989-89fa-466c-a4af-eb3a430a78d1"
+            isDerived="false"
+            sourceEndRoleName="(I'm afraid I can't do that)"
+            targetEndRoleName="&quot;restart&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="76b9bf3f-75c5-4dd7-9a9e-c7d50c6a022a"
+              LastKnownName="&quot;restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="36a2ecf4-69ce-4e70-b4c5-8ce38254091d"
+                  name="(I'm afraid I can't do that)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0048d04b-962a-4066-b923-77a24640bf15"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4691131b-20c2-4d7f-8035-6795bb1dd60b"
+            isDerived="false"
+            sourceEndRoleName="(I'm afraid I can't do that)"
+            targetEndRoleName="(password Please)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c1adc3b5-7fdc-425c-9b2a-1581125072f5"
+              LastKnownName="(password Please)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cf6f35d2-d99f-4645-b829-20a8840f938d"
+                  name="(I'm afraid I can't do that)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="18ab8d05-fa44-4289-a340-bbf295722bc4"
+                  name="(password Please)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0dc306db-2496-4243-95bb-434303fa92d4"
+        name="incorrect password"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="fad8ea78-0d8b-4fc4-b839-5f24f476ab41"
+            isDerived="false"
+            sourceEndRoleName="incorrect password"
+            targetEndRoleName="(I'm afraid I can't do that)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1370e52f-4d78-4d3d-9079-7d9dab7936ad"
+              LastKnownName="(I'm afraid I can't do that)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eb0c4e95-2235-4114-9011-7f33f4a1cc33"
+                  name="incorrect password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="67bfaa14-636d-4e78-92b3-bcdb3e68a915"
+                  name="(I'm afraid I can't do that)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="12726e85-d070-4798-bb4b-8bca1135e654"
+        name="correct password"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="00472848-66e4-4013-9c48-bc04bb1ba19f"
+            isDerived="false"
+            sourceEndRoleName="correct password"
+            targetEndRoleName="Pulse the Garage via comport and wait for reply"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="43712b73-c817-421d-8389-d84d31c827da"
+              LastKnownName="Pulse the Garage via comport and wait for reply"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="94c53689-6995-451e-97ec-19e562e74f10"
+                  name="correct password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6ee9feba-7178-427a-919a-8658aedc2371"
+                  name="Pulse the Garage via comport and wait for reply"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="43712b73-c817-421d-8389-d84d31c827da"
+        name="Pulse the Garage via comport and wait for reply"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="1fbd785d-5032-4628-a1a4-8cb859083704">
+            <useCaseMoniker
+              Id="b5595100-8cd0-48a4-a945-888c64e09005"
+              LastKnownName="Garage message receive from epic cube"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="78a8d1df-23fa-4afd-b7cb-b1de015819ff"
+            isDerived="false"
+            sourceEndRoleName="Pulse the Garage via comport and wait for reply"
+            targetEndRoleName="reply time out"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ff43509b-cf98-4843-a3cd-7180313a8a7a"
+              LastKnownName="reply time out"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6ba79590-6f48-4c95-93af-9ae9206fccac"
+                  name="Pulse the Garage via comport and wait for reply"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4ea0f1a1-8f14-4724-a627-8394a47a82b3"
+                  name="reply time out"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b5595100-8cd0-48a4-a945-888c64e09005"
+        name="Garage message receive from epic cube"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="322423ab-2bdd-41de-8443-5ba90d799abd"
+            isDerived="false"
+            sourceEndRoleName="Garage message receive from epic cube"
+            targetEndRoleName="(Garage has be pulsed master)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7738428b-1ab5-4c0a-8d3d-7223d80d3199"
+              LastKnownName="(Garage has be pulsed master)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d6c1e617-0487-4d06-a1d6-56a95d750353"
+                  name="Garage message receive from epic cube"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="053e619f-53cc-42b6-ae15-acf17add7046"
+                  name="(Garage has be pulsed master)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7738428b-1ab5-4c0a-8d3d-7223d80d3199"
+        name="(Garage has be pulsed master)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="20c8860a-7832-4b97-a937-dcd690871dac"
+            isDerived="false"
+            sourceEndRoleName="(Garage has be pulsed master)"
+            targetEndRoleName="Starting State"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c6ebb9a0-f221-4a39-9d1f-7546d7f05bc9"
+              LastKnownName="Starting State"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9583f77d-ee57-4533-9800-3d68a69bc71f"
+                  name="(Garage has be pulsed master)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0d56a612-f3cd-4467-87d5-2015835d5b89"
+                  name="Starting State"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ff43509b-cf98-4843-a3cd-7180313a8a7a"
+        name="reply time out"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3b30dc5a-0892-47e7-931d-11b0ae7dc0ea"
+            isDerived="false"
+            sourceEndRoleName="reply time out"
+            targetEndRoleName="(Master there is an error with Epic Cube)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="59c0fe19-43f6-4408-8b33-cab318a4a3c0"
+              LastKnownName="(Master there is an error with Epic Cube)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ddec2668-4409-4198-963c-d48966f1e4e8"
+                  name="reply time out"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="af19b302-73bb-4cb3-835a-917535573f29"
+                  name="(Master there is an error with Epic Cube)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="59c0fe19-43f6-4408-8b33-cab318a4a3c0"
+        name="(Master there is an error with Epic Cube)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="792dc74e-bb7e-4745-89ed-da8a8419b886"
+            isDerived="false"
+            sourceEndRoleName="(Master there is an error with Epic Cube)"
+            targetEndRoleName="Starting State"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c6ebb9a0-f221-4a39-9d1f-7546d7f05bc9"
+              LastKnownName="Starting State"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="97e6b528-1ec8-4940-ac35-b60b4ac79823"
+                  name="(Master there is an error with Epic Cube)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d165b934-7f11-47d3-be1e-dd86cee5077f"
+                  name="Starting State"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d615c9a9-dcee-4fce-8fb2-67ec416aa258"
+        name="&quot;Room#&quot; or roomName"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="a7bce4bd-c21e-4bc5-95cc-bd5c6ef15732"
+            isDerived="false"
+            sourceEndRoleName="&quot;Room#&quot; or roomName"
+            targetEndRoleName="(What would you like)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c2f25750-dcfa-4226-81a7-1df8de6311b0"
+              LastKnownName="(What would you like)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c6f2f319-4e69-409e-9521-2c2505d46a77"
+                  name="&quot;Room#&quot; or roomName"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a9177eff-eb6a-4185-936d-b0b11487fa72"
+                  name="(What would you like)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c2f25750-dcfa-4226-81a7-1df8de6311b0"
+        name="(What would you like)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="53a50017-a3ae-4f18-8d54-235b8c06e45c"
+            isDerived="false"
+            sourceEndRoleName="(What would you like)"
+            targetEndRoleName="&quot;restart&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="76b9bf3f-75c5-4dd7-9a9e-c7d50c6a022a"
+              LastKnownName="&quot;restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d5b99b1e-93f4-4055-ab22-e2aef03ae3d4"
+                  name="(What would you like)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b942a793-144c-4391-b235-5334afb754e6"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="88838541-8115-4c1b-8bb5-d58537f9835f"
+            isDerived="false"
+            sourceEndRoleName="(What would you like)"
+            targetEndRoleName="&quot;Temp##&quot;,ON or OFF"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6aae5138-4bad-4910-8326-e27cc9bf869c"
+              LastKnownName="&quot;Temp##&quot;,ON or OFF"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b461f7c0-2c0b-45e2-9b75-e47b749f5d3b"
+                  name="(What would you like)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="467b3d29-4489-48c4-8311-159eeb426796"
+                  name="&quot;Temp##&quot;,ON or OFF"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="350fd640-6323-4fec-bdaf-eaafa6fc809b"
+            isDerived="false"
+            sourceEndRoleName="(What would you like)"
+            targetEndRoleName="&quot;Outlet# Off/ON/Power&quot; or outlet Name..."
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cce44452-2a75-4616-b297-0e2098ebde93"
+              LastKnownName="&quot;Outlet# Off/ON/Power&quot; or outlet Name..."
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="17f6395d-72ab-4917-830f-a727d2a865a5"
+                  name="(What would you like)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa62cc16-d1c7-48bc-b72e-f98388394e6a"
+                  name="&quot;Outlet# Off/ON/Power&quot; or outlet Name..."
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6aae5138-4bad-4910-8326-e27cc9bf869c"
+        name="&quot;Temp##&quot;,ON or OFF"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="5ef7aef7-791a-4ceb-a18b-68c34a7d962c"
+            isDerived="false"
+            sourceEndRoleName="&quot;Temp##&quot;,ON or OFF"
+            targetEndRoleName="send command to comport and wait for reply"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5f03a732-2bf1-4fa4-b94f-5d9027990d77"
+              LastKnownName="send command to comport and wait for reply"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a173ec3c-4dec-407e-87fe-767f4291a3b3"
+                  name="&quot;Temp##&quot;,ON or OFF"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2120e0b0-0fe1-4351-a884-73ff2a0aecff"
+                  name="send command to comport and wait for reply"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cce44452-2a75-4616-b297-0e2098ebde93"
+        name="&quot;Outlet# Off/ON/Power&quot; or outlet Name..."
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="dbb93a38-618d-43c6-bada-71d27d7dbb4b"
+            isDerived="false"
+            sourceEndRoleName="&quot;Outlet# Off/ON/Power&quot; or outlet Name..."
+            targetEndRoleName="send outlet command to comport and wait for reply1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="da2cc949-4fe4-4832-a482-a453163666cb"
+              LastKnownName="send outlet command to comport and wait for reply1"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="36a1a72e-ee5e-4f8d-8a7c-f6966f28ea32"
+                  name="&quot;Outlet# Off/ON/Power&quot; or outlet Name..."
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="188420c2-b9c9-4708-b023-4b80427f2b03"
+                  name="send outlet command to comport and wait for reply1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2c83824d-c76c-474b-a211-18d41e60c8b7"
+        name="(Temperature is as you wish)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="71afa690-ad79-40ec-a788-74883462d412"
+            isDerived="false"
+            sourceEndRoleName="(Temperature is as you wish)"
+            targetEndRoleName="Starting State"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c6ebb9a0-f221-4a39-9d1f-7546d7f05bc9"
+              LastKnownName="Starting State"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f4d827e4-aa02-40f6-b7bd-81af2e004cbc"
+                  name="(Temperature is as you wish)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="733058a0-8839-42d3-bf54-5b3e6286018b"
+                  name="Starting State"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="02f8b114-9b3f-4494-8e4f-24edc483daf8"
+        name="(Outlet is ?) ? = OFF,ON,  or power"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3e5bef74-567b-4fb2-88c6-179231b1621c"
+            isDerived="false"
+            sourceEndRoleName="(Outlet is ?) ? = OFF,ON,  or power"
+            targetEndRoleName="Starting State"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c6ebb9a0-f221-4a39-9d1f-7546d7f05bc9"
+              LastKnownName="Starting State"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="75bd1e2f-4fa4-4a06-9c97-52795fa6d3a1"
+                  name="(Outlet is ?) ? = OFF,ON,  or power"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="868aebf7-0b42-4e33-8a59-2f219a4ebfe6"
+                  name="Starting State"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c61718c8-a836-4929-bc1f-c786656c62b1"
+        name="&quot;password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="f5adc701-468d-496f-ba6f-1e97c26b7cc8"
+            isDerived="false"
+            sourceEndRoleName="&quot;password&quot;"
+            targetEndRoleName="(Please give me your current password)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="08bab904-781e-40f6-8fe0-57b400e3660c"
+              LastKnownName="(Please give me your current password)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a69d670e-3481-41e3-b717-2f18c9164d85"
+                  name="&quot;password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="84646dcd-69f6-4bc1-a8f1-89cae9e9ca1e"
+                  name="(Please give me your current password)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="08bab904-781e-40f6-8fe0-57b400e3660c"
+        name="(Please give me your current password)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="4fd79176-ca82-496c-99b7-8254f1b05ea8"
+            isDerived="false"
+            sourceEndRoleName="(Please give me your current password)"
+            targetEndRoleName="&quot;restart&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="76b9bf3f-75c5-4dd7-9a9e-c7d50c6a022a"
+              LastKnownName="&quot;restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b14a594d-0ed1-44b4-9541-c1e68e30347b"
+                  name="(Please give me your current password)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="761e4d0c-b6b1-4ffd-8d8b-9564508556e8"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="80138b6d-97c7-46e7-970d-46ed37c02ba4"
+            isDerived="false"
+            sourceEndRoleName="(Please give me your current password)"
+            targetEndRoleName="&quot;current Password&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e563df3f-2243-429e-80f2-f7b7e3c34f7a"
+              LastKnownName="&quot;current Password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7552b513-eed1-47b0-b74e-a1da354cd5e7"
+                  name="(Please give me your current password)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c51327a3-d08e-44ed-8e3f-55732b7fbd87"
+                  name="&quot;current Password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e563df3f-2243-429e-80f2-f7b7e3c34f7a"
+        name="&quot;current Password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="afb44b13-c2ac-4d98-a183-353141a68eb0"
+            isDerived="false"
+            sourceEndRoleName="&quot;current Password&quot;"
+            targetEndRoleName="correct password"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1f8b7407-67db-4bea-a4bd-c1fc7510aca9"
+              LastKnownName="correct password"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5d78ce88-595c-4287-9377-8e1256236f46"
+                  name="&quot;current Password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="79843e2b-66ba-4ce6-91d0-63dcaac7ac60"
+                  name="correct password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7b90557b-b99e-49ce-8918-41a91ec68c7f"
+            isDerived="false"
+            sourceEndRoleName="&quot;current Password&quot;"
+            targetEndRoleName="incorrect password"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f58b232a-f4fe-4570-9f66-e23bac4c1b3d"
+              LastKnownName="incorrect password"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7410d71a-a8b0-484c-a256-8757b3c11aba"
+                  name="&quot;current Password&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2800b091-dc93-4960-aa95-b6769686208d"
+                  name="incorrect password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1f8b7407-67db-4bea-a4bd-c1fc7510aca9"
+        name="correct password"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7d521269-1079-4f0c-bfb5-fe66400f6a9c"
+            isDerived="false"
+            sourceEndRoleName="correct password"
+            targetEndRoleName="(please State you new password)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="da815834-d78a-4280-a467-c78cd9ec64f4"
+              LastKnownName="(please State you new password)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c16884a8-0dfe-46d4-98e7-827b6fd8e252"
+                  name="correct password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fe598ab0-fb89-4a76-b44f-001b8c1aeeb1"
+                  name="(please State you new password)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="887ee440-452e-4b00-a92b-27afc2836364"
+            isDerived="false"
+            sourceEndRoleName="correct password"
+            targetEndRoleName="&quot;restart&quot;"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a1fe1c58-34aa-4f08-9d06-810fc3bf728a"
+              LastKnownName="&quot;restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c76cd471-9c4e-4790-96a1-f1a47a679841"
+                  name="correct password"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cd5d6657-abf1-4721-9db7-82c22bdbbc78"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5f03a732-2bf1-4fa4-b94f-5d9027990d77"
+        name="send command to comport and wait for reply"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="0e8275f1-d6d0-461f-9bf4-7c36fa8ef7bd"
+            isDerived="false"
+            sourceEndRoleName="send command to comport and wait for reply"
+            targetEndRoleName="(Master there is an error with Epic Cube)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="59c0fe19-43f6-4408-8b33-cab318a4a3c0"
+              LastKnownName="(Master there is an error with Epic Cube)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4898df38-af3d-4f36-974d-beb9f8e896f2"
+                  name="send command to comport and wait for reply"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f8bf06a9-f7c7-429b-9fb2-c266721497b8"
+                  name="(Master there is an error with Epic Cube)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0077c0c9-b7f9-4fd1-a7cb-dd47e3133077"
+            isDerived="false"
+            sourceEndRoleName="send command to comport and wait for reply"
+            targetEndRoleName="(Temperature is as you wish)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2c83824d-c76c-474b-a211-18d41e60c8b7"
+              LastKnownName="(Temperature is as you wish)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="74bdd637-5837-4d2a-8400-755abb984cd4"
+                  name="send command to comport and wait for reply"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="59605489-0aae-4d4a-9d1c-ceff253779f3"
+                  name="(Temperature is as you wish)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="da2cc949-4fe4-4832-a482-a453163666cb"
+        name="send outlet command to comport and wait for reply1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="395df5fa-f034-4302-84eb-f20c1f74da19"
+            isDerived="false"
+            sourceEndRoleName="send outlet command to comport and wait for reply1"
+            targetEndRoleName="(Outlet is ?) ? = OFF,ON,  or power"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="02f8b114-9b3f-4494-8e4f-24edc483daf8"
+              LastKnownName="(Outlet is ?) ? = OFF,ON,  or power"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7e405bc8-4bb4-4f52-913b-fa6e25c7fec3"
+                  name="send outlet command to comport and wait for reply1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="415511d3-2416-4050-89c3-f4b454b73b34"
+                  name="(Outlet is ?) ? = OFF,ON,  or power"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f58b232a-f4fe-4570-9f66-e23bac4c1b3d"
+        name="incorrect password"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="da815834-d78a-4280-a467-c78cd9ec64f4"
+        name="(please State you new password)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c62de3a4-a6e8-489b-a877-a9faea73c92a"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a1fe1c58-34aa-4f08-9d06-810fc3bf728a"
+        name="&quot;restart&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="0a575b44-80d5-4d1f-8739-b72e3ce07c1f"
+            isDerived="false"
+            sourceEndRoleName="&quot;restart&quot;"
+            targetEndRoleName="(reverting to previous Password)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="41ad8143-811b-46c0-8e65-ed00f559b970"
+              LastKnownName="(reverting to previous Password)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7088a201-54fc-4b54-a369-d9290b83299a"
+                  name="&quot;restart&quot;"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fc2dc309-03be-4a98-9281-193c7e681a54"
+                  name="(reverting to previous Password)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="41ad8143-811b-46c0-8e65-ed00f559b970"
+        name="(reverting to previous Password)"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d8d4a0a9-9bb5-47b0-8c3b-84380967c247"
+            isDerived="false"
+            sourceEndRoleName="(reverting to previous Password)"
+            targetEndRoleName="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="06576211-87d1-4d01-8c0c-e9c658c443b3"
+              LastKnownName="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b3bb9fdd-3a69-46ce-ac32-5652aac05f8d"
+                  name="(reverting to previous Password)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1e0131ef-5cba-4d28-b3ba-2da9227aedf3"
+                  name="(Resarting now) at lower volume (stupid master doesn't know what he wants)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b3e4e88a-6bd2-45f6-81ec-dfeb83c3862c"
+        name="&quot;new Password&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="a36522c3-97cc-4eb7-9682-47ef71445f39"
+        name="Human"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="557ca6cd-0d17-439e-a394-0d701c51436b"
+        name="Computer(Hal)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e02a6045-425a-4c9f-abf6-7528b43f20f0"
+        name="&quot;Good (time frame response) what can I do for you today?&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="538dd8d7-7a87-4178-9cb3-110f7f539508"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9f9f828b-3dd1-49db-822c-d10054402c2a"
+              LastKnownName="&quot;Hal&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9f9f828b-3dd1-49db-822c-d10054402c2a"
+        name="&quot;Hal&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="f1f3b85c-cfc5-456c-8aca-581a24044f7e"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="03a1a65a-2a43-4b4d-9ab2-6662305b96cd"
+              LastKnownName="&quot;Yes Master&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="03a1a65a-2a43-4b4d-9ab2-6662305b96cd"
+        name="&quot;Yes Master&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c3e2ff1c-a858-47b3-82ae-87db26348b5c"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="3283d329-0834-4b45-85cd-1ffa74bb68d0"
+              LastKnownName="&quot;Garage&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="0f467d2b-900f-471e-bdfe-8d953c0c2984"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="1d65e1c0-6d4b-4896-bdb0-f7f4b5343ba9"
+              LastKnownName="&quot;Room#&quot;, # being 1-9/&quot;RoomName&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="6f0a1490-9976-4b17-b3fb-49e72a651e55"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="aafc4641-10c5-4575-b474-972099da320f"
+              LastKnownName="&quot;Password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="39b974a9-8d61-4b5e-8813-b9ae6211399d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="fab94e2f-ca66-4100-96e7-deb06b36592f"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="7927106c-a330-4c9c-aaaf-ea7620e08cd0"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="063ad1ba-cbf7-4a96-b4d0-dc66c2117f88"
+              LastKnownName="&quot;Phone&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="a7bac896-e2d0-4bea-913d-1c51abe5f072"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="1495f540-6500-4f7b-aab3-883170b4344f"
+              LastKnownName="&quot;Weather&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="c787f6c4-36ca-4b49-acf1-78d4a8351928"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="5942992b-8e89-4393-90d9-12110459bc48"
+              LastKnownName="&quot;Traffic&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="5bbd57bf-0d0c-443c-bd09-6d21109e5fbe"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ac366cca-e0bf-4058-95a1-9d7ebb61a6ec"
+              LastKnownName="&quot;Sprinkler&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="23657ba3-2e54-45f8-8e04-56508540cc6e"
+        name="Computer(Hal)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="4984909d-45fb-4fed-9ae4-045188d9ab4e"
+        name="Human"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1d65e1c0-6d4b-4896-bdb0-f7f4b5343ba9"
+        name="&quot;Room#&quot;, # being 1-9/&quot;RoomName&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="ebf909e9-8938-4930-b6b1-7c5e9b6bac65"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="7c758adb-1afd-4f59-9436-48d5a4c94718"
+              LastKnownName="&quot;What would you like&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3283d329-0834-4b45-85cd-1ffa74bb68d0"
+        name="&quot;Garage&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="d671c4e9-6f1c-440b-a3ba-e72ff8dcb285"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9174fb51-9158-428f-8ce6-f071f6d918aa"
+              LastKnownName="&quot;Password Please&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="aafc4641-10c5-4575-b474-972099da320f"
+        name="&quot;Password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="1d6ec8d4-9709-486f-a153-0c27fde5b538"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="f2eaeecd-5c36-4dc6-b768-95b7f1d212fe"
+              LastKnownName="&quot;Please Give Me your Current Password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fab94e2f-ca66-4100-96e7-deb06b36592f"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9174fb51-9158-428f-8ce6-f071f6d918aa"
+        name="&quot;Password Please&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="04f0d661-e334-48a2-9c98-26a845b34db9"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="64f9c58a-5233-4f65-8b2d-896f143b0ea0"
+              LastKnownName="&quot;Password&quot;,"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="c433bfe3-bc34-47c8-8486-c43c1ced3d77"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="59e9ad2e-9528-4b62-b5ad-89d8fc9d704e"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="60656656-0025-4c81-b5d8-745ca14bca64"
+        name="Computer(Hal)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="64f9c58a-5233-4f65-8b2d-896f143b0ea0"
+        name="&quot;Password&quot;,"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3c4e4fca-0ddd-4563-bb17-94ee14798426"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="67b5c3b8-ea74-4558-bf3c-f62ba787af6a"
+              LastKnownName="&quot;I'm Afraid I can't do that&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <description>If incorrect reply invalid</description>
+          </generalization>
+          <generalization
+            Id="69939e79-2caf-4054-9385-773a84ad1764"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="51558498-74d0-4f8f-978c-5e129d66de15"
+              LastKnownName="&quot;Garage Has been Pressed&quot;, sends reply after completetion of opening the garage door."
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="47d84000-e8c0-4f7c-9507-29d5aad1da99"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="4128579f-ed6c-473d-8a82-c3d3f48aef2d"
+              LastKnownName="&quot;I'm sorry there is an error with the Epic Cube&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="67b5c3b8-ea74-4558-bf3c-f62ba787af6a"
+        name="&quot;I'm Afraid I can't do that&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="b4dbb0c4-76be-48f2-a91f-3addfe4c680d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9174fb51-9158-428f-8ce6-f071f6d918aa"
+              LastKnownName="&quot;Password Please&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="51558498-74d0-4f8f-978c-5e129d66de15"
+        name="&quot;Garage Has been Pressed&quot;, sends reply after completetion of opening the garage door."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4128579f-ed6c-473d-8a82-c3d3f48aef2d"
+        name="&quot;I'm sorry there is an error with the Epic Cube&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6595fd54-ea5b-4328-ba28-2b947258c124"
+        name="&quot;Restart&quot;1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="59e9ad2e-9528-4b62-b5ad-89d8fc9d704e"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7c758adb-1afd-4f59-9436-48d5a4c94718"
+        name="&quot;What would you like&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="724cef66-c727-43f4-af4f-1c1cafb60e5f"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="a441e4a4-d852-4390-b37f-65ed9c3280a2"
+              LastKnownName="&quot;TempXX ON/OFF&quot;, x being 1-9"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="e597bb5c-8d6f-4a5d-bf60-19a71f152568"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="1ae5c829-9f54-41c7-b5f1-674a03450899"
+              LastKnownName="&quot;Outlet#ON/OFF/Power&quot;, or OutletName+&quot;#ON/OFF/Power&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="8bee975e-3505-4f90-8c02-92ac6bbf6940"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="59e9ad2e-9528-4b62-b5ad-89d8fc9d704e"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a441e4a4-d852-4390-b37f-65ed9c3280a2"
+        name="&quot;TempXX ON/OFF&quot;, x being 1-9"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="1c68e320-61a3-4697-b7d8-62afbfe4bbb3"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="68dc6635-1b42-4448-9193-ebffc8dcf202"
+              LastKnownName="&quot;I'm sorry there is an error with the Epic Cube&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="ce2904a7-942b-4375-9311-d2e0822bb8a9"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9f27cfe4-c7df-46ce-b58e-eaaefa6a6799"
+              LastKnownName="&quot;Temperature is set as you wish&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1ae5c829-9f54-41c7-b5f1-674a03450899"
+        name="&quot;Outlet#ON/OFF/Power&quot;, or OutletName+&quot;#ON/OFF/Power&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="eebc1ea5-9173-4d96-98a9-5267f109c6df"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="0ba758b9-4a90-4a59-a5fa-93666b68e9dc"
+              LastKnownName="&quot;outlet is OFF/ON/Power&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="895314c8-698a-41f6-8968-0b4c2883d98f"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="68dc6635-1b42-4448-9193-ebffc8dcf202"
+              LastKnownName="&quot;I'm sorry there is an error with the Epic Cube&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0ba758b9-4a90-4a59-a5fa-93666b68e9dc"
+        name="&quot;outlet is OFF/ON/Power&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="68dc6635-1b42-4448-9193-ebffc8dcf202"
+        name="&quot;I'm sorry there is an error with the Epic Cube&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9f27cfe4-c7df-46ce-b58e-eaaefa6a6799"
+        name="&quot;Temperature is set as you wish&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="063ad1ba-cbf7-4a96-b4d0-dc66c2117f88"
+        name="&quot;Phone&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="b1ec0f28-d525-4901-b15b-275058c4b380"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="8f0d4cf7-85e0-41aa-92e3-39792413fb42"
+              LastKnownName="&quot;You have X messages, Would you like to hear them?&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1495f540-6500-4f7b-aab3-883170b4344f"
+        name="&quot;Weather&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="f5165791-c9c0-4a74-b392-afd24a62d0e6"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="17dc4bcf-8d59-45c8-8ffb-20947f1b536b"
+              LastKnownName="&quot;What Location&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5942992b-8e89-4393-90d9-12110459bc48"
+        name="&quot;Traffic&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="f261844d-bcbb-450a-936d-e917ce29cf2d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="8b766c79-88a9-4363-9a36-69c1bf4b0c70"
+              LastKnownName="&quot;There are No accidents/There are accidents x place and x place.&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f2eaeecd-5c36-4dc6-b768-95b7f1d212fe"
+        name="&quot;Please Give Me your Current Password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3839a4ad-9bed-4ba0-8200-004a04e00149"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="3c845a4d-5427-439b-8fe6-cca996dff075"
+              LastKnownName="&quot;Current Password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="785d5bfd-fc6b-4180-82ca-dd67baf1bb29"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="4d98201c-c148-424c-b8c7-75d322425cb6"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7df91c50-056c-4897-99f0-7b6f9f6e0342"
+        name="&quot;Please give me your new Password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="52d03c08-1635-4597-aefa-2a26a5459f2c"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="eddab9f4-2169-478c-9ea2-f7861f219cba"
+              LastKnownName="&quot;new Password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="5cc49129-3b8c-4072-bf15-e62b6bd5ce56"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="2a18bb68-5b65-45cf-b2ea-79208ba6bcd8"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fd8b54a3-5ccb-46f9-b92a-03c55d8fd2e5"
+        name="&quot;I'm Sorry that is incorrect&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a7d08882-fb7f-4eb8-9587-974accba126c"
+        name="&quot;Is your password&quot;, repeat Password back"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="f38127eb-6383-40a0-8633-cc38990beb4b"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="4b63a80c-958b-4677-af07-cb74545a2430"
+              LastKnownName="&quot;Yes&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="4f1f5ac9-74c4-46de-bf3c-79404b66f79d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="af4ab55b-7a98-495c-a459-73fe4302bcca"
+              LastKnownName="&quot;No&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="50f8577b-da97-4e06-9bf6-f34aae29921a"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="92bf8323-4cc5-450b-ab97-a59a3e7e6052"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4b63a80c-958b-4677-af07-cb74545a2430"
+        name="&quot;Yes&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="6fa75dc2-16ca-45d8-b98c-e40fe1940966"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9e5067d3-1164-45bb-b8b9-711882fcda5a"
+              LastKnownName="&quot;Password has been saved&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="af4ab55b-7a98-495c-a459-73fe4302bcca"
+        name="&quot;No&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="4830dc9b-173c-44fe-a02c-90245537b996"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="7df91c50-056c-4897-99f0-7b6f9f6e0342"
+              LastKnownName="&quot;Please give me your new Password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9e5067d3-1164-45bb-b8b9-711882fcda5a"
+        name="&quot;Password has been saved&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3c845a4d-5427-439b-8fe6-cca996dff075"
+        name="&quot;Current Password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="2dba0a93-6d26-42cf-bfbc-9b274c642cef"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="7df91c50-056c-4897-99f0-7b6f9f6e0342"
+              LastKnownName="&quot;Please give me your new Password&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="399ecf55-eada-4238-8684-a7610017c44a"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="fd8b54a3-5ccb-46f9-b92a-03c55d8fd2e5"
+              LastKnownName="&quot;I'm Sorry that is incorrect&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="eddab9f4-2169-478c-9ea2-f7861f219cba"
+        name="&quot;new Password&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="89d2a747-89bc-4e5e-ba6c-feb0404b209e"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="a7d08882-fb7f-4eb8-9587-974accba126c"
+              LastKnownName="&quot;Is your password&quot;, repeat Password back"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4d98201c-c148-424c-b8c7-75d322425cb6"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2a18bb68-5b65-45cf-b2ea-79208ba6bcd8"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="92bf8323-4cc5-450b-ab97-a59a3e7e6052"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8f0d4cf7-85e0-41aa-92e3-39792413fb42"
+        name="&quot;You have X messages, Would you like to hear them?&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="813417a2-108f-4ee7-a3cd-d69bbc28f38a"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="4d98201c-c148-424c-b8c7-75d322425cb6"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="12481d65-3b86-4c66-bca9-9b9c3378cf23"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="4c6e8f7a-9ec4-465d-9867-e100ad52850a"
+              LastKnownName="&quot;Yes&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="c213ae1d-0370-4f17-8967-067008c8470e"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="34a175fb-4a9c-4f6e-9d38-77f584cfcb8c"
+              LastKnownName="&quot;No&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4c6e8f7a-9ec4-465d-9867-e100ad52850a"
+        name="&quot;Yes&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="4cc84b56-b32b-4eca-b3b3-6352d865638f"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="72bc021d-f657-43f4-acfb-4089115893f7"
+              LastKnownName="&quot;plays your message/ voices your message&quot; Would you like to hear the next/you have no more messages"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="72bc021d-f657-43f4-acfb-4089115893f7"
+        name="&quot;plays your message/ voices your message&quot; Would you like to hear the next/you have no more messages"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="487f9a02-0fd1-4812-92b5-17864dbda1f6"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="4c6e8f7a-9ec4-465d-9867-e100ad52850a"
+              LastKnownName="&quot;Yes&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="3dd06530-ee6e-421e-8ba8-3966a1cd70f0"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="d0cb76eb-3d41-49d8-9cd1-b6cc1cdadc4b"
+              LastKnownName="&quot;No&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="34a175fb-4a9c-4f6e-9d38-77f584cfcb8c"
+        name="&quot;No&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="e41c0e0b-8989-4e53-8f4b-c968120f0eaf"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="6abb880d-8b96-40ee-a6c0-0dd7e329c760"
+              LastKnownName="&quot;what would you like to do with your phone?&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6abb880d-8b96-40ee-a6c0-0dd7e329c760"
+        name="&quot;what would you like to do with your phone?&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="1ab335ca-c89b-471f-9b25-7ef4fe6dedb5"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="c6751bbb-b292-474c-bd4c-f6d810a0beb4"
+              LastKnownName="&quot;Call Contact&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="28ee0959-b82c-4549-8783-26508fc31a84"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="efc740a2-9191-41f7-9131-db24db76ef8e"
+              LastKnownName="&quot;Text Contact"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="c540ea41-d514-4d88-afe2-68bf8115fd0d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="96aa6b12-040b-47d3-972f-129032a3c703"
+              LastKnownName="&quot;Call Number&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="048fd083-e86c-497d-99da-b7eaaa55e43e"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="c393ff9f-d4b3-4673-aa23-755476b7dc03"
+              LastKnownName="&quot;Text Number&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="e898be13-8092-459a-b98d-1567953e3c27"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="187e6205-ed23-4bda-85da-b4774f377b20"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c6751bbb-b292-474c-bd4c-f6d810a0beb4"
+        name="&quot;Call Contact&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="8b43564f-9822-494b-b297-c318c417b64e"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="c3dd7417-c9af-49b0-898f-7aefe8c808a9"
+              LastKnownName="&quot;Who Would you like to call&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="efc740a2-9191-41f7-9131-db24db76ef8e"
+        name="&quot;Text Contact"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="fc421bb6-1d3f-4ac8-a5c3-b200ad16cff2"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="e54fdb1d-019e-48ef-b666-13343ed1d920"
+              LastKnownName="&quot;Who Would you Like to Text&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="96aa6b12-040b-47d3-972f-129032a3c703"
+        name="&quot;Call Number&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="41e852db-3f2e-4904-b736-bb45bfe24c87"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="e8658f27-ba21-4d73-9059-f360eaa05d88"
+              LastKnownName="&quot;What is the number you would like to call?&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c393ff9f-d4b3-4673-aa23-755476b7dc03"
+        name="&quot;Text Number&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="12881b64-661a-4a18-b605-1edc690a1a3c"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="d9c42f6f-6b5b-4382-8f07-74d13b145ec8"
+              LastKnownName="&quot;What is the number you would like to text&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="187e6205-ed23-4bda-85da-b4774f377b20"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c3dd7417-c9af-49b0-898f-7aefe8c808a9"
+        name="&quot;Who Would you like to call&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="641bf791-40ad-40d8-ac5c-f24430f877ce"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="f4f6934f-4d77-4770-9d4a-417362fe4c9a"
+              LastKnownName="&quot;Name of Contact&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="c1e1e951-c147-47e6-b644-3c8ae127b0f6"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="111971a2-4484-49f6-b17a-28d81d0eb811"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e54fdb1d-019e-48ef-b666-13343ed1d920"
+        name="&quot;Who Would you Like to Text&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="15a3eaf6-2545-4ab2-b4a6-adddde62a273"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="f4f6934f-4d77-4770-9d4a-417362fe4c9a"
+              LastKnownName="&quot;Name of Contact&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="3bcfab74-f4ec-4804-a713-34f6665c94c7"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="111971a2-4484-49f6-b17a-28d81d0eb811"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e8658f27-ba21-4d73-9059-f360eaa05d88"
+        name="&quot;What is the number you would like to call?&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="5abbc259-8620-455b-9879-766f8767f07d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="1ef1d20c-4616-46ee-9214-cb6578cbe2c7"
+              LastKnownName="&quot;Phone Number&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="8fd523ca-31b8-4a07-8344-3c44a2b4c9f5"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="111971a2-4484-49f6-b17a-28d81d0eb811"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d9c42f6f-6b5b-4382-8f07-74d13b145ec8"
+        name="&quot;What is the number you would like to text&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="29fdcebe-0f54-47f9-985a-8e72730f2c90"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="1ef1d20c-4616-46ee-9214-cb6578cbe2c7"
+              LastKnownName="&quot;Phone Number&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="fa5d4278-09a4-46af-a217-b9ab787f930f"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="111971a2-4484-49f6-b17a-28d81d0eb811"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f4f6934f-4d77-4770-9d4a-417362fe4c9a"
+        name="&quot;Name of Contact&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c7ffade9-f08d-408f-a242-6e2d6df94dc1"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="2995d170-670d-434b-b011-4c1220983fa9"
+              LastKnownName="&quot;Calling Name of Contact&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="fbe1b45b-f1be-49a7-abb8-66fe64572788"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="fd679de6-a2d8-45bd-ba80-b5248c88d583"
+              LastKnownName="&quot;What Message would you like to send Name of contact&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1ef1d20c-4616-46ee-9214-cb6578cbe2c7"
+        name="&quot;Phone Number&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="33f1a334-757c-47bb-9f8b-7b2b4c915645"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ecf632c0-149c-439b-8086-0d160dde3ce2"
+              LastKnownName="&quot;Calling number&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="f498f710-93b2-40d1-9a30-0a83fa9f7719"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9be322cf-bbcf-4acb-bb77-3a66f3710794"
+              LastKnownName="&quot;What text would you like to Send Number&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="111971a2-4484-49f6-b17a-28d81d0eb811"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2995d170-670d-434b-b011-4c1220983fa9"
+        name="&quot;Calling Name of Contact&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="83806d0b-2748-4c4d-98a9-48d368e5e0e9"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="eb200933-6afa-4c65-b305-73aaa68a30eb"
+              LastKnownName="&quot;Speak phone conversation&quot;, Key word to disconnect &quot;End&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fd679de6-a2d8-45bd-ba80-b5248c88d583"
+        name="&quot;What Message would you like to send Name of contact&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c6d192fc-a6e2-49f0-822b-57529a1bedfd"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ebdbcafb-4ad4-4e8a-b2b8-5b9ca95e300a"
+              LastKnownName="&quot;Speak text Message&quot;, Key word to end message is &quot;end&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ecf632c0-149c-439b-8086-0d160dde3ce2"
+        name="&quot;Calling number&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="a1ed8c01-f77c-43f2-9a93-29b9c92cb615"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="eb200933-6afa-4c65-b305-73aaa68a30eb"
+              LastKnownName="&quot;Speak phone conversation&quot;, Key word to disconnect &quot;End&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9be322cf-bbcf-4acb-bb77-3a66f3710794"
+        name="&quot;What text would you like to Send Number&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="11fbf0d1-d21e-4873-99c8-5315b73942e0"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ebdbcafb-4ad4-4e8a-b2b8-5b9ca95e300a"
+              LastKnownName="&quot;Speak text Message&quot;, Key word to end message is &quot;end&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ebdbcafb-4ad4-4e8a-b2b8-5b9ca95e300a"
+        name="&quot;Speak text Message&quot;, Key word to end message is &quot;end&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="eb200933-6afa-4c65-b305-73aaa68a30eb"
+        name="&quot;Speak phone conversation&quot;, Key word to disconnect &quot;End&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d0cb76eb-3d41-49d8-9cd1-b6cc1cdadc4b"
+        name="&quot;No&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="17dc4bcf-8d59-45c8-8ffb-20947f1b536b"
+        name="&quot;What Location&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="e5872c4b-898b-4a97-b5f0-336eb1b841b6"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="74bb411c-ff68-4fc5-b31b-f8cb565168d8"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="e06386ad-9527-4579-85e9-1590ed7d0196"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="6ad62ba0-6332-4f16-acab-440fe1b880df"
+              LastKnownName="&quot;Location&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="74bb411c-ff68-4fc5-b31b-f8cb565168d8"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6ad62ba0-6332-4f16-acab-440fe1b880df"
+        name="&quot;Location&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="2d5d1d71-6138-4221-b79d-eae5d9fa5d24"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="f0b2c0d0-5314-414c-94a1-58fb8d9594e5"
+              LastKnownName="&quot;What would you like to know about the weather in Location&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f0b2c0d0-5314-414c-94a1-58fb8d9594e5"
+        name="&quot;What would you like to know about the weather in Location&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="f7bd0d20-2fd9-4711-b818-14f6c7692ab7"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="a3862654-88ef-47d5-ab2e-7a07c3ab51d1"
+              LastKnownName="&quot;5-day&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="3198bbbf-4f22-4535-af61-176c65513020"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="908dffbb-6540-4b5e-9bcf-14ecee7de7d7"
+              LastKnownName="&quot;Wind&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="c0b3b190-6597-41c3-8400-50b4a498d27e"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="deb9d5c7-7a28-4ba3-9a6c-9f2503993019"
+              LastKnownName="&quot;today&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="8f1a04c8-46cb-43f0-b341-ec622d99693f"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="5c8e588a-1e9b-4d4d-b8b1-5c58dc3cd953"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a3862654-88ef-47d5-ab2e-7a07c3ab51d1"
+        name="&quot;5-day&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="0d1d3a36-fbe5-4837-acd5-3d38f9959ce1"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="207c6854-41ab-4d5d-acc7-345b5fa972e2"
+              LastKnownName="&quot;Hi/Lo for the next 5 Days&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="deb9d5c7-7a28-4ba3-9a6c-9f2503993019"
+        name="&quot;today&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="cadd2019-0d8d-4cac-9b86-6d295f8b65df"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="6d8b28de-82d1-489e-a494-aac66673748f"
+              LastKnownName="&quot;todays weather&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="908dffbb-6540-4b5e-9bcf-14ecee7de7d7"
+        name="&quot;Wind&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="4aaa6d25-bef6-4948-8a56-1deac756462a"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="193ffb03-6b84-4848-9026-8a21275d1a22"
+              LastKnownName="&quot;Wind Report&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5c8e588a-1e9b-4d4d-b8b1-5c58dc3cd953"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="193ffb03-6b84-4848-9026-8a21275d1a22"
+        name="&quot;Wind Report&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6d8b28de-82d1-489e-a494-aac66673748f"
+        name="&quot;todays weather&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="207c6854-41ab-4d5d-acc7-345b5fa972e2"
+        name="&quot;Hi/Lo for the next 5 Days&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8b766c79-88a9-4363-9a36-69c1bf4b0c70"
+        name="&quot;There are No accidents/There are accidents x place and x place.&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ac366cca-e0bf-4058-95a1-9d7ebb61a6ec"
+        name="&quot;Sprinkler&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="285a097d-02af-41f8-b424-b4060c5ee71d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="2845844a-6d97-42ff-9cce-5a67f0ca0592"
+              LastKnownName="&quot;Which Sprinker Station&quot;, 1-6"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2845844a-6d97-42ff-9cce-5a67f0ca0592"
+        name="&quot;Which Sprinker Station&quot;, 1-6"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="cca98e07-3f7b-48ab-a3c0-2a8b56548c6a"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="bda01739-aee7-43f3-888c-f54b340a52b3"
+              LastKnownName="&quot;1-6&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="fe8ebbb1-9e27-4b87-872a-c720e0d984e1"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="e52fad1f-8474-44f4-8cc6-ae5d7c727b92"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bda01739-aee7-43f3-888c-f54b340a52b3"
+        name="&quot;1-6&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="536043a2-21bc-44cd-bed0-8fa18d1dcc55"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ef566715-bb25-411d-8df2-04201f659c65"
+              LastKnownName="&quot;How Long would you like it on&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ef566715-bb25-411d-8df2-04201f659c65"
+        name="&quot;How Long would you like it on&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="d834ebbf-f7bc-4149-baf9-740eb0e44af8"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ef44ebca-f04f-43d7-a0ef-72e5d6698f59"
+              LastKnownName="&quot;# of minutes&quot;, minutes from 1 - 90"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="1a7b1c21-a693-41f0-be93-717cb125a82c"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="d5044b8d-7d49-43dd-a2fa-a6386a31fab9"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ef44ebca-f04f-43d7-a0ef-72e5d6698f59"
+        name="&quot;# of minutes&quot;, minutes from 1 - 90"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e52fad1f-8474-44f4-8cc6-ae5d7c727b92"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d5044b8d-7d49-43dd-a2fa-a6386a31fab9"
+        name="&quot;Restart&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="55504c82-346c-4cca-8a85-dfc84d9cea45"
+        name="MainControlPanel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="251c4b3b-1692-4765-b93e-140890b1f2f6"
+            isDerived="false"
+            sourceEndRoleName="MainControlPanel"
+            targetEndRoleName="RecognitionMain"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b03be8b1-9b93-41ca-8c6d-223d15541aa8"
+              LastKnownName="RecognitionMain"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dd106de5-8797-4883-8a3d-ce4735b90a54"
+                  name="MainControlPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="92c09c33-008c-469e-a696-a5f1b562a5c4"
+                  name="RecognitionMain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b598c475-8127-4cb1-b9c5-81019a2d0c93"
+            isDerived="false"
+            sourceEndRoleName="MainControlPanel"
+            targetEndRoleName="SpeechMain"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="288dc032-1950-4104-b5c1-8b134ab1dbd1"
+              LastKnownName="SpeechMain"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="02fc7132-641b-49e2-8a7d-70764a233f58"
+                  name="MainControlPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c0e9ec92-6ec8-4fa4-b8e6-f952ae91a479"
+                  name="SpeechMain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c1c13ee7-bc62-4de4-8b60-f28f30ae9293"
+            isDerived="false"
+            sourceEndRoleName="MainControlPanel"
+            targetEndRoleName="EpicCubeCntrl"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="11429d1c-1fa8-4b8b-ba4c-5e5481e5bc3a"
+              LastKnownName="EpicCubeCntrl"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="407f1876-82ce-4b5c-98e9-ec8ad40febeb"
+                  name="MainControlPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9750699a-4c49-42a5-a939-befdbbbff692"
+                  name="EpicCubeCntrl"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b03be8b1-9b93-41ca-8c6d-223d15541aa8"
+        name="RecognitionMain"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="04a9c4d0-20b0-4ece-afae-ddcfca9540ff"
+            isDerived="false"
+            sourceEndRoleName="RecognitionMain"
+            targetEndRoleName="GarageCntrl"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c21cbf7e-e896-4f47-b1cd-3299642d9415"
+              LastKnownName="GarageCntrl"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8e5a6e83-8029-4f29-856f-bd4c30955630"
+                  name="RecognitionMain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7dec0838-ce2a-41f5-a5ca-9be0ba371b76"
+                  name="GarageCntrl"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="288dc032-1950-4104-b5c1-8b134ab1dbd1"
+        name="SpeechMain"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="e22e81d2-6303-43f8-81e4-48b8a5769d2e"
+            isDerived="false"
+            sourceEndRoleName="SpeechMain"
+            targetEndRoleName="GarageCntrl"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c21cbf7e-e896-4f47-b1cd-3299642d9415"
+              LastKnownName="GarageCntrl"
+              LastKnownLocation="SmartHomeModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="77ae5048-0f19-41ee-a216-58a4a053bd4c"
+                  name="SpeechMain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c788d2e6-c18e-4d3b-a2d2-727288601eeb"
+                  name="GarageCntrl"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="11429d1c-1fa8-4b8b-ba4c-5e5481e5bc3a"
+        name="EpicCubeCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c21cbf7e-e896-4f47-b1cd-3299642d9415"
+        name="GarageCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="8d175fe8-0675-4b97-9b4b-1e4b2658cf36"
+            name="Recog"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="89e0ae02-d18d-47b4-a563-2cd6c840bf4b"
+            name="Spee"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="063c38ae-a7e9-42ae-8db5-cdea3bd5ee5a"
+        name="PhoneCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="80122e2d-9db6-40a1-a1e9-2e51718c320b"
+        name="PasswordCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ebbc5d4e-8bcb-4d19-a119-95a58da5a8a4"
+        name="SprinklerCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cfafcae0-fb16-4e25-bef3-64639b62e9e2"
+        name="&quot;Volume&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3a782756-a2e9-49e8-9829-0b55ec145a0c"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="525becd7-2eb7-411e-a7eb-91c680ca0c53"
+              LastKnownName="&quot;How Loud would you like me to be&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="525becd7-2eb7-411e-a7eb-91c680ca0c53"
+        name="&quot;How Loud would you like me to be&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="a07a9df7-3632-473e-9932-08c000ac6a18"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="e52fad1f-8474-44f4-8cc6-ae5d7c727b92"
+              LastKnownName="&quot;Restart&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="ecb5e8df-c17e-491c-a4d3-8068c4431182"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="eed881cd-c65d-45d9-9d35-054fc795ec88"
+              LastKnownName="&quot;Quiet&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="d981aa13-2b6f-4ed6-a782-7c081259beb0"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="7900c6c8-c6bf-4eb8-9c4e-6445ca3cd1e5"
+              LastKnownName="&quot;Medium&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="7e27983d-8923-41f1-8cf5-f84acd8baab6"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="2446f20a-3028-4e33-a145-16b4702c306d"
+              LastKnownName="&quot;Loud&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+          <generalization
+            Id="43de3e27-7c2f-451f-b344-8c6c45ba1232"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="692eac33-d40a-4d29-8582-412b119c9bf2"
+              LastKnownName="&quot;shut up&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="eed881cd-c65d-45d9-9d35-054fc795ec88"
+        name="&quot;Quiet&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="0b7d11fe-2768-4a42-b0f0-632f0afda907"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="4047d40f-ae54-4dae-8913-3eacf6c0e92f"
+              LastKnownName="&quot;ok master, I'll be really really quiet&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7900c6c8-c6bf-4eb8-9c4e-6445ca3cd1e5"
+        name="&quot;Medium&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="6d0513d4-1a09-4ea1-a5e9-670733568045"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="b7e09250-0fad-4268-81d2-5a2445234efd"
+              LastKnownName="&quot;Ok master medium volume&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2446f20a-3028-4e33-a145-16b4702c306d"
+        name="&quot;Loud&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="debb6776-d910-466b-8c01-893bac396714"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="1a01345b-1f86-4acf-bd51-8dbf642b1d8c"
+              LastKnownName="&quot;Ok Master Loud Volume&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4047d40f-ae54-4dae-8913-3eacf6c0e92f"
+        name="&quot;ok master, I'll be really really quiet&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="692eac33-d40a-4d29-8582-412b119c9bf2"
+        name="&quot;shut up&quot;"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="5bb8a82a-cf00-42a7-9bd6-c2b156b7e11d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="18f3194d-dd8a-4f43-b9bb-802bb037d0c8"
+              LastKnownName="&quot;ouch master that really hurts.  that hurts... real deep.&quot;"
+              LastKnownLocation="SmartHomeModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="18f3194d-dd8a-4f43-b9bb-802bb037d0c8"
+        name="&quot;ouch master that really hurts.  that hurts... real deep.&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b7e09250-0fad-4268-81d2-5a2445234efd"
+        name="&quot;Ok master medium volume&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1a01345b-1f86-4acf-bd51-8dbf642b1d8c"
+        name="&quot;Ok Master Loud Volume&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="071a9898-9b60-48af-a7db-14d537035b4a"
+        name="TemperatureCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6f8159bd-1184-4b51-af93-dfd7046eab75"
+        name="TrafficCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="237e4603-ecdc-46df-84a2-b6c4829b2004"
+        name="WeatherCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b4e48417-d177-4fdf-bacc-5761d60484cb"
+        name="AudioCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1af852a1-f8b2-42b3-806c-bb9579e30e09"
+        name="GoogleCntrl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5ad70aa6-1f3c-43ac-8358-aecb5e32620d"
+        name="&quot;Baby&quot;"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

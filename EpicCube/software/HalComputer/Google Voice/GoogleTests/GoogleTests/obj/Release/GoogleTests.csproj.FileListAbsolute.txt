@@ -1,0 +1,12 @@
+C:\Documents and Settings\scott\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\scott\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.Properties.Resources.resources
+C:\Documents and Settings\scott\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.csproj.GenerateResource.Cache
+\\hermance\v\Users Shared Folders\smundorff\My Documents\My Dropbox\Projects\GoogleTests\bin\Release\GoogleTests.exe
+\\hermance\v\Users Shared Folders\smundorff\My Documents\My Dropbox\Projects\GoogleTests\bin\Release\GoogleTests.pdb
+\\hermance\v\Users Shared Folders\smundorff\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\ResolveAssemblyReference.cache
+\\hermance\v\Users Shared Folders\smundorff\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.Properties.Resources.resources
+\\hermance\v\Users Shared Folders\smundorff\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.csproj.GenerateResource.Cache
+\\hermance\v\Users Shared Folders\smundorff\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.exe
+\\hermance\v\Users Shared Folders\smundorff\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.pdb
+C:\Documents and Settings\scott\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.exe
+C:\Documents and Settings\scott\My Documents\My Dropbox\Projects\GoogleTests\obj\Release\GoogleTests.pdb

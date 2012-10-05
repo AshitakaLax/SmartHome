@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <json><![CDATA[{"messages":{},"totalSize":0,"unreadCounts":{"all":0,"inbox":0,"missed":0,"placed":0,"received":0,"sms":0,"starred":0,"trash":0,"unread":0,"voicemail":0},"resultsPerPage":10}]]></json>
+  <html><![CDATA[
+
+<div class="gc-inbox-btm-paging"></div>
+
+  <div class="gc-inbox-no-items">No items in this view.</div>
+
+<div class="gc-footer-inbox">
+  
+
+<div class="gc-user-tip"><div class="goog-inline-block"><b>Tip:</b>
+  Create groups of contacts to apply the same phone rules to several callers.
+  <a target="_blank" href="http://www.google.com/support/voice/bin/answer.py?hl=en&answer=115087">Learn more</a>
+  
+</div></div>
+
+  <div class="gc-footer">
+  &copy;2009 Google
+  - <a target="_blank" href="http://www.google.com/googlevoice/legal-notices.html">Terms</a>
+  - <a target="_blank" href="http://googlevoiceblog.blogspot.com/">Blog</a>
+  - <a target="_blank" href="http://www.google.com">Google Home</a>
+</div>
+</div>
+
+<div style="display: none;">
+<img alt="Callout_selected" src="/voice/resources/1487696585-callout_selected.gif"/><img alt="Tl_selected" src="/voice/resources/2635542038-tl_selected.gif"/><img alt="Top_selected" src="/voice/resources/367283939-top_selected.gif"/><img alt="Tr_selected" src="/voice/resources/2433887551-tr_selected.gif"/><img alt="Bl_selected" src="/voice/resources/3174837910-bl_selected.gif"/><img alt="Bottom_selected" src="/voice/resources/1834447710-bottom_selected.gif"/><img alt="Br_selected" src="/voice/resources/2110467394-br_selected.gif"/><img alt="Left_selected" src="/voice/resources/2503289043-left_selected.gif"/><img alt="Right_selected" src="/voice/resources/947660058-right_selected.gif"/></div>
+]]></html>
+</response>

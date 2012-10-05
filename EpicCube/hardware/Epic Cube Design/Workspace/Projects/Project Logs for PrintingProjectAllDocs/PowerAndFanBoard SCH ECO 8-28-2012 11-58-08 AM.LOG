@@ -1,0 +1,68 @@
+Change Component Parameter Comment in D1 Old= New=1N4001
+Change Component Parameter Comment in D2 Old= New=1N4001
+Change Component Parameter Comment in D7 Old= New=1N4001
+Change Component Parameter Comment in D8 Old= New=1N4001
+Change Component Parameter Comment in D10 Old= New=1N4001
+Change Component Parameter Comment in D12 Old= New=1N4001
+Change Component Parameter Comment in D14 Old= New=1N4001
+Added Parameter Value=1N4001 to Part D1
+Added Parameter Value=1N4001 to Part D2
+Added Parameter Value=1N4001 to Part D7
+Added Parameter Value=1N4001 to Part D8
+Added Parameter Value=1N4001 to Part D10
+Added Parameter Value=1N4001 to Part D12
+Added Parameter Value=1N4001 to Part D14
+Added Parameter Value=Diode 1N4148 to Part D3
+Added Parameter Value=Diode 1N4148 to Part D5
+Added Parameter Value=Header 2 to Part P4
+Added Parameter Value=Header 2 to Part P5
+Added Parameter Value=Header 2 to Part P6
+Added Parameter Value=Header 2 to Part P7
+Added Parameter Value=Header 3 to Part P2
+Added Parameter Value=Header 3 to Part P3
+Added Parameter Value=Header 3 to Part P8
+Added Parameter Value=Header 4 to Part P1
+Added Parameter Value=L7805CP to Part VR2
+Added Parameter Value=L7805CP to Part VR3
+Added Parameter Value=L7805CP to Part VR5
+Added Parameter Value=L7805CP to Part VR7
+Added Parameter Value=L7812CP to Part VR1
+Added Parameter Value=L7812CP to Part VR4
+Added Parameter Value=L7812CP to Part VR6
+Added Parameter Value=LED0 to Part D4
+Added Parameter Value=LED0 to Part D6
+Added Parameter Value=LED0 to Part D9
+Added Parameter Value=LED0 to Part D11
+Added Parameter Value=LED0 to Part D13
+Added Parameter Value=LED0 to Part D15
+Added Parameter Value=LED0 to Part D16
+Added Parameter Value=LED0 to Part D17
+Added Parameter Value=LED0 to Part D18
+Added Parameter Value=LED0 to Part D19
+Added Parameter Value=LED0 to Part D20
+Added Parameter Value=LED0 to Part D21
+Added Parameter Value=LED0 to Part D22
+Added Parameter Value=LED0 to Part D23
+Added Parameter Value=LM339N to Part U3
+Added Parameter Value=LM339N to Part U3
+Added Parameter Value=LM339N to Part U3
+Added Parameter Value=LM339N to Part U3
+Added Parameter Value=LM339N to Part U5
+Added Parameter Value=LM339N to Part U5
+Added Parameter Value=LM339N to Part U5
+Added Parameter Value=LM555CN to Part U1
+Added Parameter Value=nintendo_power_reset to Part S1
+Added Parameter Value=SN7416N to Part U2
+Added Parameter Value=SN7416N to Part U2
+Added Parameter Value=SN7416N to Part U2
+Added Parameter Value=SN7416N to Part U2
+Added Parameter Value=SN7416N to Part U2
+Added Parameter Value=SN7416N to Part U2
+Added Parameter Value=SN7416N to Part U4
+Added Parameter Value=SN7416N to Part U4
+Added Parameter Value=SN7416N to Part U4
+Added Parameter Value=SN7416N to Part U4
+Added Parameter Value=SN7416N to Part U4
+Added Parameter Value=SN7416N to Part U4
+Added Parameter Value=SN7416N to Part U6
+Added Parameter Value=SN7416N to Part U6

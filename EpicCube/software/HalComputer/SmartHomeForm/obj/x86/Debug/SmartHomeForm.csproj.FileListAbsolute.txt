@@ -1,0 +1,9 @@
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\bin\Debug\SmartHomeForm.exe
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\bin\Debug\SmartHomeForm.pdb
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\obj\x86\Debug\SmartHomeForm.Properties.Resources.resources
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\obj\x86\Debug\SmartHomeForm.exe
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\obj\x86\Debug\SmartHomeForm.pdb
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeForm\obj\x86\Debug\SmartHomeForm.MainControlPanel.resources

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c957757b-5767-4a0f-8c16-eb84c8c863b6}</ProjectGuid>
+    <ArchitectureToolsVersion>1.0.0.0</ArchitectureToolsVersion>
+    <Name>SmartHomeModel</Name>
+    <RootNamespace>SmartHomeModel</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
+  <ItemGroup>
+    <Content Include="Master_Diagram_Commands.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Master_Diagram_Commands.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Master_Diagram_Commands.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Password.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Password.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Password.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="SmartHomeMaster.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SmartHomeMaster.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>SmartHomeMaster.classdiagram</DependentUpon>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="GarageVoiceFlow.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="GarageVoiceFlow.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>GarageVoiceFlow.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="HouseTemperatureVoiceFlowChart.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="HouseTemperatureVoiceFlowChart.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>HouseTemperatureVoiceFlowChart.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\SmartHomeModel.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <json><![CDATA[{"messages":{"0ccabe541f1a6c458d0cdc1d8b25168593f59b1c":{"id":"0ccabe541f1a6c458d0cdc1d8b25168593f59b1c","phoneNumber":"+17179655813","displayNumber":"(717) 965-5813","startTime":"1259278542000","displayStartDateTime":"11/26/09 6:35 PM","displayStartTime":"6:35 PM","relativeStartTime":"4 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"831fa5d8749b07ff95f3354b8189fdf8b7e58d8b":{"id":"831fa5d8749b07ff95f3354b8189fdf8b7e58d8b","phoneNumber":"+17173341007","displayNumber":"(717) 334-1007","startTime":"1259191182000","displayStartDateTime":"11/25/09 6:19 PM","displayStartTime":"6:19 PM","relativeStartTime":"5 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"834c8510d70db7bf10a1491344d9b1fcf143546b":{"id":"834c8510d70db7bf10a1491344d9b1fcf143546b","phoneNumber":"+15704129611","displayNumber":"(570) 412-9611","startTime":"1259104304000","displayStartDateTime":"11/24/09 6:11 PM","displayStartTime":"6:11 PM","relativeStartTime":"6 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"24f68b60a7366c782c611ec35f9e6e6ff534c532":{"id":"24f68b60a7366c782c611ec35f9e6e6ff534c532","phoneNumber":"+15702798515","displayNumber":"(570) 279-8515","startTime":"1258929426000","displayStartDateTime":"11/22/09 5:37 PM","displayStartTime":"5:37 PM","relativeStartTime":"8 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"408b2c645bb4622b20bf13b5d9ccde25a778d491":{"id":"408b2c645bb4622b20bf13b5d9ccde25a778d491","phoneNumber":"+17179655813","displayNumber":"(717) 965-5813","startTime":"1258909708000","displayStartDateTime":"11/22/09 12:08 PM","displayStartTime":"12:08 PM","relativeStartTime":"8 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"5c09875215523eac6cb555278cfe90a8f00428b4":{"id":"5c09875215523eac6cb555278cfe90a8f00428b4","phoneNumber":"+15704129994","displayNumber":"(570) 412-9994","startTime":"1258834901000","displayStartDateTime":"11/21/09 3:21 PM","displayStartTime":"3:21 PM","relativeStartTime":"9 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"f513e4dfd9936afba3fc14d9f20671446883aa67":{"id":"f513e4dfd9936afba3fc14d9f20671446883aa67","phoneNumber":"+15704129611","displayNumber":"(570) 412-9611","startTime":"1258834886000","displayStartDateTime":"11/21/09 3:21 PM","displayStartTime":"3:21 PM","relativeStartTime":"9 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"d828bb62f8791255bcfef890b2bc87c3287fde4d":{"id":"d828bb62f8791255bcfef890b2bc87c3287fde4d","phoneNumber":"+18453002963","displayNumber":"(845) 300-2963","startTime":"1258780124000","displayStartDateTime":"11/21/09 12:08 AM","displayStartTime":"12:08 AM","relativeStartTime":"9 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"8d5033234f8513966c383f18c2b5987cc2016f78":{"id":"8d5033234f8513966c383f18c2b5987cc2016f78","phoneNumber":"+15704129611","displayNumber":"(570) 412-9611","startTime":"1258756867000","displayStartDateTime":"11/20/09 5:41 PM","displayStartTime":"5:41 PM","relativeStartTime":"10 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"44a8138bb33355293330f51a5cd2f5a6ec40529c":{"id":"44a8138bb33355293330f51a5cd2f5a6ec40529c","phoneNumber":"+17179655813","displayNumber":"(717) 965-5813","startTime":"1258754007000","displayStartDateTime":"11/20/09 4:53 PM","displayStartTime":"4:53 PM","relativeStartTime":"10 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"c1e1fc5d6c607ae187045c9c8186d94498c412cf":{"id":"c1e1fc5d6c607ae187045c9c8186d94498c412cf","phoneNumber":"+15704473506","displayNumber":"(570) 447-3506","startTime":"1258749907000","displayStartDateTime":"11/20/09 3:45 PM","displayStartTime":"3:45 PM","relativeStartTime":"10 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"1e251884c511b72e0e04f9f6577b84d428da0cf8":{"id":"1e251884c511b72e0e04f9f6577b84d428da0cf8","phoneNumber":"+14438395482","displayNumber":"(443) 839-5482","startTime":"1258676463000","displayStartDateTime":"11/19/09 7:21 PM","displayStartTime":"7:21 PM","relativeStartTime":"11 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"5e5b37e56c78916a46c2941c02b32159e2f6fabf":{"id":"5e5b37e56c78916a46c2941c02b32159e2f6fabf","phoneNumber":"+15704129611","displayNumber":"(570) 412-9611","startTime":"1258500883000","displayStartDateTime":"11/17/09 6:34 PM","displayStartTime":"6:34 PM","relativeStartTime":"13 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"5f626e046c665fc7be6ef8c950bd93325e36def3":{"id":"5f626e046c665fc7be6ef8c950bd93325e36def3","phoneNumber":"+15704129611","displayNumber":"(570) 412-9611","startTime":"1258485506000","displayStartDateTime":"11/17/09 2:18 PM","displayStartTime":"2:18 PM","relativeStartTime":"13 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"ac605e402f89a91ce252127d0cf02789ae4ebbd1":{"id":"ac605e402f89a91ce252127d0cf02789ae4ebbd1","phoneNumber":"+17179655813","displayNumber":"(717) 965-5813","startTime":"1258464628000","displayStartDateTime":"11/17/09 8:30 AM","displayStartTime":"8:30 AM","relativeStartTime":"13 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"9eb70ed03b9d1a1a679823dce5e89a778ecf32aa":{"id":"9eb70ed03b9d1a1a679823dce5e89a778ecf32aa","phoneNumber":"+17176348080","displayNumber":"(717) 634-8080","startTime":"1258464323000","displayStartDateTime":"11/17/09 8:25 AM","displayStartTime":"8:25 AM","relativeStartTime":"13 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"053963204c5f4503bc66be4ebebfd3814a86704e":{"id":"053963204c5f4503bc66be4ebebfd3814a86704e","phoneNumber":"+17176348080","displayNumber":"(717) 634-8080","startTime":"1258464262000","displayStartDateTime":"11/17/09 8:24 AM","displayStartTime":"8:24 AM","relativeStartTime":"13 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"8cac46ab4d5981459807b6abb19cb577f5ba0da9":{"id":"8cac46ab4d5981459807b6abb19cb577f5ba0da9","phoneNumber":"+17176348080","displayNumber":"(717) 634-8080","startTime":"1258462833000","displayStartDateTime":"11/17/09 8:00 AM","displayStartTime":"8:00 AM","relativeStartTime":"13 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"4d25a409e445665c70d2f1d759faced16648c4d0":{"id":"4d25a409e445665c70d2f1d759faced16648c4d0","phoneNumber":"+17179655815","displayNumber":"(717) 965-5815","startTime":"1258426257000","displayStartDateTime":"11/16/09 9:50 PM","displayStartTime":"9:50 PM","relativeStartTime":"13 days ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""},"8568c699f509a7eabdfdd0e68aebd453a2b1b543":{"id":"8568c699f509a7eabdfdd0e68aebd453a2b1b543","phoneNumber":"+17179655813","displayNumber":"(717) 965-5813","startTime":"1258127035000","displayStartDateTime":"11/13/09 10:43 AM","displayStartTime":"10:43 AM","relativeStartTime":"2 weeks ago","note":"","isRead":true,"isSpam":false,"isTrash":false,"star":false,"labels":["missed","all"],"type":0,"children":""}},"totalSize":33,"unreadCounts":{"all":0,"inbox":0,"missed":0,"placed":0,"received":0,"sms":0,"starred":0,"trash":0,"unread":0,"voicemail":0},"resultsPerPage":20}]]></json>
+  <html><![CDATA[
+
+  
+<div id="0ccabe541f1a6c458d0cdc1d8b25168593f59b1c"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Joe Mundorff</a>
+                   <span style="display: none;">357969216307311840</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 965-5813 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/26/09 6:35 PM</span>
+          <span class="gc-message-relative">4 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 965-5813</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17179655813"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1259278542000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1259278542000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="831fa5d8749b07ff95f3354b8189fdf8b7e58d8b"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                 <span title="">(717) 334-1007</span>
+                 
+               
+             
+          </span>
+          
+          <span class="gc-message-add-contact">
+            <a href="javascript://">Add</a>
+            <div class="gc-quickadd-contents" style="display: none;">
+  <form action="" name="quickcadd" onsubmit="return false;">
+  <div class="gc-bubble-ih" style="margin-bottom: 3px;">
+    <span>Quick Add</span>
+    <span style="font-weight: normal;"></span>
+    <span style="color: #0f65bb; margin: 0 0 0 2px;">(717) 334-1007</span>
+  </div>
+  <div class="gc-bubble-subg" style="font-size: 11px; margin-bottom: 3px; white-space: nowrap;">
+    Enter a new or existing contact name
+  </div>
+  <table class="gc-quickadd-inputs">
+  <tr>
+    <th>Name</th>
+    <td>
+      <input type="text" class="gc-text"/>
+    </td>
+  </tr>
+  <tr>
+    <th style="padding-top: 6px;">Type</th>
+    <td style="padding-top: 5px;">
+     <div>
+        <div class="goog-flat-menu-button gc-quickadd-phone-type">
+          <div class="goog-menu gc-simple-menu gc-phone-type-menu" style="z-index: 10001;">
+            <div class="goog-option goog-option-selected">Mobile</div>
+            <div class="goog-option">Work</div>
+            <div class="goog-option">Home</div>
+          </div>
+        </div>
+     </div>
+    </td>
+  </tr>
+  </table>
+  <div class="gc-quickadd-buttons">
+    <div class="goog-inline-block gc-quickadd-save">Create / Add</div>
+    <div style="display: none;" id="gc-qa-1259191182000" class="goog-inline-block gc-quickadd-msg"></div>
+  </div>
+  <div class="gc-quickadd-contacts" style="display: none;"></div>
+  </form>
+</div>
+            </span>
+            <span class="gc-message-location">- <a class="gc-under" style="color: #999;" title="Go to map of area code location" href="http://maps.google.com/maps?q=Gettysburg, PA" target="_blank">Gettysburg, PA</a></span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/25/09 6:19 PM</span>
+          <span class="gc-message-relative">5 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 334-1007</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17173341007"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1259191182000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1259191182000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="834c8510d70db7bf10a1491344d9b1fcf143546b"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhD2jp3ZvuGdnRAY9K3m0ZePnoGDATABN3SW8pI1Yk7RtLb713uvdy_YsnM?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Robert Kemrer</a>
+                   <span style="display: none;">8885028261656762158</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 412-9611 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/24/09 6:11 PM</span>
+          <span class="gc-message-relative">6 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 412-9611</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15704129611"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1259104304000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1259104304000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="24f68b60a7366c782c611ec35f9e6e6ff534c532"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhDsna2bzpChkT8Y69Co_byTtoqLATABxaFX5767NIj-tVUbEb7g-UU8qIA?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Wes Anderson</a>
+                   <span style="display: none;">7728145214536405888</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 279-8515 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/22/09 5:37 PM</span>
+          <span class="gc-message-relative">8 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 279-8515</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15702798515"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258929426000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258929426000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="408b2c645bb4622b20bf13b5d9ccde25a778d491"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Joe Mundorff</a>
+                   <span style="display: none;">357969216307311840</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 965-5813 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/22/09 12:08 PM</span>
+          <span class="gc-message-relative">8 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 965-5813</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17179655813"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258909708000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258909708000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="5c09875215523eac6cb555278cfe90a8f00428b4"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhDpion8gbzk_hwY69bf1pqIsai8ATABWxO8e9Q3uW3fFs08hBH7UBdrloE?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Dan Kerstetter</a>
+                   <span style="display: none;">4895902977599371915</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 412-9994 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/21/09 3:21 PM</span>
+          <span class="gc-message-relative">9 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 412-9994</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15704129994"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258834901000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258834901000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="f513e4dfd9936afba3fc14d9f20671446883aa67"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhD2jp3ZvuGdnRAY9K3m0ZePnoGDATABN3SW8pI1Yk7RtLb713uvdy_YsnM?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Robert Kemrer</a>
+                   <span style="display: none;">8885028261656762158</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 412-9611 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/21/09 3:21 PM</span>
+          <span class="gc-message-relative">9 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 412-9611</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15704129611"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258834886000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258834886000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="d828bb62f8791255bcfef890b2bc87c3287fde4d"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Oriana Barish</a>
+                   <span style="display: none;">3918177043710470142</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(845) 300-2963 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/21/09 12:08 AM</span>
+          <span class="gc-message-relative">9 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(845) 300-2963</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+18453002963"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258780124000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258780124000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="8d5033234f8513966c383f18c2b5987cc2016f78"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhD2jp3ZvuGdnRAY9K3m0ZePnoGDATABN3SW8pI1Yk7RtLb713uvdy_YsnM?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Robert Kemrer</a>
+                   <span style="display: none;">8885028261656762158</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 412-9611 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/20/09 5:41 PM</span>
+          <span class="gc-message-relative">10 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 412-9611</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15704129611"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258756867000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258756867000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="44a8138bb33355293330f51a5cd2f5a6ec40529c"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Joe Mundorff</a>
+                   <span style="display: none;">357969216307311840</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 965-5813 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/20/09 4:53 PM</span>
+          <span class="gc-message-relative">10 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 965-5813</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17179655813"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258754007000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258754007000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="c1e1fc5d6c607ae187045c9c8186d94498c412cf"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Andrew Schlachter</a>
+                   <span style="display: none;">5321127799599700432</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 447-3506 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/20/09 3:45 PM</span>
+          <span class="gc-message-relative">10 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 447-3506</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15704473506"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258749907000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258749907000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="1e251884c511b72e0e04f9f6577b84d428da0cf8"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhDQgt2Fr_bm1EkYlrDjno3P7MOLATABH9RqmGimn3RaJ0o_EvHNCztg8OA?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Mike Altobelli</a>
+                   <span style="display: none;">4768875379276906565</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(443) 839-5482 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/19/09 7:21 PM</span>
+          <span class="gc-message-relative">11 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(443) 839-5482</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+14438395482"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258676463000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258676463000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="5e5b37e56c78916a46c2941c02b32159e2f6fabf"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhD2jp3ZvuGdnRAY9K3m0ZePnoGDATABN3SW8pI1Yk7RtLb713uvdy_YsnM?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Robert Kemrer</a>
+                   <span style="display: none;">8885028261656762158</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 412-9611 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/17/09 6:34 PM</span>
+          <span class="gc-message-relative">13 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 412-9611</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15704129611"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258500883000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258500883000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="5f626e046c665fc7be6ef8c950bd93325e36def3"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img src="/s2/photos/private/AIbEiAIAAAAhCKvnuPqy45C-QhD2jp3ZvuGdnRAY9K3m0ZePnoGDATABN3SW8pI1Yk7RtLb713uvdy_YsnM?sz=32" width="32" height="32"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Robert Kemrer</a>
+                   <span style="display: none;">8885028261656762158</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(570) 412-9611 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/17/09 2:18 PM</span>
+          <span class="gc-message-relative">13 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(570) 412-9611</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+15704129611"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258485506000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258485506000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="ac605e402f89a91ce252127d0cf02789ae4ebbd1"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Joe Mundorff</a>
+                   <span style="display: none;">357969216307311840</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 965-5813 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/17/09 8:30 AM</span>
+          <span class="gc-message-relative">13 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 965-5813</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17179655813"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258464628000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258464628000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="9eb70ed03b9d1a1a679823dce5e89a778ecf32aa"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Keith Mundorff</a>
+                   <span style="display: none;">5984138478047938686</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 634-8080 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/17/09 8:25 AM</span>
+          <span class="gc-message-relative">13 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 634-8080</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17176348080"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258464323000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258464323000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="053963204c5f4503bc66be4ebebfd3814a86704e"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Keith Mundorff</a>
+                   <span style="display: none;">5984138478047938686</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 634-8080 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/17/09 8:24 AM</span>
+          <span class="gc-message-relative">13 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 634-8080</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17176348080"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258464262000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258464262000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="8cac46ab4d5981459807b6abb19cb577f5ba0da9"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Keith Mundorff</a>
+                   <span style="display: none;">5984138478047938686</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 634-8080 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/17/09 8:00 AM</span>
+          <span class="gc-message-relative">13 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 634-8080</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17176348080"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258462833000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258462833000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="4d25a409e445665c70d2f1d759faced16648c4d0"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Janine Mundorff</a>
+                   <span style="display: none;">474289381842826404</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 965-5815 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/16/09 9:50 PM</span>
+          <span class="gc-message-relative">13 days ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 965-5815</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17179655815"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258426257000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258426257000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+  
+<div id="8568c699f509a7eabdfdd0e68aebd453a2b1b543"
+     class="goog-flat-button gc-message gc-message-read">
+<div class="gc-message-bg">
+  <div>
+    <table class="gc-message-bg-top">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-tl"></td>
+        <td class="gc-message-bg-t"><div></div></td>
+        <td class="gc-message-bg-tr"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f">
+          <div style="position: relative; padding-left: 5px;">
+          <div class="goog-inline-block"><input type="checkbox" class="gc-message-checkbox"/></div>
+          </div>
+          <div style="position: relative;">
+            <div class="gc-message-bg-callout"></div>
+          </div>
+        </td>
+        <td class="gc-message-bg-l"></td>
+        <td class="gc-message-bg-m">
+          <div style="padding-bottom: 3px;">
+
+  <table style="width: 100%;">
+    <tr><td class="gc-sline-top"></td><td></td></tr>
+    <tr><td class="gc-message-sline"><span></span></td><td style="padding-left: 4px;">
+  <table class="gc-message-tbl">
+    <tr>
+      <td class="gc-message-tbl-portrait">
+        <div class="gc-message-portrait">
+        
+        <img alt="Blue_ghost" src="/voice/resources/1366864992-blue_ghost.jpg"/>
+        
+        <div class="gc-message-icon-0"></div>
+        </div>
+      </td>
+      <td class="gc-message-tbl-metadata">
+        <div>
+          <span class="gc-message-name">
+             
+                 
+                   <a class="gc-under gc-message-name-link" title="Go to contact" href="javascript://">Joe Mundorff</a>
+                   <span style="display: none;">357969216307311840</span>
+                 
+               
+             
+          </span>
+          
+          
+            <span class="gc-message-type">(717) 965-5813 - mobile</span>
+          
+        </div>
+        <div class="gc-message-time-row">
+          <span class="gc-message-time">11/13/09 10:43 AM</span>
+          <span class="gc-message-relative">2 weeks ago</span>
+          
+        </div>
+      </td>
+      <td class="gc-message-tbl-actions">
+        <div class="gc-message-actions">
+          <div class="goog-inline-block goog-flat-button gc-message-star gc-message-star-off">&nbsp;</div>
+        </div>
+      </td>
+    </tr>
+    
+    
+    
+  </table>
+
+  </td></tr>
+  <tr><td class="gc-sline-bottom"></td><td></td></tr>
+  </table>
+
+           </div></td>
+        <td class="gc-message-bg-r"></td>
+      </tr>
+     </table>
+  </div>
+
+  <div class="gc-message-bg-msg">
+    <table class="gc-message-bg-middle">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-l gc-message-bg-g"></td>
+        <td class="gc-message-bg-m gc-message-bg-g"><div style="position: relative; padding: 3px 7px 6px;">
+          
+          <div class="gc-message-note-edit" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-note-ctrl">
+              <div class="goog-inline-block gc-message-note-save">Save Note</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-cancel">Cancel</div>&nbsp;<div
+                class="goog-inline-block gc-message-note-delete">Delete</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-note-display" style="display: none;">
+            <div class="goog-inline-block gc-message-note"></div>
+          </div>
+          <div class="gc-message-sms-reply" style="display: none;">
+            <div class="goog-inline-block">
+            <textarea></textarea>
+            <div class="gc-message-sms-ctrl">
+              <div class="goog-inline-block gc-message-sms-send">Send</div>&nbsp;<div
+                class="goog-inline-block gc-message-sms-cancel">Cancel</div>
+              <div class="gc-sms-counter">160</div>
+            </div>
+            </div>
+          </div>
+          <div class="gc-message-sms-actions gc-simple-menu">
+  <div style="vertical-align: bottom;" class="goog-inline-block">
+    <div class="goog-inline-block goog-flat-button gc-control gc-message-call" style="vertical-align: bottom; margin-right: 10px;">Call<div class="gc-quickcall-contents" style="display: none;">
+  <form action="" name="quickcall" onsubmit="return false;">
+  
+  <div class="g-section">Google will call your phone and connect you to <b>(717) 965-5813</b></div>
+  <input type="hidden" class="gc-text gc-quickcall-ac" value="+17179655813"/>
+  
+  <div class="g-section gc-bubble-ih">Phone to ring</div>
+  <div class="g-section">
+    <div class="goog-flat-menu-button gc-quickcall-phone" tabindex="21">
+      <div class="goog-menu gc-simple-menu gc-phone-menu" style="z-index: 10001;">
+      </div>
+    </div>
+  </div>
+  <div class="gc-bubble-sub">
+    <input type="checkbox" tabindex="22" id="gc-qcr-1258127035000" class="gc-quickcall-remember"/>
+    <label for="gc-qcr-1258127035000">Remember my choice</label>
+  </div>
+  <div style="margin-top: 5px;">
+    <input type="submit" class="gc-quickcall-submit" style="display: none;"/>
+    <div tabindex="23" class="goog-inline-block gc-quickcall-connect">Connect</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-cancel">Cancel</div>
+    <div style="display: none;" class="goog-inline-block gc-quickcall-msg"></div>
+  </div>
+  </form>
+</div>
+</div><div
+      class="goog-inline-block goog-flat-button gc-control gc-message-sms" style="vertical-align: bottom; margin-right: 10px;">SMS</div><div
+      class="gc-message-reply-menu goog-inline-block goog-flat-menu-button" style="margin-right: 8px; display: none;"><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div><div
+        class="goog-inline-block" style="vertical-align: bottom;"><a class="gc-message-sms-mark-link" style="margin-right: 10px; display: none;" href="javascript://">Mark as read</a></div><div
+        class="gc-message-more-menu goog-inline-block goog-flat-menu-button"><div class="goog-inline-block goog-flat-menu-button-caption">more<ul class="goog-menu gc-message-menu" style="display: none;">
+      <li class="goog-menuitem">Mark as unread</li>
+      <li class="goog-menuitem">Add note</li>
+      <li class="goog-menuitem">Block caller</li>
+      
+    </ul></div><div class="goog-inline-block goog-flat-menu-button-dropdown"><small>&#9660;</small></div></div>
+  </div>
+  
+</div>
+                
+                  
+                
+        </div></td>
+        <td class="gc-message-bg-r gc-message-bg-g"></td>
+      </tr>
+     </table>
+  </div>
+  <div>
+    <table class="gc-message-bg-bottom">
+      <tr>
+        <td class="gc-message-bg-f"></td>
+        <td class="gc-message-bg-bl"></td>
+        <td class="gc-message-bg-b"></td>
+        <td class="gc-message-bg-br"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+
+<div class="gc-inbox-btm-paging">
+<div class="goog-inline-block gc-inbox-next">
+  <a href="javascript://" id="gc-inbox-next" class="gc-nobox">Next Page &raquo;</a>
+</div>
+</div>
+
+<div class="gc-footer-inbox">
+  
+
+<div class="gc-user-tip"><div class="goog-inline-block"><b>Tip:</b>
+  Choose when a particular phone rings by setting a custom ring schedule.
+  <a target="_blank" href="http://www.google.com/support/voice/bin/answer.py?hl=en&answer=115145">Learn more</a>
+  
+</div></div>
+
+  <div class="gc-footer">
+  &copy;2009 Google
+  - <a target="_blank" href="http://www.google.com/googlevoice/legal-notices.html">Terms</a>
+  - <a target="_blank" href="http://googlevoiceblog.blogspot.com/">Blog</a>
+  - <a target="_blank" href="http://www.google.com">Google Home</a>
+</div>
+</div>
+
+<div style="display: none;">
+<img alt="Callout_selected" src="/voice/resources/1487696585-callout_selected.gif"/><img alt="Tl_selected" src="/voice/resources/2635542038-tl_selected.gif"/><img alt="Top_selected" src="/voice/resources/367283939-top_selected.gif"/><img alt="Tr_selected" src="/voice/resources/2433887551-tr_selected.gif"/><img alt="Bl_selected" src="/voice/resources/3174837910-bl_selected.gif"/><img alt="Bottom_selected" src="/voice/resources/1834447710-bottom_selected.gif"/><img alt="Br_selected" src="/voice/resources/2110467394-br_selected.gif"/><img alt="Left_selected" src="/voice/resources/2503289043-left_selected.gif"/><img alt="Right_selected" src="/voice/resources/947660058-right_selected.gif"/></div>
+]]></html>
+</response>

@@ -1,0 +1,27 @@
+Field=Comment~String~Comment~56|Field=Description~String~Description~86|Field=Designator~String~Designator~203|Field=Footprint~String~Footprint~70|Field=LibRef~String~LibRef~71|Field=Pins~Integer~Pins~25|Field=Quantity~Integer~Quantity~28|Field=Value~String~Value~120|Field=Price~String~Price~41|Field=Vendor~String~Vendor~50|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~PrintingProjectAllDocs.PrjPCB|ReportField=ProjectFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\PrintingProjectAllDocs.PrjPCB|ReportField=Title~Power Board BOM 2 For Schematic Document [PowerAndFanBoard.SchDoc]|ReportField=TotalQuantity~101|ReportField=ReportTime~11:15:30 PM|ReportField=ReportDate~9/24/2012|ReportField=ReportDateTime~9/24/2012 11:15:30 PM|ReportField=OutputName~Power Board BOM 2|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~50 S. Central Campus Dr.|ReportField=Address2~Rm. 3280 MEB|ReportField=Address3~Salt Lake City, UT|ReportField=Address4~Australia 2086|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~9/24/2012|ReportField=CurrentTime~11:15:25 PM|ReportField=Date~|ReportField=Description~This Board will provide power to the rest of the Epic Cube( power is supplied by a 24V 4.5A power supply)|ReportField=DocumentFullPathAndName~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Schematics\PowerAndFanBoard.SchDoc|ReportField=DocumentName~PowerAndFanBoard.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~Levi Balling|ReportField=Engineer~Levi Balling|ReportField=ImagePath~|ReportField=ModifiedDate~8/30/2012|ReportField=Organization~U of U Computer Engineering|ReportField=Project~Smart Home|ReportField=ProjectName~PrintingProjectAllDocs.PrjPCB|ReportField=Revision~1|ReportField=Rule~|ReportField=SheetNumber~5|ReportField=SheetTotal~13|ReportField=Time~|ReportField=Title~Epic Cube Power Supply|ReportField=Website~www.eng.utah.edu/~lballing/SmartHome|ReportField=DataSourceFileName~PowerAndFanBoard.SchDoc|ReportField=DataSourceFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Schematics\PowerAndFanBoard.SchDoc
+Cap|Capacitor|C1, C5, C10, C13, C16, C19, C22|RAD-0.3|Cap|2|7|100uF|0.03|Taydaelectronics
+Cap|Capacitor|C2, C6, C9, C11, C14, C18, C20, C23|RAD-0.3|Cap|2|8|10uF|0.03|Taydaelectronics
+Cap|Capacitor|C3, C7, C12, C15, C17, C21, C24|RAD-0.3|Cap|2|7|0.1uF|0.03|Taydaelectronics
+Cap|Capacitor|C4|RAD-0.3|Cap|2|1|3.3nf|0.03|Taydaelectronics
+Cap|Capacitor|C8|RAD-0.3|Cap|2|1|47uf|0.03|Taydaelectronics
+1N4001|1 Amp General Purpose Rectifier|D1, D2, D7, D8, D10, D12, D14|DO-41|Diode 1N4001|2|7|1N4001|0.01|Taydaelectronics
+Diode 1N4148|High Conductance Fast Diode|D3, D5|DO-35|Diode 1N4148|2|2|Diode 1N4148|0.01|Taydaelectronics
+RED_LED|Typical INFRARED GaAs LED|D4, D9, D13, D15, D18, D20, D21|LED|LED0|2|7|LED0|0.04|Taydaelectronics
+GREEN_LED|Typical INFRARED GaAs LED|D6, D11, D16, D17, D19, D22, D23|LED|LED0|2|7|LED0|0.04|Taydaelectronics
+Header 4|Header, 4-Pin|P1|MainPowerConnector|Header 4|4|1|Header 4|0.04|Taydaelectronics
+Header 3|Header, 3-Pin|P2, P3, P8|HDR1X3|Header 3|3|3|Header 3|0.03|Taydaelectronics
+Header 2|Header, 2-Pin|P4, P5, P6, P7|HDR1X2|Header 2|2|4|Header 2|0.02|Taydaelectronics
+Res1|Resistor|R1|AXIAL-0.3|Res1|2|1|56k|0.01|Taydaelectronics
+Res1|Resistor|R2|AXIAL-0.3|Res1|2|1|22k|0.01|Taydaelectronics
+Res1|Resistor|R3, R6, R9, R12, R14, R17, R19, R20, R22, R26, R27, R29, R31, R32|AXIAL-0.3|Res1|2|14|330|0.01|Taydaelectronics
+Res1|Resistor|R4, R13|AXIAL-0.3|Res1|2|2|30k|0.01|Taydaelectronics
+Res1|Resistor|R5, R15|AXIAL-0.3|Res1|2|2|7.5k|0.01|Taydaelectronics
+Res1|Resistor|R7, R16, R21, R24, R25|AXIAL-0.3|Res1|2|5|11k|0.01|Taydaelectronics
+Res1|Resistor|R8, R10|AXIAL-0.3|Res1|2|2|470|0.01|Taydaelectronics
+Res1|Resistor|R11, R18, R23, R28, R30|AXIAL-0.3|Res1|2|5|10k|0.01|Taydaelectronics
+nintendo_power_reset||S1|PCBComponent_1|nintendo_power_reset|8|1|nintendo_power_reset|1.0|All Electronics
+LM555CN|Timer|U1|N08E|LM555CN|8|1|LM555CN|0.14|Taydaelectronics
+SN7416N|Hex Inverter Buffer / Driver with High-Voltage Outputs|U2, U4, U6|N014|SN7416N|14|3|SN7416N|0.18|Taydaelectronics
+LM339N|Low Power Low Offset Voltage Quad Comparator|U3, U5|N14A|LM339N|14|2|LM339N|0.17|Taydaelectronics
+L7812CP|Positive Voltage Regulator|VR1, VR4, VR6|ISOWATT220AB|L7805CP|3|3|L7812CP|0.24|Taydaelectronics
+L7805CP|Positive Voltage Regulator|VR2, VR3, VR5, VR7|ISOWATT220AB|L7805CP|3|4|L7805CP|0.24|Taydaelectronics

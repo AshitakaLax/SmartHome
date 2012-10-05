@@ -1,0 +1,16 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~PowerBoard.PrjPcb|ReportField=ProjectFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\PowerBoard.PrjPcb|ReportField=Title~Bill of Materials For Project [PowerBoard.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~101|ReportField=ReportTime~11:36:28 PM|ReportField=ReportDate~8/17/2012|ReportField=ReportDateTime~8/17/2012 11:36:28 PM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~50 S. Central Campus Dr.|ReportField=Address2~Rm. 3280 MEB|ReportField=Address3~Salt Lake City, UT|ReportField=Address4~Australia 2086|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~8/17/2012|ReportField=CurrentTime~11:36:21 PM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Schematics\PowerAndFanBoard.SchDoc|ReportField=DocumentName~PowerAndFanBoard.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~Levi Balling|ReportField=Engineer~Levi Balling|ReportField=ImagePath~|ReportField=ModifiedDate~8/17/2012|ReportField=Organization~U of U Computer Engineering|ReportField=Project~Smart Home|ReportField=ProjectName~PowerBoard.PrjPcb|ReportField=Revision~1|ReportField=Rule~|ReportField=SheetNumber~5|ReportField=SheetTotal~13|ReportField=Time~|ReportField=Title~Epic Cube Power Supply|ReportField=Website~www.eng.utah.edu/~lballing/SmartHome|ReportField=DataSourceFileName~PowerBoard.PrjPcb|ReportField=DataSourceFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\PowerBoard.PrjPcb
+Cap|Capacitor|C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20, C21, C22, C23, C24|RAD-0.3|Cap|24
+Diode 1N4001|1 Amp General Purpose Rectifier|D1, D2, D6, D7, D10, D11, D13|DO-41|Diode 1N4001|7
+Diode 1N4148|High Conductance Fast Diode|D3, D5|DO-35|Diode 1N4148|2
+RED_LED|Typical INFRARED GaAs LED|D4, D9, D14, D15, D18, D20, D21|LED|LED0|7
+GREEN_LED|Typical INFRARED GaAs LED|D8, D12, D16, D17, D19, D22, D23|LED|LED0|7
+Header 4|Header, 4-Pin|P1|MainPowerConnector|Header 4|1
+Header 3|Header, 3-Pin|P2, P3, P6|HDR1X3|Header 3|3
+Header 2|Header, 2-Pin|P4, P5, P7, P8|HDR1X2|Header 2|4
+Res1|Resistor|R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31, R32|AXIAL-0.3|Res1|32
+nintendo_power_reset||S1|PCBComponent_1|nintendo_power_reset|1
+LM555CN|Timer|U1|N08E|LM555CN|1
+SN7416N|Hex Inverter Buffer / Driver with High-Voltage Outputs|U2, U4, U6|N014|SN7416N|3
+LM339N|Low Power Low Offset Voltage Quad Comparator|U3, U5|N14A|LM339N|2
+L7812CP|Positive Voltage Regulator|VR1, VR4, VR6|ISOWATT220AB|L7805CP|3
+L7805CP|Positive Voltage Regulator|VR2, VR3, VR5, VR7|ISOWATT220AB|L7805CP|4

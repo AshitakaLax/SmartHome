@@ -1,0 +1,8 @@
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\bin\Debug\SmartHomeVoice.exe
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\bin\Debug\SmartHomeVoice.pdb
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\obj\x86\Debug\SmartHomeVoice.SmartHomeService.resources
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\obj\x86\Debug\SmartHomeVoice.exe
+C:\Users\laptop\Desktop\Levi\SeniorProject\ServerSoftware\SmartHomeVoice\obj\x86\Debug\SmartHomeVoice.pdb

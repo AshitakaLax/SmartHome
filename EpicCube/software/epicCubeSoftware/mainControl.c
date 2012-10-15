@@ -28,30 +28,21 @@
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 #include <string.h>
-//#include "usb_debug_only.h" not reliable
-//#include "print.h"
-//#include "damper_Control.h"
-//#include "tempSense.h"
-//#include "HVACGarage.h"
-//#include "usb_serial.h"
 #include "include/usb_serial.h"//added to test the built with it.
 #include "include/HVACGarage.h"// works and compiles
 #include "include/damper_Control.h"
 #include "include/tempSense.h"
+
 //need to add fan.h later when I figure out how to generate a pwm
 
-// Teensy 2.0: LED is active high
-// #define LED_ON		(PORTD |= (1<<6))
-// // // #define LED_OFF		(PORTD &= ~(1<<6))
+// Teensy 2.0++ 
+#define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n)) // clock rate at 16Mhz
 
-// // // #define LED_CONFIG	(DDRD |= (1<<6))
-#define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n))
-// // // #define DIT 80		/* unit time for morse code */
 void send_str(const char *s);
 uint8_t recv_str(char *buf, uint8_t size);
-void parse_and_execute_command(const char *buf, uint8_t num);
+void parse_and_execute_command(const char *buf, uint8_t num);// still needs updating
 
-//global verbose
+//global verbose adds lots of print statements
 uint8_t verbose = 1;
 
 int main(void)
@@ -107,7 +98,6 @@ void send_str(const char *s)
 	
 }
 
-
 /** Receive a string from the USB serial port.  The string is stored
 * in the buffer and this function will not exceed the buffer size.
 * A carriage return or newline completes the string, and is not
@@ -144,29 +134,35 @@ uint8_t recv_str(char *buf, uint8_t size)
 	//return 0;
 }
 
-// parse a user command and execute it, or print an error message
-//
+/**
+*	This function will take the input command, and parse it, 
+*	then execute the appropriate command.
+**/
 void parse_and_execute_command(const char *buf, uint8_t num)
 {
-
-	send_str(PSTR("Received: "));
-	usb_serial_write(buf, num);
-	send_str(PSTR("\r\n"));
-
-	uint8_t Command, Status;
+	uint8_t Command, Status;// commands and status of each string
+	
+	// prints the same statement back to the user. 
+	if(verbose)
+	{
+		send_str(PSTR("Received: "));
+		usb_serial_write(buf, num);
+		send_str(PSTR("\r\n"));
+	}
 	
 	if(num < 4)
 	{
-		send_str(PSTR("format to small, see help for details\r\n"));
+		send_str(PSTR("ERROR:1 \r\nformat to small, see help for details\r\n"));
 		return;
 	}
-	if(buf[0] == 'D')// damper section
+	if(buf[0] == 'D')// damper section Command is Damper### ##1 for closed and ##0 for open
 	{
-		if(buf[6] == '?')// status request
+		if(buf[6] == '?')// status request is Damper?## check to see if open or closed returns 1 for closed and 0 for open.
 		{
-			Command = buf[8] - '0';
+			//not this will work for up to 9 dampers
+			Command = buf[8] - '0';// convert ascii value to decimal
 			Status = CheckDamper(Command);
-			send_str((char*)(Status + '0'));
+			send_str((char*)(Status + '0'));// returns the status
 			send_str(PSTR("\r\n"));
 			return;
 		}
@@ -296,13 +292,13 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		send_str((char *)Status);// return status.
 		return;
 	}
-	elseif(buf[0] == 'G')// Garage Section
+	else if(buf[0] == 'G')// Garage Section
 	{
 		//this is only one thing. which is a pulse
 		PulseGarage();
 		return;
 	}
-	elseif(buf[0] == 'h')// Help Section
+	else if(buf[0] == 'h')// Help Section
 	{
 		//help commands so write a bunch of things that help people.
 	}

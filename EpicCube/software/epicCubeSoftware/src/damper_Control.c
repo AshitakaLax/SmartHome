@@ -21,7 +21,7 @@ void InitializeDamper()
 	DEMUX_B_CONFIG;
 	DEMUX_C_CONFIG;
 	DEMUX_D_CONFIG;
-	DAMPER_ENABLE_CONFIG
+	DEMUX_ENABLE_CONFIG;
 	MotorDirection1_CONFIG;
 	MotorDirection2_CONFIG;
 	MotorStep_CONFIG;

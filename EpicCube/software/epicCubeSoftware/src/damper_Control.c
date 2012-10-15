@@ -8,8 +8,10 @@
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>
+#include <stdlib.h>
 
 
+#include "../include/GlobalVar.h"
 #include "../include/damper_Control.h"
 
 /**
@@ -17,11 +19,6 @@
 */
 void InitializeDamper()
 {
-	DEMUX_A_CONFIG;
-	DEMUX_B_CONFIG;
-	DEMUX_C_CONFIG;
-	DEMUX_D_CONFIG;
-	DEMUX_ENABLE_CONFIG;
 	MotorDirection1_CONFIG;
 	MotorDirection2_CONFIG;
 	MotorStep_CONFIG;
@@ -73,7 +70,7 @@ void CloseDamper( uint8_t damper)
 {
 
 	ActivateDamper(damper);
-	for(int i; i < 10000; i++);// wait for signal propagation 0.5 seconds is
+	for(uint16_t i; i < 10000; i++);// wait for signal propagation 0.5 seconds is
 	
 	//step the device close
 	uint8_t DamperStatus = CheckDamper(damper);
@@ -85,7 +82,8 @@ void CloseDamper( uint8_t damper)
 	MotorDirection1LOW;
 	MotorDirection2HIGH;
 	// set a timeout
-	unsigned int timeout = 0;
+	uint16_t timeout = 0;
+	uint8_t bufSize = 30;
 	while(DamperStatus != 1 || timeout == 10000)
 	{
 		// step a lot
@@ -93,6 +91,10 @@ void CloseDamper( uint8_t damper)
 		DamperStatus = CheckDamper(damper);
 		MotorStepLOW;
 		timeout++;
+		char timeBuf[bufSize];
+		itoa(timeout, timeBuf, 10);
+		usb_serial_write(timeBuf, bufSize);
+			
 	}
 	if(timeout == 10000)
 	{
@@ -139,16 +141,29 @@ void ActivateDamper(uint8_t damper)
 {
 // converts decimal to binary digits for ABCD
 // could be backwards.
-	uint8_t D = damper / 8;
-	uint8_t temp = damper % 8;
+// example input A hex or 1010 bin or 10 dec
+	uint8_t D = damper / 8;//  D = 1bin or 1 dec
+	uint8_t temp = damper % 8;// temp = 10bin and 2 dec
 	
-	uint8_t C = temp / 4;
-	temp = temp % 4;
+	uint8_t C = temp / 4;// C = (2)/4 = 0
+	temp = temp % 4;// temp = (2)%4 = 2
 	
-	uint8_t B = temp / 2;
-	temp = temp % 4;
+	uint8_t B = temp / 2;// 1
+	temp = temp % 2;// 0
 	
-	uint8_t A = temp / 1;
+	uint8_t A = temp; 
+	
+	char tempBuf[4];
+					//itoa(Command, tempBuf,10);
+					
+					tempBuf[0] = (char)A + '0';
+					tempBuf[1] = (char)B + '0';
+					tempBuf[2] = (char)C + '0';
+					tempBuf[3] = (char)D + '0';
+					send_str(PSTR("Test Outputs of ABCD:\r\n"));
+					usb_serial_write(tempBuf, 4);
+					//usb_serial_write(itemBuf, 2);
+					send_str(PSTR("\r\n"));
 	//set the output pins as such.
 	//d to A
 	if(D==1)

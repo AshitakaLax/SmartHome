@@ -9,26 +9,8 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 
-
+#include "../include/GlobalVar.h"
 #include "../include/sprinkler.h"
-
-/**
-*	initializes all of the dampers outputs.
-*/
-void InitializeDamper()
-{
-	//need to use sample demux signals from DAMPER. no need to redeclare them.
-	//DEMUX_A_CONFIG;
-	//DEMUX_B_CONFIG;
-	//DEMUX_C_CONFIG;
-	//DEMUX_D_CONFIG;
-	//DEMUX_ENABLE_CONFIG
-	
-	//Still need to configure the Sprinkler_ENABLE_CONFIG
-	
-}
-
-
 
 /**
 *	this activates the correct damper

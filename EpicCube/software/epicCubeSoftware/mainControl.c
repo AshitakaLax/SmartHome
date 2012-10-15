@@ -28,20 +28,23 @@
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 #include <string.h>
+#include "include/GlobalVar.h"
 #include "include/usb_serial.h"//added to test the built with it.
 #include "include/HVACGarage.h"// works and compiles
 #include "include/damper_Control.h"
 #include "include/tempSense.h"
+#include <stdlib.h>
 
 //need to add fan.h later when I figure out how to generate a pwm
 
 // Teensy 2.0++ 
 #define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n)) // clock rate at 16Mhz
-
+#define HEX(n) (((n) < 10) ? ((n) + '0') : ((n) + 'A' - 10))
+void initializeGlobal(void);
 void send_str(const char *s);
 uint8_t recv_str(char *buf, uint8_t size);
 void parse_and_execute_command(const char *buf, uint8_t num);// still needs updating
-
+void convert_by_division(uint16_t value, char *temp);
 //global verbose adds lots of print statements
 uint8_t verbose = 1;
 
@@ -51,10 +54,9 @@ int main(void)
 	uint8_t n;
 
 	CPU_PRESCALE(0);
-	
+	initializeGlobal();
 	initializeHVACGarage();
 	InitializeDamper();
-	initializeTempSense();
 	// still need to initialize fans
 
 	usb_init();
@@ -141,7 +143,7 @@ uint8_t recv_str(char *buf, uint8_t size)
 void parse_and_execute_command(const char *buf, uint8_t num)
 {
 	uint8_t Command, Status;// commands and status of each string
-	
+	char itemBuf[2];
 	// prints the same statement back to the user. 
 	if(verbose)
 	{
@@ -157,6 +159,14 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	}
 	if(buf[0] == 'D')// damper section Command is Damper### ##1 for closed and ##0 for open
 	{
+		//disable all other Devices and enable this
+		//Disable Sprinkler
+		SPRINKLER_DEMUX_EN_OFF;
+		//Disable TempSense
+		TEMPERATURE_DEMUX_EN_OFF;
+		//Enable Damper
+		DAMPER_ENABLE_ON;
+		
 		if(buf[6] == '?')// status request is Damper?## check to see if open or closed returns 1 for closed and 0 for open.
 		{
 			//not this will work for up to 9 dampers
@@ -168,17 +178,58 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		}
 		else
 		{
-			Command = buf[7] - '0';
+			Command = (uint8_t)buf[7] - (uint8_t)'0';//unsigned 8 bit makes command a value from 0 - 9
+			//Command += ((uint8_t)buf[6] - (uint8_t)'0');//the higher digit either 1 or 0; 
+			itemBuf[0] = buf[6];
+			itemBuf[1] = buf[7];
+			//Command = atoi(itemBuf);
+			
+			if(((uint8_t)buf[6] - (uint8_t)'0') == 1)
+			{
+				Command = Command + 10; // adds the correct value 0 - 15;
+			}
 			if(buf[8] == '0')// open
 			{
+				if(verbose)
+				{
+					/**
+					char tempBuf[2];
+					//itoa(Command, tempBuf,10);
+					
+					tempBuf[0] = (char)tempCommand + '0';//
+					tempBuf[1] = (char)(Command - 10) + '0';
+					send_str(PSTR("Starting to open Damper"));
+					usb_serial_write(tempBuf, 2);
+					//usb_serial_write(itemBuf, 2);
+					send_str(PSTR("\r\n"));
+					**/
+				}
 				OpenDamper(Command);
-				send_str(PSTR("Damper Open Complete.\r\n"));
+				if(verbose)
+				{
+					send_str(PSTR("Damper Open Complete.\r\n"));
+				}
 				return;
 			}
-			else
+			else // Close Damper
 			{
+			if(verbose)
+				{				
+					char tempBuf[2];
+					//itoa(Command, tempBuf,10);
+					
+					tempBuf[0] = ((char)(Command)-10) + '0';//
+					tempBuf[1] = (char)(Command) + '0';
+					send_str(PSTR("Starting to close Damper"));
+					usb_serial_write(tempBuf, 2);
+					//usb_serial_write(itemBuf, 2);
+					send_str(PSTR("\r\n"));
+				}
 				CloseDamper(Command);
-				send_str(PSTR("Damper Close Complete.\r\n"));
+				if(verbose)
+				{
+					send_str(PSTR("Damper Close Complete.\r\n"));
+				}
 				return;
 			}
 		}
@@ -285,11 +336,32 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	
 	if(buf[0] == 'T') // Temperature Section
 	{
-		Command = buf[5] - '0';// get the number room value
-		Command = Command * 10;// ten's digit
-		Command += (buf[6] - '0');// single digit.
-		Status = ReadTempSensor(Command);// query temperature section for info.
-		send_str((char *)Status);// return status.
+			//disable all other Devices and enable this
+		//Disable Sprinkler
+		SPRINKLER_DEMUX_EN_OFF;
+		//disable Damper
+		DAMPER_ENABLE_OFF;
+		//enable TempSense
+		TEMPERATURE_DEMUX_EN_ON;
+		
+		Command = (uint8_t)buf[6] - (uint8_t)'0';//unsigned 8 bit makes command a value from 0 - 9
+			if(((uint8_t)buf[6] - (uint8_t)'0') != 1)
+			{
+				Command *= ((uint8_t)buf[6] - (uint8_t)'0');// adds the correct value 0 - 64;
+			}
+			char tempBuf[2];
+			tempBuf[0] = buf[6];
+			tempBuf[1] = buf[5];
+			send_str(PSTR("Checking Temperature Sensor: "));
+			usb_serial_write(tempBuf, 2);
+			send_str(PSTR("\r\n"));
+		uint16_t tempResult = ReadTempSensor(Command);// query temperature section for info. this is a number from 0 to 1024
+		char tempResultStr[4];
+		convert_by_division(tempResult, tempResultStr);
+		usb_serial_write(tempResultStr, 4);
+		send_str(PSTR("\r\n"));
+			
+		//send_str(tempResultStr);// return status.
 		return;
 	}
 	else if(buf[0] == 'G')// Garage Section
@@ -298,9 +370,66 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		PulseGarage();
 		return;
 	}
-	else if(buf[0] == 'h')// Help Section
+	else if(buf[0] == 'S')// Sprinkler Section
+	{
+		//disable Damper
+		DAMPER_ENABLE_OFF;
+		//disable TempSense
+		TEMPERATURE_DEMUX_EN_OFF;
+		//enable Sprinkler
+		SPRINKLER_DEMUX_EN_ON;
+		if(verbose)
+		{
+			send_str(PSTR("Sprinkler Section\r\n"));
+		}
+		//this is only one thing. which is a pulse
+		
+		return;
+	}
+	else if((buf[0] == '-' && buf[1] == 'h') || buf[0] == '?' )// Help Section
 	{
 		//help commands so write a bunch of things that help people.
+		send_str(PSTR("***************************************\r\n"));
+		send_str(PSTR("HELP I don't know what to do\r\n"));
+		send_str(PSTR("List of available commands\r\n\r\n"));
+		send_str(PSTR("-help:\t\tprovides this menu\r\n"));
+		send_str(PSTR("Damper###:\tTurns on and off Damper\r\n"));
+		send_str(PSTR("Damper?##:\tReplies whether damper is open or closed\r\n"));
+		send_str(PSTR("Temp?##:\tgets the temperature value of the specific sensor\r\n"));
+		send_str(PSTR("HVAC?:\t\tReturns HVAC status\r\n"));
+		send_str(PSTR("HVAC#:\t\tSets the HVAC to a specific state\r\n"));
+		send_str(PSTR("Garage:\t\tPulses the Garage open or closed\r\n"));
+		send_str(PSTR("Sprinkler###:\tturns on/off section of sprinklers\r\n"));
+		send_str(PSTR("Sprinkler?:\tGets status of sprinkler\r\n"));
+		send_str(PSTR("***************************************\r\n"));
+		send_str(PSTR("Examples (to-do)\r\n"));
 	}
 		send_str(PSTR("\r\n"));
 }
+
+/**
+*	initializes the variables used for Temperature Sense, Sprinkler, and Damper	
+**/
+void initializeGlobal(void)
+{
+	DEMUX_A_CONFIG;
+	DEMUX_B_CONFIG;
+	DEMUX_C_CONFIG;
+	DEMUX_D_CONFIG;
+	// initialize all of the idifferent pins
+	DAMPER_ENABLE_CONFIG;
+	SPRINKLER_DEMUX_EN_CONFIG;
+	TEMPERATURE_DEMUX_EN_CONFIG;
+
+}
+/**
+*	This function was taken from Stackoverflow.com/questions/3694100/converting-to-ascii-in-c
+**/
+void convert_by_division(uint16_t value, char *temp)
+{
+	temp[0] = (value % 10) + '0';
+	temp[1] = (value % 100) / 10 + '0';
+	temp[2] = (value % 1000) / 100 + '0';
+	temp[3] = (value % 1000) / 1000 + '0';
+}
+

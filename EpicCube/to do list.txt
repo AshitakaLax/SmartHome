@@ -1,0 +1,73 @@
+brainstorm
+
+things that worked
+
+Main Board
+	1.	recreate a footprint that will work for the larger connectors
+	2.	change connector location on board layout.
+	4.	create uC LED Heart Beat with spare holes
+
+Temp Sense Board
+	1. Verify Demux channels work correctly
+	2. Write software for controlling demux
+
+HVAC/Garage board
+	1. Update PCB
+	2.	Verify Optocouplers
+
+Damper Board
+	1.	update PCB
+	2.	Add Buffer into schematic and PCB
+
+Power Board
+	1.  if time redesign for better connector placement
+	2.	update caps with diaelectric caps
+
+Stepper Motor Board
+	1.	test with stepper motor, and small steps
+	2.	if timing is off 1st debug with graphs from website
+	3.	then redesign stepper motor to have just the 4 channels of tips
+		with the polulu stepper motor chip
+	5.
+
+Sprinkler Board
+	1.	Create the next revision
+	2.	Change Relay connections
+	3. 	Add notes to schematic about enable and signals must be set for demux to work.
+	4.	verify all relays are being set from inverter.
+	5. 	write demux software to sprinkler control
+	
+speaker mixer
+	1. build speaker mixer
+	2. test muxing
+	3. build single speaker output and test
+
+wireless
+	1.	redesign for different microcontroller
+	2.	build board
+	3.	test wifi
+	4.	
+
+CABLES
+	1.	build reset cable
+	2. 	Build Sprinkler Cable
+	4.	Build bi-polar Cable
+	5. 	Build 9-pin DSub Cables
+	2. 	run continuity tests on all cables to verify connections.
+	3.
+	
+	
+Software
+
+Computer Software
+	1. Create Sockets to communication from python to server
+	2. Create delegate system to control all of the different commands
+	extra. create a library of audio that is tied to the responses instead of microsoft Sam
+
+microController Software
+(note while uC is being shipped develope code using GCC)
+	1.	Create Sprinkler software
+	2.	create a char lookup table 
+	3. 	Create simple demux for temperature board
+	4. 	Create software to sample HVAC signals
+	

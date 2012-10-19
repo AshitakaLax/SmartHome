@@ -4,7 +4,7 @@ import sys
 import time
 
 def test():
-    HOST = "127.0.0.1"    # The remote host
+    HOST = "155.98.69.177"    # The remote host
     PORT = 50001              # The same port as used by the server
     s = None
     for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC, 

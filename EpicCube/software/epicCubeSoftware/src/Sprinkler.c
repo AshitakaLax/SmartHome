@@ -17,7 +17,7 @@
 * 	Then while checking the Damper's status
 *	runs the stepper motor.
 */
-void OpenDamper( uint8_t damper)
+void SprinklerCntrl( uint8_t damper)
 {
 	ActivateDamper(damper);
 	for(int i; i < 10000; i++);// wait for signal propagation 0.5 seconds is

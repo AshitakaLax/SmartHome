@@ -45,6 +45,7 @@ void send_str(const char *s);
 uint8_t recv_str(char *buf, uint8_t size);
 void parse_and_execute_command(const char *buf, uint8_t num);// still needs updating
 void convert_by_division(uint16_t value, char *temp);
+uint16_t convertAsciiToInt(char*temp, uint16_t size);
 //global verbose adds lots of print statements
 uint8_t verbose = 1;
 
@@ -423,7 +424,8 @@ void initializeGlobal(void)
 
 }
 /**
-*	This function was taken from Stackoverflow.com/questions/3694100/converting-to-ascii-in-c
+*	This function was taken from 	Stackoverflow.com/questions/3694100/converting-to-ascii-in-c
+*	It converts the int into a string.
 **/
 void convert_by_division(uint16_t value, char *temp)
 {
@@ -431,5 +433,40 @@ void convert_by_division(uint16_t value, char *temp)
 	temp[1] = (value % 100) / 10 + '0';
 	temp[2] = (value % 1000) / 100 + '0';
 	temp[3] = (value % 1000) / 1000 + '0';
+}
+
+/**
+*	This will convert the char string into a decimal. assuming correct formatting
+ *if error it will return 0.
+ */
+uint16_t convertAsciiToInt(char*temp, uint16_t size)
+{
+	uint16_t result = 0;
+	uint16_t i;
+	uint16_t j;
+	for(i = 0; i < size; i++)
+    {
+		uint16_t multiplier;
+		uint16_t multipleOfTen;
+		uint16_t tempResult;
+
+		if(temp[i] > '9' || temp[i] < '0')
+			return 0;
+		
+		multiplier = size - i - 1;
+		// create a multiple of 10
+		// 1,10,100,1000,10000.  for the digit
+		multipleOfTen = 1;
+		for(j = 0; j < multiplier; j++)
+		{
+			multipleOfTen *= 10;
+		}
+
+		// get uint16_t from 0 - 9;
+
+		tempResult = temp[i] - '0';
+		result += (tempResult * multipleOfTen);
+	}
+  return result;
 }
 

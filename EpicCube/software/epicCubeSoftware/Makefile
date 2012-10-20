@@ -39,6 +39,10 @@
 # To rebuild project do "make clean" then "make all".
 #----------------------------------------------------------------------------
 
+#-------------------
+# NOTES about this particular Build
+# this build is good for SmartHome Project. only with the Teensy2.0++
+#-------------------
 
 # Target file name (without extension).
 TARGET = mainControl
@@ -50,13 +54,10 @@ SRC =	$(TARGET).c \
 	src/HVACGarage.c \
 	src/damper_Control.c \
 	src/tempSense.c 
-
-# MCU name, you MUST set this to match the board you are using
-# type "make clean" after changing this, so all files will be rebuilt
-#
-#MCU = at90usb162       # Teensy 1.0
-#MCU = atmega32u4        # Teensy 2.0
-#MCU = at90usb646       # Teensy++ 1.0
+	#src/Sprinkler.c
+	
+	
+# the microcontroller for this particular project
 MCU = at90usb1286      # Teensy++ 2.0
 
 
@@ -76,11 +77,6 @@ FORMAT = ihex
 #     To put object files in current directory, use a dot (.), do NOT make
 #     this an empty or blank macro!
 OBJDIR = objFiles
-
-
-# List C++ source files here. (C dependencies are automatically generated.)
-CPPSRC = 
-
 
 # List Assembler source files here.
 #     Make them always end in a capital .S.  Files ending in a lowercase .s

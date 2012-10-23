@@ -33,6 +33,7 @@
 #include "include/HVACGarage.h"// works and compiles
 #include "include/damper_Control.h"
 #include "include/tempSense.h"
+#include "include/Sprinkler.h"
 #include <stdlib.h>
 
 //need to add fan.h later when I figure out how to generate a pwm
@@ -235,7 +236,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			}
 		}
 	}
-	if(buf[0] == 'H')// HVAC Section
+	if(buf[0] == 'H')// HVAC Section should be DONE debug
 	{	
 		if(verbose)
 		send_str(PSTR("entering HVAC\r\n"));// H0V1A2V3?4
@@ -274,6 +275,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			{
 				//so GfanStatus is already on
 				//check if hot or cold are on
+
 				if(WHeatStatus == 1)
 				{// 5
 					send_str(PSTR("5\r\n"));// blower and heater.
@@ -284,43 +286,72 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 					send_str(PSTR("6\r\n"));
 					return;
 				}
-				send_str(PSTR("4\r\n"));// just the blower is on
+				if(GFanStatus == 1)
+				{
+					send_str(PSTR("4\r\n"));
+					return;
+				}
+				
+				send_str(PSTR("8\r\n"));// just the blower is on
 				return;
 			}
 		}
 		else // command
 		{
-			if(buf[4] == '1')
+			if(buf[4] == '1')// Thermo stat controlled
 			{
 				SetWHeat(0);
 				SetYCool(0);
 				SetGFan(0);
-				send_str(PSTR("Server controlled off\r\n"));
+				SetHVAC(0);
+				if(verbose)
+				{	
+					send_str(PSTR("Server controlled off\r\n"));
+				}
 			}
-			else if(buf[4] == '2')
+			else if(buf[4] == '2')// Blower on
 			{
 				SetWHeat(0);// may be overridden by Furnace
 				SetYCool(0);// may be overridden by Furnace
 				SetGFan(1);
-				send_str(PSTR("Server controlled Fan\r\n"));
+				SetHVAC(1);
+				if(verbose)
+				{	
+					send_str(PSTR("Server controlled Fan\r\n"));
+				}
 			}
 			else if(buf[4] == '3')// heat and blower on
 			{
 				SetGFan(1);
 				SetWHeat(1);// may be overridden by Furnace
 				SetYCool(0);// may be overridden by Furnace
-				send_str(PSTR("Server controlled Fan and Heating\r\n"));
+				SetHVAC(1);
+				if(verbose)
+				{	
+					send_str(PSTR("Server controlled Fan and Heating\r\n"));
+				}
 			}
 			else if(buf[4] == '4')// heat and blower on
 			{
 				SetGFan(1);
 				SetWHeat(0);// may be overridden by Furnace
 				SetYCool(0);// may be overridden by Furnace
-				send_str(PSTR("Server controlled Fan and Cooling\r\n"));
+				SetHVAC(1);
+				if(verbose)
+				{	
+					send_str(PSTR("Server controlled Fan and Cooling\r\n"));
+				}
 			}
-			else
+			else if(buf[4] == '5')// Server controlled off
 			{
-				// this should be for the server controlled off(need to add to hardware)
+				SetGFan(0);
+				SetWHeat(0);// may be overridden by Furnace
+				SetYCool(0);// may be overridden by Furnace
+				SetHVAC(1);
+				if(verbose)
+				{	
+					send_str(PSTR("Server controlled OFF\r\n"));
+				}
 				// for now Turn crapper old thermostat to off.
 			}
 			return;
@@ -335,7 +366,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	 // example Temp?16 will read from temperature sensor 16 and return the
 	 // value in C
 	
-	if(buf[0] == 'T') // Temperature Section
+	if(buf[0] == 'T') // Temperature Section (DEBUG DONE)
 	{
 			//disable all other Devices and enable this
 		//Disable Sprinkler
@@ -345,45 +376,58 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		//enable TempSense
 		TEMPERATURE_DEMUX_EN_ON;
 		
-		Command = (uint8_t)buf[6] - (uint8_t)'0';//unsigned 8 bit makes command a value from 0 - 9
-			if(((uint8_t)buf[6] - (uint8_t)'0') != 1)
-			{
-				Command *= ((uint8_t)buf[6] - (uint8_t)'0');// adds the correct value 0 - 64;
-			}
-			char tempBuf[2];
-			tempBuf[0] = buf[6];
-			tempBuf[1] = buf[5];
-			send_str(PSTR("Checking Temperature Sensor: "));
-			usb_serial_write(tempBuf, 2);
-			send_str(PSTR("\r\n"));
-		uint16_t tempResult = ReadTempSensor(Command);// query temperature section for info. this is a number from 0 to 1024
+		char tempStation[2];
+		tempStation[0] = buf[5];
+		tempStation[1] = buf[6];
+		uint16_t sensorValue = convertAsciiToInt(tempStation, 2);		
+		uint16_t ADCResult = ReadTempSensor(sensorValue);// query temperature section for info. this is a number from 0 to 1024
 		char tempResultStr[4];
-		convert_by_division(tempResult, tempResultStr);
+		//result is best left positive till C# level for easier conversion.
+		convert_by_division(ADCResult, tempResultStr);
 		usb_serial_write(tempResultStr, 4);
 		send_str(PSTR("\r\n"));
-			
-		//send_str(tempResultStr);// return status.
 		return;
 	}
-	else if(buf[0] == 'G')// Garage Section
+	else if(buf[0] == 'G')// Garage Section DONE
 	{
 		//this is only one thing. which is a pulse
 		PulseGarage();
 		return;
 	}
-	else if(buf[0] == 'S')// Sprinkler Section
+	else if(buf[0] == 'S')// Sprinkler Section DONE
 	{
+		int station;
+		int openOrClosed;// 1 for on, and 0 for off
 		//disable Damper
-		DAMPER_ENABLE_OFF;
-		//disable TempSense
-		TEMPERATURE_DEMUX_EN_OFF;
-		//enable Sprinkler
-		SPRINKLER_DEMUX_EN_ON;
 		if(verbose)
 		{
 			send_str(PSTR("Sprinkler Section\r\n"));
 		}
-		//this is only one thing. which is a pulse
+		//now we need to create a string, and find out
+		//which format is 
+		//Sprinkler###
+		//        (##) = time
+		//   	    (#) = station
+		//better yet we will let the server handle that portion of the timing
+		// here we will just handle the station on and off
+		//so we just will ust Sprinkler## first for station
+		// and the second # for on or off
+		station = (uint16_t)buf[9] - (uint16_t)'0';
+		openOrClosed = (uint16_t)buf[10] - (uint16_t)'0';
+		//command needed is station and on or off
+		if(openOrClosed == 1)
+		{
+			DAMPER_ENABLE_OFF;
+			//disable TempSense
+			TEMPERATURE_DEMUX_EN_OFF;
+			//enable Sprinkler
+			SPRINKLER_DEMUX_EN_ON;
+			SprinklerCntrl(station);
+		}
+		else// just make sure it is off
+		{
+			SPRINKLER_DEMUX_EN_OFF;
+		}
 		
 		return;
 	}

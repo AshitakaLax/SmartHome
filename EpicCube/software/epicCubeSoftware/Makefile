@@ -53,8 +53,8 @@ SRC =	$(TARGET).c \
 	src/usb_serial.c \
 	src/HVACGarage.c \
 	src/damper_Control.c \
-	src/tempSense.c 
-	#src/Sprinkler.c
+	src/tempSense.c \
+	src/Sprinkler.c
 	
 	
 # the microcontroller for this particular project

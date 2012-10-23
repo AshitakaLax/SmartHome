@@ -11,10 +11,7 @@
 * 3. Check damper status (false for open, and true for closed) (boolean)
 */
 //define which pins are what.
-
-
 //Following pins are used for Sprinkler, Damper, and Temperature.
-
 
 //Pin 26(PB2)
 #define DEMUX_D_CONFIG		(DDRB |= (1<<2))

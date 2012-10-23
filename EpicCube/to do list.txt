@@ -46,7 +46,6 @@ wireless
 	1.	redesign for different microcontroller
 	2.	build board
 	3.	test wifi
-	4.	
 
 CABLES
 	1.	build reset cable
@@ -65,9 +64,7 @@ Computer Software
 	extra. create a library of audio that is tied to the responses instead of microsoft Sam
 
 microController Software
-(note while uC is being shipped develope code using GCC)
-	1.	Create Sprinkler software
-	2.	create a char lookup table 
-	3. 	Create simple demux for temperature board
-	4. 	Create software to sample HVAC signals
+	1. 	Debug HVAC signals
+	2.	Debug Damper/Motor controller
+
 	

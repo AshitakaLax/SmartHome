@@ -11,10 +11,7 @@
 * 3. Check damper status (false for open, and true for closed) (boolean)
 */
 //define which pins are what.
-
-
 //Following pins are used for Sprinkler, Damper, and Temperature.
-
 
 //Pin 26(PB2)
 #define DEMUX_D_CONFIG		(DDRB |= (1<<2))
@@ -38,11 +35,11 @@
 #define DAMPER_ENABLE_CONFIG	(DDRE |= (1<<6))
 #define DAMPER_ENABLE_OFF		(PORTE |= (1<<6))
 #define DAMPER_ENABLE_ON		(PORTE &= ~(1<<6))
-//Sprinkler
+//Sprinkler this is a little different.  it is enabled high.
 //Pin 25 (PB3)
 #define SPRINKLER_DEMUX_EN_CONFIG	(DDRB |= (1<<3))
-#define SPRINKLER_DEMUX_EN_OFF		(PORTC |= (1<<3))
-#define SPRINKLER_DEMUX_EN_ON		(PORTC &= ~(1<<3))
+#define SPRINKLER_DEMUX_EN_ON		(PORTC |= (1<<3))
+#define SPRINKLER_DEMUX_EN_OFF		(PORTC &= ~(1<<3))
 // Temperature
 //Pin 20(PC7)
 #define TEMPERATURE_DEMUX_EN_CONFIG	(DDRC |= (1<<7))

@@ -29,25 +29,39 @@ static uint8_t aref = (1<<REFS0);// default reference
 *	32 to 63 for board 2(if connected)
 * 	if not connected returns max or min(currently unknown)
 */
-uint16_t ReadTempSensor(uint8_t sensor)
+uint16_t ReadTempSensor(uint16_t sensor)
 {
+	if(sensor > 63)
+	{
+		return 0;//ERROR assume kelvi not sure yet.
+	}
+	//section 1  is analog1 input
+	//Section 2 is analog2 ..
+	
+	
 	//set the channel demux as such
 	//read from adc on such.
 	// Goes from C B A
 	// their are 8 sections with 8 sensors on each
 	//there are up to 32 sensors per board
 	//and there are 8 sections
-	uint8_t subSensor = sensor % 8;//find the sensor within the section.
+	// if 35 it is in section 5
+	//  remainder 3
+	// this truncates the top bits, but it is still within range
+	uint8_t subSensor = (uint8_t)sensor % 8;//find the sensor within the section.
 	
 	uint8_t section = sensor / 8;// find which section it is in.
 	
-	uint8_t C = subSensor / 4;
-	subSensor = subSensor % 4;
+	uint8_t C = subSensor / 4;//3/4 = 0;
+	subSensor = subSensor % 4;// 3%4 = 3;
 	
-	uint8_t B = subSensor / 2;
-	subSensor = subSensor % 2;
+	uint8_t B = subSensor / 2;// 3/2 = 1;
+	subSensor = subSensor % 2;// 3%2 = 1;
 	
 	uint8_t A = subSensor;
+	//
+	
+	
 	char tempBuf[7];
 	//itoa(Command, tempBuf,10);
 		
@@ -86,17 +100,14 @@ uint16_t ReadTempSensor(uint8_t sensor)
 	{
 		DEMUX_A_OFF;
 	}
-	if(section > 7)
-	{
-		//return error
-	}
+
 	
 	return ReadADC(section);
 	
 }
 /**
 *	Reads the ADC value on one of the ADC pins
-*	0 - 7 pins.
+*	0 - 7 pins. this returns a range from 0 to 1024
 */
 uint16_t ReadADC(uint8_t pin)// may give errors if so replace with unsigned char.
 {

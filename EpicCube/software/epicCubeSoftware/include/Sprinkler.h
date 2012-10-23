@@ -10,8 +10,7 @@
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 
-uint8_t ReadTempSensor(uint8_t sensor);
-uint8_t ReadADC(uint8_t pin);
+uint8_t SprinklerCntrl( uint8_t section);
 
 
 #endif

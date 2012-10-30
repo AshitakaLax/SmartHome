@@ -28,3 +28,5 @@ ProjectPath=Projects\PrintingProjectAllDocs.PrjPCB
 ProjectPath=Projects\RemoteOutlet.PrjPCB
 [Project14]
 ProjectPath=Projects\RelayAdapterBoard.PrjPCB
+[Project15]
+ProjectPath=Projects\HighPowerBiPolarStepperProject.PrjPCB

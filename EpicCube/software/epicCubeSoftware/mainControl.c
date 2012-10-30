@@ -417,6 +417,10 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		//command needed is station and on or off
 		if(openOrClosed == 1)
 		{
+			if(verbose)
+			{
+				send_str(PSTR("Entering Sprinkler section\r\n"));
+			}
 			DAMPER_ENABLE_OFF;
 			//disable TempSense
 			TEMPERATURE_DEMUX_EN_OFF;

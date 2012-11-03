@@ -10,24 +10,28 @@
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 
-//Pin 25(PB3)
-//#define DEMUX_A_ON		(PORTB |= (1<<3))
-//#define DEMUX_A_OFF		(PORTB &= ~(1<<3))
-
-
-
-//Pin 25(PB3)
-// #define FAN_ONE_ON		(PORTD |= (1<<3))
-// #define FAN_ONE_OFF		(PORTD &= ~(1<<3))
-
-
 // #define DEMUX_A_CONFIG	(DDRB |= (1<<3))
+//Configure Fan Pins PC6, PC5, PC4, PD0, PD3
+//#define XTAL 160000000L // 16Mhz
+#define FAN1_CONFIG		(DDRD |= (1<<0))
+#define FAN1_OFF		(PORTD &= ~(1<<0))
+#define FAN1_ON			(PORTD |= (1<<0))
 
-#define FAN_ZERO_CONFIG	(DDRD |= (1<<0))
-#define FAN_ONE_CONFIG	(DDRD |= (1<<1))
-#define FAN_TWO_CONFIG	(DDRC |= (1<<4))
-#define FAN_THREE_CONFIG (DDRC |= (1<<5))
-#define FAN_FOUR_CONFIG	(DDRC |= (1<<6))
+#define FAN2_CONFIG		(DDRD |= (1<<3))
+#define FAN2_OFF		(PORTD &= ~(1<<3))
+#define FAN2_ON			(PORTD |= (1<<3))
+
+#define FAN3_CONFIG		(DDRC |= (1<<4))
+#define FAN3_OFF		(PORTC &= ~(1<<4))
+#define FAN3_ON			(PORTC |= (1<<4))
+
+#define FAN4_CONFIG		(DDRC |= (1<<5))
+#define FAN4_OFF		(PORTC &= ~(1<<5))
+#define FAN4_ON			(PORTC |= (1<<5))
+
+#define FAN5_CONFIG		(DDRC |= (1<<6))
+#define FAN5_OFF		(PORTC &= ~(1<<6))
+#define FAN5_ON			(PORTC |= (1<<6))
 
 
 

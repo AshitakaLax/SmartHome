@@ -28,6 +28,7 @@
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 #include <string.h>
+#include <inttypes.h>
 #include "include/GlobalVar.h"
 #include "include/usb_serial.h"//added to test the built with it.
 #include "include/HVACGarage.h"// works and compiles
@@ -49,6 +50,12 @@ void convert_by_division(uint16_t value, char *temp);
 uint16_t convertAsciiToInt(char*temp, uint16_t size);
 //global verbose adds lots of print statements
 uint8_t verbose = 1;
+//Simple delay command
+static void delay(uint16_t us)
+{
+	while(us) us--;
+}
+
 
 int main(void)
 {
@@ -71,7 +78,7 @@ int main(void)
 		usb_serial_flush_input();
 
 		send_str(PSTR("\r\n***************************************"));
-		send_str(PSTR("\r\nWelcome to Epic Cube Serial Control\r\n"));
+		send_str(PSTR("\r\nWelcome to Epic Cube Serial Control Version 0.0.1\r\n"));
 		send_str(PSTR("***************************************"));
 		send_str(PSTR("\r\nto receive general help type \"-help\"\r\n\r\n>"));
 
@@ -396,6 +403,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	}
 	else if(buf[0] == 'S')// Sprinkler Section DONE
 	{
+		//need to change from using the mux to using the spare pins
 		int station;
 		int openOrClosed;// 1 for on, and 0 for off
 		//disable Damper
@@ -405,9 +413,9 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		}
 		//now we need to create a string, and find out
 		//which format is 
-		//Sprinkler###
-		//        (##) = time
-		//   	    (#) = station
+		//Sprinkler##
+		//        (#) = station
+		//   	   (#) = Open or Closed
 		//better yet we will let the server handle that portion of the timing
 		// here we will just handle the station on and off
 		//so we just will ust Sprinkler## first for station
@@ -421,11 +429,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			{
 				send_str(PSTR("Entering Sprinkler section\r\n"));
 			}
-			DAMPER_ENABLE_OFF;
-			//disable TempSense
-			TEMPERATURE_DEMUX_EN_OFF;
-			//enable Sprinkler
-			SPRINKLER_DEMUX_EN_ON;
+			
 			SprinklerCntrl(station);
 		}
 		else// just make sure it is off

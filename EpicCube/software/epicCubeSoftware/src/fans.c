@@ -23,7 +23,13 @@
 */
 void InitializeFans()
 {
-	FAN_ZERO_CONFIG;
+	FAN1_CONFIG;
+	FAN2_CONFIG;
+	FAN3_CONFIG;
+	FAN4_CONFIG;
+	FAN5_CONFIG;
+	DDRC |= _BV(PC4);// s
+	TCCR3A = _BV(WGM
 	
 	TCCR2 = _BV(WGM20) // PWM, Phase Correct mode
 	  | _BV(COM21) // Clear OC2 on compare match when up-counting. 

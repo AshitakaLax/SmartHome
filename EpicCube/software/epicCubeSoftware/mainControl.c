@@ -29,6 +29,7 @@
 #include <util/delay.h>
 #include <string.h>
 #include <inttypes.h>
+#include <stdio.h>
 #include "include/GlobalVar.h"
 #include "include/usb_serial.h"//added to test the built with it.
 #include "include/HVACGarage.h"// works and compiles
@@ -66,6 +67,7 @@ int main(void)
 	initializeGlobal();
 	initializeHVACGarage();
 	InitializeDamper();
+	InitializeSprinkler();
 	// still need to initialize fans
 
 	usb_init();
@@ -170,9 +172,6 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	{
 		//disable all other Devices and enable this
 		//Disable Sprinkler
-		SPRINKLER_DEMUX_EN_OFF;
-		//Disable TempSense
-		TEMPERATURE_DEMUX_EN_OFF;
 		//Enable Damper
 		DAMPER_ENABLE_ON;
 		
@@ -373,21 +372,18 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	 // example Temp?16 will read from temperature sensor 16 and return the
 	 // value in C
 	
-	if(buf[0] == 'T') // Temperature Section (DEBUG DONE)
+	if(buf[0] == 'T') // Temperature Section (DEBUG)
 	{
 			//disable all other Devices and enable this
-		//Disable Sprinkler
-		SPRINKLER_DEMUX_EN_OFF;
 		//disable Damper
 		DAMPER_ENABLE_OFF;
-		//enable TempSense
-		TEMPERATURE_DEMUX_EN_ON;
 		
 		char tempStation[2];
-		tempStation[0] = buf[5];
-		tempStation[1] = buf[6];
-		uint16_t sensorValue = convertAsciiToInt(tempStation, 2);		
-		uint16_t ADCResult = ReadTempSensor(sensorValue);// query temperature section for info. this is a number from 0 to 1024
+		tempStation[0] = buf[4];
+		tempStation[1] = buf[5];
+		send_str(PSTR("\n\r"));
+		
+		uint16_t ADCResult = ReadTempSensor(tempStation);// query temperature section for info. this is a number from 0 to 1024
 		char tempResultStr[4];
 		//result is best left positive till C# level for easier conversion.
 		convert_by_division(ADCResult, tempResultStr);
@@ -403,9 +399,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	}
 	else if(buf[0] == 'S')// Sprinkler Section DONE
 	{
-		//need to change from using the mux to using the spare pins
-		int station;
-		int openOrClosed;// 1 for on, and 0 for off
+		
 		//disable Damper
 		if(verbose)
 		{
@@ -415,28 +409,8 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		//which format is 
 		//Sprinkler##
 		//        (#) = station
-		//   	   (#) = Open or Closed
-		//better yet we will let the server handle that portion of the timing
-		// here we will just handle the station on and off
-		//so we just will ust Sprinkler## first for station
-		// and the second # for on or off
-		station = (uint16_t)buf[9] - (uint16_t)'0';
-		openOrClosed = (uint16_t)buf[10] - (uint16_t)'0';
-		//command needed is station and on or off
-		if(openOrClosed == 1)
-		{
-			if(verbose)
-			{
-				send_str(PSTR("Entering Sprinkler section\r\n"));
-			}
-			
-			SprinklerCntrl(station);
-		}
-		else// just make sure it is off
-		{
-			SPRINKLER_DEMUX_EN_OFF;
-		}
-		
+		//   	   (#) = Open/On(1) or Closed/Off(0)
+		SprinklerCntrl(buf[9],buf[10]);
 		return;
 	}
 	else if((buf[0] == '-' && buf[1] == 'h') || buf[0] == '?' )// Help Section
@@ -471,9 +445,6 @@ void initializeGlobal(void)
 	DEMUX_D_CONFIG;
 	// initialize all of the idifferent pins
 	DAMPER_ENABLE_CONFIG;
-	SPRINKLER_DEMUX_EN_CONFIG;
-	TEMPERATURE_DEMUX_EN_CONFIG;
-
 }
 /**
 *	This function was taken from 	Stackoverflow.com/questions/3694100/converting-to-ascii-in-c

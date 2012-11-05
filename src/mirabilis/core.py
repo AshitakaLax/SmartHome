@@ -3,6 +3,7 @@ module core
 """
 
 import abc
+from datetime import datetime
 from weakref import WeakValueDictionary, ref
 
 
@@ -11,16 +12,38 @@ __all__ = ["ItemHolder", "Containable", "Universe", "Area", "PhysicalDevice",
            "UniverseObject"]
 
 
-class UniverseObject(object):
+class UniverseObjectInterface(object):
+    """
+    UniverseObjectInterface (abstract class)
+    """
+    @property
+    @abc.abstractmethod
+    def universe(self):
+        """universe: (Universe) the universe where this object belongs"""
+    
+    @property
+    @abc.abstractmethod
+    def global_id(self):
+        """
+        global_id: (int or <None>) the global ID of this object in its universe
+        """
+    
+    
+class UniverseObject(UniverseObjectInterface):
     """
     UniverseObject (abstract class)
     
-    an item that has a global_id and exists in a universe
+    an item that has a global ID and exists in a universe
     """
+    
+    # private attributes:
+    # 
+    # _universe: (Universe or <None>) the universe containing this object
+    # _global_id: (int or <None>) the global ID for this object
     
     def __init__(self, universe):
         self._universe = None  # written to by Universe object
-        self._global_id = None  # written to by Universe object    
+        self._global_id = None  # written to by Universe object
         
         if universe:
             universe._registeritem(self)
@@ -44,9 +67,9 @@ class UniverseObject(object):
         """
         return self._global_id
 
-    def readytoleaveuniverse(self):
+    def readytoquituniverse(self):
         """
-        obj.readytoleaveuniverse() -> (bool) 
+        obj.readytoquituniverse() -> (bool) 
         
         whether or not the object can be ejected from the universe at this time
         """
@@ -62,11 +85,11 @@ class UniverseObject(object):
         """
         # don't assume this method will always be called; it might be 
         # optimized away
-        assert self.readytoleaveuniverse()
+        assert self.readytoquituniverse()
     
-    def leaveuniverse(self):
+    def quituniverse(self):
         """
-        obj.leaveuniverse()
+        obj.quituniverse()
         
         remove the item from the universe
         """
@@ -108,11 +131,12 @@ class ItemHolder(object):
     def __iter__(self):
         return iter(self._dictofitemstokeys.keys())
         
-    def additem(self, containable, addkeys=frozenset(),
-                newlocalname=None, new_local_id=None): # intended as kw-only 
+    def additem(self, containable, newlocalname=None, new_local_id=None,
+                      addkeys=frozenset()):
         """
-        obj.additem(containable[, keys]
-                    [, newlocalname=<value>][, new_local_id=<value>])
+        obj.additem(containable[, newlocalname
+                               [, new_local_id
+                               [, addkeys]]])
         
         add an item to this holder
         
@@ -132,7 +156,8 @@ class ItemHolder(object):
         keys = frozenset(keys.union(addkeys))
         self._dictofitemstokeys[containable] = keys
         for key in keys:
-            assert key not in self._itemsbykeycache.keys()
+            if key in self._itemsbykeycache.keys():
+                raise KeyError("the key {!r} is already in use".format(key))
             self._itemsbykeycache[key] = containable
         containable._container = self
     
@@ -161,7 +186,7 @@ class ItemHolder(object):
         return set(self._dictofitemstokeys[containable])
 
 
-class Universe(ItemHolder):
+class Universe(ItemHolder, _EventDispatcher):
     """
     Universe() -> obj
     
@@ -180,12 +205,26 @@ class Universe(ItemHolder):
     # _next_global_id: (int) the next ID to be assigned
     # _objects_by_global_id: (dict of Containable[int]) 
     #                        dictionary of ALL smart home objects by ID
+    # _eventhandlers: (dict of set[tuple])
+    #     Each value is a list of functions.
+    #     The functions take a single parameter, which is the event.
+    #     The tuple has as its first item the 
     
     def __init__(self):
         ItemHolder.__init__(self)
+        _EventDispatcher.__init__(self)
+        self._initobjecttracking()
+        self._initdevicetracking()
+        self._initeventdispatching()
+    
+    ###########################
+    # OBJECT TRACKING SECTION #
+    ###########################
+    
+    def _initobjecttracking(self):
         self._next_global_id = 1  # 0 is reserved for future use
         self._objects_by_global_id = {}
-        self._devices = set()
+        
         
     @property
     def objects_dict(self):
@@ -199,7 +238,7 @@ class Universe(ItemHolder):
         """devices: (set) the devices existing in this universe"""
         return self._devices.copy()
     
-    def objects_with_global_id(self, global_id):
+    def object_with_global_id(self, global_id):
         """
         obj.object_with_global_id(global_id) -> (Containable)
         
@@ -209,13 +248,15 @@ class Universe(ItemHolder):
         """
         return self._objects_by_global_id[global_id]
     
-    # obj._registeritem(containable)
-    #
-    # assign a unique ID to containable without making it a root object or
-    # assigning to its _container attribute
-    #
-    # containable: (Containable) the containable object
     def _registeritem(self, containable):
+        """
+        obj._registeritem(containable)
+    
+        assign a unique ID to containable without making it a root object or
+        assigning to its _container attribute
+    
+        containable: (Containable) the containable object
+        """
         containable._universe = self
         
         # assign global ID and store in dictionary
@@ -236,12 +277,12 @@ class Universe(ItemHolder):
         
         containable: (Containable) the thing to delete from the universe
         """
-        assert containable.readytoleaveuniverse(), \
+        assert containable.readytoquituniverse(), \
             "containable not ready to be removed; try removing the thing " \
             "that manages it, such as its device"
-        self.__removeitemfromuniverse(containable)
+        self._removeitemfromuniverse(containable)
     
-    def __removeitemfromuniverse(self, containable):
+    def _removeitemfromuniverse(self, containable):
         assert isinstance(containable, Containable)
         containable.finalize()
         #if containable._container:
@@ -251,14 +292,43 @@ class Universe(ItemHolder):
         containable._global_id = None
         containable._universe = None
     
+    ###########################
+    # DEVICE TRACKING SECTION #
+    ###########################
+    
+    def _initdevicetracking(self):
+        self._devices = set()
+    
     def _registerdevice(self, device):
         assert isinstance(device, PhysicalDevice)
         self._devices.add(device)
+    
+    #############################
+    # EVENT DISPATCHING SECTION #
+    #############################
+    
+    def _initeventdispatching(self):
+        self._eventhandlers = {}
+        
+    def _registereventhandler(self, dispatchtuple, function):
+        """
+        obj._registereventhandler(dispatchtuple, function)
+        """
+        self._eventhandlers.setdefault(dispatchtuple, set()).add(function)
+    
+    def _postevent(self, event):
+        """
+        obj._postevent(event)
+        
+        event: (Event)
+        """
+        for func in self._eventhandlers.get(event.dispatchtuple, []):
+            func(event)
 
 
 class Containable(UniverseObject):
     """
-    class Containable (abstract)
+    Containable (abstract class)
     
     root class for Area, PhysicalDevice, and StateEntity
     
@@ -267,15 +337,29 @@ class Containable(UniverseObject):
     
     Public instance attributes:
     
+    description: (str or <None>) a description of this item
     localname: (str or <None>) the preferred local name of the object in its 
                                container
     local_id: (int or <None>) the preferred local ID of the object in its 
                               container
     """
     
-    def __init__(self, universe, localname=None, local_id=None):
+    def __init__(self, universe, description=None, 
+                       localname=None, local_id=None):
+        """
+        obj.__init__(universe[, description[, localname[, local_id]]])
+        
+        universe: (Universe) the universe where this is being created
+        description: (str or <None>) a description of the object -- 
+                                     optional (default: None)
+        localname: (str or <None>) the preferred local name of the object in 
+                                   its container
+        local_id: (int or <None>) the preferred local ID of the object in its 
+                                  container
+        """
         UniverseObject.__init__(self, universe)
         self._container = None  # written to by ItemHolder objects
+        self.description = description
         self.localname = localname
         self.local_id = local_id
     
@@ -286,18 +370,22 @@ class Containable(UniverseObject):
     
     @property
     def path(self):
+        """
+        path: (str) a slash-separated path of the names leading up to this
+                    item
+        """
         c = self
         parents = []
         while isinstance(c, Containable):
             parents.append(c.localname or c.local_id or "<unnamed>")
             c = c.container
         if isinstance(c, Universe):
-            c = "/"
+            front = "/"
         elif c is None:
-            c = "<floating>/"
+            front = "<floating>/"
         else:
-            raise AssertionError() 
-        return c + "/".join(x for x in reversed(parents))
+            raise AssertionError()  # not reached
+        return front + "/".join(x for x in reversed(parents))
     
     @property
     def container(self):
@@ -339,14 +427,14 @@ class Containable(UniverseObject):
             newkeys.add(self.local_id)
         container.additem(self, newkeys)
     
-    def readytoleaveuniverse(self):
+    def readytoquituniverse(self):
         """
-        obj.readytoleaveuniverse() -> (bool)
+        obj.readytoquituniverse() -> (bool)
         
         return whether the containable is ready to be removed from the universe
         """
         return not self._container and \
-            UniverseObject.readytoleaveuniverse(self)
+            UniverseObject.readytoquituniverse(self)
     
     def removefromcontainer(self):
         """
@@ -359,7 +447,7 @@ class Containable(UniverseObject):
         assert self.container
         self.container.removeitem(self)
     
-    def move(self, newholder):
+    def move(self, newholder, newlocalname=None, new_local_id=None):
         """
         obj.move(newholder)
         
@@ -367,12 +455,13 @@ class Containable(UniverseObject):
         """
         if self.container:
             self.removefromcontainer()
-        newholder.additem(self)
+        newholder.additem(self, newlocalname=newlocalname, 
+                                new_local_id=new_local_id)
         
 
 class Area(Containable, ItemHolder):
     """
-    Area(universe[, localname[, local_id]]) -> obj
+    Area(universe[, description[, localname[, local_id]]]) -> obj
     
     An Area object can hold other areas, physical devices, and state entities.
     
@@ -380,6 +469,7 @@ class Area(Containable, ItemHolder):
     universe.
     
     universe: (Universe) the universe where the object is located
+    description: (str on <None>)
     localname: (str or <None>) the local name of the area in its container
                                -- optional (default: None)
     local_id: (int or <None>) the local ID number of the area in its container
@@ -390,8 +480,9 @@ class Area(Containable, ItemHolder):
     (inherited from class Containable)
     """
     
-    def __init__(self, universe, localname=None, local_id=None):
-        Containable.__init__(self, universe, localname, local_id)
+    def __init__(self, universe, description=None, 
+                       localname=None, local_id=None):
+        Containable.__init__(self, universe, description, localname, local_id)
         ItemHolder.__init__(self)
 
 
@@ -461,8 +552,6 @@ class PhysicalDevice(Containable):
         self._state_entities = set()
         Containable.finalize(self)
         
-    
-    ##@abc.abstractmethod
     def update_entities(self):
         """
         obj.update_entities()
@@ -471,16 +560,123 @@ class PhysicalDevice(Containable):
         """
         raise NotImplementedError()
     
-    # obj._writeablestatechanged(w_state_entity)
-    # 
-    # this method should be called from WStateEntity to propogate the changed
-    # from the state entity to the actual device
-    # 
-    # w_state_entity: (WStateEntity) the entity with the changed state
-    ##@abc.abstractmethod
     def _writablestatechanged(self, w_state_entity):
         raise NotImplementedError()
+
+
+class Event(object):
+    """
+    Event (abstract class)
     
+    Instance attribute:
+    
+    timestamp: (datetime) the time the event occurred
+    """
+    def __init__(self, timestamp=None):
+        """
+        Event.__init__(self[, timestamp])
+        
+        timestamp: (datetime) when the event happened
+        """
+        self.timestamp = timestamp or datetime.now()
+    
+    @property
+    def dispatchtuple(self):
+        """
+        dispatchtuple: (tuple) the tuple that should be used for dispatching 
+                               the event
+        """
+        return (type(self),)
+    
+    @classmethod
+    def makedispatchtuple(cls):
+        """
+        cls.makedispatchtuple() -> (tuple)
+        
+        use this to make a dispatch tuple
+        """
+        
+
+
+class StateEntityEvent(Event):
+    """
+    StateEntityEvent (abstract class)
+    
+    Instance attribute:
+    
+    (inherits instance attributes of Event)
+
+    entity: (StateEntity) the entity involved in the event
+    """
+    def __init__(self, entity, timestamp=None):
+        """
+        Event.__init__(self[, timestamp])
+        
+        entity: (StateEntity) the entity involved in the event
+        timestamp: (datetime) when the event happened
+        """
+        Event.__init__(self, timestamp)
+        self.entity = entity
+    
+    @property
+    def dispatchtuple(self):
+        return (type(self), self.entity)
+    
+    @classmethod
+    def makedispatchtuple(cls, entity):
+        """
+        cls.makedispatchtuple(entity) -> (tuple)
+        
+        use this to make a dispatch tuple for an event
+        
+        entity: (StateEntity) the entity for which the event took place
+        """
+        return (cls, entity)
+
+
+class StateChangedEvent(StateEntityEvent):
+    """
+    StateChangedEvent(entity, newstate, oldstate[, timestamp]) -> obj
+    
+    entity: (StateEntity) the entity involved in the event
+    newstate: (object) the new state of the entity
+    oldstate: (object) the old state of the entity
+    timestamp: (datetime) when the event happened
+    
+    Instance attributes:
+    
+    (inherits instance attributes of StateEntityEvent)
+    
+    newstate: (object) the new state of the entity
+    oldstate: (object) the previous state of the entity
+    """
+    def __init__(self, entity, newstate, oldstate, timestamp=None):
+        StateEntityEvent.__init__(self, entity, timestamp)
+        self.newstate = newstate
+        self.oldstate = oldstate
+
+
+class ValueWrittenEvent(StateEntityEvent):
+    """
+    StateChangedEvent(entity, newstate, oldstate[, timestamp]) -> obj
+    
+    entity: (StateEntity) the entity involved in the event
+    value: (object) the value written to the entity
+    lastvaluewrite: (object) last value written to the entity
+    timestamp: (datetime) when the event happened
+    
+    Instance attributes:
+    
+    (inherits instance attributes of StateEntityEvent)
+    
+    value: (object) the new state of the entity
+    lastvaluewrite: (object) the previous state of the entity
+    """
+    def __init__(self, entity, value, lastvaluewrite=None, timestamp=None):
+        StateEntityEvent.__init__(self, entity, timestamp)
+        self.value = value
+        self.lastvaluewrite = lastvaluewrite
+
 
 class StateEntity(Containable):
     """
@@ -517,16 +713,16 @@ class StateEntity(Containable):
         """
         return self._device
     
-    def readytoleaveuniverse(self):
+    def readytoquituniverse(self):
         """
-        obj.readytoleaveuniverse() -> (bool)
+        obj.readytoquituniverse() -> (bool)
         
         return whether the object is ready to be ejected from the universe
         """
-        return not self._device and Containable.readytoleaveuniverse(self)
+        return not self._device and Containable.readytoquituniverse(self)    
 
 
-class RStateEntityBase(object):
+class RStateEntityBase(UniverseObjectInterface):
     """
     RStateEntity (abstract class)
     
@@ -542,9 +738,14 @@ class RStateEntityBase(object):
         """
         obj._update(newstate)
         
+        record a new value observed by the device
+        
         newstate: the newest value to be recorded
         """
-        self._state = newstate
+        (laststate, self._state) = (self._state, newstate)
+        if newstate != laststate:
+            event = StateChangedEvent(self, newstate, laststate)
+            self.universe._postevent(event)
     
     def read(self):
         """
@@ -553,7 +754,7 @@ class RStateEntityBase(object):
         return self._state
     
     
-class WStateEntityBase(object):
+class WStateEntityBase(UniverseObjectInterface):
     """
     WStateEntityBase (abstract class)
     
@@ -562,7 +763,7 @@ class WStateEntityBase(object):
     
     __metaclass__ = abc.ABCMeta
     
-    _NEVER_WRITTEN = object()
+    NEVER_WRITTEN = object()
     
     def __init__(self, writerfunc):
         """
@@ -574,19 +775,18 @@ class WStateEntityBase(object):
                                operation
         """
         self._writerfunc = writerfunc
-        self._lastvaluewritten = WStateEntityBase._NEVER_WRITTEN
+        self._lastwrite = WStateEntityBase.NEVER_WRITTEN
     
     class NoPriorWritesError(Exception):
         pass
     
     @property
-    def lastvaluewritten(self):
-        if self._lastvaluewritten is WStateEntityBase._NEVER_WRITTEN:
+    def lastwrite(self):
+        if self._lastwrite is WStateEntityBase._NEVER_WRITTEN:
             errmsg = "can't access this property until a value has been " \
                      "written using write()"
             raise WStateEntityBase.NoPriorWritesError(errmsg)
-        return self._lastvaluewritten
-            
+        return self._lastwrite
     
     def write(self, newvalue):
         """
@@ -595,6 +795,17 @@ class WStateEntityBase(object):
         try to set a new value of newvalue on something
         """
         self._writerfunc(self, newvalue)
+        (oldwrite, self._lastwrite) = (self._lastwrite, newvalue)
+        # post event, regardless of whether old and new writes are equal values
+        self.universe._postevent(ValueWrittenEvent(self, newvalue, oldwrite))
+    
+    def rewrite(self):
+        """
+        obj.rewrite()
+        
+        re-write the last value written another time
+        """
+        self.write(self.lastwrite)
 
 
 class RStateEntity(StateEntity, RStateEntityBase):
@@ -658,3 +869,4 @@ class RWStateEntity(StateEntity, RStateEntityBase, WStateEntityBase):
         StateEntity.__init__(self, description, localname, local_id)
         RStateEntityBase.__init__(self)
         WStateEntityBase.__init__(self, writerfunc)
+    

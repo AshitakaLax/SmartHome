@@ -27,7 +27,7 @@
 #endif
 #endif
 
-uint16_t ReadTempSensor(uint16_t sensor);
+uint16_t ReadTempSensor(char *SensorNumber);
 uint16_t ReadADC(uint8_t pin);
 
 

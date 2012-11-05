@@ -1,12 +1,20 @@
-Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Price~String~Price~100|Field=Quantity~Integer~Quantity~100|Field=Value~String~Value~100|Field=Vendor~String~Vendor~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~PrintingProjectAllDocs.PrjPCB|ReportField=ProjectFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Projects\PrintingProjectAllDocs.PrjPCB|ReportField=Title~Mic Mixer BOM 2 For Schematic Document [MicMixer.SchDoc]|ReportField=TotalQuantity~64|ReportField=ReportTime~11:24:33 PM|ReportField=ReportDate~9/24/2012|ReportField=ReportDateTime~9/24/2012 11:24:33 PM|ReportField=OutputName~Mic Mixer BOM 2|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~50 S Central Campus Dr.|ReportField=Address2~Rm. 3280 MEB|ReportField=Address3~SLC, UT 84112|ReportField=Address4~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~Smart Home|ReportField=CurrentDate~9/24/2012|ReportField=CurrentTime~11:24:28 PM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Schematics\MicMixer.SchDoc|ReportField=DocumentName~MicMixer.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~Levi Balling|ReportField=Engineer~Levi Balling|ReportField=ImagePath~|ReportField=ModifiedDate~9/1/2012|ReportField=Organization~U of U Computer Engineering|ReportField=Project~Smart Home|ReportField=ProjectName~PrintingProjectAllDocs.PrjPCB|ReportField=Revision~1|ReportField=Rule~|ReportField=SheetNumber~12|ReportField=SheetTotal~13|ReportField=Time~|ReportField=Title~Microphone Mixer|ReportField=Website~www.eng.utah.edu/~lballing/SmartHome|ReportField=DataSourceFileName~MicMixer.SchDoc|ReportField=DataSourceFullPath~C:\Users\laptop\Desktop\Levi\SeniorProject\Epic Cube Design\Workspace\Schematics\MicMixer.SchDoc
-Cap|Capacitor|C1, C2, C3, C4, C5, C6, C7, C8, C9, C10|RAD-0.3|Cap|0.03|11|4.7uF, 10uF, 22uF|Taydaelectronics
-Cap|Capacitor|C?|RAD-0.3|Cap||2|100pF|
-Inductor Iron|Magnetic-Core Inductor|L?|AXIAL-0.9|Inductor Iron||1|100uH|
-Mic1|Microphone|MK1, MK2, MK3, MK4, MK5, MK6, MK7, MK8, MK9, MK10, MK11, MK12, MK13, MK14, MK15, MK16|PIN2|Mic1|0.25|16|Mic1|Taydaelectronics
-Header 9|Header, 9-Pin|P1|HDR1X9|Header 9|0.09|1|Header 9|Taydaelectronics
-Header 2|Header, 2-Pin|P2, P3, P4, P5, P6, P7, P8, P9|HDR1X2|Header 2|0.02|8|Header 2|Taydaelectronics
-Header 3|Header, 3-Pin|P10, P11|HDR1X3|Header 3|0.03|2|Header 3|Taydaelectronics
-BC548B|NPN General Purpose Amplifier|Q1, Q2|2N3904|2N3904|0.01|2|BC548B|Taydaelectronics
-2N3904|NPN General Purpose Amplifier|Q3, Q4|2N3904|2N3904|0.01|2|2N3904|Taydaelectronics
-Res1|Resistor|R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14|AXIAL-0.3|Res1|0.01|15|1K, 5.6K, 10k, 100, 220K|Taydaelectronics
-CD4051BCN|8-Channel Analog Multiplexer/Demultiplexer|U1, U2, U3, U4|N16E|CD4051BCN|0.23|4|CD4051BCN|Taydaelectronics
+Field=Value~String~Value~77|Field=Designator~String~Designator~203|Field=Description~String~Description~184|Field=Vendor~String~Vendor~104|Field=Quantity~Integer~Quantity~77|Field=Price~String~Price~105|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~MicMixer.PrjPcb|ReportField=ProjectFullPath~C:\Users\laptop\Desktop\Levi\SeniorProjectCADE\smarthome\EpicCube\hardware\Epic Cube Design\Workspace\Projects\MicMixer.PrjPcb|ReportField=Title~MicMixerBOM For Schematic Document [MicMixer.SchDoc]|ReportField=TotalQuantity~76|ReportField=ReportTime~11:34:01 PM|ReportField=ReportDate~10/27/2012|ReportField=ReportDateTime~10/27/2012 11:34:01 PM|ReportField=OutputName~MicMixerBOM|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~50 S Central Campus Dr.|ReportField=Address2~Rm. 3280 MEB|ReportField=Address3~SLC, UT 84112|ReportField=Address4~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~Smart Home|ReportField=CurrentDate~10/27/2012|ReportField=CurrentTime~11:33:57 PM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\laptop\Desktop\Levi\SeniorProjectCADE\smarthome\EpicCube\hardware\Epic Cube Design\Workspace\Schematics\MicMixer.SchDoc|ReportField=DocumentName~MicMixer.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~Levi Balling|ReportField=Engineer~Levi Balling|ReportField=ImagePath~|ReportField=ModifiedDate~10/27/2012|ReportField=Organization~U of U Computer Engineering|ReportField=Project~Smart Home|ReportField=ProjectName~MicMixer.PrjPcb|ReportField=Revision~1|ReportField=Rule~|ReportField=SheetNumber~12|ReportField=SheetTotal~13|ReportField=Time~|ReportField=Title~Microphone Mixer|ReportField=Website~www.eng.utah.edu/~lballing/SmartHome|ReportField=DataSourceFileName~MicMixer.SchDoc|ReportField=DataSourceFullPath~C:\Users\laptop\Desktop\Levi\SeniorProjectCADE\smarthome\EpicCube\hardware\Epic Cube Design\Workspace\Schematics\MicMixer.SchDoc
+0.1uF|C5, C15|Capacitor|Taydaelectronics|2|0.03
+1K|R2, R6, R9, R10, R11, R12, R13, R14|Resistor|Taydaelectronics|8|0.01
+1uF|C3, C8, C10, C13, C18, C20, C22, C24|Capacitor|Taydaelectronics|8|0.03
+2N3904|Q3, Q4|NPN General Purpose Amplifier|Taydaelectronics|2|0.01
+4.7uF|C4, C14|Capacitor|Taydaelectronics|2|0.03
+5.6K|R4, R8|Resistor|Taydaelectronics|2|0.01
+10k|R15, R16|Resistor|Taydaelectronics|2|0.01
+10nF|C2, C7, C9, C12, C17, C19, C21, C23|Capacitor|Taydaelectronics|8|0.04
+10uF|C1, C11|Capacitor|Taydaelectronics|2|0.03
+22uF|C6, C16|Capacitor|Taydaelectronics|2|0.03
+220K|R3, R7|Resistor|Taydaelectronics|2|0.01
+270|R1, R5|Resistor|Taydaelectronics|2|0.01
+400|R17|Resistor|Taydaelectronics|1|0.01
+BC548B|Q1, Q2|NPN General Purpose Amplifier|Taydaelectronics|2|0.01
+CD4051BCN|U1, U2, U3, U4|8-Channel Analog Multiplexer/Demultiplexer|Taydaelectronics|4|0.23
+Header 2|P2, P3, P4, P5, P6, P7, P8, P9|Header, 2-Pin|Taydaelectronics|8|0.02
+Header 3|P10, P11|Header, 3-Pin|Taydaelectronics|2|0.03
+Header 9|P1|Header, 9-Pin|Taydaelectronics|1|0.09
+Mic1|MK1, MK2, MK3, MK4, MK5, MK6, MK7, MK8, MK9, MK10, MK11, MK12, MK13, MK14, MK15, MK16|Microphone|Taydaelectronics|16|0.25

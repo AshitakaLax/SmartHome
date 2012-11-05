@@ -32,18 +32,34 @@
 
 //Damper
 //Pin 30(PE6)
-#define DAMPER_ENABLE_CONFIG	(DDRE |= (1<<6))
-#define DAMPER_ENABLE_OFF		(PORTE |= (1<<6))
-#define DAMPER_ENABLE_ON		(PORTE &= ~(1<<6))
+#define DAMPER_ENABLE_CONFIG			(DDRE |= (1<<6))
+#define DAMPER_ENABLE_OFF				(PORTE |= (1<<6))
+#define DAMPER_ENABLE_ON				(PORTE &= ~(1<<6))
 //Sprinkler this is a little different.  it is enabled high.
 //Pin 25 (PB3)
-#define SPRINKLER_DEMUX_EN_CONFIG	(DDRB |= (1<<3))
-#define SPRINKLER_DEMUX_EN_ON		(PORTC |= (1<<3))
-#define SPRINKLER_DEMUX_EN_OFF		(PORTC &= ~(1<<3))
+#define SPRINKLER_DEMUX_EN_CONFIG		(DDRB |= (1<<3))
+#define SPRINKLER_DEMUX_EN_ON			(PORTB |= (1<<3))//SPRINKLER_DEMUX_EN_ON
+#define SPRINKLER_DEMUX_EN_OFF			(PORTB &= ~(1<<3))
 // Temperature
 //Pin 20(PC7)
-#define TEMPERATURE_DEMUX_EN_CONFIG	(DDRC |= (1<<7))
-#define TEMPERATURE_DEMUX_EN_OFF		(PORTC |= (1<<7))// when high it disables everything else
-#define TEMPERATURE_DEMUX_EN_ON	(PORTC &= ~(1<<7))
+//#define TEMPERATURE_DEMUX_EN_CONFIG		(DDRC |= (1<<7))
+//#define TEMPERATURE_DEMUX_EN_OFF		(PORTC |= (1<<7))// when high it disables everything else
+//#define TEMPERATURE_DEMUX_EN_ON			(PORTC &= ~(1<<7))
 
+//Configure Fan Pins PC6, PC5, PC4, PD0, PD3
+//#define XTAL 160000000L // 16Mhz
+
+/**
+* Table of values for temp sense
+* 	adc		A	B	C		input
+*	0		0	0	0		10
+*	0		0	0	0		11
+*	0		0	0	0		12
+*	0		0	0	0		13
+*	0		0	0	0		14
+*	0		0	0	0		15
+*	0		0	0	0		16
+*	0		0	0	0		17
+*	0		0	0	0		18
+*/
 #endif

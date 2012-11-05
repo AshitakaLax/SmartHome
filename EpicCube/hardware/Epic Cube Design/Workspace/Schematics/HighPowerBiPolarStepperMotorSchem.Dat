@@ -1,0 +1,27 @@
+Field=Value~String~Value~77|Field=Designator~String~Designator~203|Field=Description~String~Description~184|Field=Vendor~String~Vendor~104|Field=Quantity~Integer~Quantity~77|Field=Price~String~Price~105|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~HighPowerBiPolarStepperProject.PrjPCB|ReportField=ProjectFullPath~C:\Users\laptop\Desktop\Levi\SeniorProjectCADE\smarthome\EpicCube\hardware\Epic Cube Design\Workspace\Projects\HighPowerBiPolarStepperProject.PrjPCB|ReportField=Title~HighPowerBiPolarBOM For Schematic Document [HighPowerBiPolarStepperMotorSchem.SchDoc]|ReportField=TotalQuantity~67|ReportField=ReportTime~11:31:46 PM|ReportField=ReportDate~10/27/2012|ReportField=ReportDateTime~10/27/2012 11:31:46 PM|ReportField=OutputName~HighPowerBiPolarBOM|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=ApprovedBy~|ReportField=Author~Levi Balling|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~10/27/2012|ReportField=CurrentTime~11:31:42 PM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\laptop\Desktop\Levi\SeniorProjectCADE\smarthome\EpicCube\hardware\Epic Cube Design\Workspace\Schematics\HighPowerBiPolarStepperMotorSchem.SchDoc|ReportField=DocumentName~HighPowerBiPolarStepperMotorSchem.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~Levi Balling|ReportField=Engineer~Levi Balling|ReportField=ImagePath~|ReportField=ModifiedDate~10/27/2012|ReportField=Organization~University of Utah|ReportField=ProjectName~HighPowerBiPolarStepperProject.PrjPCB|ReportField=Revision~1|ReportField=Rule~|ReportField=SheetNumber~8|ReportField=SheetTotal~12|ReportField=Time~|ReportField=Title~High Pwr Bi-Polar Stepper Controller|ReportField=DataSourceFileName~HighPowerBiPolarStepperMotorSchem.SchDoc|ReportField=DataSourceFullPath~C:\Users\laptop\Desktop\Levi\SeniorProjectCADE\smarthome\EpicCube\hardware\Epic Cube Design\Workspace\Schematics\HighPowerBiPolarStepperMotorSchem.SchDoc
+1|R11, R13|Resistor|Taydaelectronics|2|0.01
+1K|R1|Potentiometer|Taydaelectronics|1|0.07
+1uF|C2|Capacitor|Taydaelectronics|1|0.03
+2N3904|Q1|NPN General Purpose Amplifier|Taydaelectronics|1|0.01
+3.3k|R2, R4|Resistor|Taydaelectronics|2|0.01
+3.3nF|C11|Capacitor|Taydaelectronics|1|0.03
+4.7uF|C1|Capacitor|Taydaelectronics|1|0.03
+10k|R5, R6, R7, R9, R10, R12|Resistor|Taydaelectronics|6|0.01
+22k|R8|Resistor|Taydaelectronics|1|0.01
+100nF|C3, C4, C5, C8, C9|Capacitor|Taydaelectronics|5|0.03
+100uF|C13|Polarized Capacitor (Radial)|Taydaelectronics|1|0.03
+220pF|C6, C7, C10|Capacitor|Taydaelectronics|3|0.03
+240|R14, R15, R16|Resistor|Taydaelectronics|3|0.01
+470|R3|Resistor|Taydaelectronics|1|0.01
+1000uF|C12|Polarized Capacitor (Radial)|Taydaelectronics|1|0.03
+Diode 1N4148|D1|High Conductance Fast Diode|Taydaelectronics|1|0.01
+Diode 1N5822|D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17|3 Amp General Purpose Rectifier|Taydaelectronics|16|0.19
+Header 4|P1, P4, P10, P11|Header, 4-Pin|Taydaelectronics|4|0.04
+Header 5|P2|Header, 5-Pin|Taydaelectronics|1|0.05
+Jumper 3|J1|Header, 3-Pin|Taydaelectronics|1|0.03
+L297|U4|Stepper Motor Controller|Taydaelectronics|1|2.20
+L298N|U2, U5|Dual Full Bridge Driver|Taydaelectronics|2|1.78
+LM555CN|U1|Timer|Taydaelectronics|1|0.14
+PP|P3, P5, P6, P7, P8, P9|Plug|Taydaelectronics|6|0.01
+SN7416N|U3|Hex Inverter Buffer / Driver with High-Voltage Outputs|Taydaelectronics|1|0.20
+White_LED|D18, D19, D20|Typical INFRARED GaAs LED|Taydaelectronics|3|0.04

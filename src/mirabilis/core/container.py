@@ -52,7 +52,7 @@ class Container(object):
         new_local_id: (int or <None>) a new local ID to set on item
         """
         assert not item._container
-        assert isinstance(SmartHomeItem)
+        assert isinstance(item, SmartHomeItem)
         if newlocalname is not None:
             item.localname = newlocalname
         if new_local_id is not None:

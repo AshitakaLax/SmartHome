@@ -29,7 +29,7 @@ class Universe(Container):
     #     The tuple has as its first item the 
     
     def __init__(self):
-        ItemHolder.__init__(self)
+        Container.__init__(self)
         self._initobjecttracking()
         self._initdevicetracking()
         self._initeventdispatching()
@@ -143,3 +143,4 @@ class Universe(Container):
             func(event)
 
 
+from .physicaldevice import PhysicalDevice

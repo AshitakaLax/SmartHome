@@ -85,7 +85,7 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         c = self
         parents = []
-        while isinstance(c, Containable):
+        while isinstance(c, SmartHomeItem):
             parents.append(c.localname or c.local_id or "<unnamed>")
             c = c.container
         if isinstance(c, Universe):

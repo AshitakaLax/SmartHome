@@ -12,7 +12,7 @@ pprint(universe.objects_dict)
 
 print list(universe)
 
-print universe["MEB"][3][3143]["power strip"]
+print universe["MEB"][3][3143]["power strip and sensors"]
 
 print
 for x in universe.objects_dict.values():

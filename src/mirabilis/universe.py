@@ -1,5 +1,5 @@
 from .core import *
-from .powerstrip import PowerStrip
+from .pstripandsensors import PStripAndSensors
 
 
 def createstuff():
@@ -19,8 +19,8 @@ def createstuff():
     vlsi = Area(universe, "VLSI test room")
     lab.additem(vlsi, "vlsi", 1)
 
-    pstrip = PowerStrip(universe, "Todd's smart power strip")
-    lab.additem(pstrip, "power strip", 2)
+    pstrip = PStripAndSensors(universe, "Todd's smart power strip")
+    lab.additem(pstrip, "power strip and sensors", 2)
     
     lab.additem(pstrip.outlet1onoff, "floor lamp", 3)
     lab.additem(pstrip.outlet2onoff, "fan", 4)

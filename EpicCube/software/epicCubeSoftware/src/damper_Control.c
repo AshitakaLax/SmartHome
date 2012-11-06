@@ -9,19 +9,23 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <stdlib.h>
+#include <util/delay.h>
 
 
 #include "../include/GlobalVar.h"
 #include "../include/damper_Control.h"
 
+uint8_t DamperVerbose = 1;
 /**
 *	initializes all of the dampers outputs.
 */
 void InitializeDamper()
 {
-	MotorDirection1_CONFIG;
+	MotorDirection1_CONFIG;// A4988 driver us this one
 	MotorDirection2_CONFIG;
 	MotorStep_CONFIG;
+	ISBUTTONCLOSE_CONFIG;
+	ISBUTTONOPEN_CONFIG;
 }
 
 
@@ -33,9 +37,17 @@ void InitializeDamper()
 */
 void OpenDamper( uint8_t damper)
 {
+	if(DamperVerbose)
+	{
+		
+		send_str(PSTR("\r\nDamper: "));
+		usb_serial_putchar((damper + '0'));
+		send_str(PSTR("\r\nEnter OpenDamper Section \r\n"));
+	}
+	//set the Damper Demux correctly
 	ActivateDamper(damper);
-	for(int i; i < 10000; i++);// wait for signal propagation 0.5 seconds is
-	
+//	for(int i; i < 10000; i++);// wait for signal propagation 0.5 seconds is
+	_delay_ms(100);
 	//step the device open
 	uint8_t DamperStatus = CheckDamper(damper);
 	// if already open, return
@@ -43,22 +55,31 @@ void OpenDamper( uint8_t damper)
 	{
 		return;
 	}
+	// if not run the motor
 	MotorDirection1HIGH;
-	MotorDirection2LOW;
+//	MotorDirection2LOW; // current setting for A4988
 	// set a timeout
-	unsigned int timeout = 0;
-	while(DamperStatus != 0 || timeout == 10000)
+	unsigned int timeout = 0; // make sure the motor doesn't spin forever
+	// timeout is 5 seconds is 100ms * 50 = 5 seconds
+	while(DamperStatus != 0 || timeout > 50)
 	{
-		// step a lot
+		// step a lot// need a pause
 		MotorStepHIGH;
 		DamperStatus = CheckDamper(damper);
+		// add ~500 milisec plenty of time for stepper motor not to crush everything 
+		_delay_ms(100);
+		
 		MotorStepLOW;
 		timeout++;
 	}
-	if(timeout == 10000)
+	if(timeout > 50)
 	{
 		// report error to main Could be the wrong board that
 		// we are trying to access.
+		if(DamperVerbose)
+		{
+			send_str(PSTR(" Damper Open Error:TIMEOUT\r\n"));
+		}
 	}
 	
 	
@@ -68,9 +89,16 @@ void OpenDamper( uint8_t damper)
 */
 void CloseDamper( uint8_t damper)
 {
-
+	if(DamperVerbose)
+	{
+		send_str(PSTR("\r\nDamper: "));
+		usb_serial_putchar((damper + '0'));
+		send_str(PSTR("\r\nEnter CloseDamper Section \r\n"));
+	}
+	
 	ActivateDamper(damper);
-	for(uint16_t i; i < 10000; i++);// wait for signal propagation 0.5 seconds is
+	
+	_delay_ms(500);
 	
 	//step the device close
 	uint8_t DamperStatus = CheckDamper(damper);
@@ -79,27 +107,34 @@ void CloseDamper( uint8_t damper)
 	{
 		return;
 	}
-	MotorDirection1LOW;
-	MotorDirection2HIGH;
-	// set a timeout
-	uint16_t timeout = 0;
-	uint8_t bufSize = 30;
-	while(DamperStatus != 1 || timeout == 10000)
+	unsigned int timeout = 0; // make sure the motor doesn't spin 
+	MotorDirection1LOW;// go in opposite direction
+	//MotorDirection2HIGH;
+	// set a timeout to 5 seconds
+	while(DamperStatus != 1 || timeout == 50)
 	{
 		// step a lot
 		MotorStepHIGH;
 		DamperStatus = CheckDamper(damper);
+		_delay_ms(100);
 		MotorStepLOW;
 		timeout++;
-		char timeBuf[bufSize];
-		itoa(timeout, timeBuf, 10);
-		usb_serial_write(timeBuf, bufSize);
+		if(DamperVerbose)
+		{
+			send_str(PSTR("ModTimer: "));
+			usb_serial_putchar((timeout / '0'));
+			send_str(PSTR("\r\n"));
+		}	
 			
 	}
 	if(timeout == 10000)
 	{
 		// report error to main Could be the wrong board that
 		// we are trying to access.
+		if(DamperVerbose)
+		{
+			send_str(PSTR(" Damper Close Error:TIMEOUT\r\n"));
+		}
 	}
 	
 }
@@ -114,28 +149,43 @@ void CloseDamper( uint8_t damper)
 uint8_t CheckDamper(uint8_t damper)
 {
 	//Go through each damper and check if the input on the Bus is high or low.
+	//double make sure it is good.
 	ActivateDamper(damper);
 	
 	// check if it is in the middle
 	for(int i; i < 10000; i++);// wait for signal propagation 0.5 seconds is
 	// enough
+	// it is in the middle of turning
 	if(ISBUTTONOPENBUSHIGH & ISBUTTONCLOSEBUSHIGH)
 	{
-		
+		if(DamperVerbose)
+		{
+			send_str(PSTR("Both inputs are HIGH\r\n"));
+		}	
 		return 2;
 	}
 	else if(!ISBUTTONOPENBUSHIGH & ISBUTTONCLOSEBUSHIGH)
 	{
+		if(DamperVerbose)
+		{
+			send_str(PSTR("OPENBUS is LOW and CLOSE Button is HIGH\r\n"));
+		}	
 		return 0;
 	}
 	else 
 	{
+	
+		if(DamperVerbose)
+		{
+			send_str(PSTR("CloseButton is Low and Open Button is HIGH\r\n"));
+		}	
 		return 1;
 	}
 }
 /**
 *	Sets the correct damper to be active.
 * Damper is high when button isn't pressed
+* for simplicity it would be better to switch this to string comparisons.
 */
 void ActivateDamper(uint8_t damper)
 {

@@ -11,15 +11,20 @@
 * 3. Check damper status (false for open, and true for closed) (boolean)
 */
 
-//Pin 4(PD1) possible to use interrupts pd0
+//Pin 4(PD1) possible to use interrupts pd0 TO DO make interrupt
+#define ISBUTTONOPEN_CONFIG	(DDRD &= ~(1<<1))
 #define ISBUTTONOPENBUSHIGH		(PIND & (1<<1))
-//Pin 3(PD0)
+//Pin 3(PD0) set to input TOD make interrupt enabled.
+#define ISBUTTONCLOSE_CONFIG	(DDRD &= ~(1<<0))
 #define ISBUTTONCLOSEBUSHIGH	(PIND & (1<<0))
+
+
+
 //Pin 22(PB6)
 #define MotorDirection1HIGH	(PORTB |= (1<<6))
 #define MotorDirection1LOW	(PORTB &= ~(1<<6))
 
-//Pin 23(PB5)
+//Pin 23(PB5) Keep for a spare for ideal setup
 #define MotorDirection2HIGH	(PORTB |= (1<<5))
 #define MotorDirection2LOW	(PORTB &= ~(1<<5))
 //Pin 24(PB4)

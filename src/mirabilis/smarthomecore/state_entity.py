@@ -1,7 +1,7 @@
 import abc
 
-from ._interfaces import SmartHomeItemInterface
-from ._smarthomeitem import SmartHomeItem
+from .interfaces import SmartHomeItemInterface
+from .smarthomeitem import SmartHomeItem
 
 
 __all__ = []

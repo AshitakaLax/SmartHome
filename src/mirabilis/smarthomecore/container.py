@@ -93,4 +93,4 @@ class Container(object):
         return set(self._dictofitemstokeys[item])
 
 
-from ._smarthomeitem import SmartHomeItem
+from .smarthomeitem import SmartHomeItem

@@ -127,4 +127,4 @@ class ValueWrittenEvent(StateEntityEvent):
         self.lastvaluewrite = lastvaluewrite
 
 
-from ._state_entity import StateEntity
+from .state_entity import StateEntity

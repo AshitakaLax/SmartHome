@@ -1,6 +1,6 @@
-from .universe import createstuff
+from .create import create
 
-universe = createstuff()
+universe = create()
 
 from pprint import pprint
 

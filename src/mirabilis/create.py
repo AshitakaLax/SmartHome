@@ -2,7 +2,7 @@ from .core import *
 from .pstripandsensors import PStripAndSensors
 
 
-def createstuff():
+def create():
     universe = Universe()
     
     building = Area(universe, "Merrill Engineering Building")

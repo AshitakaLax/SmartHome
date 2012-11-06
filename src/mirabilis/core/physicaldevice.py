@@ -78,13 +78,11 @@ class PhysicalDevice(SmartHomeItem):
         """
         obj.update_entities()
         
-        this method tells the device to update the status of its entities
+        when the universe calls this method, the device must update the status
+        of its entities
         """
         raise NotImplementedError()
     
-    def _writablestatechanged(self, w_state_entity):
-        raise NotImplementedError()
-
 
 from .universe import Universe
 from .state_entity import StateEntity

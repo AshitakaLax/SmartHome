@@ -1,3 +1,6 @@
+__all__ = ["Container"]
+
+
 class Container(object):
     """
     ItemHolder (abstract class)
@@ -27,64 +30,67 @@ class Container(object):
         assert not isinstance(index, slice)
         return self._itemsbykeycache[index]
     
-    def __contains__(self, containable):
-        return containable in self._dictofitemstokeys.keys()
+    def __contains__(self, item):
+        return item in self._dictofitemstokeys.keys()
     
     def __iter__(self):
         return iter(self._dictofitemstokeys.keys())
         
-    def additem(self, containable, newlocalname=None, new_local_id=None,
+    def additem(self, item, newlocalname=None, new_local_id=None,
                       addkeys=frozenset()):
         """
-        obj.additem(containable[, newlocalname
-                               [, new_local_id
-                               [, addkeys]]])
+        obj.additem(item[, newlocalname
+                        [, new_local_id
+                        [, addkeys]]])
         
         add an item to this holder
         
-        containable: (Containable) the thing to be added
+        item: (Containable) the thing to be added
         addkeys: (iterable) the keys--numeric, string, or other type--for 
-                            accessing the containable locally from its holder
-        newlocalname: (str or <None>) a new local name to set on containable
-        new_local_id: (int or <None>) a new local ID to set on containable
+                            accessing the item locally from its holder
+        newlocalname: (str or <None>) a new local name to set on item
+        new_local_id: (int or <None>) a new local ID to set on item
         """
-        assert not containable._container
+        assert not item._container
+        assert isinstance(SmartHomeItem)
         if newlocalname is not None:
-            containable.localname = newlocalname
+            item.localname = newlocalname
         if new_local_id is not None:
-            containable.local_id = new_local_id
-        keys = {x for x in [containable.localname, containable.local_id]
+            item.local_id = new_local_id
+        keys = {x for x in [item.localname, item.local_id]
                   if x is not None}
         keys = frozenset(keys.union(addkeys))
-        self._dictofitemstokeys[containable] = keys
+        self._dictofitemstokeys[item] = keys
         for key in keys:
             if key in self._itemsbykeycache.keys():
                 raise KeyError("the key {!r} is already in use".format(key))
-            self._itemsbykeycache[key] = containable
-        containable._container = self
+            self._itemsbykeycache[key] = item
+        item._container = self
     
-    def removeitem(self, containable):
+    def removeitem(self, item):
         """
-        obj.removeitem(containable)
+        obj.removeitem(item)
         
         remove an item from the holder
         
-        containable: (Containable) the thing to be removed
+        item: (Containable) the thing to be removed
         """
-        for key in self._dictofitemstokeys[containable]:
+        assert item in self
+        for key in self._dictofitemstokeys[item]:
             del self._itemsbykeycache[key]
-        del self._dictofitemstokeys[containable]
-        containable._container = None
+        del self._dictofitemstokeys[item]
+        item._container = None
     
-    def getitemkeys(self, containable):
+    def getitemkeys(self, item):
         """
-        obj.getitemkeys(containable) -> (set)
+        obj.getitemkeys(item) -> (set)
         
-        get keys for the containable specified
+        get keys for the item specified
         
-        containable: (Containable) what to get the keys for
+        item: (Containable) what to get the keys for
         """
-        assert containable in self._dictofitemstokeys.keys()
-        return set(self._dictofitemstokeys[containable])
+        assert item in self._dictofitemstokeys.keys()
+        return set(self._dictofitemstokeys[item])
 
 
+from ._smarthomeitem import SmartHomeItem

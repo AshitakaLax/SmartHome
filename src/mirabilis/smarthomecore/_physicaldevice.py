@@ -1,6 +1,10 @@
 import abc
 
-from ._containable import Containable
+from ._smarthomeitem import SmartHomeItem
+
+
+__all__ = ["PhysicalDevice"]
+
 
 # enforces that add_state_entity can only be called during execution of 
 # __init__
@@ -14,7 +18,7 @@ class PhysicalDeviceClass(abc.ABCMeta):
         return instance
 
 
-class PhysicalDevice(Containable):
+class PhysicalDevice(SmartHomeItem):
     """
     PhysicalDevice (abstract class)
     
@@ -38,7 +42,8 @@ class PhysicalDevice(Containable):
         local_id: (int or <None>) the local ID number of the device within its 
                                   container
         """
-        Containable.__init__(self, universe, localname, local_id)
+        assert isinstance(universe, Universe)
+        SmartHomeItem.__init__(self, universe, localname, local_id)
         self._initialized = False  # also written to by metaclass
         self._state_entities = set()
         self.universe._registerdevice(self)
@@ -52,6 +57,7 @@ class PhysicalDevice(Containable):
         """
         assert not self._initialized, \
             "this method can only be called during execution of __init__()"
+        assert isinstance(state_entity, StateEntity)
         self._state_entities.add(state_entity)
         state_entity._device = self
         self.universe._registeritem(state_entity)
@@ -80,3 +86,5 @@ class PhysicalDevice(Containable):
         raise NotImplementedError()
 
 
+from ._universe import Universe
+from ._state_entity import StateEntity

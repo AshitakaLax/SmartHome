@@ -1,14 +1,17 @@
-from ._interfaces import SmartHomeObjectInterface
-    
+from ._interfaces import SmartHomeItemInterface
+
+
+__all__ = ["SmartHomeItem"]
+
 
 class SmartHomeItem(SmartHomeItemInterface):
     """
-    Containable (abstract class)
+    SmartHomeItem (abstract class)
     
     root class for Area, PhysicalDevice, and StateEntity
     
     Instances of this class are objects that can be located inside the 
-    boundaries of an ItemHolder object.
+    boundaries of a Container object.
     
     Public instance attributes:
     
@@ -29,7 +32,7 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         obj.__init__(universe[, description[, localname[, local_id]]])
         
-        universe: (Universe) the universe where this is being created
+        universe: (Universe or <None>) the universe where this is being created
         description: (str or <None>) a description of the object -- 
                                      optional (default: None)
         localname: (str or <None>) the preferred local name of the object in 
@@ -43,7 +46,8 @@ class SmartHomeItem(SmartHomeItemInterface):
         self.description = description
         self.localname = localname
         self.local_id = local_id
-
+        
+        assert isinstance(universe, (Universe, type(None)))
         if universe:
             universe._registeritem(self)
     
@@ -65,8 +69,7 @@ class SmartHomeItem(SmartHomeItemInterface):
     @property
     def global_id(self):
         """
-        global_id: (int or <None>) the universe-wide ID for this containable 
-                                   object
+        global_id: (int or <None>) the universe-wide ID for this item 
         
         read-only property
         """
@@ -77,6 +80,8 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         path: (str) a slash-separated path of the names leading up to this
                     item
+        
+        read-only property
         """
         c = self
         parents = []
@@ -114,7 +119,7 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         obj.updatekeys(newkeys)
         
-        Reset the keys of this containable object through its container.
+        Reset the keys of this item through its container.
         newkeys will be automatically supplemented with the name and local_id 
         properties if they are not None.
         
@@ -135,7 +140,7 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         obj.readytoquituniverse() -> (bool)
         
-        return whether the containable is ready to be removed from the universe
+        return whether the item is ready to be removed from the universe
         """
         return not self._container
     
@@ -163,7 +168,7 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         obj.removefromconainer()
         
-        removes the containable from its current container
+        removes the item from its current container
         
         raises an exception if it's not in any container
         """
@@ -174,10 +179,17 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         obj.move(newholder)
         
-        moves the containable to a new container
+        moves the item to a new container
+        
+        newholder: (Container or <None>)
         """
+        assert isinstance(newholder, (Container, type(None)))
         if self.container:
             self.removefromcontainer()
-        newholder.additem(self, newlocalname=newlocalname, 
-                                new_local_id=new_local_id)
+        if newholder:
+            newholder.additem(self, newlocalname=newlocalname, 
+                                    new_local_id=new_local_id)
 
+
+from ._container import Container
+from ._universe import Universe

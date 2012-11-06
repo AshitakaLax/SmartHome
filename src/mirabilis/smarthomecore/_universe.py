@@ -1,7 +1,10 @@
-from ._ItemHolder import ItemHolder
+from ._container import Container
 
 
-class Universe(ItemHolder):
+__all__ = ["Universe"]
+
+
+class Universe(Container):
     """
     Universe() -> obj
     

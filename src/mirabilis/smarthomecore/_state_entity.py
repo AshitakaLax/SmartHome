@@ -1,7 +1,18 @@
-from ._containable import Containable
+import abc
+
+from ._interfaces import SmartHomeItemInterface
+from ._smarthomeitem import SmartHomeItem
 
 
-class StateEntity(Containable):
+__all__ = []
+
+def _export(thing):
+    __all__.append(thing.__name__)
+    return thing
+
+
+@_export
+class StateEntity(SmartHomeItem):
     """
     StateEntity (abstract class)
 
@@ -22,7 +33,7 @@ class StateEntity(Containable):
         local_id: (int or <None>) the local ID for the entity -- optional
                                  (defaults to None)
         """
-        Containable.__init__(self, None, localname, local_id)  # no universe
+        SmartHomeItem.__init__(self, None, localname, local_id)  # no universe
         self.description = description
         self._device = None  # written to by PhysicalDevice objects
     
@@ -42,10 +53,10 @@ class StateEntity(Containable):
         
         return whether the object is ready to be ejected from the universe
         """
-        return not self._device and Containable.readytoquituniverse(self)    
+        return not self._device and SmartHomeItem.readytoquituniverse(self)    
 
 
-class RStateEntityBase(UniverseObjectInterface):
+class RStateEntityBase(SmartHomeItemInterface):
     """
     RStateEntity (abstract class)
     
@@ -77,7 +88,7 @@ class RStateEntityBase(UniverseObjectInterface):
         return self._state
     
     
-class WStateEntityBase(UniverseObjectInterface):
+class WStateEntityBase(SmartHomeItemInterface):
     """
     WStateEntityBase (abstract class)
     
@@ -131,6 +142,7 @@ class WStateEntityBase(UniverseObjectInterface):
         self.write(self.lastwrite)
 
 
+@_export
 class RStateEntity(StateEntity, RStateEntityBase):
     """
     RStateEntity([description[, localname[, local_id]]]) -> obj
@@ -149,6 +161,7 @@ class RStateEntity(StateEntity, RStateEntityBase):
         RStateEntityBase.__init__(self)
 
 
+@_export
 class WStateEntity(StateEntity, WStateEntityBase):
     """
     WStateEntity(writerfunc[, description[, localname[, local_id]]]) -> obj
@@ -171,9 +184,10 @@ class WStateEntity(StateEntity, WStateEntityBase):
         WStateEntityBase.__init__(self, writerfunc)
 
 
+@_export
 class RWStateEntity(StateEntity, RStateEntityBase, WStateEntityBase):
     """
-    StateEntity([description[, localname[, local_id]]]) -> obj
+    RWStateEntity(writerfunc[, description[, localname[, local_id]]]) -> obj
     
     A readable and writable state entity.
     
@@ -192,4 +206,3 @@ class RWStateEntity(StateEntity, RStateEntityBase, WStateEntityBase):
         StateEntity.__init__(self, description, localname, local_id)
         RStateEntityBase.__init__(self)
         WStateEntityBase.__init__(self, writerfunc)
-    

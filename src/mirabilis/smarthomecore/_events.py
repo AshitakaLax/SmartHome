@@ -1,3 +1,14 @@
+from datetime import datetime
+
+
+__all__ = []
+
+def _export(thing):
+    __all__.append(thing.__name__)
+    return thing
+
+
+@_export
 class Event(object):
     """
     Event (abstract class)
@@ -31,7 +42,7 @@ class Event(object):
         """
         
 
-
+@_export
 class StateEntityEvent(Event):
     """
     StateEntityEvent (abstract class)
@@ -50,6 +61,7 @@ class StateEntityEvent(Event):
         timestamp: (datetime) when the event happened
         """
         Event.__init__(self, timestamp)
+        assert isinstance(entity, StateEntity)
         self.entity = entity
     
     @property
@@ -65,9 +77,11 @@ class StateEntityEvent(Event):
         
         entity: (StateEntity) the entity for which the event took place
         """
+        assert isinstance(entity, StateEntity)
         return (cls, entity)
 
 
+@_export
 class StateChangedEvent(StateEntityEvent):
     """
     StateChangedEvent(entity, newstate, oldstate[, timestamp]) -> obj
@@ -90,6 +104,7 @@ class StateChangedEvent(StateEntityEvent):
         self.oldstate = oldstate
 
 
+@_export
 class ValueWrittenEvent(StateEntityEvent):
     """
     StateChangedEvent(entity, newstate, oldstate[, timestamp]) -> obj
@@ -112,3 +127,4 @@ class ValueWrittenEvent(StateEntityEvent):
         self.lastvaluewrite = lastvaluewrite
 
 
+from ._state_entity import StateEntity

@@ -1,7 +1,11 @@
-from ._Containable import Containable
-from ._ItemHolder import ItemHolder
+from ._smarthomeitem import SmartHomeItem
+from ._container import Container
 
-class Area(Containable, ItemHolder):
+
+__all__ = ["Area"]
+
+
+class Area(SmartHomeItem, Container):
     """
     Area(universe[, description[, localname[, local_id]]]) -> obj
     
@@ -24,7 +28,8 @@ class Area(Containable, ItemHolder):
     
     def __init__(self, universe, description=None, 
                        localname=None, local_id=None):
-        Containable.__init__(self, universe, description, localname, local_id)
-        ItemHolder.__init__(self)
+        SmartHomeItem.__init__(self, universe, description, 
+                                     localname, local_id)
+        Container.__init__(self)
 
 

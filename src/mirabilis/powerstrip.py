@@ -10,11 +10,22 @@ class PowerStrip(PhysicalDevice):
         self.outlet3onoff = RWStateEntity(self._writestate)
         self.outlet4onoff = RWStateEntity(self._writestate)
         
+        self.outlet1power = RStateEntity(self._writestate)
+        self.outlet2power = RStateEntity(self._writestate)
+        self.outlet3power = RStateEntity(self._writestate)
+        self.outlet4power = RStateEntity(self._writestate)
+        
         self.add_state_entity(self.outlet1onoff)
         self.add_state_entity(self.outlet2onoff)
         self.add_state_entity(self.outlet3onoff)
         self.add_state_entity(self.outlet4onoff)
+        
+        self._pollingthread = None
 
     def _writestate(self, state_entity, newstate):
         fmtstr = "this is {}, changing state of {} to {!r}"
         print fmtstr.format(self, state_entity, newstate)
+    
+    def update_entities(self):
+        # code for polling the powerstrip's status and updating its entities
+        pass

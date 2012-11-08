@@ -21,7 +21,7 @@ class Universe(Container):
     # Private instance attributes:
     # 
     # _next_global_id: (int) the next ID to be assigned
-    # _objects_by_global_id: (dict of Containable[int]) 
+    # _objects_by_global_id: (dict of SmartHomeItem[int]) 
     #                        dictionary of ALL smart home objects by ID
     # _eventhandlers: (dict of set[tuple])
     #     Each value is a list of functions.
@@ -46,7 +46,7 @@ class Universe(Container):
     @property
     def objects_dict(self):
         """
-        objects_dict: (dict of Containable[int]) items indexed by global ID
+        objects_dict: (dict of SmartHomeItem[int]) items indexed by global ID
         """
         return self._objects_by_global_id.copy()
     
@@ -57,7 +57,7 @@ class Universe(Container):
     
     def object_with_global_id(self, global_id):
         """
-        obj.object_with_global_id(global_id) -> (Containable)
+        obj.object_with_global_id(global_id) -> (SmartHomeItem)
         
         return the item with the specified global id
         
@@ -72,7 +72,7 @@ class Universe(Container):
         assign a unique ID to containable without making it a root object or
         assigning to its _container attribute
     
-        containable: (Containable) the containable object
+        containable: (SmartHomeItem) the containable object
         """
         containable._universe = self
         
@@ -92,7 +92,7 @@ class Universe(Container):
         
         If it still has a container relationship, that will be unlinked.
         
-        containable: (Containable) the thing to delete from the universe
+        containable: (SmartHomeItem) the thing to delete from the universe
         """
         assert containable.readytoquituniverse(), \
             "containable not ready to be removed; try removing the thing " \
@@ -100,7 +100,7 @@ class Universe(Container):
         self._removeitemfromuniverse(containable)
     
     def _removeitemfromuniverse(self, containable):
-        assert isinstance(containable, Containable)
+        assert isinstance(containable, SmartHomeItem)
         containable.finalize()
         #if containable._container:
         #    containable._container.removeitem(containable)

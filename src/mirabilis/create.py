@@ -19,13 +19,14 @@ def create():
     vlsi = Area(universe, "VLSI test room")
     lab.additem(vlsi, "vlsi", 1)
 
-    pstrip = PStripAndSensors(universe, "Todd's smart power strip")
+    pstrip = PStripAndSensors(universe, "192.168.0.102", 80, 
+                              "Todd's smart power strip")
     lab.additem(pstrip, "power strip and sensors", 2)
     
-    lab.additem(pstrip.outlet1onoff, "floor lamp", 3)
-    lab.additem(pstrip.outlet2onoff, "fan", 4)
+    lab.additem(pstrip.outlet1ison, "floor lamp", 3)
+    lab.additem(pstrip.outlet2ison, "fan", 4)
 
-    pstrip.outlet1onoff.move(vlsi, new_local_id=1)
-    pstrip.outlet3onoff.move(universe["MEB"]["level 3"], "Light")
+    pstrip.outlet1ison.move(vlsi, new_local_id=1)
+    pstrip.outlet3ison.move(universe["MEB"]["level 3"], "Light")
     
     return universe

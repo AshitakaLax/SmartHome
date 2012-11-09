@@ -45,3 +45,34 @@ Meeting Thursday November 8, 2012
 
 Levi
 
+Status from Levi Balling,
+
+about 90% of the software is complete,
+I have completed the following boards.
+
+Damper PCB, tested Cables just need to be made.
+
+HVAC/Garage PCB, tested, It works great.  It will detect a 24VAC signal It is a bit weird, it goes through the Inverter and generates a + and - 2.5 V.  It is generating a square wave.  So I should be able to over sample the output when it is +2.5V.  The teensy 2.0++ is capable of recognizing voltages above 1.5V.  So it should still indicate that it is high.
+
+Main Controller PCB, tested, ICs are working great, may need to make 1 or 2 modifications to make it work better.
+
+Power Board PCB, Tested months ago, i changed a couple of things that the voltages went to.  It is working great, and the cables are made for it.
+
+Bi-Polar Stepper Motor Driver,  currently I have my stepper motor driver in the mail.  I also have several backup ICs for in case I fry the chip again.
+
+Sprinkler Board, tested.  This will work great.
+
+Temperature Sensor PCB, tested, works better than I thought.
+
+The Epic Cube is nearing completion, hope to be done with this by the weekend, and then I'll be able to work with chris to integrate all of the communications over the usb serial port.
+
+I will also be making cables tonight and this weekend.
+
+
+Software
+
+I have generated a PWM signal for the fans.  I just need to integrate it into my software.
+
+I have placed the wireless communications controller, and Mic mixer and speaker mixer on the back burner till I finish what is required.
+
+I've nearly completed the testing of all the software outputs.  I will still need to connect the controller to the main board the it should be done.

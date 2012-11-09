@@ -18,6 +18,27 @@
 
 
 #include "Fans.h"
+/*
+*	This example is comprized of mainly arduino sources
+*/
+void analogWrite(uint8_t, int val)
+{
+	//first call digitalPinToTimer(pin) found in Arduino.h
+	
+#define digitalPinToTimer(P) ( pgm_read_byte( digital_pin_to_timer_PGM + (P) ) )
+	// CPU frequency is 16,000,000
+	//first Pre-scalar 8 *50
+	
+	TCCR1A = 0;
+	ICR1 = 19999;
+	//configure timer 1
+	TCCR1A = (1<<WGM11)
+		TCCR1B = (1 << WGM13) | (1<<WGM12) | (1<<CS11);
+	DDRB |= _BV(1);
+	TCCR1A |= 2 << 6;//enable non-invert mode-mode 2
+	DDRB |= _BV(2); // make B2 and output pin
+	TCCR1A |= 2 << 4; // enable PWM on ...
+}
 /**
 *	initializes the pins for the fans.
 */

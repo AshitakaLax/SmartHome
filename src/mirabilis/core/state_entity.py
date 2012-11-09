@@ -23,10 +23,12 @@ class StateEntity(SmartHomeItem):
     description: (str or <None>) a description of the state entity
     """
 
-    def __init__(self, description=None, localname=None, local_id=None):
+    def __init__(self, device, description=None, localname=None, local_id=None):
         """
-        obj.__init__([description[, localname[, local_id]]]) -> obj
-    
+        obj.__init__(device[, description[, localname[, local_id]]]) -> obj
+        
+        device: (PhysicalDevice or <None>) the device to add this entity 
+                                           (it must be in initialization)
         description: (str or <None>) a description of the state entity
         localname: (str or <None>) the name of the entity 
                                    -- optional (defaults to None)
@@ -36,6 +38,9 @@ class StateEntity(SmartHomeItem):
         SmartHomeItem.__init__(self, None, localname, local_id)  # no universe
         self.description = description
         self._device = None  # written to by PhysicalDevice objects
+        
+        if device:
+            device.add_state_entity(self)
     
     @property
     def device(self):
@@ -68,13 +73,16 @@ class RStateEntityBase(SmartHomeItemInterface):
     def __init__(self):
         self._state = RStateEntity.UNINITIALIZED
     
-    def _update(self, newstate):
+    def update(self, newstate):
         """
         obj._update(newstate)
         
         record a new value observed by the device
         
         newstate: the newest value to be recorded
+        
+        THIS METHOD SHOULD ONLY BE CALLED BY A DEVICE ON A STATE ENTITY IT
+        MANAGES.
         """
         (laststate, self._state) = (self._state, newstate)
         if newstate != laststate:
@@ -145,10 +153,12 @@ class WStateEntityBase(SmartHomeItemInterface):
 @_export
 class RStateEntity(StateEntity, RStateEntityBase):
     """
-    RStateEntity([description[, localname[, local_id]]]) -> obj
+    RStateEntity(device[, description[, localname[, local_id]]]) -> obj
     
     A readable state entity.
     
+    device: (PhysicalDevice or <None>) the device to add this entity to
+                                       (it must be in initialization state)
     description: (str or <None>) a description of the state entity
     localname: (str or <None>) the name of the entity 
                                -- optional (defaults to None)
@@ -156,18 +166,22 @@ class RStateEntity(StateEntity, RStateEntityBase):
                              (defaults to None)
     """
     
-    def __init__(self, description=None, localname=None, local_id=None):
-        StateEntity.__init__(self, description, localname, local_id)
+    def __init__(self, device, description=None, 
+                       localname=None, local_id=None):
+        StateEntity.__init__(self, device, description, localname, local_id)
         RStateEntityBase.__init__(self)
 
 
 @_export
 class WStateEntity(StateEntity, WStateEntityBase):
     """
-    WStateEntity(writerfunc[, description[, localname[, local_id]]]) -> obj
+    WStateEntity(device, writerfunc[, description[, localname[, local_id]]]) 
+        -> obj
     
     A writable state entity.
     
+    device: (PhysicalDevice or <None>) the device to add this entity to
+                                       (it must be in initialization state)
     writerfunc: (function) the function to call with the entity when a change
                            needs to be written out; it takes as arguments the
                            state entity first and the value to set second
@@ -178,19 +192,22 @@ class WStateEntity(StateEntity, WStateEntityBase):
                              (defaults to None)
     """
     
-    def __init__(self, writerfunc, description=None, 
+    def __init__(self, device, writerfunc, description=None, 
                  localname=None, local_id=None):
-        StateEntity.__init__(self, description, localname, local_id)
+        StateEntity.__init__(self, device, description, localname, local_id)
         WStateEntityBase.__init__(self, writerfunc)
 
 
 @_export
 class RWStateEntity(StateEntity, RStateEntityBase, WStateEntityBase):
     """
-    RWStateEntity(writerfunc[, description[, localname[, local_id]]]) -> obj
+    RWStateEntity(device, writerfunc[, description[, localname[, local_id]]]) 
+        -> obj
     
     A readable and writable state entity.
     
+    device: (PhysicalDevice or <None>) the device to add this entity to
+                                       (it must be in initialization state)
     writerfunc: (function) the function to call with the entity when a change
                            needs to be written out; it takes as arguments the
                            state entity first and the value to set second
@@ -201,8 +218,14 @@ class RWStateEntity(StateEntity, RStateEntityBase, WStateEntityBase):
                              (defaults to None)
     """
     
-    def __init__(self, writerfunc, description=None, 
+    def __init__(self, device, writerfunc, description=None, 
                  localname=None, local_id=None):
-        StateEntity.__init__(self, description, localname, local_id)
+        StateEntity.__init__(self, device, description, localname, local_id)
         RStateEntityBase.__init__(self)
         WStateEntityBase.__init__(self, writerfunc)
+
+
+from .events import (Event, 
+                     StateEntityEvent, 
+                     StateChangedEvent, 
+                     ValueWrittenEvent)

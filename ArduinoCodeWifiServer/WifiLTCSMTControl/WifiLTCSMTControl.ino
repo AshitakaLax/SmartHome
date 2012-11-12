@@ -1,9 +1,11 @@
 /*
-* A Web page used to control the pin's
+* A Web page used to control all of the information necessary for control of the whole wifi system 
 * The Wireless configuration parameters were borrowed from Arduino.cc in order to 
 * get the Wifi Board to comunicate with the router.
 */
-
+/*
+Libraries needed for the wifi implementation
+*/
 
 #include <WiServer.h>
 #include <string.h>
@@ -15,7 +17,10 @@
 //#define ledPin1 8 //changed this from 5 to 8
 //#define ledPin2 6
 //#define ledPin3 7
-
+/*
+Variable declaration for Software serial and also for the analog and 
+digital input values
+*/
 String str;
 String txtLights;
 boolean stringComplete;
@@ -23,8 +28,14 @@ int LaserValue = 0;
 int MotionValue = 0;
 int LaserPin = 6;
 int TripPin = 7;
+
+//Declaring software serial 
 SoftwareSerial mySerial(4, 5); //RX, TX
 
+/*
+This part of the code was borrowed from the library created by the Arduino.cc team
+in order to get the WiShield v2.0 connected to the wifi router.
+*/
 // Wireless configuration parameters ----------------------------------------
 unsigned char local_ip[] = {192,168,1,102};	// IP address of WiShield
 unsigned char gateway_ip[] = {192,168,1,1};	// router or gateway IP address
@@ -74,7 +85,11 @@ void printStates(){
         for (stateCounter = 0 ; stateCounter < 4; stateCounter++){
             boolToString(states[stateCounter], stateBuff);
             int count = stateCounter;
-           
+          
+/*
+Software serial implementation in order to controll the second arduino to 
+perform its desired controlls
+*/
            //mySerial.begin(9600);
            mySerial.print("turn ");
            mySerial.print(stateBuff);
@@ -90,14 +105,19 @@ void printStates(){
           //mySerial.print("turn off 3\n");
           //Serial.print("turn off 3\n");
         //}
-           
+/*
+This code can be ignored as it is only there for troubleshooting purposes
+*/
            Serial.print("turn ");
            Serial.print(stateBuff);
            Serial.print(" ");
            Serial.println(count);
          } 
           }
-
+/*
+This part of the code can also be ignored as its purpose was to see 
+if the LED would function based on the desired parameters. 
+*/
 //void writeStates()
 //{
         //set led states
@@ -122,13 +142,17 @@ void printStates(){
   str = "";
 }*/
 // Here the page gets served
+/*
+This part of the code serves the webpage, its a boolean funciton
+that is responsible to run the code and then be served on the server*/
 boolean sendPage(char* URL) {
   
     printStates();
   //  writeStates();
     
     
-  //Using to check if the URL needs to change
+  //Using to check if the URL needs to change acting like a refresh button
+  //if the url has not changed the page will not change either
   if (URL[1] == '?' && URL[2] == 'L' && URL[3] == 'E' && URL[4] == 'D') //url has a leading /
   {
     ledChange = (int)(URL[5] - 48); //get the led to change.
@@ -145,6 +169,7 @@ boolean sendPage(char* URL) {
     
     //after having change state, return the user to the index page.
     WiServer.print("<HTML><HEAD><meta http-equiv='REFRESH' content='0;url=/'></HEAD></HTML>");
+    //Send over software serial commands in order to display the current state of the current sensor and also the current state of the power strip
     mySerial.print("allpower\n");
     return true;
   }

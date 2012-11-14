@@ -13,42 +13,35 @@
 // #define DEMUX_A_CONFIG	(DDRB |= (1<<3))
 //Configure Fan Pins PC6, PC5, PC4, PD0, PD3
 //#define XTAL 160000000L // 16Mhz
-#define FAN1_CONFIG		(DDRD |= (1<<0))
-#define FAN1_OFF		(PORTD &= ~(1<<0))
-#define FAN1_ON			(PORTD |= (1<<0))
-
-#define FAN2_CONFIG		(DDRD |= (1<<3))
-#define FAN2_OFF		(PORTD &= ~(1<<3))
-#define FAN2_ON			(PORTD |= (1<<3))
-
-#define FAN3_CONFIG		(DDRC |= (1<<4))
-#define FAN3_OFF		(PORTC &= ~(1<<4))
-#define FAN3_ON			(PORTC |= (1<<4))
-
-#define FAN4_CONFIG		(DDRC |= (1<<5))
-#define FAN4_OFF		(PORTC &= ~(1<<5))
-#define FAN4_ON			(PORTC |= (1<<5))
-
-#define FAN5_CONFIG		(DDRC |= (1<<6))
-#define FAN5_OFF		(PORTC &= ~(1<<6))
-#define FAN5_ON			(PORTC |= (1<<6))
-
 
 
 //their are 5 fans with a 
 void InitializeFans(void);
-void SetFan(unsigned char FanSelect, unsigned short FanSpeed);
-unsigned short FanStatus(unsigned char FanSelect);
+uint8_t SetFan(char FanChar, char FanSpeedchar);
+char FanStatus(char FanChar);
+uint8_t TurnFanOff(char FanChar);
+uint8_t CharToSpeed(char speed);
+char FanSpeedStatus(char FanChar);
 
-// Pin 3 (PD0)
-extern unsigned short FanZeroStatus;
-// Pin 4 (PD1)
-extern unsigned short FanOneStatus;
-// Pin 17 (PC4)
-extern unsigned short FanTwoStatus;
-// Pin 18 (PC5)
-extern unsigned short FanThreeStatus;
-// Pin 19 (PC6)
-extern unsigned short FanFourStatus;
+char	FanZeroStatus = '0';// need to initialize it.
+char	FanOneStatus = '0';// need to initialize it.
+char	FanTwoStatus = '0';// need to initialize it.
+char	FanThreeStatus = '0';// need to initialize it.
+char	FanFourStatus = '0';// need to initialize it.
+char FanZeroSpeed = '0';//
+char FanOneSpeed = '0';
+char FanTwoSpeed = '0';
+char FanThreeSpeed = '0';
+char FanFourSpeed = '0';
+// // Pin 3 (PD0)
+// extern uint8_t FanZeroStatus;
+// // Pin 4 (PD1)
+// extern uint8_t FanOneStatus;//always on, but its for the case
+// // Pin 17 (PC4)
+// extern uint8_t FanTwoStatus;
+// // Pin 18 (PC5)
+// extern uint8_t FanThreeStatus;
+// // Pin 19 (PC6)
+// extern uint8_t FanFourStatus;
 
 #endif

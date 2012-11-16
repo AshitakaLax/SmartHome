@@ -49,12 +49,7 @@ TARGET = mainControl
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC =	$(TARGET).c \
-	src/usb_serial.c \
-	src/HVACGarage.c \
-	src/damper_Control.c \
-	src/tempSense.c \
-	src/Sprinkler.c
+SRC =	$(TARGET).c src/usb_serial.c src/HVACGarage.c src/damper_Control.c src/tempSense.c src/Sprinkler.c src/PWMTeensyTwoPlusPlus.c src/fans.c
 	
 	
 # the microcontroller for this particular project

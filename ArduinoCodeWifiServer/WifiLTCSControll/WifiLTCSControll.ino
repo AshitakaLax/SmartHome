@@ -149,7 +149,7 @@ boolean sendPage(char* URL) {
        while(mySerial.available()){
         char inChar = (char)mySerial.read();
         str += (String)inChar;
-        if(inChar == '\n'){
+        if((str.length() > 4) || (inChar == '\n')){
        stringComplete = true;
        break;
     }

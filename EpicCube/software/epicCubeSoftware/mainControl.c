@@ -256,8 +256,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		send_str(PSTR("entering HVAC\r\n"));// H0V1A2V3?4
 		if(buf[4] == '?')// status request
 		{
-		
-			if(GFanStatus == 0)// if furnaced controlled
+			if(GFanStatus == 0)// if furnaced controlled 
 			{
 				
 				//read furnace for status
@@ -275,7 +274,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 					}
 					else
 					{
-						send_str(PSTR("1\r\n"));
+						send_str(PSTR("1\r\n"));//just the blower is on.
 						return;
 					}
 				}
@@ -302,12 +301,10 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 				}
 				if(GFanStatus == 1)
 				{
-					send_str(PSTR("4\r\n"));
+					send_str(PSTR("4\r\n"));// server controlled blower is on.
 					return;
 				}
-				
-				send_str(PSTR("8\r\n"));// just the blower is on
-				return;
+				//no need to have a check here.
 			}
 		}
 		else // command
@@ -371,15 +368,14 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			return;
 		}
 	}
-	
-		// Documentation change from Project description
-	 	// instead of Attic and Basement, we are gong with just Temperature
-	 // sensors, and we will have to decide which temperature sensors are where
-	 // in the server code.
-	 // this is a Sts only so it is Temp?## from 0 - 63 for ##
-	 // example Temp?16 will read from temperature sensor 16 and return the
-	 // value in C
-	
+	/** Documentation change from Project description
+	* instead of Attic and Basement, we are gong with just Temperature
+	*  sensors, and we will have to decide which temperature sensors are where
+	*  in the server code.
+	*  this is a Sts only so it is Temp## from 0 - 63 for ##
+	*  example Temp16 will read from temperature sensor 16 and return the
+	*  value in C
+	**/
 	if(buf[0] == 'T') // Temperature Section (DEBUG)
 	{
 			//disable all other Devices and enable this
@@ -496,22 +492,84 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	}
 	if((buf[0] == '-' && buf[1] == 'h') || buf[0] == '?' || invalidInput)// Help Section
 	{
+		// -help Damper
+		if(buf[6] == 'D')
+		{
+			send_str(PSTR("Damper Help\r\n"));
+			send_str(PSTR("Damper?## - issues a status request to damper (00-15)\r\n"));
+			send_str(PSTR("returns either 0 for open and 1 for closed.\r\n\r\n"));
+			send_str(PSTR("Damper### - issues a command to damper (00-15)\r\n"));
+			send_str(PSTR("     (##) - represents (00-15)\r\n"));
+			send_str(PSTR("       (#) - represents 0 for open and 1 for closed\r\n\r\n"));
+			send_str(PSTR("Example1:\r\n"));
+			send_str(PSTR("\tCommand: Damper?12\r\n"));
+			send_str(PSTR("\tReturns: 0 for open and 1 for closed,depending on Damper 12's state\r\n\r\n"));
+			send_str(PSTR("Example2:\r\n"));
+			send_str(PSTR("\tCommand: Damper141\r\n"));
+			send_str(PSTR("\tReturns: done, when damper 14 is closed\r\n"));
+		}
+		// -help HVAC
+		else if(buf[6] == 'H')
+		{
+			send_str(PSTR("HVAC Help\r\n"));
+			send_str(PSTR("HVAC? - issues a status request to HVAC\r\n"));
+			send_str(PSTR("returns a number from 0 to 7 depending on the HVAC status.\r\n"));
+			send_str(PSTR("status 1: furnace Controller Blower on\r\n"));
+			send_str(PSTR("status 2: furnace Controller Blower and heating are on\r\n"));
+			send_str(PSTR("status 3: furnace Controller Blower and AC are onon\r\n"));
+			send_str(PSTR("status 4: Server Controller Blower on\r\n"));
+			send_str(PSTR("status 5: Server Controller Blower on\r\n"));
+			send_str(PSTR("status 6: Server Controller Blower on\r\n"));
+			send_str(PSTR("status 7: all off\r\n"));// there is a server controlled off
+			send_str(PSTR("HVAC# - issues a command to HVAC\r\n"));
+			send_str(PSTR("   (#) - represents (1-5)\r\n"));
+			send_str(PSTR("Command 1: Thermostat controlled\r\n"));
+			send_str(PSTR("Command 2: Server Controlled Blower on\r\n"));
+			send_str(PSTR("Command 3: Server Controlled Blower and heating are on\r\n"));
+			send_str(PSTR("Command 4: Server Controlled Blower and AC are on\r\n"));
+			send_str(PSTR("Command 5: Thermostat controlled\r\n"));
+			send_str(PSTR("Example1:\r\n"));
+			send_str(PSTR("\tCommand: HVAC?\r\n"));
+			send_str(PSTR("\tReturns: 3 when The AC is On\r\n\r\n"));
+			send_str(PSTR("Example2:\r\n"));
+			send_str(PSTR("\tCommand: HVAC3\r\n"));
+			send_str(PSTR("\tReturns: done, when HVAC blower and Heating are done\r\n"));
+		}		
+		else if(buf[6] == 'G')// -help 
+		{
+			send_str(PSTR("Garage Help\r\n"));
+			send_str(PSTR("Garage - Sends a Pulse to the Garage door\r\n"));
+			send_str(PSTR("Example1:\r\n"));
+			send_str(PSTR("\tCommand: Garage\r\n"));
+			send_str(PSTR("\tReturns: done, when pulse is done\r\n\r\n"));
+		}		
+		else if(buf[6] == 'T')// -help Temp
+		{
+			send_str(PSTR("Temperature Help\r\n"));
+			send_str(PSTR("TEMP## - issues a status request to TEMP\r\n"));
+			send_str(PSTR("   (##) - Represents a number from 0 - 63\r\n"));
+			send_str(PSTR("returns a number from 0 to 1024 as the ADC value\r\n"));
+		}
+		else{
 		//help commands so write a bunch of things that help people.
 		send_str(PSTR("\r\n***************************************\r\n"));
-		send_str(PSTR("HELP I don't know what to do\r\n"));
+		send_str(PSTR("HELP when you say to yourself,\"I don't know what to do\"\r\n"));
 		send_str(PSTR("List of available commands\r\n\r\n"));
 		send_str(PSTR("-help:\t\tprovides this menu\r\n"));
 		send_str(PSTR("Damper###:\tTurns on and off Damper\r\n"));
 		send_str(PSTR("Damper?##:\tReplies whether damper is open or closed\r\n"));
-		send_str(PSTR("Temp?##:\tgets the temperature value of the specific sensor\r\n"));
+		send_str(PSTR("Temp##:\tgets the temperature value of the specific sensor\r\n"));
 		send_str(PSTR("HVAC?:\t\tReturns HVAC status\r\n"));
 		send_str(PSTR("HVAC#:\t\tSets the HVAC to a specific state\r\n"));
 		send_str(PSTR("Garage:\t\tPulses the Garage open or closed\r\n"));
 		send_str(PSTR("Sprinkler###:\tturns on/off section of sprinklers\r\n"));
 		send_str(PSTR("Sprinkler?:\tGets status of sprinkler\r\n"));
 		send_str(PSTR("***************************************\r\n"));
-		send_str(PSTR("Examples (to-do)\r\n"));
+		send_str(PSTR("for more specific help use: \"-help <command>\r\n"));
+		send_str(PSTR("<command> = Damper, Temp, HVAC, Garage, Sprinkler\r\n"));
+		send_str(PSTR("example: \"-help HVAC\"\r\n"));
 		invalidInput = 0;
+		}
 	}
 		send_str(PSTR("\r\n"));
 }

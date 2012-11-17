@@ -1,0 +1,1078 @@
+
+blinky.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000005dc  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000005  00800100  00800100  00000650  2**0
+                  ALLOC
+  2 .debug_aranges 00000068  00000000  00000000  00000650  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 000000a4  00000000  00000000  000006b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000025c  00000000  00000000  0000075c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000156  00000000  00000000  000009b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000895  00000000  00000000  00000b0e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000090  00000000  00000000  000013a4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000015e  00000000  00000000  00001434  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000014b  00000000  00000000  00001592  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000058  00000000  00000000  000016dd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+			return;
+	}
+}
+
+void PWMStopTimer(uint8_t timer)// we are going with the physical pin numbers Stop counter
+{
+   0:	4b c0       	rjmp	.+150    	; 0x98 <__ctors_end>
+   2:	00 00       	nop
+   4:	66 c0       	rjmp	.+204    	; 0xd2 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	64 c0       	rjmp	.+200    	; 0xd2 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	62 c0       	rjmp	.+196    	; 0xd2 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	60 c0       	rjmp	.+192    	; 0xd2 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	5e c0       	rjmp	.+188    	; 0xd2 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	5c c0       	rjmp	.+184    	; 0xd2 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	5a c0       	rjmp	.+180    	; 0xd2 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	58 c0       	rjmp	.+176    	; 0xd2 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	56 c0       	rjmp	.+172    	; 0xd2 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	54 c0       	rjmp	.+168    	; 0xd2 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	52 c0       	rjmp	.+164    	; 0xd2 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	50 c0       	rjmp	.+160    	; 0xd2 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	4e c0       	rjmp	.+156    	; 0xd2 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	4c c0       	rjmp	.+152    	; 0xd2 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	4a c0       	rjmp	.+148    	; 0xd2 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	48 c0       	rjmp	.+144    	; 0xd2 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	46 c0       	rjmp	.+140    	; 0xd2 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	44 c0       	rjmp	.+136    	; 0xd2 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	42 c0       	rjmp	.+132    	; 0xd2 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	40 c0       	rjmp	.+128    	; 0xd2 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	3e c0       	rjmp	.+124    	; 0xd2 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	3c c0       	rjmp	.+120    	; 0xd2 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	3a c0       	rjmp	.+116    	; 0xd2 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	38 c0       	rjmp	.+112    	; 0xd2 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	36 c0       	rjmp	.+108    	; 0xd2 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	34 c0       	rjmp	.+104    	; 0xd2 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	32 c0       	rjmp	.+100    	; 0xd2 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	30 c0       	rjmp	.+96     	; 0xd2 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	2e c0       	rjmp	.+92     	; 0xd2 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	2c c0       	rjmp	.+88     	; 0xd2 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	2a c0       	rjmp	.+84     	; 0xd2 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	28 c0       	rjmp	.+80     	; 0xd2 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	26 c0       	rjmp	.+76     	; 0xd2 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	24 c0       	rjmp	.+72     	; 0xd2 <__bad_interrupt>
+  8a:	00 00       	nop
+  8c:	22 c0       	rjmp	.+68     	; 0xd2 <__bad_interrupt>
+  8e:	00 00       	nop
+  90:	20 c0       	rjmp	.+64     	; 0xd2 <__bad_interrupt>
+  92:	00 00       	nop
+  94:	1e c0       	rjmp	.+60     	; 0xd2 <__bad_interrupt>
+  96:	00 00       	nop
+
+00000098 <__ctors_end>:
+  98:	11 24       	eor	r1, r1
+  9a:	1f be       	out	0x3f, r1	; 63
+  9c:	cf ef       	ldi	r28, 0xFF	; 255
+  9e:	d0 e2       	ldi	r29, 0x20	; 32
+  a0:	de bf       	out	0x3e, r29	; 62
+  a2:	cd bf       	out	0x3d, r28	; 61
+
+000000a4 <__do_copy_data>:
+  a4:	11 e0       	ldi	r17, 0x01	; 1
+  a6:	a0 e0       	ldi	r26, 0x00	; 0
+  a8:	b1 e0       	ldi	r27, 0x01	; 1
+  aa:	ec ed       	ldi	r30, 0xDC	; 220
+  ac:	f5 e0       	ldi	r31, 0x05	; 5
+  ae:	00 e0       	ldi	r16, 0x00	; 0
+  b0:	0b bf       	out	0x3b, r16	; 59
+  b2:	02 c0       	rjmp	.+4      	; 0xb8 <__do_copy_data+0x14>
+  b4:	07 90       	elpm	r0, Z+
+  b6:	0d 92       	st	X+, r0
+  b8:	a0 30       	cpi	r26, 0x00	; 0
+  ba:	b1 07       	cpc	r27, r17
+  bc:	d9 f7       	brne	.-10     	; 0xb4 <__do_copy_data+0x10>
+
+000000be <__do_clear_bss>:
+  be:	11 e0       	ldi	r17, 0x01	; 1
+  c0:	a0 e0       	ldi	r26, 0x00	; 0
+  c2:	b1 e0       	ldi	r27, 0x01	; 1
+  c4:	01 c0       	rjmp	.+2      	; 0xc8 <.do_clear_bss_start>
+
+000000c6 <.do_clear_bss_loop>:
+  c6:	1d 92       	st	X+, r1
+
+000000c8 <.do_clear_bss_start>:
+  c8:	a5 30       	cpi	r26, 0x05	; 5
+  ca:	b1 07       	cpc	r27, r17
+  cc:	e1 f7       	brne	.-8      	; 0xc6 <.do_clear_bss_loop>
+  ce:	02 d0       	rcall	.+4      	; 0xd4 <main>
+  d0:	83 c2       	rjmp	.+1286   	; 0x5d8 <_exit>
+
+000000d2 <__bad_interrupt>:
+  d2:	96 cf       	rjmp	.-212    	; 0x0 <__vectors>
+
+000000d4 <main>:
+#define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n))
+
+volatile uint32_t count;
+volatile uint8_t dutyCount;
+
+int main(){
+  d4:	1f 93       	push	r17
+  d6:	cf 93       	push	r28
+  d8:	df 93       	push	r29
+	LED_CONFIG;
+  da:	56 9a       	sbi	0x0a, 6	; 10
+		{
+			OCR0A = 0;
+		}
+   	}
+	**/
+	dutyCount = 0xFF;
+  dc:	8f ef       	ldi	r24, 0xFF	; 255
+  de:	80 93 00 01 	sts	0x0100, r24
+	//Timer 0
+	PWMNew(2);
+  e2:	82 e0       	ldi	r24, 0x02	; 2
+  e4:	90 e0       	ldi	r25, 0x00	; 0
+  e6:	c9 d0       	rcall	.+402    	; 0x27a <PWMNew>
+	PWMStart(2);
+  e8:	82 e0       	ldi	r24, 0x02	; 2
+  ea:	90 e0       	ldi	r25, 0x00	; 0
+  ec:	1a d2       	rcall	.+1076   	; 0x522 <PWMStart>
+	PWMDuty(2, dutyCount);
+  ee:	60 91 00 01 	lds	r22, 0x0100
+  f2:	82 e0       	ldi	r24, 0x02	; 2
+  f4:	90 e0       	ldi	r25, 0x00	; 0
+  f6:	70 e0       	ldi	r23, 0x00	; 0
+  f8:	2f d2       	rcall	.+1118   	; 0x558 <PWMDuty>
+	PWMNew(3);
+  fa:	83 e0       	ldi	r24, 0x03	; 3
+  fc:	90 e0       	ldi	r25, 0x00	; 0
+  fe:	bd d0       	rcall	.+378    	; 0x27a <PWMNew>
+	PWMStart(3);
+ 100:	83 e0       	ldi	r24, 0x03	; 3
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+ 104:	0e d2       	rcall	.+1052   	; 0x522 <PWMStart>
+	PWMDuty(3, dutyCount);
+ 106:	60 91 00 01 	lds	r22, 0x0100
+ 10a:	83 e0       	ldi	r24, 0x03	; 3
+ 10c:	90 e0       	ldi	r25, 0x00	; 0
+ 10e:	70 e0       	ldi	r23, 0x00	; 0
+ 110:	23 d2       	rcall	.+1094   	; 0x558 <PWMDuty>
+	
+	//timer 1
+	PWMNew(22);
+ 112:	86 e1       	ldi	r24, 0x16	; 22
+ 114:	90 e0       	ldi	r25, 0x00	; 0
+ 116:	b1 d0       	rcall	.+354    	; 0x27a <PWMNew>
+	PWMStart(22);
+ 118:	86 e1       	ldi	r24, 0x16	; 22
+ 11a:	90 e0       	ldi	r25, 0x00	; 0
+ 11c:	02 d2       	rcall	.+1028   	; 0x522 <PWMStart>
+	PWMDuty(22, dutyCount);
+ 11e:	60 91 00 01 	lds	r22, 0x0100
+ 122:	86 e1       	ldi	r24, 0x16	; 22
+ 124:	90 e0       	ldi	r25, 0x00	; 0
+ 126:	70 e0       	ldi	r23, 0x00	; 0
+ 128:	17 d2       	rcall	.+1070   	; 0x558 <PWMDuty>
+	PWMNew(23);
+ 12a:	87 e1       	ldi	r24, 0x17	; 23
+ 12c:	90 e0       	ldi	r25, 0x00	; 0
+ 12e:	a5 d0       	rcall	.+330    	; 0x27a <PWMNew>
+	PWMStart(23);
+ 130:	87 e1       	ldi	r24, 0x17	; 23
+ 132:	90 e0       	ldi	r25, 0x00	; 0
+ 134:	f6 d1       	rcall	.+1004   	; 0x522 <PWMStart>
+	PWMDuty(23, dutyCount);
+ 136:	60 91 00 01 	lds	r22, 0x0100
+ 13a:	87 e1       	ldi	r24, 0x17	; 23
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	70 e0       	ldi	r23, 0x00	; 0
+ 140:	0b d2       	rcall	.+1046   	; 0x558 <PWMDuty>
+	
+	//Timer 2
+	PWMNew(24);
+ 142:	88 e1       	ldi	r24, 0x18	; 24
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	99 d0       	rcall	.+306    	; 0x27a <PWMNew>
+	PWMStart(24);
+ 148:	88 e1       	ldi	r24, 0x18	; 24
+ 14a:	90 e0       	ldi	r25, 0x00	; 0
+ 14c:	ea d1       	rcall	.+980    	; 0x522 <PWMStart>
+	PWMDuty(24, dutyCount);
+ 14e:	60 91 00 01 	lds	r22, 0x0100
+ 152:	88 e1       	ldi	r24, 0x18	; 24
+ 154:	90 e0       	ldi	r25, 0x00	; 0
+ 156:	70 e0       	ldi	r23, 0x00	; 0
+ 158:	ff d1       	rcall	.+1022   	; 0x558 <PWMDuty>
+	PWMNew(4);
+ 15a:	84 e0       	ldi	r24, 0x04	; 4
+ 15c:	90 e0       	ldi	r25, 0x00	; 0
+ 15e:	8d d0       	rcall	.+282    	; 0x27a <PWMNew>
+	PWMStart(4);
+ 160:	84 e0       	ldi	r24, 0x04	; 4
+ 162:	90 e0       	ldi	r25, 0x00	; 0
+ 164:	de d1       	rcall	.+956    	; 0x522 <PWMStart>
+	PWMDuty(4, dutyCount);
+ 166:	60 91 00 01 	lds	r22, 0x0100
+ 16a:	84 e0       	ldi	r24, 0x04	; 4
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	70 e0       	ldi	r23, 0x00	; 0
+ 170:	f3 d1       	rcall	.+998    	; 0x558 <PWMDuty>
+	
+	//Timer 3
+	PWMNew(17);
+ 172:	81 e1       	ldi	r24, 0x11	; 17
+ 174:	90 e0       	ldi	r25, 0x00	; 0
+ 176:	81 d0       	rcall	.+258    	; 0x27a <PWMNew>
+	PWMStart(17);
+ 178:	81 e1       	ldi	r24, 0x11	; 17
+ 17a:	90 e0       	ldi	r25, 0x00	; 0
+ 17c:	d2 d1       	rcall	.+932    	; 0x522 <PWMStart>
+	PWMDuty(17, dutyCount);
+ 17e:	60 91 00 01 	lds	r22, 0x0100
+ 182:	81 e1       	ldi	r24, 0x11	; 17
+ 184:	90 e0       	ldi	r25, 0x00	; 0
+ 186:	70 e0       	ldi	r23, 0x00	; 0
+ 188:	e7 d1       	rcall	.+974    	; 0x558 <PWMDuty>
+	PWMNew(18);
+ 18a:	82 e1       	ldi	r24, 0x12	; 18
+ 18c:	90 e0       	ldi	r25, 0x00	; 0
+ 18e:	75 d0       	rcall	.+234    	; 0x27a <PWMNew>
+	PWMStart(18);
+ 190:	82 e1       	ldi	r24, 0x12	; 18
+ 192:	90 e0       	ldi	r25, 0x00	; 0
+ 194:	c6 d1       	rcall	.+908    	; 0x522 <PWMStart>
+	PWMDuty(18, dutyCount);
+ 196:	60 91 00 01 	lds	r22, 0x0100
+ 19a:	82 e1       	ldi	r24, 0x12	; 18
+ 19c:	90 e0       	ldi	r25, 0x00	; 0
+ 19e:	70 e0       	ldi	r23, 0x00	; 0
+ 1a0:	db d1       	rcall	.+950    	; 0x558 <PWMDuty>
+	PWMNew(19);
+ 1a2:	83 e1       	ldi	r24, 0x13	; 19
+ 1a4:	90 e0       	ldi	r25, 0x00	; 0
+ 1a6:	69 d0       	rcall	.+210    	; 0x27a <PWMNew>
+	PWMStart(19);
+ 1a8:	83 e1       	ldi	r24, 0x13	; 19
+ 1aa:	90 e0       	ldi	r25, 0x00	; 0
+ 1ac:	ba d1       	rcall	.+884    	; 0x522 <PWMStart>
+	PWMDuty(19, dutyCount);
+ 1ae:	60 91 00 01 	lds	r22, 0x0100
+ 1b2:	83 e1       	ldi	r24, 0x13	; 19
+ 1b4:	90 e0       	ldi	r25, 0x00	; 0
+ 1b6:	70 e0       	ldi	r23, 0x00	; 0
+ 1b8:	cf d1       	rcall	.+926    	; 0x558 <PWMDuty>
+	
+	count = 0;
+ 1ba:	10 92 01 01 	sts	0x0101, r1
+ 1be:	10 92 02 01 	sts	0x0102, r1
+ 1c2:	10 92 03 01 	sts	0x0103, r1
+ 1c6:	10 92 04 01 	sts	0x0104, r1
+ 1ca:	10 e0       	ldi	r17, 0x00	; 0
+		{
+			toggle = ~toggle;
+			count = 0;
+			dutyCount++;
+			PWMDuty(2, dutyCount);
+			PWMDuty(3, (0xFF -dutyCount));
+ 1cc:	cf ef       	ldi	r28, 0xFF	; 255
+ 1ce:	d0 e0       	ldi	r29, 0x00	; 0
+	
+	count = 0;
+	uint8_t toggle = 0;
+	while(1)
+	{
+		if(count < 10000)
+ 1d0:	80 91 01 01 	lds	r24, 0x0101
+ 1d4:	90 91 02 01 	lds	r25, 0x0102
+ 1d8:	a0 91 03 01 	lds	r26, 0x0103
+ 1dc:	b0 91 04 01 	lds	r27, 0x0104
+ 1e0:	80 51       	subi	r24, 0x10	; 16
+ 1e2:	97 42       	sbci	r25, 0x27	; 39
+ 1e4:	a0 40       	sbci	r26, 0x00	; 0
+ 1e6:	b0 40       	sbci	r27, 0x00	; 0
+ 1e8:	c8 f4       	brcc	.+50     	; 0x21c <main+0x148>
+		{
+			if(toggle == 0)
+ 1ea:	11 23       	and	r17, r17
+ 1ec:	11 f4       	brne	.+4      	; 0x1f2 <main+0x11e>
+				LED_ON;
+ 1ee:	5e 9a       	sbi	0x0b, 6	; 11
+ 1f0:	01 c0       	rjmp	.+2      	; 0x1f4 <main+0x120>
+			else
+				LED_OFF;
+ 1f2:	5e 98       	cbi	0x0b, 6	; 11
+			count++;
+ 1f4:	80 91 01 01 	lds	r24, 0x0101
+ 1f8:	90 91 02 01 	lds	r25, 0x0102
+ 1fc:	a0 91 03 01 	lds	r26, 0x0103
+ 200:	b0 91 04 01 	lds	r27, 0x0104
+ 204:	01 96       	adiw	r24, 0x01	; 1
+ 206:	a1 1d       	adc	r26, r1
+ 208:	b1 1d       	adc	r27, r1
+ 20a:	80 93 01 01 	sts	0x0101, r24
+ 20e:	90 93 02 01 	sts	0x0102, r25
+ 212:	a0 93 03 01 	sts	0x0103, r26
+ 216:	b0 93 04 01 	sts	0x0104, r27
+ 21a:	da cf       	rjmp	.-76     	; 0x1d0 <main+0xfc>
+			
+		}
+		else
+		{
+			toggle = ~toggle;
+ 21c:	10 95       	com	r17
+			count = 0;
+ 21e:	10 92 01 01 	sts	0x0101, r1
+ 222:	10 92 02 01 	sts	0x0102, r1
+ 226:	10 92 03 01 	sts	0x0103, r1
+ 22a:	10 92 04 01 	sts	0x0104, r1
+			dutyCount++;
+ 22e:	80 91 00 01 	lds	r24, 0x0100
+ 232:	8f 5f       	subi	r24, 0xFF	; 255
+ 234:	80 93 00 01 	sts	0x0100, r24
+			PWMDuty(2, dutyCount);
+ 238:	60 91 00 01 	lds	r22, 0x0100
+ 23c:	82 e0       	ldi	r24, 0x02	; 2
+ 23e:	90 e0       	ldi	r25, 0x00	; 0
+ 240:	70 e0       	ldi	r23, 0x00	; 0
+ 242:	8a d1       	rcall	.+788    	; 0x558 <PWMDuty>
+			PWMDuty(3, (0xFF -dutyCount));
+ 244:	80 91 00 01 	lds	r24, 0x0100
+ 248:	be 01       	movw	r22, r28
+ 24a:	68 1b       	sub	r22, r24
+ 24c:	71 09       	sbc	r23, r1
+ 24e:	83 e0       	ldi	r24, 0x03	; 3
+ 250:	90 e0       	ldi	r25, 0x00	; 0
+ 252:	82 d1       	rcall	.+772    	; 0x558 <PWMDuty>
+			PWMDuty(22, dutyCount);
+ 254:	60 91 00 01 	lds	r22, 0x0100
+ 258:	86 e1       	ldi	r24, 0x16	; 22
+ 25a:	90 e0       	ldi	r25, 0x00	; 0
+ 25c:	70 e0       	ldi	r23, 0x00	; 0
+ 25e:	7c d1       	rcall	.+760    	; 0x558 <PWMDuty>
+			PWMDuty(23, dutyCount);
+ 260:	60 91 00 01 	lds	r22, 0x0100
+ 264:	87 e1       	ldi	r24, 0x17	; 23
+ 266:	90 e0       	ldi	r25, 0x00	; 0
+ 268:	70 e0       	ldi	r23, 0x00	; 0
+ 26a:	76 d1       	rcall	.+748    	; 0x558 <PWMDuty>
+			PWMDuty(17, dutyCount);
+ 26c:	60 91 00 01 	lds	r22, 0x0100
+ 270:	81 e1       	ldi	r24, 0x11	; 17
+ 272:	90 e0       	ldi	r25, 0x00	; 0
+ 274:	70 e0       	ldi	r23, 0x00	; 0
+ 276:	70 d1       	rcall	.+736    	; 0x558 <PWMDuty>
+ 278:	ab cf       	rjmp	.-170    	; 0x1d0 <main+0xfc>
+
+0000027a <PWMNew>:
+//select which pins to enable.
+/**
+*	This creates a PWM pin ready to be set.
+*/
+void PWMNew(uint8_t pin)// we are going with the physical pin numbers
+{
+ 27a:	98 2f       	mov	r25, r24
+	if(pin == 2||pin == 3)// Timer 0: PB7(A), PD0(B)
+ 27c:	82 50       	subi	r24, 0x02	; 2
+ 27e:	82 30       	cpi	r24, 0x02	; 2
+ 280:	70 f4       	brcc	.+28     	; 0x29e <PWMNew+0x24>
+	{
+		if(pin == 2)
+ 282:	92 30       	cpi	r25, 0x02	; 2
+ 284:	21 f4       	brne	.+8      	; 0x28e <PWMNew+0x14>
+		{
+			PWM0A_CONFIG;// check header file for more info
+ 286:	27 9a       	sbi	0x04, 7	; 4
+			TCCR0A |= (1 << COM0A1);
+ 288:	84 b5       	in	r24, 0x24	; 36
+ 28a:	80 68       	ori	r24, 0x80	; 128
+ 28c:	03 c0       	rjmp	.+6      	; 0x294 <PWMNew+0x1a>
+		}			
+		else
+		{
+			PWM0B_CONFIG;
+ 28e:	50 9a       	sbi	0x0a, 0	; 10
+			TCCR0A |= (1 << COM0B1);
+ 290:	84 b5       	in	r24, 0x24	; 36
+ 292:	80 62       	ori	r24, 0x20	; 32
+ 294:	84 bd       	out	0x24, r24	; 36
+		}
+		TCCR0A |= (1 << WGM01) | (1 << WGM00);// set fast PWM Mode pg 106(section 13.6.3)
+ 296:	84 b5       	in	r24, 0x24	; 36
+ 298:	83 60       	ori	r24, 0x03	; 3
+ 29a:	84 bd       	out	0x24, r24	; 36
+ 29c:	08 95       	ret
+	}
+	else if(pin == 22 || pin == 23)// Timer 1: PB6(B), PB5(A)
+ 29e:	89 2f       	mov	r24, r25
+ 2a0:	86 51       	subi	r24, 0x16	; 22
+ 2a2:	82 30       	cpi	r24, 0x02	; 2
+ 2a4:	c0 f4       	brcc	.+48     	; 0x2d6 <PWMNew+0x5c>
+	{
+		if(pin == 23)
+ 2a6:	97 31       	cpi	r25, 0x17	; 23
+ 2a8:	29 f4       	brne	.+10     	; 0x2b4 <PWMNew+0x3a>
+		{
+			PWM1A_CONFIG;
+ 2aa:	25 9a       	sbi	0x04, 5	; 4
+			TCCR1A |= (1 << COM1A1);
+ 2ac:	80 91 80 00 	lds	r24, 0x0080
+ 2b0:	80 68       	ori	r24, 0x80	; 128
+ 2b2:	04 c0       	rjmp	.+8      	; 0x2bc <PWMNew+0x42>
+		}
+		else
+		{
+			PWM1B_CONFIG;
+ 2b4:	26 9a       	sbi	0x04, 6	; 4
+			TCCR1A |= (1 << COM1B1);
+ 2b6:	80 91 80 00 	lds	r24, 0x0080
+ 2ba:	80 62       	ori	r24, 0x20	; 32
+ 2bc:	80 93 80 00 	sts	0x0080, r24
+		}
+		// both of the following 2 registers set the mode for the PWM Fast. Table 14.4 pg 142
+		TCCR1A |= (1 << WGM10);
+ 2c0:	80 91 80 00 	lds	r24, 0x0080
+ 2c4:	81 60       	ori	r24, 0x01	; 1
+ 2c6:	80 93 80 00 	sts	0x0080, r24
+		TCCR1B |= (1 << WGM12);// set Fast PWM mode using ICR1 as top
+ 2ca:	80 91 81 00 	lds	r24, 0x0081
+ 2ce:	88 60       	ori	r24, 0x08	; 8
+ 2d0:	80 93 81 00 	sts	0x0081, r24
+ 2d4:	08 95       	ret
+		
+		
+	}
+	else if(pin == 24 || pin == 4)// Timer 2: PB4(A), PD1(B)
+ 2d6:	98 31       	cpi	r25, 0x18	; 24
+ 2d8:	19 f0       	breq	.+6      	; 0x2e0 <PWMNew+0x66>
+ 2da:	94 30       	cpi	r25, 0x04	; 4
+ 2dc:	a1 f4       	brne	.+40     	; 0x306 <PWMNew+0x8c>
+ 2de:	07 c0       	rjmp	.+14     	; 0x2ee <PWMNew+0x74>
+	{
+		// Configure pin to be an output
+		if(pin == 24)
+		{
+			PWM2A_CONFIG;
+ 2e0:	24 9a       	sbi	0x04, 4	; 4
+			TCCR2A |= (1 << COM2A1);
+ 2e2:	80 91 b0 00 	lds	r24, 0x00B0
+ 2e6:	80 68       	ori	r24, 0x80	; 128
+ 2e8:	80 93 b0 00 	sts	0x00B0, r24
+ 2ec:	06 c0       	rjmp	.+12     	; 0x2fa <PWMNew+0x80>
+		}
+		else
+		{
+			PWM2B_CONFIG;
+ 2ee:	51 9a       	sbi	0x0a, 1	; 10
+			TCCR2B |= (1 << COM2B1);// this may not be correct.
+ 2f0:	80 91 b1 00 	lds	r24, 0x00B1
+ 2f4:	80 62       	ori	r24, 0x20	; 32
+ 2f6:	80 93 b1 00 	sts	0x00B1, r24
+		}	
+		TCCR2A |= (1 << WGM21) | (1 << WGM20);// set Fast PWM mode
+ 2fa:	80 91 b0 00 	lds	r24, 0x00B0
+ 2fe:	83 60       	ori	r24, 0x03	; 3
+ 300:	80 93 b0 00 	sts	0x00B0, r24
+ 304:	08 95       	ret
+	}
+	else if(pin == 17 || pin == 18 || pin == 19)// Timer 3:PC4(C),PC5(B),PC6(C)
+ 306:	89 2f       	mov	r24, r25
+ 308:	81 51       	subi	r24, 0x11	; 17
+ 30a:	83 30       	cpi	r24, 0x03	; 3
+ 30c:	f0 f4       	brcc	.+60     	; 0x34a <PWMNew+0xd0>
+	{
+		// Configure pin to be an output
+		if(pin == 19)
+ 30e:	93 31       	cpi	r25, 0x13	; 19
+ 310:	29 f4       	brne	.+10     	; 0x31c <PWMNew+0xa2>
+		{
+			PWM3A_CONFIG;
+ 312:	3c 9a       	sbi	0x07, 4	; 7
+			TCCR3A |= (1 << COM3A1);
+ 314:	80 91 90 00 	lds	r24, 0x0090
+ 318:	80 68       	ori	r24, 0x80	; 128
+ 31a:	0b c0       	rjmp	.+22     	; 0x332 <PWMNew+0xb8>
+		}
+		else if(pin == 18)
+ 31c:	92 31       	cpi	r25, 0x12	; 18
+ 31e:	29 f4       	brne	.+10     	; 0x32a <PWMNew+0xb0>
+		{	
+			PWM3B_CONFIG;
+ 320:	3d 9a       	sbi	0x07, 5	; 7
+			TCCR3A |= (1 << COM3B1);			
+ 322:	80 91 90 00 	lds	r24, 0x0090
+ 326:	80 62       	ori	r24, 0x20	; 32
+ 328:	04 c0       	rjmp	.+8      	; 0x332 <PWMNew+0xb8>
+		}
+		else
+		{
+			PWM3C_CONFIG;
+ 32a:	3e 9a       	sbi	0x07, 6	; 7
+			TCCR3A |= (1 << COM3C1);			
+ 32c:	80 91 90 00 	lds	r24, 0x0090
+ 330:	88 60       	ori	r24, 0x08	; 8
+ 332:	80 93 90 00 	sts	0x0090, r24
+		}
+		TCCR3A |= (1<< WGM30);
+ 336:	80 91 90 00 	lds	r24, 0x0090
+ 33a:	81 60       	ori	r24, 0x01	; 1
+ 33c:	80 93 90 00 	sts	0x0090, r24
+		TCCR3B |= (1 << WGM32);
+ 340:	80 91 91 00 	lds	r24, 0x0091
+ 344:	88 60       	ori	r24, 0x08	; 8
+ 346:	80 93 91 00 	sts	0x0091, r24
+ 34a:	08 95       	ret
+
+0000034c <PWMStartTimer>:
+*
+*/
+void PWMStartTimer(uint8_t timer, uint8_t CLKspeed)// we are going with the physical pin numbers
+{
+	// check which timer the pin belongs too.
+	if(timer == 0)// Timer 0: PB7(A), PD0(B) This information can be found on pg 114 Section 13.8.2
+ 34c:	88 23       	and	r24, r24
+ 34e:	71 f5       	brne	.+92     	; 0x3ac <PWMStartTimer+0x60>
+	{
+		// stop timer while configuring to disired configuration: Note: there is a quicker way.
+		TCCR0B &= ~(1 << CS00);
+ 350:	85 b5       	in	r24, 0x25	; 37
+ 352:	8e 7f       	andi	r24, 0xFE	; 254
+ 354:	85 bd       	out	0x25, r24	; 37
+		TCCR0B &= ~(1 << CS01);
+ 356:	85 b5       	in	r24, 0x25	; 37
+ 358:	8d 7f       	andi	r24, 0xFD	; 253
+ 35a:	85 bd       	out	0x25, r24	; 37
+		TCCR0B &= ~(1 << CS02);
+ 35c:	85 b5       	in	r24, 0x25	; 37
+ 35e:	8b 7f       	andi	r24, 0xFB	; 251
+ 360:	85 bd       	out	0x25, r24	; 37
+		
+		// Configure pin to be an output
+		if(CLKspeed == 1)// No Prescaler 16 Mhz clock
+ 362:	61 30       	cpi	r22, 0x01	; 1
+ 364:	19 f4       	brne	.+6      	; 0x36c <PWMStartTimer+0x20>
+		{
+			TCCR0B |= (1<< CS00); 
+ 366:	85 b5       	in	r24, 0x25	; 37
+ 368:	81 60       	ori	r24, 0x01	; 1
+ 36a:	04 c0       	rjmp	.+8      	; 0x374 <PWMStartTimer+0x28>
+		}
+		else if(CLKspeed == 2)
+ 36c:	62 30       	cpi	r22, 0x02	; 2
+ 36e:	21 f4       	brne	.+8      	; 0x378 <PWMStartTimer+0x2c>
+		{
+			TCCR0B |= (1 << CS01); // set prescalar to 1/8 of clock speed = 2Mhz
+ 370:	85 b5       	in	r24, 0x25	; 37
+ 372:	82 60       	ori	r24, 0x02	; 2
+ 374:	85 bd       	out	0x25, r24	; 37
+ 376:	08 95       	ret
+		}
+		else if(CLKspeed == 3)
+ 378:	63 30       	cpi	r22, 0x03	; 3
+ 37a:	19 f4       	brne	.+6      	; 0x382 <PWMStartTimer+0x36>
+		{
+			TCCR0B |= (1 << CS01) | (1<< CS00); // set prescalar to 1/64 of clk speed = 250 Khz
+ 37c:	85 b5       	in	r24, 0x25	; 37
+ 37e:	83 60       	ori	r24, 0x03	; 3
+ 380:	f9 cf       	rjmp	.-14     	; 0x374 <PWMStartTimer+0x28>
+		}
+		else if(CLKspeed == 4)// NOTE Timer 0 doesn't have 1/128 or 1/512
+ 382:	64 30       	cpi	r22, 0x04	; 4
+ 384:	19 f4       	brne	.+6      	; 0x38c <PWMStartTimer+0x40>
+		{
+			TCCR0B |= (1 << CS02); // set prescalar to 1/256 of CPU clk = 62.5Khz
+ 386:	85 b5       	in	r24, 0x25	; 37
+ 388:	84 60       	ori	r24, 0x04	; 4
+ 38a:	f4 cf       	rjmp	.-24     	; 0x374 <PWMStartTimer+0x28>
+		}
+		else if(CLKspeed == 5)
+ 38c:	65 30       	cpi	r22, 0x05	; 5
+ 38e:	19 f4       	brne	.+6      	; 0x396 <PWMStartTimer+0x4a>
+		{
+			TCCR0B |= (1 << CS02) | (1<< CS00); // set prescalar to 1/1024 of CPU clk = 15.625Khz
+ 390:	85 b5       	in	r24, 0x25	; 37
+ 392:	85 60       	ori	r24, 0x05	; 5
+ 394:	ef cf       	rjmp	.-34     	; 0x374 <PWMStartTimer+0x28>
+			//NOTE slower rates aren't possible with internal settings for Timer0.  
+			// if you need slower rates check with a different Timer.
+		}
+		else if(CLKspeed == 6)// external clock, useful for own clock example 10Mhz, or 1Khz...
+ 396:	66 30       	cpi	r22, 0x06	; 6
+ 398:	19 f4       	brne	.+6      	; 0x3a0 <PWMStartTimer+0x54>
+		{
+			TCCR0B |= (1 << CS02) | (1<< CS01); // pin T0(PD7) tick on the Falling Edge
+ 39a:	85 b5       	in	r24, 0x25	; 37
+ 39c:	86 60       	ori	r24, 0x06	; 6
+ 39e:	ea cf       	rjmp	.-44     	; 0x374 <PWMStartTimer+0x28>
+		}
+		else if(CLKspeed == 7)
+ 3a0:	67 30       	cpi	r22, 0x07	; 7
+ 3a2:	09 f0       	breq	.+2      	; 0x3a6 <PWMStartTimer+0x5a>
+ 3a4:	bd c0       	rjmp	.+378    	; 0x520 <PWMStartTimer+0x1d4>
+		{
+			TCCR0B |= (1 << CS02) | (1<< CS01)| (1<< CS00); // Pin T0(PD7) tick on the rising Edge
+ 3a6:	85 b5       	in	r24, 0x25	; 37
+ 3a8:	87 60       	ori	r24, 0x07	; 7
+ 3aa:	e4 cf       	rjmp	.-56     	; 0x374 <PWMStartTimer+0x28>
+		}
+		else
+			return;
+	}
+	else if(timer == 1)// Timer 1: PB6(B), PB5(A) This information can be found on pg 144 Section 14.10.4
+ 3ac:	81 30       	cpi	r24, 0x01	; 1
+ 3ae:	e1 f5       	brne	.+120    	; 0x428 <PWMStartTimer+0xdc>
+	{	// this section assumes MODE is FAST PWM, with 8 bit counter.  Not for slower clock rates
+		// change Mode from 8 bit to 9,10, or use a different register to compare against. 
+		// stop timer while configuring to disired configuration: Note: there is a quicker way.
+		TCCR1B &= ~(1 << CS10);
+ 3b0:	80 91 81 00 	lds	r24, 0x0081
+ 3b4:	8e 7f       	andi	r24, 0xFE	; 254
+ 3b6:	80 93 81 00 	sts	0x0081, r24
+		TCCR1B &= ~(1 << CS11);
+ 3ba:	80 91 81 00 	lds	r24, 0x0081
+ 3be:	8d 7f       	andi	r24, 0xFD	; 253
+ 3c0:	80 93 81 00 	sts	0x0081, r24
+		TCCR1B &= ~(1 << CS12);
+ 3c4:	80 91 81 00 	lds	r24, 0x0081
+ 3c8:	8b 7f       	andi	r24, 0xFB	; 251
+ 3ca:	80 93 81 00 	sts	0x0081, r24
+		
+		// Configure pin to be an output
+		if(CLKspeed == 1)// No Prescaler 16 Mhz clock
+ 3ce:	61 30       	cpi	r22, 0x01	; 1
+ 3d0:	21 f4       	brne	.+8      	; 0x3da <PWMStartTimer+0x8e>
+		{
+			TCCR1B |= (1<< CS10); 
+ 3d2:	80 91 81 00 	lds	r24, 0x0081
+ 3d6:	81 60       	ori	r24, 0x01	; 1
+ 3d8:	24 c0       	rjmp	.+72     	; 0x422 <PWMStartTimer+0xd6>
+		}
+		else if(CLKspeed == 2)
+ 3da:	62 30       	cpi	r22, 0x02	; 2
+ 3dc:	21 f4       	brne	.+8      	; 0x3e6 <PWMStartTimer+0x9a>
+		{
+			TCCR1B |= (1 << CS11); // set prescalar to 1/8 of clock speed = 2Mhz
+ 3de:	80 91 81 00 	lds	r24, 0x0081
+ 3e2:	82 60       	ori	r24, 0x02	; 2
+ 3e4:	1e c0       	rjmp	.+60     	; 0x422 <PWMStartTimer+0xd6>
+		}
+		else if(CLKspeed == 3)
+ 3e6:	63 30       	cpi	r22, 0x03	; 3
+ 3e8:	21 f4       	brne	.+8      	; 0x3f2 <PWMStartTimer+0xa6>
+		{
+			TCCR1B |= (1 << CS11) | (1<< CS10); // set prescalar to 1/64 of clk speed = 250 Khz
+ 3ea:	80 91 81 00 	lds	r24, 0x0081
+ 3ee:	83 60       	ori	r24, 0x03	; 3
+ 3f0:	18 c0       	rjmp	.+48     	; 0x422 <PWMStartTimer+0xd6>
+		}
+		else if(CLKspeed == 4)// NOTE Timer 0 doesn't have 1/128 or 1/512
+ 3f2:	64 30       	cpi	r22, 0x04	; 4
+ 3f4:	21 f4       	brne	.+8      	; 0x3fe <PWMStartTimer+0xb2>
+		{
+			TCCR1B |= (1 << CS12); // set prescalar to 1/256 of CPU clk = 62.5Khz
+ 3f6:	80 91 81 00 	lds	r24, 0x0081
+ 3fa:	84 60       	ori	r24, 0x04	; 4
+ 3fc:	12 c0       	rjmp	.+36     	; 0x422 <PWMStartTimer+0xd6>
+		}
+		else if(CLKspeed == 5)
+ 3fe:	65 30       	cpi	r22, 0x05	; 5
+ 400:	21 f4       	brne	.+8      	; 0x40a <PWMStartTimer+0xbe>
+		{
+			TCCR1B |= (1 << CS12) | (1<< CS10); // set prescalar to 1/1024 of CPU clk = 15.625Khz
+ 402:	80 91 81 00 	lds	r24, 0x0081
+ 406:	85 60       	ori	r24, 0x05	; 5
+ 408:	0c c0       	rjmp	.+24     	; 0x422 <PWMStartTimer+0xd6>
+			//NOTE slower rates aren't possible with internal settings for Timer0.  
+			// if you need slower rates check with a different Timer.
+		}
+		else if(CLKspeed == 6)// external clock, useful for own clock example 10Mhz, or 1Khz...
+ 40a:	66 30       	cpi	r22, 0x06	; 6
+ 40c:	21 f4       	brne	.+8      	; 0x416 <PWMStartTimer+0xca>
+		{
+			TCCR1B |= (1 << CS12) | (1<< CS11); // pin T0(PD7) tick on the Falling Edge
+ 40e:	80 91 81 00 	lds	r24, 0x0081
+ 412:	86 60       	ori	r24, 0x06	; 6
+ 414:	06 c0       	rjmp	.+12     	; 0x422 <PWMStartTimer+0xd6>
+		}
+		else if(CLKspeed == 7)
+ 416:	67 30       	cpi	r22, 0x07	; 7
+ 418:	09 f0       	breq	.+2      	; 0x41c <PWMStartTimer+0xd0>
+ 41a:	82 c0       	rjmp	.+260    	; 0x520 <PWMStartTimer+0x1d4>
+		{
+			TCCR1B |= (1 << CS12) | (1<< CS11)| (1<< CS10); // Pin T0(PD7) tick on the rising Edge
+ 41c:	80 91 81 00 	lds	r24, 0x0081
+ 420:	87 60       	ori	r24, 0x07	; 7
+ 422:	80 93 81 00 	sts	0x0081, r24
+ 426:	08 95       	ret
+		}
+		else
+			return;
+	}
+	else if(timer == 2)// Timer 2: PB4(A), PD1(B) This information can be found on pg 164 Section 15.8.2
+ 428:	82 30       	cpi	r24, 0x02	; 2
+ 42a:	e1 f5       	brne	.+120    	; 0x4a4 <PWMStartTimer+0x158>
+	{	// this section assumes MODE is FAST PWM, with 8 bit counter.  
+		TCCR2B &= ~(1 << CS20);
+ 42c:	80 91 b1 00 	lds	r24, 0x00B1
+ 430:	8e 7f       	andi	r24, 0xFE	; 254
+ 432:	80 93 b1 00 	sts	0x00B1, r24
+		TCCR2B &= ~(1 << CS21);
+ 436:	80 91 b1 00 	lds	r24, 0x00B1
+ 43a:	8d 7f       	andi	r24, 0xFD	; 253
+ 43c:	80 93 b1 00 	sts	0x00B1, r24
+		TCCR2B &= ~(1 << CS22);
+ 440:	80 91 b1 00 	lds	r24, 0x00B1
+ 444:	8b 7f       	andi	r24, 0xFB	; 251
+ 446:	80 93 b1 00 	sts	0x00B1, r24
+		
+		// Configure pin to be an output
+		if(CLKspeed == 1)// No Prescaler 16 Mhz clock
+ 44a:	61 30       	cpi	r22, 0x01	; 1
+ 44c:	21 f4       	brne	.+8      	; 0x456 <PWMStartTimer+0x10a>
+		{
+			TCCR2B |= (1<< CS20); 
+ 44e:	80 91 b1 00 	lds	r24, 0x00B1
+ 452:	81 60       	ori	r24, 0x01	; 1
+ 454:	24 c0       	rjmp	.+72     	; 0x49e <PWMStartTimer+0x152>
+		}
+		else if(CLKspeed == 2)
+ 456:	62 30       	cpi	r22, 0x02	; 2
+ 458:	21 f4       	brne	.+8      	; 0x462 <PWMStartTimer+0x116>
+		{
+			TCCR2B |= (1 << CS21); // set prescalar to 1/8 of clock speed = 2Mhz
+ 45a:	80 91 b1 00 	lds	r24, 0x00B1
+ 45e:	82 60       	ori	r24, 0x02	; 2
+ 460:	1e c0       	rjmp	.+60     	; 0x49e <PWMStartTimer+0x152>
+		}
+		else if(CLKspeed == 3)
+ 462:	63 30       	cpi	r22, 0x03	; 3
+ 464:	21 f4       	brne	.+8      	; 0x46e <PWMStartTimer+0x122>
+		{
+			TCCR2B |= (1 << CS21) | (1<< CS20); // set prescalar to 1/32 of clk speed = 500 Khz
+ 466:	80 91 b1 00 	lds	r24, 0x00B1
+ 46a:	83 60       	ori	r24, 0x03	; 3
+ 46c:	18 c0       	rjmp	.+48     	; 0x49e <PWMStartTimer+0x152>
+		}
+		else if(CLKspeed == 4)
+ 46e:	64 30       	cpi	r22, 0x04	; 4
+ 470:	21 f4       	brne	.+8      	; 0x47a <PWMStartTimer+0x12e>
+		{
+			TCCR2B |= (1 << CS22); // set prescalar to 1/64 of CPU clk = 250Khz 
+ 472:	80 91 b1 00 	lds	r24, 0x00B1
+ 476:	84 60       	ori	r24, 0x04	; 4
+ 478:	12 c0       	rjmp	.+36     	; 0x49e <PWMStartTimer+0x152>
+		}
+		else if(CLKspeed == 5)
+ 47a:	65 30       	cpi	r22, 0x05	; 5
+ 47c:	21 f4       	brne	.+8      	; 0x486 <PWMStartTimer+0x13a>
+		{
+			TCCR2B |= (1 << CS22) | (1<< CS20); // set prescalar to 1/128 of CPU clk = 125Khz
+ 47e:	80 91 b1 00 	lds	r24, 0x00B1
+ 482:	85 60       	ori	r24, 0x05	; 5
+ 484:	0c c0       	rjmp	.+24     	; 0x49e <PWMStartTimer+0x152>
+		}
+		else if(CLKspeed == 6)
+ 486:	66 30       	cpi	r22, 0x06	; 6
+ 488:	21 f4       	brne	.+8      	; 0x492 <PWMStartTimer+0x146>
+		{
+			TCCR2B |= (1 << CS22) | (1<< CS21);  // set prescalar to 1/256 of CPU clk = 62.5Khz
+ 48a:	80 91 b1 00 	lds	r24, 0x00B1
+ 48e:	86 60       	ori	r24, 0x06	; 6
+ 490:	06 c0       	rjmp	.+12     	; 0x49e <PWMStartTimer+0x152>
+		}
+		else if(CLKspeed == 7)
+ 492:	67 30       	cpi	r22, 0x07	; 7
+ 494:	09 f0       	breq	.+2      	; 0x498 <PWMStartTimer+0x14c>
+ 496:	44 c0       	rjmp	.+136    	; 0x520 <PWMStartTimer+0x1d4>
+		{
+			TCCR2B |= (1 << CS22) | (1<< CS21)| (1<< CS20); // set prescalar to 1/1024 of CPU clk = 15.625Khz
+ 498:	80 91 b1 00 	lds	r24, 0x00B1
+ 49c:	87 60       	ori	r24, 0x07	; 7
+ 49e:	80 93 b1 00 	sts	0x00B1, r24
+ 4a2:	08 95       	ret
+		}
+		else
+			return;
+	}
+	else if(timer == 3)// Timer 3: PC4(C),PC5(B),PC6(C) Same as timer 1 but different registers
+ 4a4:	83 30       	cpi	r24, 0x03	; 3
+ 4a6:	e1 f5       	brne	.+120    	; 0x520 <PWMStartTimer+0x1d4>
+	{	
+		//This information can be found on pg 144 Section 14.10.4
+		// this section assumes MODE is FAST PWM, with 8 bit counter.  Not for slower clock rates
+		// change Mode from 8 bit to 9,10, or use a different register to compare against. 
+		// stop timer while configuring to disired configuration: Note: there is a quicker way.
+		TCCR3B &= ~(1 << CS30);
+ 4a8:	80 91 91 00 	lds	r24, 0x0091
+ 4ac:	8e 7f       	andi	r24, 0xFE	; 254
+ 4ae:	80 93 91 00 	sts	0x0091, r24
+		TCCR3B &= ~(1 << CS31);
+ 4b2:	80 91 91 00 	lds	r24, 0x0091
+ 4b6:	8d 7f       	andi	r24, 0xFD	; 253
+ 4b8:	80 93 91 00 	sts	0x0091, r24
+		TCCR3B &= ~(1 << CS32);
+ 4bc:	80 91 91 00 	lds	r24, 0x0091
+ 4c0:	8b 7f       	andi	r24, 0xFB	; 251
+ 4c2:	80 93 91 00 	sts	0x0091, r24
+		
+		// Configure pin to be an output
+		if(CLKspeed == 1)// No Prescaler 16 Mhz clock
+ 4c6:	61 30       	cpi	r22, 0x01	; 1
+ 4c8:	21 f4       	brne	.+8      	; 0x4d2 <PWMStartTimer+0x186>
+		{
+			TCCR3B |= (1<< CS30); 
+ 4ca:	80 91 91 00 	lds	r24, 0x0091
+ 4ce:	81 60       	ori	r24, 0x01	; 1
+ 4d0:	1d c0       	rjmp	.+58     	; 0x50c <PWMStartTimer+0x1c0>
+		}
+		else if(CLKspeed == 2)
+ 4d2:	62 30       	cpi	r22, 0x02	; 2
+ 4d4:	21 f4       	brne	.+8      	; 0x4de <PWMStartTimer+0x192>
+		{
+			TCCR3B |= (1 << CS31); // set prescalar to 1/8 of clock speed = 2Mhz
+ 4d6:	80 91 91 00 	lds	r24, 0x0091
+ 4da:	82 60       	ori	r24, 0x02	; 2
+ 4dc:	17 c0       	rjmp	.+46     	; 0x50c <PWMStartTimer+0x1c0>
+		}
+		else if(CLKspeed == 3)
+ 4de:	63 30       	cpi	r22, 0x03	; 3
+ 4e0:	21 f4       	brne	.+8      	; 0x4ea <PWMStartTimer+0x19e>
+		{
+			TCCR3B |= (1 << CS31) | (1<< CS30); // set prescalar to 1/64 of clk speed = 250 Khz
+ 4e2:	80 91 91 00 	lds	r24, 0x0091
+ 4e6:	83 60       	ori	r24, 0x03	; 3
+ 4e8:	11 c0       	rjmp	.+34     	; 0x50c <PWMStartTimer+0x1c0>
+		}
+		else if(CLKspeed == 4)// NOTE Timer 0 doesn't have 1/128 or 1/512
+ 4ea:	64 30       	cpi	r22, 0x04	; 4
+ 4ec:	21 f4       	brne	.+8      	; 0x4f6 <PWMStartTimer+0x1aa>
+		{
+			TCCR3B |= (1 << CS32); // set prescalar to 1/256 of CPU clk = 62.5Khz
+ 4ee:	80 91 91 00 	lds	r24, 0x0091
+ 4f2:	84 60       	ori	r24, 0x04	; 4
+ 4f4:	0b c0       	rjmp	.+22     	; 0x50c <PWMStartTimer+0x1c0>
+		}
+		else if(CLKspeed == 5)
+ 4f6:	65 30       	cpi	r22, 0x05	; 5
+ 4f8:	21 f4       	brne	.+8      	; 0x502 <PWMStartTimer+0x1b6>
+		{
+			TCCR3B |= (1 << CS32) | (1<< CS30); // set prescalar to 1/1024 of CPU clk = 15.625Khz
+ 4fa:	80 91 91 00 	lds	r24, 0x0091
+ 4fe:	85 60       	ori	r24, 0x05	; 5
+ 500:	05 c0       	rjmp	.+10     	; 0x50c <PWMStartTimer+0x1c0>
+			//NOTE slower rates aren't possible with internal settings for Timer0.  
+			// if you need slower rates check with a different Timer.
+		}
+		else if(CLKspeed == 6)// external clock, useful for own clock example 10Mhz, or 1Khz...
+ 502:	66 30       	cpi	r22, 0x06	; 6
+ 504:	31 f4       	brne	.+12     	; 0x512 <PWMStartTimer+0x1c6>
+		{
+			TCCR3B |= (1 << CS32) | (1<< CS31); // pin T0(PD7) tick on the Falling Edge
+ 506:	80 91 91 00 	lds	r24, 0x0091
+ 50a:	86 60       	ori	r24, 0x06	; 6
+ 50c:	80 93 91 00 	sts	0x0091, r24
+ 510:	08 95       	ret
+		}
+		else if(CLKspeed == 7)
+ 512:	67 30       	cpi	r22, 0x07	; 7
+ 514:	29 f4       	brne	.+10     	; 0x520 <PWMStartTimer+0x1d4>
+		{
+			TCCR3B |= (1 << CS32) | (1<< CS31)| (1<< CS30); // Pin T0(PD7) tick on the rising Edge
+ 516:	80 91 91 00 	lds	r24, 0x0091
+ 51a:	87 60       	ori	r24, 0x07	; 7
+ 51c:	80 93 91 00 	sts	0x0091, r24
+ 520:	08 95       	ret
+
+00000522 <PWMStart>:
+*	For people who don't care how fast or slow the PWM frequency is
+*	They just care about the duty cycle. this will set all timers to 1/1024 of the CPU clk
+* 	15.625Khz will be the frequency of their timer. based on a 16Mhz clock
+*/
+void PWMStart(uint8_t pin)
+{
+ 522:	98 2f       	mov	r25, r24
+	if(pin == 2||pin == 3)// Timer 0: PB7(A), PD0(B)
+ 524:	82 50       	subi	r24, 0x02	; 2
+ 526:	82 30       	cpi	r24, 0x02	; 2
+ 528:	10 f4       	brcc	.+4      	; 0x52e <PWMStart+0xc>
+	{
+		PWMStartTimer(0,5);
+ 52a:	80 e0       	ldi	r24, 0x00	; 0
+ 52c:	05 c0       	rjmp	.+10     	; 0x538 <PWMStart+0x16>
+	}
+	else if(pin == 22 || pin == 23)// Timer 1: PB6(B), PB5(A)
+ 52e:	89 2f       	mov	r24, r25
+ 530:	86 51       	subi	r24, 0x16	; 22
+ 532:	82 30       	cpi	r24, 0x02	; 2
+ 534:	18 f4       	brcc	.+6      	; 0x53c <PWMStart+0x1a>
+	{
+		PWMStartTimer(1,5);		
+ 536:	81 e0       	ldi	r24, 0x01	; 1
+ 538:	65 e0       	ldi	r22, 0x05	; 5
+ 53a:	06 c0       	rjmp	.+12     	; 0x548 <PWMStart+0x26>
+	}
+	else if(pin == 24 || pin == 4)// Timer 2: PB4(A), PD1(B)
+ 53c:	98 31       	cpi	r25, 0x18	; 24
+ 53e:	11 f0       	breq	.+4      	; 0x544 <PWMStart+0x22>
+ 540:	94 30       	cpi	r25, 0x04	; 4
+ 542:	19 f4       	brne	.+6      	; 0x54a <PWMStart+0x28>
+	{
+		PWMStartTimer(2,7);		
+ 544:	82 e0       	ldi	r24, 0x02	; 2
+ 546:	67 e0       	ldi	r22, 0x07	; 7
+ 548:	01 cf       	rjmp	.-510    	; 0x34c <PWMStartTimer>
+	}
+	else if(pin == 17 || pin == 18 || pin == 19)// Timer 3:PC4(C),PC5(B),PC6(C)
+ 54a:	91 51       	subi	r25, 0x11	; 17
+ 54c:	93 30       	cpi	r25, 0x03	; 3
+ 54e:	18 f4       	brcc	.+6      	; 0x556 <PWMStart+0x34>
+	{
+		PWMStartTimer(3,5);
+ 550:	83 e0       	ldi	r24, 0x03	; 3
+ 552:	65 e0       	ldi	r22, 0x05	; 5
+ 554:	fb ce       	rjmp	.-522    	; 0x34c <PWMStartTimer>
+ 556:	08 95       	ret
+
+00000558 <PWMDuty>:
+/**
+*	this will change the duty cycle from 0%(h0x00|d0) to 100%(h0xFF|d255)
+*	
+**/
+void PWMDuty(uint8_t pin, uint8_t dutyCycle)
+{
+ 558:	28 2f       	mov	r18, r24
+	if(pin == 2||pin == 3)// Timer 0: PB7(A), PD0(B)
+ 55a:	82 50       	subi	r24, 0x02	; 2
+ 55c:	82 30       	cpi	r24, 0x02	; 2
+ 55e:	30 f4       	brcc	.+12     	; 0x56c <PWMDuty+0x14>
+	{
+		if(pin == 2)
+ 560:	22 30       	cpi	r18, 0x02	; 2
+ 562:	11 f4       	brne	.+4      	; 0x568 <PWMDuty+0x10>
+			OCR0A = dutyCycle;// this is an 8 bit register pg 100 (13)
+ 564:	67 bd       	out	0x27, r22	; 39
+ 566:	08 95       	ret
+		else
+			OCR0B = dutyCycle;// this is an 8 bit register pg 100 (13)
+ 568:	68 bd       	out	0x28, r22	; 40
+ 56a:	08 95       	ret
+			
+	}
+	else if(pin == 22 || pin == 23)// Timer 1: PB6(B), PB5(A)
+ 56c:	82 2f       	mov	r24, r18
+ 56e:	86 51       	subi	r24, 0x16	; 22
+ 570:	82 30       	cpi	r24, 0x02	; 2
+ 572:	68 f4       	brcc	.+26     	; 0x58e <PWMDuty+0x36>
+ 574:	70 e0       	ldi	r23, 0x00	; 0
+	{
+		if(pin == 23)
+ 576:	27 31       	cpi	r18, 0x17	; 23
+ 578:	29 f4       	brne	.+10     	; 0x584 <PWMDuty+0x2c>
+			OCR1A = dutyCycle;
+ 57a:	70 93 89 00 	sts	0x0089, r23
+ 57e:	60 93 88 00 	sts	0x0088, r22
+ 582:	08 95       	ret
+		else
+			OCR1B = dutyCycle;
+ 584:	70 93 8b 00 	sts	0x008B, r23
+ 588:	60 93 8a 00 	sts	0x008A, r22
+ 58c:	08 95       	ret
+	}
+	else if(pin == 24 || pin == 4)// Timer 2: PB4(A), PD1(B)
+ 58e:	28 31       	cpi	r18, 0x18	; 24
+ 590:	19 f0       	breq	.+6      	; 0x598 <PWMDuty+0x40>
+ 592:	24 30       	cpi	r18, 0x04	; 4
+ 594:	39 f4       	brne	.+14     	; 0x5a4 <PWMDuty+0x4c>
+ 596:	03 c0       	rjmp	.+6      	; 0x59e <PWMDuty+0x46>
+	{
+		if(pin == 24)
+			OCR2A = dutyCycle;
+ 598:	60 93 b3 00 	sts	0x00B3, r22
+ 59c:	08 95       	ret
+		else
+			OCR2B = dutyCycle;
+ 59e:	60 93 b4 00 	sts	0x00B4, r22
+ 5a2:	08 95       	ret
+	}
+	else if(pin == 17 || pin == 18 || pin == 19)// Timer 3:PC4(C),PC5(B),PC6(C)
+ 5a4:	82 2f       	mov	r24, r18
+ 5a6:	81 51       	subi	r24, 0x11	; 17
+ 5a8:	83 30       	cpi	r24, 0x03	; 3
+ 5aa:	a8 f4       	brcc	.+42     	; 0x5d6 <PWMDuty+0x7e>
+	{
+		// Configure pin to be an output
+		if(pin == 19)
+ 5ac:	23 31       	cpi	r18, 0x13	; 19
+ 5ae:	39 f4       	brne	.+14     	; 0x5be <PWMDuty+0x66>
+			//OCR3A = dutyCycle;
+			OCR3A = dutyCycle;
+ 5b0:	86 2f       	mov	r24, r22
+ 5b2:	90 e0       	ldi	r25, 0x00	; 0
+ 5b4:	90 93 99 00 	sts	0x0099, r25
+ 5b8:	80 93 98 00 	sts	0x0098, r24
+ 5bc:	08 95       	ret
+ 5be:	70 e0       	ldi	r23, 0x00	; 0
+		else if(pin == 18)
+ 5c0:	22 31       	cpi	r18, 0x12	; 18
+ 5c2:	29 f4       	brne	.+10     	; 0x5ce <PWMDuty+0x76>
+			//OCR3B = dutyCycle;
+			OCR3B = dutyCycle;
+ 5c4:	70 93 9b 00 	sts	0x009B, r23
+ 5c8:	60 93 9a 00 	sts	0x009A, r22
+ 5cc:	08 95       	ret
+		else
+			OCR3C = dutyCycle;
+ 5ce:	70 93 9d 00 	sts	0x009D, r23
+ 5d2:	60 93 9c 00 	sts	0x009C, r22
+ 5d6:	08 95       	ret
+
+000005d8 <_exit>:
+ 5d8:	f8 94       	cli
+
+000005da <__stop_program>:
+ 5da:	ff cf       	rjmp	.-2      	; 0x5da <__stop_program>

@@ -1,0 +1,521 @@
+   1               		.file	"fans.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.FanStatus,"ax",@progbits
+  17               	.global	FanStatus
+  19               	FanStatus:
+  20               	.LFB8:
+  21               	.LSM0:
+  22               	.LVL0:
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LSM1:
+  26 0000 8053      		subi r24,lo8(-(-48))
+  27               	.LVL1:
+  28               	.LSM2:
+  29 0002 01F4      		brne .L2
+  30               	.LSM3:
+  31 0004 8091 0000 		lds r24,FanZeroStatus
+  32               	.LVL2:
+  33 0008 0895      		ret
+  34               	.LVL3:
+  35               	.L2:
+  36               	.LSM4:
+  37 000a 8230      		cpi r24,lo8(2)
+  38 000c 01F4      		brne .L4
+  39               	.LSM5:
+  40 000e 8091 0000 		lds r24,FanTwoStatus
+  41               	.LVL4:
+  42 0012 0895      		ret
+  43               	.LVL5:
+  44               	.L4:
+  45               	.LSM6:
+  46 0014 8330      		cpi r24,lo8(3)
+  47 0016 01F4      		brne .L5
+  48               	.LSM7:
+  49 0018 8091 0000 		lds r24,FanThreeStatus
+  50               	.LVL6:
+  51 001c 0895      		ret
+  52               	.LVL7:
+  53               	.L5:
+  54               	.LSM8:
+  55 001e 8091 0000 		lds r24,FanFourStatus
+  56               	.LVL8:
+  57               	.LSM9:
+  58 0022 0895      		ret
+  59               	.LFE8:
+  61               		.section	.text.FanSpeedStatus,"ax",@progbits
+  62               	.global	FanSpeedStatus
+  64               	FanSpeedStatus:
+  65               	.LFB9:
+  66               	.LSM10:
+  67               	.LVL9:
+  68               	/* prologue: function */
+  69               	/* frame size = 0 */
+  70               	.LSM11:
+  71 0000 8033      		cpi r24,lo8(48)
+  72 0002 01F4      		brne .L8
+  73               	.LSM12:
+  74 0004 8091 0000 		lds r24,FanZeroSpeed
+  75               	.LVL10:
+  76 0008 0895      		ret
+  77               	.LVL11:
+  78               	.L8:
+  79               	.LSM13:
+  80 000a 8233      		cpi r24,lo8(50)
+  81 000c 01F4      		brne .L10
+  82               	.LSM14:
+  83 000e 8091 0000 		lds r24,FanTwoSpeed
+  84               	.LVL12:
+  85 0012 0895      		ret
+  86               	.LVL13:
+  87               	.L10:
+  88               	.LSM15:
+  89 0014 8333      		cpi r24,lo8(51)
+  90 0016 01F4      		brne .L11
+  91               	.LSM16:
+  92 0018 8091 0000 		lds r24,FanThreeSpeed
+  93               	.LVL14:
+  94 001c 0895      		ret
+  95               	.LVL15:
+  96               	.L11:
+  97               	.LSM17:
+  98 001e 8433      		cpi r24,lo8(52)
+  99 0020 01F0      		breq .L12
+ 100 0022 8EE6      		ldi r24,lo8(110)
+ 101               	.LVL16:
+ 102 0024 0895      		ret
+ 103               	.LVL17:
+ 104               	.L12:
+ 105               	.LSM18:
+ 106 0026 8091 0000 		lds r24,FanFourSpeed
+ 107               	.LVL18:
+ 108               	.LSM19:
+ 109 002a 0895      		ret
+ 110               	.LFE9:
+ 112               		.section	.text.CharToSpeed,"ax",@progbits
+ 113               	.global	CharToSpeed
+ 115               	CharToSpeed:
+ 116               	.LFB11:
+ 117               	.LSM20:
+ 118               	.LVL19:
+ 119               	/* prologue: function */
+ 120               	/* frame size = 0 */
+ 121               	.LSM21:
+ 122 0000 8033      		cpi r24,lo8(48)
+ 123 0002 01F0      		breq .L15
+ 124               	.LSM22:
+ 125 0004 8133      		cpi r24,lo8(49)
+ 126 0006 01F4      		brne .L16
+ 127 0008 8CE1      		ldi r24,lo8(28)
+ 128               	.LVL20:
+ 129 000a 0895      		ret
+ 130               	.LVL21:
+ 131               	.L16:
+ 132               	.LSM23:
+ 133 000c 8233      		cpi r24,lo8(50)
+ 134 000e 01F4      		brne .L18
+ 135 0010 88E3      		ldi r24,lo8(56)
+ 136               	.LVL22:
+ 137 0012 0895      		ret
+ 138               	.LVL23:
+ 139               	.L18:
+ 140               	.LSM24:
+ 141 0014 8333      		cpi r24,lo8(51)
+ 142 0016 01F4      		brne .L19
+ 143 0018 85E5      		ldi r24,lo8(85)
+ 144               	.LVL24:
+ 145 001a 0895      		ret
+ 146               	.LVL25:
+ 147               	.L19:
+ 148               	.LSM25:
+ 149 001c 8433      		cpi r24,lo8(52)
+ 150 001e 01F4      		brne .L20
+ 151 0020 81E7      		ldi r24,lo8(113)
+ 152               	.LVL26:
+ 153 0022 0895      		ret
+ 154               	.LVL27:
+ 155               	.L20:
+ 156               	.LSM26:
+ 157 0024 8533      		cpi r24,lo8(53)
+ 158 0026 01F4      		brne .L21
+ 159 0028 8DE8      		ldi r24,lo8(-115)
+ 160               	.LVL28:
+ 161 002a 0895      		ret
+ 162               	.LVL29:
+ 163               	.L21:
+ 164               	.LSM27:
+ 165 002c 8633      		cpi r24,lo8(54)
+ 166 002e 01F4      		brne .L22
+ 167 0030 8AEA      		ldi r24,lo8(-86)
+ 168               	.LVL30:
+ 169 0032 0895      		ret
+ 170               	.LVL31:
+ 171               	.L22:
+ 172               	.LSM28:
+ 173 0034 8733      		cpi r24,lo8(55)
+ 174 0036 01F4      		brne .L23
+ 175 0038 86EC      		ldi r24,lo8(-58)
+ 176               	.LVL32:
+ 177 003a 0895      		ret
+ 178               	.LVL33:
+ 179               	.L23:
+ 180               	.LSM29:
+ 181 003c 8833      		cpi r24,lo8(56)
+ 182 003e 01F4      		brne .L24
+ 183 0040 82EE      		ldi r24,lo8(-30)
+ 184               	.LVL34:
+ 185 0042 0895      		ret
+ 186               	.LVL35:
+ 187               	.L24:
+ 188               	.LSM30:
+ 189 0044 8933      		cpi r24,lo8(57)
+ 190 0046 01F4      		brne .L15
+ 191 0048 8FEF      		ldi r24,lo8(-1)
+ 192               	.LVL36:
+ 193 004a 0895      		ret
+ 194               	.LVL37:
+ 195               	.L15:
+ 196 004c 80E0      		ldi r24,lo8(0)
+ 197               	.LVL38:
+ 198               	.LSM31:
+ 199 004e 0895      		ret
+ 200               	.LFE11:
+ 202               		.section	.text.TurnFanOff,"ax",@progbits
+ 203               	.global	TurnFanOff
+ 205               	TurnFanOff:
+ 206               	.LFB10:
+ 207               	.LSM32:
+ 208               	.LVL39:
+ 209               	/* prologue: function */
+ 210               	/* frame size = 0 */
+ 211               	.LSM33:
+ 212 0000 8053      		subi r24,lo8(-(-48))
+ 213               	.LVL40:
+ 214               	.LSM34:
+ 215 0002 01F4      		brne .L27
+ 216               	.LSM35:
+ 217 0004 83E0      		ldi r24,lo8(3)
+ 218               	.LVL41:
+ 219 0006 60E0      		ldi r22,lo8(0)
+ 220 0008 0E94 0000 		call PWMDuty
+ 221               	.LSM36:
+ 222 000c 80E3      		ldi r24,lo8(48)
+ 223 000e 8093 0000 		sts FanZeroStatus,r24
+ 224               	.LSM37:
+ 225 0012 8093 0000 		sts FanZeroSpeed,r24
+ 226 0016 00C0      		rjmp .L33
+ 227               	.LVL42:
+ 228               	.L27:
+ 229               	.LSM38:
+ 230 0018 8230      		cpi r24,lo8(2)
+ 231 001a 01F4      		brne .L29
+ 232               	.LSM39:
+ 233 001c 81E1      		ldi r24,lo8(17)
+ 234               	.LVL43:
+ 235 001e 60E0      		ldi r22,lo8(0)
+ 236 0020 0E94 0000 		call PWMDuty
+ 237               	.LSM40:
+ 238 0024 80E3      		ldi r24,lo8(48)
+ 239 0026 8093 0000 		sts FanTwoStatus,r24
+ 240               	.LSM41:
+ 241 002a 8093 0000 		sts FanTwoSpeed,r24
+ 242 002e 00C0      		rjmp .L33
+ 243               	.LVL44:
+ 244               	.L29:
+ 245               	.LSM42:
+ 246 0030 8330      		cpi r24,lo8(3)
+ 247 0032 01F4      		brne .L30
+ 248               	.LSM43:
+ 249 0034 82E1      		ldi r24,lo8(18)
+ 250               	.LVL45:
+ 251 0036 60E0      		ldi r22,lo8(0)
+ 252 0038 0E94 0000 		call PWMDuty
+ 253               	.LSM44:
+ 254 003c 1092 0000 		sts FanThreeStatus,__zero_reg__
+ 255               	.LSM45:
+ 256 0040 80E3      		ldi r24,lo8(48)
+ 257 0042 8093 0000 		sts FanThreeSpeed,r24
+ 258               	.L33:
+ 259 0046 80E0      		ldi r24,lo8(0)
+ 260 0048 0895      		ret
+ 261               	.LVL46:
+ 262               	.L30:
+ 263               	.LSM46:
+ 264 004a 8430      		cpi r24,lo8(4)
+ 265 004c 01F0      		breq .L31
+ 266 004e 81E0      		ldi r24,lo8(1)
+ 267               	.LVL47:
+ 268 0050 0895      		ret
+ 269               	.LVL48:
+ 270               	.L31:
+ 271               	.LSM47:
+ 272 0052 83E1      		ldi r24,lo8(19)
+ 273               	.LVL49:
+ 274 0054 60E0      		ldi r22,lo8(0)
+ 275 0056 0E94 0000 		call PWMDuty
+ 276               	.LSM48:
+ 277 005a 80E3      		ldi r24,lo8(48)
+ 278 005c 8093 0000 		sts FanFourStatus,r24
+ 279               	.LSM49:
+ 280 0060 8093 0000 		sts FanFourSpeed,r24
+ 281 0064 80E0      		ldi r24,lo8(0)
+ 282               	.LSM50:
+ 283 0066 0895      		ret
+ 284               	.LFE10:
+ 286               		.section	.text.SetFan,"ax",@progbits
+ 287               	.global	SetFan
+ 289               	SetFan:
+ 290               	.LFB7:
+ 291               	.LSM51:
+ 292               	.LVL50:
+ 293 0000 0F93      		push r16
+ 294 0002 1F93      		push r17
+ 295               	/* prologue: function */
+ 296               	/* frame size = 0 */
+ 297 0004 982F      		mov r25,r24
+ 298 0006 062F      		mov r16,r22
+ 299               	.LSM52:
+ 300 0008 8091 0000 		lds r24,FanZeroStatus
+ 301               	.LVL51:
+ 302 000c 8133      		cpi r24,lo8(49)
+ 303 000e 01F4      		brne .L35
+ 304               	.LVL52:
+ 305 0010 9033      		cpi r25,lo8(48)
+ 306 0012 01F0      		breq .+2
+ 307 0014 00C0      		rjmp .L36
+ 308               	.L35:
+ 309               	.LSM53:
+ 310 0016 8091 0000 		lds r24,FanTwoStatus
+ 311 001a 8133      		cpi r24,lo8(49)
+ 312 001c 01F4      		brne .L37
+ 313 001e 9233      		cpi r25,lo8(50)
+ 314 0020 01F0      		breq .L37
+ 315 0022 83E0      		ldi r24,lo8(3)
+ 316 0024 00C0      		rjmp .L34
+ 317               	.L37:
+ 318               	.LSM54:
+ 319 0026 8091 0000 		lds r24,FanThreeStatus
+ 320 002a 8133      		cpi r24,lo8(49)
+ 321 002c 01F4      		brne .L39
+ 322 002e 9333      		cpi r25,lo8(51)
+ 323 0030 01F0      		breq .L39
+ 324 0032 84E0      		ldi r24,lo8(4)
+ 325 0034 00C0      		rjmp .L34
+ 326               	.L39:
+ 327               	.LSM55:
+ 328 0036 8091 0000 		lds r24,FanFourStatus
+ 329 003a 8133      		cpi r24,lo8(49)
+ 330 003c 01F4      		brne .L40
+ 331 003e 9433      		cpi r25,lo8(52)
+ 332 0040 01F0      		breq .L40
+ 333 0042 85E0      		ldi r24,lo8(5)
+ 334 0044 00C0      		rjmp .L34
+ 335               	.L40:
+ 336               	.LSM56:
+ 337 0046 192F      		mov r17,r25
+ 338               	.LVL53:
+ 339 0048 1053      		subi r17,lo8(-(-48))
+ 340               	.LSM57:
+ 341 004a 802F      		mov r24,r16
+ 342 004c 0E94 0000 		call CharToSpeed
+ 343               	.LVL54:
+ 344 0050 682F      		mov r22,r24
+ 345               	.LVL55:
+ 346               	.LSM58:
+ 347 0052 1123      		tst r17
+ 348 0054 01F4      		brne .L41
+ 349               	.LSM59:
+ 350 0056 81E3      		ldi r24,lo8(49)
+ 351 0058 8093 0000 		sts FanZeroStatus,r24
+ 352               	.LSM60:
+ 353 005c 83E0      		ldi r24,lo8(3)
+ 354 005e 0E94 0000 		call PWMDuty
+ 355               	.LVL56:
+ 356               	.LSM61:
+ 357 0062 0093 0000 		sts FanZeroSpeed,r16
+ 358 0066 00C0      		rjmp .L42
+ 359               	.LVL57:
+ 360               	.L41:
+ 361               	.LSM62:
+ 362 0068 1230      		cpi r17,lo8(2)
+ 363 006a 01F4      		brne .L43
+ 364               	.LSM63:
+ 365 006c 81E3      		ldi r24,lo8(49)
+ 366 006e 8093 0000 		sts FanTwoStatus,r24
+ 367               	.LSM64:
+ 368 0072 81E1      		ldi r24,lo8(17)
+ 369 0074 0E94 0000 		call PWMDuty
+ 370               	.LVL58:
+ 371               	.LSM65:
+ 372 0078 0093 0000 		sts FanTwoSpeed,r16
+ 373 007c 00C0      		rjmp .L42
+ 374               	.LVL59:
+ 375               	.L43:
+ 376               	.LSM66:
+ 377 007e 1330      		cpi r17,lo8(3)
+ 378 0080 01F4      		brne .L44
+ 379               	.LSM67:
+ 380 0082 81E3      		ldi r24,lo8(49)
+ 381 0084 8093 0000 		sts FanThreeStatus,r24
+ 382               	.LSM68:
+ 383 0088 82E1      		ldi r24,lo8(18)
+ 384 008a 0E94 0000 		call PWMDuty
+ 385               	.LVL60:
+ 386               	.LSM69:
+ 387 008e 0093 0000 		sts FanThreeSpeed,r16
+ 388 0092 00C0      		rjmp .L42
+ 389               	.LVL61:
+ 390               	.L44:
+ 391               	.LSM70:
+ 392 0094 1430      		cpi r17,lo8(4)
+ 393 0096 01F0      		breq .L45
+ 394 0098 8FEF      		ldi r24,lo8(-1)
+ 395 009a 00C0      		rjmp .L34
+ 396               	.L45:
+ 397               	.LSM71:
+ 398 009c 81E3      		ldi r24,lo8(49)
+ 399 009e 8093 0000 		sts FanThreeStatus,r24
+ 400               	.LSM72:
+ 401 00a2 83E1      		ldi r24,lo8(19)
+ 402 00a4 0E94 0000 		call PWMDuty
+ 403               	.LVL62:
+ 404               	.LSM73:
+ 405 00a8 0093 0000 		sts FanFourSpeed,r16
+ 406               	.L42:
+ 407 00ac 00C0      		rjmp .L34
+ 408               	.LVL63:
+ 409               	.L36:
+ 410               	.LSM74:
+ 411 00ae 81E0      		ldi r24,lo8(1)
+ 412               	.LVL64:
+ 413               	.L34:
+ 414               	/* epilogue start */
+ 415 00b0 1F91      		pop r17
+ 416               	.LVL65:
+ 417 00b2 0F91      		pop r16
+ 418               	.LVL66:
+ 419 00b4 0895      		ret
+ 420               	.LFE7:
+ 422               		.section	.text.InitializeFans,"ax",@progbits
+ 423               	.global	InitializeFans
+ 425               	InitializeFans:
+ 426               	.LFB6:
+ 427               	.LSM75:
+ 428               	/* prologue: function */
+ 429               	/* frame size = 0 */
+ 430               	.LSM76:
+ 431 0000 83E0      		ldi r24,lo8(3)
+ 432 0002 0E94 0000 		call PWMNew
+ 433               	.LSM77:
+ 434 0006 81E1      		ldi r24,lo8(17)
+ 435 0008 0E94 0000 		call PWMNew
+ 436               	.LSM78:
+ 437 000c 82E1      		ldi r24,lo8(18)
+ 438 000e 0E94 0000 		call PWMNew
+ 439               	.LSM79:
+ 440 0012 83E1      		ldi r24,lo8(19)
+ 441 0014 0E94 0000 		call PWMNew
+ 442               	.LSM80:
+ 443 0018 83E0      		ldi r24,lo8(3)
+ 444 001a 60E0      		ldi r22,lo8(0)
+ 445 001c 0E94 0000 		call PWMDuty
+ 446               	.LSM81:
+ 447 0020 81E1      		ldi r24,lo8(17)
+ 448 0022 60E0      		ldi r22,lo8(0)
+ 449 0024 0E94 0000 		call PWMDuty
+ 450               	.LSM82:
+ 451 0028 82E1      		ldi r24,lo8(18)
+ 452 002a 60E0      		ldi r22,lo8(0)
+ 453 002c 0E94 0000 		call PWMDuty
+ 454               	.LSM83:
+ 455 0030 83E1      		ldi r24,lo8(19)
+ 456 0032 60E0      		ldi r22,lo8(0)
+ 457 0034 0E94 0000 		call PWMDuty
+ 458               	.LSM84:
+ 459 0038 83E0      		ldi r24,lo8(3)
+ 460 003a 64E0      		ldi r22,lo8(4)
+ 461 003c 0E94 0000 		call PWMStartTimer
+ 462               	.LSM85:
+ 463 0040 81E1      		ldi r24,lo8(17)
+ 464 0042 64E0      		ldi r22,lo8(4)
+ 465 0044 0E94 0000 		call PWMStartTimer
+ 466               	.LSM86:
+ 467 0048 82E1      		ldi r24,lo8(18)
+ 468 004a 64E0      		ldi r22,lo8(4)
+ 469 004c 0E94 0000 		call PWMStartTimer
+ 470               	.LSM87:
+ 471 0050 83E1      		ldi r24,lo8(19)
+ 472 0052 64E0      		ldi r22,lo8(4)
+ 473 0054 0E94 0000 		call PWMStartTimer
+ 474               	/* epilogue start */
+ 475               	.LSM88:
+ 476 0058 0895      		ret
+ 477               	.LFE6:
+ 479               	.global	FanZeroStatus
+ 480               		.data
+ 483               	FanZeroStatus:
+ 484 0000 30        		.byte	48
+ 485               	.global	FanOneStatus
+ 488               	FanOneStatus:
+ 489 0001 30        		.byte	48
+ 490               	.global	FanTwoStatus
+ 493               	FanTwoStatus:
+ 494 0002 30        		.byte	48
+ 495               	.global	FanThreeStatus
+ 498               	FanThreeStatus:
+ 499 0003 30        		.byte	48
+ 500               	.global	FanFourStatus
+ 503               	FanFourStatus:
+ 504 0004 30        		.byte	48
+ 505               	.global	FanZeroSpeed
+ 508               	FanZeroSpeed:
+ 509 0005 30        		.byte	48
+ 510               	.global	FanOneSpeed
+ 513               	FanOneSpeed:
+ 514 0006 30        		.byte	48
+ 515               	.global	FanTwoSpeed
+ 518               	FanTwoSpeed:
+ 519 0007 30        		.byte	48
+ 520               	.global	FanThreeSpeed
+ 523               	FanThreeSpeed:
+ 524 0008 30        		.byte	48
+ 525               	.global	FanFourSpeed
+ 528               	FanFourSpeed:
+ 529 0009 30        		.byte	48
+ 594               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 fans.c
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:2      *ABS*:0000003f __SREG__
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:3      *ABS*:0000003e __SP_H__
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:4      *ABS*:0000003d __SP_L__
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:5      *ABS*:00000034 __CCP__
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:19     .text.FanStatus:00000000 FanStatus
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:483    .data:00000000 FanZeroStatus
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:493    .data:00000002 FanTwoStatus
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:498    .data:00000003 FanThreeStatus
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:503    .data:00000004 FanFourStatus
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:64     .text.FanSpeedStatus:00000000 FanSpeedStatus
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:508    .data:00000005 FanZeroSpeed
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:518    .data:00000007 FanTwoSpeed
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:523    .data:00000008 FanThreeSpeed
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:528    .data:00000009 FanFourSpeed
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:115    .text.CharToSpeed:00000000 CharToSpeed
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:205    .text.TurnFanOff:00000000 TurnFanOff
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:289    .text.SetFan:00000000 SetFan
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:425    .text.InitializeFans:00000000 InitializeFans
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:488    .data:00000001 FanOneStatus
+C:\Users\laptop\AppData\Local\Temp/cc6EIoPf.s:513    .data:00000006 FanOneSpeed
+
+UNDEFINED SYMBOLS
+PWMDuty
+PWMNew
+PWMStartTimer
+__do_copy_data

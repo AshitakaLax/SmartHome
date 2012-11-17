@@ -1,0 +1,639 @@
+   1               		.file	"damper_Control.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.InitializeDamper,"ax",@progbits
+  17               	.global	InitializeDamper
+  19               	InitializeDamper:
+  20               	.LFB6:
+  21               	.LSM0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LSM1:
+  25 0000 269A      		sbi 36-32,6
+  26               	.LSM2:
+  27 0002 259A      		sbi 36-32,5
+  28               	.LSM3:
+  29 0004 249A      		sbi 36-32,4
+  30               	.LSM4:
+  31 0006 5098      		cbi 42-32,0
+  32               	.LSM5:
+  33 0008 5198      		cbi 42-32,1
+  34               	/* epilogue start */
+  35               	.LSM6:
+  36 000a 0895      		ret
+  37               	.LFE6:
+  39               		.section	.text.ActivateDamper,"ax",@progbits
+  40               	.global	ActivateDamper
+  42               	ActivateDamper:
+  43               	.LFB10:
+  44               	.LSM7:
+  45               	.LVL0:
+  46 0000 EF92      		push r14
+  47 0002 FF92      		push r15
+  48 0004 0F93      		push r16
+  49 0006 1F93      		push r17
+  50 0008 DF93      		push r29
+  51 000a CF93      		push r28
+  52 000c 00D0      		rcall .
+  53 000e 00D0      		rcall .
+  54 0010 CDB7      		in r28,__SP_L__
+  55 0012 DEB7      		in r29,__SP_H__
+  56               	/* prologue: function */
+  57               	/* frame size = 4 */
+  58               	.LSM8:
+  59 0014 F82E      		mov r15,r24
+  60               	.LVL1:
+  61 0016 F694      		lsr r15
+  62 0018 F694      		lsr r15
+  63 001a F694      		lsr r15
+  64               	.LSM9:
+  65 001c 082F      		mov r16,r24
+  66               	.LVL2:
+  67 001e 0770      		andi r16,lo8(7)
+  68               	.LSM10:
+  69 0020 0695      		lsr r16
+  70 0022 0695      		lsr r16
+  71               	.LSM11:
+  72 0024 182F      		mov r17,r24
+  73               	.LVL3:
+  74 0026 1370      		andi r17,lo8(3)
+  75               	.LSM12:
+  76 0028 1695      		lsr r17
+  77               	.LSM13:
+  78 002a EE24      		clr r14
+  79 002c E394      		inc r14
+  80               	.LVL4:
+  81 002e E822      		and r14,r24
+  82               	.LSM14:
+  83 0030 80E3      		ldi r24,lo8(48)
+  84               	.LVL5:
+  85 0032 E80E      		add r14,r24
+  86 0034 E982      		std Y+1,r14
+  87 0036 80ED      		ldi r24,lo8(-48)
+  88 0038 E80E      		add r14,r24
+  89               	.LSM15:
+  90 003a 105D      		subi r17,lo8(-(48))
+  91 003c 1A83      		std Y+2,r17
+  92 003e 1053      		subi r17,lo8(-(-48))
+  93               	.LSM16:
+  94 0040 005D      		subi r16,lo8(-(48))
+  95 0042 0B83      		std Y+3,r16
+  96 0044 0053      		subi r16,lo8(-(-48))
+  97               	.LSM17:
+  98 0046 80E3      		ldi r24,lo8(48)
+  99 0048 F80E      		add r15,r24
+ 100 004a FC82      		std Y+4,r15
+ 101 004c 80ED      		ldi r24,lo8(-48)
+ 102 004e F80E      		add r15,r24
+ 103               	.LSM18:
+ 104 0050 80E0      		ldi r24,lo8(__c.1587)
+ 105 0052 90E0      		ldi r25,hi8(__c.1587)
+ 106 0054 0E94 0000 		call send_str
+ 107               	.LSM19:
+ 108 0058 CE01      		movw r24,r28
+ 109 005a 0196      		adiw r24,1
+ 110 005c 64E0      		ldi r22,lo8(4)
+ 111 005e 70E0      		ldi r23,hi8(4)
+ 112 0060 0E94 0000 		call usb_serial_write
+ 113               	.LSM20:
+ 114 0064 80E0      		ldi r24,lo8(__c.1590)
+ 115 0066 90E0      		ldi r25,hi8(__c.1590)
+ 116 0068 0E94 0000 		call send_str
+ 117               	.LSM21:
+ 118 006c 81E0      		ldi r24,lo8(1)
+ 119 006e F816      		cp r15,r24
+ 120 0070 01F4      		brne .L4
+ 121               	.LSM22:
+ 122 0072 2A9A      		sbi 37-32,2
+ 123 0074 00C0      		rjmp .L5
+ 124               	.L4:
+ 125               	.LSM23:
+ 126 0076 2A98      		cbi 37-32,2
+ 127               	.L5:
+ 128               	.LSM24:
+ 129 0078 0130      		cpi r16,lo8(1)
+ 130 007a 01F4      		brne .L6
+ 131               	.LSM25:
+ 132 007c 299A      		sbi 37-32,1
+ 133 007e 00C0      		rjmp .L7
+ 134               	.L6:
+ 135               	.LSM26:
+ 136 0080 2998      		cbi 37-32,1
+ 137               	.L7:
+ 138               	.LSM27:
+ 139 0082 1130      		cpi r17,lo8(1)
+ 140 0084 01F4      		brne .L8
+ 141               	.LSM28:
+ 142 0086 289A      		sbi 37-32,0
+ 143 0088 00C0      		rjmp .L9
+ 144               	.L8:
+ 145               	.LSM29:
+ 146 008a 2898      		cbi 37-32,0
+ 147               	.L9:
+ 148               	.LSM30:
+ 149 008c 81E0      		ldi r24,lo8(1)
+ 150 008e E816      		cp r14,r24
+ 151 0090 01F4      		brne .L10
+ 152               	.LSM31:
+ 153 0092 779A      		sbi 46-32,7
+ 154 0094 00C0      		rjmp .L12
+ 155               	.L10:
+ 156               	.LSM32:
+ 157 0096 7798      		cbi 46-32,7
+ 158               	.L12:
+ 159               	/* epilogue start */
+ 160               	.LSM33:
+ 161 0098 0F90      		pop __tmp_reg__
+ 162 009a 0F90      		pop __tmp_reg__
+ 163 009c 0F90      		pop __tmp_reg__
+ 164 009e 0F90      		pop __tmp_reg__
+ 165 00a0 CF91      		pop r28
+ 166 00a2 DF91      		pop r29
+ 167 00a4 1F91      		pop r17
+ 168               	.LVL6:
+ 169 00a6 0F91      		pop r16
+ 170               	.LVL7:
+ 171 00a8 FF90      		pop r15
+ 172               	.LVL8:
+ 173 00aa EF90      		pop r14
+ 174               	.LVL9:
+ 175 00ac 0895      		ret
+ 176               	.LFE10:
+ 178               		.section	.text.CheckDamper,"ax",@progbits
+ 179               	.global	CheckDamper
+ 181               	CheckDamper:
+ 182               	.LFB9:
+ 183               	.LSM34:
+ 184               	.LVL10:
+ 185               	/* prologue: function */
+ 186               	/* frame size = 0 */
+ 187               	.LSM35:
+ 188 0000 0E94 0000 		call ActivateDamper
+ 189               	.LVL11:
+ 190               	.LSM36:
+ 191 0004 89B1      		in r24,41-32
+ 192 0006 89B1      		in r24,41-32
+ 193               	.LSM37:
+ 194 0008 89B1      		in r24,41-32
+ 195 000a 99B1      		in r25,41-32
+ 196 000c 81FD      		sbrc r24,1
+ 197 000e 00C0      		rjmp .L14
+ 198 0010 90FF      		sbrs r25,0
+ 199 0012 00C0      		rjmp .L14
+ 200               	.LSM38:
+ 201 0014 8091 0000 		lds r24,DamperVerbose
+ 202 0018 8823      		tst r24
+ 203 001a 01F0      		breq .L16
+ 204               	.LSM39:
+ 205 001c 80E0      		ldi r24,lo8(__c.1555)
+ 206 001e 90E0      		ldi r25,hi8(__c.1555)
+ 207 0020 0E94 0000 		call send_str
+ 208 0024 80E0      		ldi r24,lo8(0)
+ 209 0026 0895      		ret
+ 210               	.L14:
+ 211               	.LSM40:
+ 212 0028 8091 0000 		lds r24,DamperVerbose
+ 213 002c 8823      		tst r24
+ 214 002e 01F4      		brne .L17
+ 215 0030 81E0      		ldi r24,lo8(1)
+ 216 0032 0895      		ret
+ 217               	.L17:
+ 218               	.LSM41:
+ 219 0034 80E0      		ldi r24,lo8(__c.1557)
+ 220 0036 90E0      		ldi r25,hi8(__c.1557)
+ 221 0038 0E94 0000 		call send_str
+ 222 003c 81E0      		ldi r24,lo8(1)
+ 223               	.L16:
+ 224               	.LSM42:
+ 225 003e 0895      		ret
+ 226               	.LFE9:
+ 228               		.section	.text.CloseDamper,"ax",@progbits
+ 229               	.global	CloseDamper
+ 231               	CloseDamper:
+ 232               	.LFB8:
+ 233               	.LSM43:
+ 234               	.LVL12:
+ 235 0000 EF92      		push r14
+ 236 0002 FF92      		push r15
+ 237 0004 0F93      		push r16
+ 238 0006 1F93      		push r17
+ 239 0008 CF93      		push r28
+ 240 000a DF93      		push r29
+ 241               	/* prologue: function */
+ 242               	/* frame size = 0 */
+ 243 000c 182F      		mov r17,r24
+ 244               	.LSM44:
+ 245 000e 8091 0000 		lds r24,DamperVerbose
+ 246               	.LVL13:
+ 247 0012 8823      		tst r24
+ 248 0014 01F0      		breq .L20
+ 249               	.LSM45:
+ 250 0016 80E0      		ldi r24,lo8(__c.1518)
+ 251 0018 90E0      		ldi r25,hi8(__c.1518)
+ 252 001a 0E94 0000 		call send_str
+ 253               	.LSM46:
+ 254 001e 812F      		mov r24,r17
+ 255 0020 90E0      		ldi r25,lo8(0)
+ 256               	.LVL14:
+ 257 0022 C096      		adiw r24,48
+ 258 0024 0E94 0000 		call usb_serial_putchar
+ 259               	.LVL15:
+ 260               	.LSM47:
+ 261 0028 80E0      		ldi r24,lo8(__c.1520)
+ 262 002a 90E0      		ldi r25,hi8(__c.1520)
+ 263 002c 0E94 0000 		call send_str
+ 264               	.L20:
+ 265               	.LSM48:
+ 266 0030 812F      		mov r24,r17
+ 267 0032 0E94 0000 		call ActivateDamper
+ 268 0036 88E8      		ldi r24,lo8(5000)
+ 269 0038 93E1      		ldi r25,hi8(5000)
+ 270               	.LVL16:
+ 271               	.LBB38:
+ 272               	.LBB39:
+ 273               	.LBB40:
+ 274               	.LBB41:
+ 275               	.LSM49:
+ 276 003a 20E9      		ldi r18,lo8(400)
+ 277 003c 31E0      		ldi r19,hi8(400)
+ 278               	.L21:
+ 279 003e F901      		movw r30,r18
+ 280               	.LVL17:
+ 281               	/* #APP */
+ 282               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 283 0040 3197      		1: sbiw r30,1
+ 284 0042 01F4      		brne 1b
+ 285               	 ;  0 "" 2
+ 286               	/* #NOAPP */
+ 287               	.LBE41:
+ 288               	.LBE40:
+ 289               	.LSM50:
+ 290 0044 0197      		sbiw r24,1
+ 291               	.LSM51:
+ 292 0046 01F4      		brne .L21
+ 293               	.LBE39:
+ 294               	.LBE38:
+ 295               	.LSM52:
+ 296 0048 812F      		mov r24,r17
+ 297               	.LVL18:
+ 298 004a 0E94 0000 		call CheckDamper
+ 299               	.LVL19:
+ 300               	.LSM53:
+ 301 004e 8130      		cpi r24,lo8(1)
+ 302 0050 01F0      		breq .L26
+ 303               	.LSM54:
+ 304 0052 2E98      		cbi 37-32,6
+ 305 0054 C0E0      		ldi r28,lo8(0)
+ 306 0056 D0E0      		ldi r29,hi8(0)
+ 307               	.LVL20:
+ 308               	.LBB42:
+ 309               	.LBB43:
+ 310               	.LBB44:
+ 311               	.LBB45:
+ 312               	.LSM55:
+ 313 0058 80E9      		ldi r24,lo8(400)
+ 314 005a E82E      		mov r14,r24
+ 315 005c 81E0      		ldi r24,hi8(400)
+ 316 005e F82E      		mov r15,r24
+ 317               	.LVL21:
+ 318               	.L31:
+ 319               	.LBE45:
+ 320               	.LBE44:
+ 321               	.LBE43:
+ 322               	.LBE42:
+ 323               	.LSM56:
+ 324 0060 2C9A      		sbi 37-32,4
+ 325               	.LSM57:
+ 326 0062 812F      		mov r24,r17
+ 327 0064 0E94 0000 		call CheckDamper
+ 328               	.LVL22:
+ 329 0068 082F      		mov r16,r24
+ 330 006a 88EE      		ldi r24,lo8(1000)
+ 331 006c 93E0      		ldi r25,hi8(1000)
+ 332               	.LVL23:
+ 333               	.L23:
+ 334               	.LBB49:
+ 335               	.LBB48:
+ 336               	.LBB47:
+ 337               	.LBB46:
+ 338               	.LSM58:
+ 339 006e F701      		movw r30,r14
+ 340               	.LVL24:
+ 341               	/* #APP */
+ 342               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 343 0070 3197      		1: sbiw r30,1
+ 344 0072 01F4      		brne 1b
+ 345               	 ;  0 "" 2
+ 346               	/* #NOAPP */
+ 347               	.LBE46:
+ 348               	.LBE47:
+ 349               	.LSM59:
+ 350 0074 0197      		sbiw r24,1
+ 351               	.LSM60:
+ 352 0076 01F4      		brne .L23
+ 353               	.LBE48:
+ 354               	.LBE49:
+ 355               	.LSM61:
+ 356 0078 2C98      		cbi 37-32,4
+ 357               	.LSM62:
+ 358 007a 2196      		adiw r28,1
+ 359               	.LSM63:
+ 360 007c 8091 0000 		lds r24,DamperVerbose
+ 361               	.LVL25:
+ 362 0080 8823      		tst r24
+ 363 0082 01F0      		breq .L24
+ 364               	.LSM64:
+ 365 0084 80E0      		ldi r24,lo8(__c.1524)
+ 366 0086 90E0      		ldi r25,hi8(__c.1524)
+ 367 0088 0E94 0000 		call send_str
+ 368               	.LVL26:
+ 369               	.LSM65:
+ 370 008c CE01      		movw r24,r28
+ 371 008e 60E3      		ldi r22,lo8(48)
+ 372 0090 70E0      		ldi r23,hi8(48)
+ 373 0092 0E94 0000 		call __udivmodhi4
+ 374 0096 CB01      		movw r24,r22
+ 375 0098 0E94 0000 		call usb_serial_putchar
+ 376               	.LSM66:
+ 377 009c 80E0      		ldi r24,lo8(__c.1526)
+ 378 009e 90E0      		ldi r25,hi8(__c.1526)
+ 379 00a0 0E94 0000 		call send_str
+ 380               	.LVL27:
+ 381               	.L24:
+ 382               	.LSM67:
+ 383 00a4 0130      		cpi r16,lo8(1)
+ 384 00a6 01F4      		brne .L31
+ 385 00a8 C233      		cpi r28,50
+ 386 00aa D105      		cpc r29,__zero_reg__
+ 387 00ac 01F0      		breq .L31
+ 388               	.LSM68:
+ 389 00ae C051      		subi r28,lo8(10000)
+ 390 00b0 D742      		sbci r29,hi8(10000)
+ 391 00b2 01F4      		brne .L26
+ 392               	.LSM69:
+ 393 00b4 8091 0000 		lds r24,DamperVerbose
+ 394 00b8 8823      		tst r24
+ 395 00ba 01F0      		breq .L26
+ 396               	.LSM70:
+ 397 00bc 80E0      		ldi r24,lo8(__c.1531)
+ 398 00be 90E0      		ldi r25,hi8(__c.1531)
+ 399 00c0 0E94 0000 		call send_str
+ 400               	.LVL28:
+ 401               	.L26:
+ 402               	/* epilogue start */
+ 403               	.LSM71:
+ 404 00c4 DF91      		pop r29
+ 405 00c6 CF91      		pop r28
+ 406               	.LVL29:
+ 407 00c8 1F91      		pop r17
+ 408               	.LVL30:
+ 409 00ca 0F91      		pop r16
+ 410               	.LVL31:
+ 411 00cc FF90      		pop r15
+ 412 00ce EF90      		pop r14
+ 413 00d0 0895      		ret
+ 414               	.LFE8:
+ 416               		.section	.text.OpenDamper,"ax",@progbits
+ 417               	.global	OpenDamper
+ 419               	OpenDamper:
+ 420               	.LFB7:
+ 421               	.LSM72:
+ 422               	.LVL32:
+ 423 0000 EF92      		push r14
+ 424 0002 FF92      		push r15
+ 425 0004 1F93      		push r17
+ 426 0006 CF93      		push r28
+ 427 0008 DF93      		push r29
+ 428               	/* prologue: function */
+ 429               	/* frame size = 0 */
+ 430 000a 182F      		mov r17,r24
+ 431               	.LSM73:
+ 432 000c 8091 0000 		lds r24,DamperVerbose
+ 433               	.LVL33:
+ 434 0010 8823      		tst r24
+ 435 0012 01F0      		breq .L33
+ 436               	.LSM74:
+ 437 0014 80E0      		ldi r24,lo8(__c.1491)
+ 438 0016 90E0      		ldi r25,hi8(__c.1491)
+ 439 0018 0E94 0000 		call send_str
+ 440               	.LSM75:
+ 441 001c 812F      		mov r24,r17
+ 442 001e 90E0      		ldi r25,lo8(0)
+ 443               	.LVL34:
+ 444 0020 C096      		adiw r24,48
+ 445 0022 0E94 0000 		call usb_serial_putchar
+ 446               	.LVL35:
+ 447               	.LSM76:
+ 448 0026 80E0      		ldi r24,lo8(__c.1494)
+ 449 0028 90E0      		ldi r25,hi8(__c.1494)
+ 450 002a 0E94 0000 		call send_str
+ 451               	.L33:
+ 452               	.LSM77:
+ 453 002e 812F      		mov r24,r17
+ 454 0030 0E94 0000 		call ActivateDamper
+ 455 0034 88EE      		ldi r24,lo8(1000)
+ 456 0036 93E0      		ldi r25,hi8(1000)
+ 457               	.LVL36:
+ 458               	.LBB50:
+ 459               	.LBB51:
+ 460               	.LBB52:
+ 461               	.LBB53:
+ 462               	.LSM78:
+ 463 0038 20E9      		ldi r18,lo8(400)
+ 464 003a 31E0      		ldi r19,hi8(400)
+ 465               	.L34:
+ 466 003c F901      		movw r30,r18
+ 467               	.LVL37:
+ 468               	/* #APP */
+ 469               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 470 003e 3197      		1: sbiw r30,1
+ 471 0040 01F4      		brne 1b
+ 472               	 ;  0 "" 2
+ 473               	/* #NOAPP */
+ 474               	.LBE53:
+ 475               	.LBE52:
+ 476               	.LSM79:
+ 477 0042 0197      		sbiw r24,1
+ 478               	.LSM80:
+ 479 0044 01F4      		brne .L34
+ 480               	.LBE51:
+ 481               	.LBE50:
+ 482               	.LSM81:
+ 483 0046 812F      		mov r24,r17
+ 484               	.LVL38:
+ 485 0048 0E94 0000 		call CheckDamper
+ 486               	.LVL39:
+ 487               	.LSM82:
+ 488 004c 8823      		tst r24
+ 489 004e 01F0      		breq .L38
+ 490               	.LSM83:
+ 491 0050 2E9A      		sbi 37-32,6
+ 492 0052 C0E0      		ldi r28,lo8(0)
+ 493 0054 D0E0      		ldi r29,hi8(0)
+ 494               	.LVL40:
+ 495               	.LBB54:
+ 496               	.LBB55:
+ 497               	.LBB56:
+ 498               	.LBB57:
+ 499               	.LSM84:
+ 500 0056 90E9      		ldi r25,lo8(400)
+ 501 0058 E92E      		mov r14,r25
+ 502 005a 91E0      		ldi r25,hi8(400)
+ 503 005c F92E      		mov r15,r25
+ 504               	.LVL41:
+ 505               	.L43:
+ 506               	.LBE57:
+ 507               	.LBE56:
+ 508               	.LBE55:
+ 509               	.LBE54:
+ 510               	.LSM85:
+ 511 005e 2C9A      		sbi 37-32,4
+ 512               	.LSM86:
+ 513 0060 812F      		mov r24,r17
+ 514               	.LVL42:
+ 515 0062 0E94 0000 		call CheckDamper
+ 516               	.LVL43:
+ 517 0066 28EE      		ldi r18,lo8(1000)
+ 518 0068 33E0      		ldi r19,hi8(1000)
+ 519               	.LVL44:
+ 520               	.L36:
+ 521               	.LBB61:
+ 522               	.LBB60:
+ 523               	.LBB59:
+ 524               	.LBB58:
+ 525               	.LSM87:
+ 526 006a F701      		movw r30,r14
+ 527               	.LVL45:
+ 528               	/* #APP */
+ 529               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 530 006c 3197      		1: sbiw r30,1
+ 531 006e 01F4      		brne 1b
+ 532               	 ;  0 "" 2
+ 533               	/* #NOAPP */
+ 534               	.LBE58:
+ 535               	.LBE59:
+ 536               	.LSM88:
+ 537 0070 2150      		subi r18,lo8(-(-1))
+ 538 0072 3040      		sbci r19,hi8(-(-1))
+ 539               	.LSM89:
+ 540 0074 01F4      		brne .L36
+ 541               	.LBE60:
+ 542               	.LBE61:
+ 543               	.LSM90:
+ 544 0076 2C98      		cbi 37-32,4
+ 545               	.LSM91:
+ 546 0078 2196      		adiw r28,1
+ 547               	.LSM92:
+ 548 007a 8823      		tst r24
+ 549               	.LVL46:
+ 550 007c 01F4      		brne .L43
+ 551 007e C333      		cpi r28,51
+ 552 0080 D105      		cpc r29,__zero_reg__
+ 553 0082 00F4      		brsh .L43
+ 554               	.L38:
+ 555               	/* epilogue start */
+ 556               	.LSM93:
+ 557 0084 DF91      		pop r29
+ 558 0086 CF91      		pop r28
+ 559               	.LVL47:
+ 560 0088 1F91      		pop r17
+ 561               	.LVL48:
+ 562 008a FF90      		pop r15
+ 563 008c EF90      		pop r14
+ 564 008e 0895      		ret
+ 565               	.LFE7:
+ 567               	.global	DamperVerbose
+ 568               		.data
+ 571               	DamperVerbose:
+ 572 0000 01        		.byte	1
+ 573               		.section	.progmem.data,"a",@progbits
+ 576               	__c.1590:
+ 577 0000 0D0A 00   		.string	"\r\n"
+ 580               	__c.1587:
+ 581 0003 5465 7374 		.string	"Test Outputs of ABCD:\r\n"
+ 581      204F 7574 
+ 581      7075 7473 
+ 581      206F 6620 
+ 581      4142 4344 
+ 584               	__c.1557:
+ 585 001b 436C 6F73 		.string	"CloseButton is Low and Open Button is HIGH\r\n"
+ 585      6542 7574 
+ 585      746F 6E20 
+ 585      6973 204C 
+ 585      6F77 2061 
+ 588               	__c.1555:
+ 589 0048 4F50 454E 		.string	"OPENBUS is LOW and CLOSE Button is HIGH\r\n"
+ 589      4255 5320 
+ 589      6973 204C 
+ 589      4F57 2061 
+ 589      6E64 2043 
+ 592               	__c.1531:
+ 593 0072 2044 616D 		.string	" Damper Close Error:TIMEOUT\r\n"
+ 593      7065 7220 
+ 593      436C 6F73 
+ 593      6520 4572 
+ 593      726F 723A 
+ 596               	__c.1526:
+ 597 0090 0D0A 00   		.string	"\r\n"
+ 600               	__c.1524:
+ 601 0093 4D6F 6454 		.string	"ModTimer: "
+ 601      696D 6572 
+ 601      3A20 00
+ 604               	__c.1520:
+ 605 009e 0D0A 456E 		.string	"\r\nEnter CloseDamper Section \r\n"
+ 605      7465 7220 
+ 605      436C 6F73 
+ 605      6544 616D 
+ 605      7065 7220 
+ 608               	__c.1518:
+ 609 00bd 0D0A 4461 		.string	"\r\nDamper: "
+ 609      6D70 6572 
+ 609      3A20 00
+ 612               	__c.1494:
+ 613 00c8 0D0A 456E 		.string	"\r\nEnter OpenDamper Section \r\n"
+ 613      7465 7220 
+ 613      4F70 656E 
+ 613      4461 6D70 
+ 613      6572 2053 
+ 616               	__c.1491:
+ 617 00e6 0D0A 4461 		.string	"\r\nDamper: "
+ 617      6D70 6572 
+ 617      3A20 00
+ 674               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 damper_Control.c
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:2      *ABS*:0000003f __SREG__
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:3      *ABS*:0000003e __SP_H__
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:4      *ABS*:0000003d __SP_L__
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:5      *ABS*:00000034 __CCP__
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:19     .text.InitializeDamper:00000000 InitializeDamper
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:42     .text.ActivateDamper:00000000 ActivateDamper
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:580    .progmem.data:00000003 __c.1587
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:576    .progmem.data:00000000 __c.1590
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:181    .text.CheckDamper:00000000 CheckDamper
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:571    .data:00000000 DamperVerbose
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:588    .progmem.data:00000048 __c.1555
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:584    .progmem.data:0000001b __c.1557
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:231    .text.CloseDamper:00000000 CloseDamper
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:608    .progmem.data:000000bd __c.1518
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:604    .progmem.data:0000009e __c.1520
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:600    .progmem.data:00000093 __c.1524
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:596    .progmem.data:00000090 __c.1526
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:592    .progmem.data:00000072 __c.1531
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:419    .text.OpenDamper:00000000 OpenDamper
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:616    .progmem.data:000000e6 __c.1491
+C:\Users\laptop\AppData\Local\Temp/ccncUNZM.s:612    .progmem.data:000000c8 __c.1494
+
+UNDEFINED SYMBOLS
+send_str
+usb_serial_write
+usb_serial_putchar
+__udivmodhi4
+__do_copy_data

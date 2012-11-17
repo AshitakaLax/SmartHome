@@ -1,0 +1,393 @@
+   1               		.file	"Sprinkler.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.InitializeSprinkler,"ax",@progbits
+  17               	.global	InitializeSprinkler
+  19               	InitializeSprinkler:
+  20               	.LFB6:
+  21               	.LSM0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LSM1:
+  25 0000 3A9A      		sbi 39-32,2
+  26               	.LSM2:
+  27 0002 3B9A      		sbi 39-32,3
+  28               	.LSM3:
+  29 0004 239A      		sbi 36-32,3
+  30               	.LSM4:
+  31 0006 2B9A      		sbi 37-32,3
+  32               	.LSM5:
+  33 0008 439A      		sbi 40-32,3
+  34               	.LSM6:
+  35 000a 429A      		sbi 40-32,2
+  36               	/* epilogue start */
+  37               	.LSM7:
+  38 000c 0895      		ret
+  39               	.LFE6:
+  41               		.section	.text.SprinklerCntrl,"ax",@progbits
+  42               	.global	SprinklerCntrl
+  44               	SprinklerCntrl:
+  45               	.LFB7:
+  46               	.LSM8:
+  47               	.LVL0:
+  48 0000 0F93      		push r16
+  49 0002 1F93      		push r17
+  50               	/* prologue: function */
+  51               	/* frame size = 0 */
+  52 0004 182F      		mov r17,r24
+  53 0006 062F      		mov r16,r22
+  54               	.LSM9:
+  55 0008 8091 0000 		lds r24,sprinklerVerbose
+  56               	.LVL1:
+  57 000c 8823      		tst r24
+  58 000e 01F0      		breq .L4
+  59               	.LVL2:
+  60               	.LSM10:
+  61 0010 80E0      		ldi r24,lo8(__c.1385)
+  62 0012 90E0      		ldi r25,hi8(__c.1385)
+  63 0014 0E94 0000 		call send_str
+  64               	.LVL3:
+  65               	.L4:
+  66               	.LSM11:
+  67 0018 1633      		cpi r17,lo8(54)
+  68 001a 00F0      		brlo .L5
+  69               	.LSM12:
+  70 001c 8091 0000 		lds r24,sprinklerVerbose
+  71 0020 8823      		tst r24
+  72 0022 01F4      		brne .+2
+  73 0024 00C0      		rjmp .L31
+  74               	.LSM13:
+  75 0026 80E0      		ldi r24,lo8(__c.1387)
+  76 0028 90E0      		ldi r25,hi8(__c.1387)
+  77 002a 00C0      		rjmp .L36
+  78               	.L5:
+  79               	.LSM14:
+  80 002c 1033      		cpi r17,lo8(48)
+  81 002e 01F4      		brne .L8
+  82               	.LSM15:
+  83 0030 8091 0000 		lds r24,sprinklerVerbose
+  84 0034 8823      		tst r24
+  85 0036 01F0      		breq .L9
+  86               	.LSM16:
+  87 0038 80E0      		ldi r24,lo8(__c.1389)
+  88 003a 90E0      		ldi r25,hi8(__c.1389)
+  89 003c 0E94 0000 		call send_str
+  90               	.LVL4:
+  91               	.L9:
+  92               	.LSM17:
+  93 0040 0133      		cpi r16,lo8(49)
+  94 0042 01F0      		breq .+2
+  95 0044 00C0      		rjmp .L31
+  96               	.LSM18:
+  97 0046 8091 0000 		lds r24,sprinklerVerbose
+  98 004a 8823      		tst r24
+  99 004c 01F0      		breq .L11
+ 100               	.LSM19:
+ 101 004e 80E0      		ldi r24,lo8(__c.1391)
+ 102 0050 90E0      		ldi r25,hi8(__c.1391)
+ 103 0052 0E94 0000 		call send_str
+ 104               	.LVL5:
+ 105               	.L11:
+ 106               	.LSM20:
+ 107 0056 4298      		cbi 40-32,2
+ 108               	.LSM21:
+ 109 0058 4398      		cbi 40-32,3
+ 110               	.LSM22:
+ 111 005a 2B98      		cbi 37-32,3
+ 112 005c 00C0      		rjmp .L32
+ 113               	.L8:
+ 114               	.LSM23:
+ 115 005e 1133      		cpi r17,lo8(49)
+ 116 0060 01F4      		brne .L12
+ 117               	.LSM24:
+ 118 0062 8091 0000 		lds r24,sprinklerVerbose
+ 119 0066 8823      		tst r24
+ 120 0068 01F0      		breq .L13
+ 121               	.LSM25:
+ 122 006a 80E0      		ldi r24,lo8(__c.1393)
+ 123 006c 90E0      		ldi r25,hi8(__c.1393)
+ 124 006e 0E94 0000 		call send_str
+ 125               	.LVL6:
+ 126               	.L13:
+ 127 0072 8091 0000 		lds r24,sprinklerVerbose
+ 128               	.LSM26:
+ 129 0076 0133      		cpi r16,lo8(49)
+ 130 0078 01F4      		brne .L14
+ 131               	.LSM27:
+ 132 007a 8823      		tst r24
+ 133 007c 01F0      		breq .L15
+ 134               	.LSM28:
+ 135 007e 80E0      		ldi r24,lo8(__c.1395)
+ 136 0080 90E0      		ldi r25,hi8(__c.1395)
+ 137 0082 0E94 0000 		call send_str
+ 138               	.LVL7:
+ 139               	.L15:
+ 140               	.LSM29:
+ 141 0086 2B9A      		sbi 37-32,3
+ 142               	.LSM30:
+ 143 0088 4398      		cbi 40-32,3
+ 144 008a 00C0      		rjmp .L34
+ 145               	.L14:
+ 146               	.LSM31:
+ 147 008c 8823      		tst r24
+ 148 008e 01F4      		brne .+2
+ 149 0090 00C0      		rjmp .L31
+ 150               	.LSM32:
+ 151 0092 80E0      		ldi r24,lo8(__c.1397)
+ 152 0094 90E0      		ldi r25,hi8(__c.1397)
+ 153 0096 00C0      		rjmp .L36
+ 154               	.L12:
+ 155               	.LSM33:
+ 156 0098 1233      		cpi r17,lo8(50)
+ 157 009a 01F4      		brne .L17
+ 158               	.LSM34:
+ 159 009c 8091 0000 		lds r24,sprinklerVerbose
+ 160 00a0 8823      		tst r24
+ 161 00a2 01F0      		breq .L18
+ 162               	.LSM35:
+ 163 00a4 80E0      		ldi r24,lo8(__c.1399)
+ 164 00a6 90E0      		ldi r25,hi8(__c.1399)
+ 165 00a8 0E94 0000 		call send_str
+ 166               	.LVL8:
+ 167               	.L18:
+ 168               	.LSM36:
+ 169 00ac 0133      		cpi r16,lo8(49)
+ 170 00ae 01F4      		brne .L19
+ 171               	.LSM37:
+ 172 00b0 2B98      		cbi 37-32,3
+ 173 00b2 00C0      		rjmp .L35
+ 174               	.L19:
+ 175               	.LSM38:
+ 176 00b4 8091 0000 		lds r24,sprinklerVerbose
+ 177 00b8 8823      		tst r24
+ 178 00ba 01F4      		brne .+2
+ 179 00bc 00C0      		rjmp .L31
+ 180               	.LSM39:
+ 181 00be 80E0      		ldi r24,lo8(__c.1401)
+ 182 00c0 90E0      		ldi r25,hi8(__c.1401)
+ 183 00c2 00C0      		rjmp .L36
+ 184               	.L17:
+ 185               	.LSM40:
+ 186 00c4 1333      		cpi r17,lo8(51)
+ 187 00c6 01F4      		brne .L21
+ 188               	.LSM41:
+ 189 00c8 8091 0000 		lds r24,sprinklerVerbose
+ 190 00cc 8823      		tst r24
+ 191 00ce 01F0      		breq .L22
+ 192               	.LSM42:
+ 193 00d0 80E0      		ldi r24,lo8(__c.1403)
+ 194 00d2 90E0      		ldi r25,hi8(__c.1403)
+ 195 00d4 0E94 0000 		call send_str
+ 196               	.LVL9:
+ 197               	.L22:
+ 198               	.LSM43:
+ 199 00d8 0133      		cpi r16,lo8(49)
+ 200 00da 01F4      		brne .L23
+ 201               	.LSM44:
+ 202 00dc 2B9A      		sbi 37-32,3
+ 203               	.L35:
+ 204               	.LSM45:
+ 205 00de 439A      		sbi 40-32,3
+ 206               	.L34:
+ 207               	.LSM46:
+ 208 00e0 4298      		cbi 40-32,2
+ 209 00e2 00C0      		rjmp .L32
+ 210               	.L23:
+ 211               	.LSM47:
+ 212 00e4 8091 0000 		lds r24,sprinklerVerbose
+ 213 00e8 8823      		tst r24
+ 214 00ea 01F0      		breq .L31
+ 215               	.LSM48:
+ 216 00ec 80E0      		ldi r24,lo8(__c.1405)
+ 217 00ee 90E0      		ldi r25,hi8(__c.1405)
+ 218 00f0 00C0      		rjmp .L36
+ 219               	.L21:
+ 220               	.LSM49:
+ 221 00f2 1433      		cpi r17,lo8(52)
+ 222 00f4 01F4      		brne .L25
+ 223               	.LSM50:
+ 224 00f6 8091 0000 		lds r24,sprinklerVerbose
+ 225 00fa 8823      		tst r24
+ 226 00fc 01F0      		breq .L26
+ 227               	.LSM51:
+ 228 00fe 80E0      		ldi r24,lo8(__c.1407)
+ 229 0100 90E0      		ldi r25,hi8(__c.1407)
+ 230 0102 0E94 0000 		call send_str
+ 231               	.LVL10:
+ 232               	.L26:
+ 233               	.LSM52:
+ 234 0106 0133      		cpi r16,lo8(49)
+ 235 0108 01F4      		brne .L27
+ 236               	.LSM53:
+ 237 010a 2B98      		cbi 37-32,3
+ 238 010c 00C0      		rjmp .L33
+ 239               	.L27:
+ 240               	.LSM54:
+ 241 010e 8091 0000 		lds r24,sprinklerVerbose
+ 242 0112 8823      		tst r24
+ 243 0114 01F0      		breq .L31
+ 244               	.LSM55:
+ 245 0116 80E0      		ldi r24,lo8(__c.1409)
+ 246 0118 90E0      		ldi r25,hi8(__c.1409)
+ 247 011a 00C0      		rjmp .L36
+ 248               	.L25:
+ 249               	.LSM56:
+ 250 011c 1533      		cpi r17,lo8(53)
+ 251 011e 01F4      		brne .L32
+ 252               	.LSM57:
+ 253 0120 8091 0000 		lds r24,sprinklerVerbose
+ 254 0124 8823      		tst r24
+ 255 0126 01F0      		breq .L29
+ 256               	.LSM58:
+ 257 0128 80E0      		ldi r24,lo8(__c.1411)
+ 258 012a 90E0      		ldi r25,hi8(__c.1411)
+ 259 012c 0E94 0000 		call send_str
+ 260               	.LVL11:
+ 261               	.L29:
+ 262               	.LSM59:
+ 263 0130 0133      		cpi r16,lo8(49)
+ 264 0132 01F4      		brne .L30
+ 265               	.LSM60:
+ 266 0134 2B9A      		sbi 37-32,3
+ 267               	.L33:
+ 268               	.LSM61:
+ 269 0136 4398      		cbi 40-32,3
+ 270               	.LSM62:
+ 271 0138 429A      		sbi 40-32,2
+ 272 013a 00C0      		rjmp .L32
+ 273               	.L30:
+ 274               	.LSM63:
+ 275 013c 8091 0000 		lds r24,sprinklerVerbose
+ 276 0140 8823      		tst r24
+ 277 0142 01F0      		breq .L31
+ 278               	.LSM64:
+ 279 0144 80E0      		ldi r24,lo8(__c.1413)
+ 280 0146 90E0      		ldi r25,hi8(__c.1413)
+ 281               	.L36:
+ 282 0148 0E94 0000 		call send_str
+ 283               	.LVL12:
+ 284               	.L31:
+ 285               	.LSM65:
+ 286 014c 429A      		sbi 40-32,2
+ 287               	.LSM66:
+ 288 014e 439A      		sbi 40-32,3
+ 289               	.LSM67:
+ 290 0150 2B9A      		sbi 37-32,3
+ 291               	.L32:
+ 292               	/* epilogue start */
+ 293               	.LSM68:
+ 294 0152 1F91      		pop r17
+ 295               	.LVL13:
+ 296 0154 0F91      		pop r16
+ 297               	.LVL14:
+ 298 0156 0895      		ret
+ 299               	.LFE7:
+ 301               	.global	sprinklerVerbose
+ 302               		.data
+ 305               	sprinklerVerbose:
+ 306 0000 01        		.byte	1
+ 307               		.section	.progmem.data,"a",@progbits
+ 310               	__c.1413:
+ 311 0000 6973 4F6E 		.string	"isOn == 0\r\n"
+ 311      203D 3D20 
+ 311      300D 0A00 
+ 314               	__c.1411:
+ 315 000c 5365 6374 		.string	"Section 5\r\n"
+ 315      696F 6E20 
+ 315      350D 0A00 
+ 318               	__c.1409:
+ 319 0018 6973 4F6E 		.string	"isOn == 0\r\n"
+ 319      203D 3D20 
+ 319      300D 0A00 
+ 322               	__c.1407:
+ 323 0024 5365 6374 		.string	"Section 4\r\n"
+ 323      696F 6E20 
+ 323      340D 0A00 
+ 326               	__c.1405:
+ 327 0030 6973 4F6E 		.string	"isOn == 0\r\n"
+ 327      203D 3D20 
+ 327      300D 0A00 
+ 330               	__c.1403:
+ 331 003c 5365 6374 		.string	"Section 3\r\n"
+ 331      696F 6E20 
+ 331      330D 0A00 
+ 334               	__c.1401:
+ 335 0048 6973 4F6E 		.string	"isOn == 0\r\n"
+ 335      203D 3D20 
+ 335      300D 0A00 
+ 338               	__c.1399:
+ 339 0054 5365 6374 		.string	"Section 2\r\n"
+ 339      696F 6E20 
+ 339      320D 0A00 
+ 342               	__c.1397:
+ 343 0060 6973 4F6E 		.string	"isOn == 0\r\n"
+ 343      203D 3D20 
+ 343      300D 0A00 
+ 346               	__c.1395:
+ 347 006c 6973 4F6E 		.string	"isOn == 1\r\n"
+ 347      203D 3D20 
+ 347      310D 0A00 
+ 350               	__c.1393:
+ 351 0078 456E 7465 		.string	"Enter Section 1\r\n"
+ 351      7220 5365 
+ 351      6374 696F 
+ 351      6E20 310D 
+ 351      0A00 
+ 354               	__c.1391:
+ 355 008a 6973 4F6E 		.string	"isOn == 1\r\n"
+ 355      203D 3D20 
+ 355      310D 0A00 
+ 358               	__c.1389:
+ 359 0096 5365 6374 		.string	"Section == '0'\r\n"
+ 359      696F 6E20 
+ 359      3D3D 2027 
+ 359      3027 0D0A 
+ 359      00
+ 362               	__c.1387:
+ 363 00a7 5365 6374 		.string	"Section is > 5\r\n"
+ 363      696F 6E20 
+ 363      6973 203E 
+ 363      2035 0D0A 
+ 363      00
+ 366               	__c.1385:
+ 367 00b8 456E 7465 		.string	"Entered SprinklerCntrl\r\n"
+ 367      7265 6420 
+ 367      5370 7269 
+ 367      6E6B 6C65 
+ 367      7243 6E74 
+ 400               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 Sprinkler.c
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:2      *ABS*:0000003f __SREG__
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:3      *ABS*:0000003e __SP_H__
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:4      *ABS*:0000003d __SP_L__
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:5      *ABS*:00000034 __CCP__
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:19     .text.InitializeSprinkler:00000000 InitializeSprinkler
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:44     .text.SprinklerCntrl:00000000 SprinklerCntrl
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:305    .data:00000000 sprinklerVerbose
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:366    .progmem.data:000000b8 __c.1385
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:362    .progmem.data:000000a7 __c.1387
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:358    .progmem.data:00000096 __c.1389
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:354    .progmem.data:0000008a __c.1391
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:350    .progmem.data:00000078 __c.1393
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:346    .progmem.data:0000006c __c.1395
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:342    .progmem.data:00000060 __c.1397
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:338    .progmem.data:00000054 __c.1399
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:334    .progmem.data:00000048 __c.1401
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:330    .progmem.data:0000003c __c.1403
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:326    .progmem.data:00000030 __c.1405
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:322    .progmem.data:00000024 __c.1407
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:318    .progmem.data:00000018 __c.1409
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:314    .progmem.data:0000000c __c.1411
+C:\Users\laptop\AppData\Local\Temp/ccCbQ2J1.s:310    .progmem.data:00000000 __c.1413
+
+UNDEFINED SYMBOLS
+send_str
+__do_copy_data

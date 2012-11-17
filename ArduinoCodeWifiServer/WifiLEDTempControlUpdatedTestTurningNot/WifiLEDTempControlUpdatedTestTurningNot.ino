@@ -12,12 +12,11 @@
 #define WIRELESS_MODE_INFRA   1
 #define WIRELESS_MODE_ADHOC   2
 
-//#define ledPin1 8 //changed this from 5 to 8
-//#define ledPin2 6
-//#define ledPin3 7
+#define ledPin1 9 //changed this from 5 to 8
+#define ledPin2 6
+#define ledPin3 7
+#define ledPin4 8
 
-String str;
-boolean stringComplete;
 SoftwareSerial mySerial(4, 5); //RX, TX
 
 // Wireless configuration parameters ----------------------------------------
@@ -76,15 +75,6 @@ void printStates(){
            mySerial.print(" ");
            mySerial.print(count);
            mySerial.print('\n');
-           mySerial.print("allpower\n");
-         //  if(analogRead(1)<810){
-          //mySerial.print("turn ");
-          //mySerial.print(stateBuff); 3\n");
-          //Serial.print("turn on 3\n");
-        //}else{
-          //mySerial.print("turn off 3\n");
-          //Serial.print("turn off 3\n");
-        //}
            
            Serial.print("turn ");
            Serial.print(stateBuff);
@@ -93,35 +83,20 @@ void printStates(){
          } 
           }
 
-//void writeStates()
-//{
-        //set led states
-//        digitalWrite(ledPin1, states[0]);
-//        digitalWrite(ledPin2, states[1]);
-//        digitalWrite(ledPin3, states[2]);
-//}
-/*void readSerial()
+void writeStates()
 {
-  while(mySerial.available()){
-    char inChar = (char)mySerial.read();
-    str += (String)inChar;
-   if(inChar == '\n'){
-     stringComplete = true;
-     break;
-    }
-    
-  }
-  if (stringComplete==true){
-  Serial.print(str);
-  } 
-  str = "";
-}*/
+        //set led states
+        digitalWrite(ledPin1, states[0]);
+        digitalWrite(ledPin2, states[1]);
+        digitalWrite(ledPin3, states[2]);
+        digitalWrite(ledPin4, states[3]);
+}
+
 // Here the page gets served
 boolean sendPage(char* URL) {
   
     printStates();
-  //  writeStates();
-    
+    writeStates();
     
   //Using to check if the URL needs to change
   if (URL[1] == '?' && URL[2] == 'L' && URL[3] == 'E' && URL[4] == 'D') //url has a leading /
@@ -140,28 +115,15 @@ boolean sendPage(char* URL) {
     
     //after having change state, return the user to the index page.
     WiServer.print("<HTML><HEAD><meta http-equiv='REFRESH' content='0;url=/'></HEAD></HTML>");
-    mySerial.print("allpower\n");
     return true;
   }
   
   if (strcmp(URL, "/") == false) //why is this not true?
    {
-       while(mySerial.available()){
-        char inChar = (char)mySerial.read();
-        str += (String)inChar;
-        if(inChar == '\n'){
-       stringComplete = true;
-       break;
-    }
+     
+      WiServer.print("<html><head><title>Led switch</title></head>");
     
-  }
-      if (stringComplete==true){
-      Serial.print(str);
-  } 
-  
-      WiServer.print("<html>");
-    
-     // WiServer.print("<body><center>Please select the led state:<center>\n<center>");
+      WiServer.print("<body><center>Please select the led state:<center>\n<center>");
       for (stateCounter = 0; stateCounter < 4; stateCounter++) //for each led
       {
         numAsCharBuff[0] = (char)(stateCounter + 49); //as this is displayed use 1 - 3 rather than 0 - 2
@@ -198,15 +160,22 @@ boolean sendPage(char* URL) {
         float h = temp_in_kelvin;
         float t = temp_in_celsius;
         float f = temp_in_fahrenheit;
-        //float laser = analogRead(1);
-        String txt;
+        float laser = analogRead(1);
+        float moistureSensor = analogRead(2);
+        String txt, txtMoisture;
         
         //Check to see if the Laser is tripped or not 
-        if((analogRead(1)<810) && (analogRead(2)<300)){
-          txt = "Sprinkler System is on";
+        if(analogRead(1)<810){
+          txt = "Laser Tripped";
         }else{
-          txt = "Sprinkler System is off";
+          txt = "Laser Not Tripped";
         }  
+        
+        //if(analogRead(2)<300){
+         // txtMoisture = "Ground moisture conductivity is: ";
+          //txtMoisture == moistureSensor;
+        }
+          
         // check if returns are valid, if they are NaN (not a number) then something went wrong!
         if (isnan(t) || isnan(h)) {
         	WiServer.print("<html>");  //Here is the code for the html page
@@ -214,7 +183,7 @@ boolean sendPage(char* URL) {
         	WiServer.println("        </html>");
         } else {
         	WiServer.print("<html>");
-        	//WiServer.print("<center><H2>Room 1 Temperature Statistics: ID: 1</H2><br><br><br>");
+        	WiServer.print("<center><H2>Room 1 Temperature Statistics: ID: 1</H2><br><br><br>");
 
         WiServer.print("Temperature Kelvin: ");
         WiServer.print(h);
@@ -227,14 +196,16 @@ boolean sendPage(char* URL) {
         WiServer.println(" *F");
         WiServer.println("        ");
         WiServer.print("</center>");
-        WiServer.print("<center>");
-        WiServer.print("Sprinkler Detection: ");
+        WiServer.print("<center><H3>Laser TripWire Detection in Room 1</H3><br><br><br>");
+        WiServer.print("Detection: ");
         WiServer.print(txt);
         WiServer.println("        ");
-       // WiServer.print(laser);
-        WiServer.println("Testing Current: ");
-        WiServer.println(str);
-        str = "";
+        WiServer.print(laser);
+        WiServer.print("<center><H4>Laser TripWire Detection in Room 1</H4><br><br><br>");
+        WiServer.print("Ground Mo: ");
+        WiServer.print(txt);
+        WiServer.println("        ");
+        WiServer.print(laser);
         WiServer.print("</html></center>");        // URL was recognized
         return true;
     }
@@ -243,15 +214,15 @@ boolean sendPage(char* URL) {
     
         WiServer.print("</html> ");
         return true;
-        //str = "";
    }
 }
 
 void setup() {
   // Initialize WiServer and have it use the sendMyPage function to serve pages
- // pinMode(ledPin1, OUTPUT);
-  //pinMode(ledPin2, OUTPUT);
-  //pinMode(ledPin3, OUTPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(ledPin4, OUTPUT);
   pinMode(3, OUTPUT);
 
   // Enable Serial output and ask WiServer to generate log messages (optional)
@@ -259,14 +230,12 @@ void setup() {
   
   WiServer.enableVerboseMode(true);
   Serial.begin(9600);
-     while (!Serial) {
-    ; // wait for serial port to connect. Needed for Leonardo only
-  }
   mySerial.begin(9600);
   WiServer.init(sendPage);
   states[0] = false;
   states[1] = false;
   states[2] = false;
+  states[3] = false;
 }
 
 void loop(){
@@ -275,16 +244,11 @@ void loop(){
    //   mySerial.print("turn on 1\n");
     //  if (mySerial.available())
      // Serial.write(mySerial.read());
-      //mySerial.print("turn on 1\n");
- 
-  if((analogRead(1)<810)&&(analogRead(2)<200)){
+      
+  if(analogRead(1)<810){
           digitalWrite(3, HIGH);
-          //mySerial.print("turn on 3");
-         // mySerial.print('\n');
         }else{
           digitalWrite(3, LOW);
-         // mySerial.print("turn on 3");
-         // mySerial.print('\n');
         }  
   // Run WiServer
   WiServer.server_task();

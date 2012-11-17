@@ -12,11 +12,8 @@ class PhysicalDeviceClass(abc.ABCMeta):
     """metaclass for class PhysicalDevice"""
     
     def __call__(cls, *args, **kwargs):
-        #instance = cls.__new__(cls, *args, **kwargs)
-        #instance.__init__(*args, **kwargs)
-        print args
-        print kwargs
-        instance = abc.ABCMeta.__call__(cls, *args, **kwargs)
+        instance = cls.__new__(cls, *args, **kwargs)
+        instance.__init__(*args, **kwargs)
         instance._initialized = True
         return instance
 

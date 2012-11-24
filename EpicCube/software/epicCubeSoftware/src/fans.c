@@ -18,6 +18,7 @@
 
 #include "../include/Fans.h"
 #include "../include/PWMTeensyTwoPlusPlus.h"
+#include "../include/usb_serial.h"
 
 /*
 *	This example is comprized of mainly arduino sources
@@ -113,7 +114,7 @@ uint8_t SetFan(char FanChar, char FanSpeedchar)
 	}
 	else if(FanSelect == 4)
 	{
-		FanThreeStatus = '1';
+		FanFourStatus = '1';
 		//set duty cycle
 		PWMDuty(19, FanSpeed);
 		FanFourSpeed = FanSpeedchar;
@@ -241,5 +242,37 @@ uint8_t CharToSpeed(char speed)
 	else
 		return 0;
 }
-
-
+/**
+*	This will print the status of all the fans.
+*	0,2,3,4
+*	format
+*	"FanNumber:on/off:speed,"
+*
+**/
+void AllFanStatus()
+{
+	send_str(PSTR("1:"));
+	if(FanZeroStatus == '1')//if fan 0 is on
+		send_str(PSTR("1:"));
+	else 
+		send_str(PSTR("0:"));
+	usb_serial_putchar(FanZeroSpeed);
+	send_str(PSTR(",2:"));
+	if(FanTwoStatus == '1')//if fan 0 is on
+		send_str(PSTR("1:"));
+	else 
+		send_str(PSTR("0:"));
+	usb_serial_putchar(FanTwoSpeed);
+	send_str(PSTR(",3:"));
+	if(FanThreeStatus == '1')//if fan 0 is on
+		send_str(PSTR("1:"));
+	else 
+		send_str(PSTR("0:"));
+	usb_serial_putchar(FanThreeSpeed);
+	send_str(PSTR(",4:"));
+	if(FanFourStatus == '1')//if fan 0 is on
+		send_str(PSTR("1:"));
+	else 
+		send_str(PSTR("0:"));
+	usb_serial_putchar(FanFourSpeed);
+}

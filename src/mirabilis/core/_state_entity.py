@@ -57,6 +57,7 @@ class StateEntity(SmartHomeItem):
         return not self._device and SmartHomeItem.readytoquituniverse(self)    
 
 
+@renamemodule
 class RStateEntityBase(SmartHomeItemInterface):
     """
     RStateEntity (abstract class)
@@ -88,7 +89,8 @@ class RStateEntityBase(SmartHomeItemInterface):
         """
         return self._state
     
-    
+
+@renamemodule
 class WStateEntityBase(SmartHomeItemInterface):
     """
     WStateEntityBase (abstract class)

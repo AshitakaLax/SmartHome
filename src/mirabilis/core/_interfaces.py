@@ -1,6 +1,6 @@
 from ._rename import renamemodule
-import abc
 
+import abc
 
 __all__ = ["SmartHomeItemInterface"]
 

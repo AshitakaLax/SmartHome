@@ -1,4 +1,5 @@
-_imports = ["_smarthomeitem",
+_imports = ["_rename",
+            "_smarthomeitem",
             "_container", 
             "_universe", 
             "_area",
@@ -7,6 +8,7 @@ _imports = ["_smarthomeitem",
             "_state_entity"]
 
 __all__ = []
+
 
 def _importstuff():
     from importlib import import_module

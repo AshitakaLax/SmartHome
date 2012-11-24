@@ -8,7 +8,7 @@ lab = universe["MEB"]["level 3"]["Room 3143"]
 print lab
 print list(lab)
 
-pprint(universe.objects_dict)
+pprint(universe.objectsdict)
 
 print list(universe)
 

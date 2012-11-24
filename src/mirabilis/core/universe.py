@@ -44,9 +44,9 @@ class Universe(Container):
         
         
     @property
-    def objects_dict(self):
+    def objectsdict(self):
         """
-        objects_dict: (dict of SmartHomeItem[int]) items indexed by global ID
+        objectsdict: (dict of SmartHomeItem[int]) items indexed by global ID
         """
         return self._objects_by_global_id.copy()
     

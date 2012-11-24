@@ -1,9 +1,11 @@
+from ._rename import renamemodule
 from ._container import Container
 
 
 __all__ = ["Universe"]
 
 
+@renamemodule
 class Universe(Container):
     """
     Universe() -> obj

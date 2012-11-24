@@ -1,3 +1,4 @@
+from ._rename import renamemodule
 import abc
 
 from ._smarthomeitem import SmartHomeItem
@@ -8,6 +9,7 @@ __all__ = ["PhysicalDevice"]
 
 # enforces that add_state_entity can only be called during execution of 
 # __init__
+@renamemodule
 class PhysicalDeviceClass(abc.ABCMeta):
     """metaclass for class PhysicalDevice"""
     
@@ -18,6 +20,7 @@ class PhysicalDeviceClass(abc.ABCMeta):
         return instance
 
 
+@renamemodule
 class PhysicalDevice(SmartHomeItem):
     """
     PhysicalDevice (abstract class)

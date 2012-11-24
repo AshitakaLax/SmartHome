@@ -1,6 +1,11 @@
+from ._rename import renamemodule
 import abc
 
 
+__all__ = ["SmartHomeItemInterface"]
+
+
+@renamemodule
 class SmartHomeItemInterface(object):
     """
     UniverseObjectInterface (abstract class)

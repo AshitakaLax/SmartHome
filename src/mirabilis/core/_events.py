@@ -1,3 +1,4 @@
+from ._rename import renamemodule
 from datetime import datetime
 
 
@@ -5,7 +6,7 @@ __all__ = []
 
 def _export(thing):
     __all__.append(thing.__name__)
-    return thing
+    return renamemodule(thing)
 
 
 @_export

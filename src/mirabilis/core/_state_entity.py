@@ -1,5 +1,6 @@
 import abc
 
+from ._rename import renamemodule
 from ._interfaces import SmartHomeItemInterface
 from ._smarthomeitem import SmartHomeItem
 
@@ -8,7 +9,7 @@ __all__ = []
 
 def _export(thing):
     __all__.append(thing.__name__)
-    return thing
+    return renamemodule(thing)
 
 
 @_export

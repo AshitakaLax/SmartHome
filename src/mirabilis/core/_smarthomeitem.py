@@ -1,9 +1,11 @@
+from ._rename import renamemodule
 from ._interfaces import SmartHomeItemInterface
 
 
 __all__ = ["SmartHomeItem"]
 
 
+@renamemodule
 class SmartHomeItem(SmartHomeItemInterface):
     """
     SmartHomeItem (abstract class)

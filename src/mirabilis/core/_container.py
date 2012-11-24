@@ -1,6 +1,9 @@
+from ._rename import renamemodule
+
 __all__ = ["Container"]
 
 
+@renamemodule
 class Container(object):
     """
     ItemHolder (abstract class)

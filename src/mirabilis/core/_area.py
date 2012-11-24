@@ -1,10 +1,11 @@
 from ._smarthomeitem import SmartHomeItem
 from ._container import Container
-
+from ._rename import renamemodule
 
 __all__ = ["Area"]
 
 
+@renamemodule
 class Area(SmartHomeItem, Container):
     """
     Area(universe[, description[, localname[, local_id]]]) -> obj

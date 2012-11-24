@@ -1,18 +1,22 @@
-from .smarthomeitem import *
-from .container import *
-from .universe import *
-from .area import *
-from .physicaldevice import *
-from .events import *
-from .state_entity import *
+_imports = ["_smarthomeitem",
+            "_container", 
+            "_universe", 
+            "_area",
+            "_physicaldevice",
+            "_events",
+            "_state_entity"]
 
-from functools import reduce
-from operator import concat
+__all__ = []
 
-__all__ = reduce(concat, (x.__all__ for x in [smarthomeitem, 
-                                              container,
-                                              universe,
-                                              area,
-                                              physicaldevice,
-                                              events,
-                                              state_entity]))
+def _importstuff():
+    from importlib import import_module
+    for modulename in _imports:
+        module = import_module("." + modulename, __package__)
+        for name in module.__all__:
+            thing = getattr(module, name)
+            #if hasattr(thing, "__module__"):
+            #                thing.__module__ = __package__
+            globals()[name] = thing
+            __all__.append(name)
+
+_importstuff()

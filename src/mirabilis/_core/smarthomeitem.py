@@ -1,13 +1,12 @@
-from .interfaces import SmartHomeItemInterface
+from ._rename import renamemodule
+from ._interfaces import SmartHomeItemInterface
 
 
 __all__ = []
 
 def _export(clsorfunc):
     __all__.append(clsorfunc.__name__)
-    return clsorfunc
-
-
+    return renamemodule(clsorfunc)
 
 @_export
 class SmartHomeItem(SmartHomeItemInterface):
@@ -198,5 +197,5 @@ class SmartHomeItem(SmartHomeItemInterface):
                                     new_local_id=new_local_id)
 
 
-from .container import Container
-from .universe import Universe
+from ._container import Container
+from ._universe import Universe

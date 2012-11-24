@@ -1,14 +1,15 @@
 import abc
 
-from .interfaces import SmartHomeItemInterface
-from .smarthomeitem import SmartHomeItem
+from ._rename import renamemodule
+from ._interfaces import SmartHomeItemInterface
+from ._smarthomeitem import SmartHomeItem
 
 
 __all__ = []
 
-def _export(clsorfunc):
-    __all__.append(clsorfunc.__name__)
-    return clsorfunc
+def _export(thing):
+    __all__.append(thing.__name__)
+    return renamemodule(thing)
 
 
 @_export
@@ -56,6 +57,7 @@ class StateEntity(SmartHomeItem):
         return not self._device and SmartHomeItem.readytoquituniverse(self)    
 
 
+@renamemodule
 class RStateEntityBase(SmartHomeItemInterface):
     """
     RStateEntity (abstract class)
@@ -87,7 +89,8 @@ class RStateEntityBase(SmartHomeItemInterface):
         """
         return self._state
     
-    
+
+@renamemodule
 class WStateEntityBase(SmartHomeItemInterface):
     """
     WStateEntityBase (abstract class)

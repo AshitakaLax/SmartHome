@@ -1,17 +1,19 @@
+from ._rename import renamemodule
 import abc
 
-from .smarthomeitem import SmartHomeItem
+from ._smarthomeitem import SmartHomeItem
 
 
 __all__ = []
 
 def _export(clsorfunc):
     __all__.append(clsorfunc.__name__)
-    return clsorfunc
+    return renamemodule(clsorfunc)
 
 
 # enforces that add_state_entity can only be called during execution of 
 # __init__
+@renamemodule
 class PhysicalDeviceClass(abc.ABCMeta):
     """metaclass for class PhysicalDevice"""
     

@@ -1,11 +1,12 @@
+from ._rename import renamemodule
 from datetime import datetime
 
 
 __all__ = []
 
-def _export(clsorfunc):
-    __all__.append(clsorfunc.__name__)
-    return clsorfunc
+def _export(thing):
+    __all__.append(thing.__name__)
+    return renamemodule(thing)
 
 
 @_export
@@ -127,4 +128,4 @@ class ValueWrittenEvent(StateEntityEvent):
         self.lastvaluewrite = lastvaluewrite
 
 
-from .state_entity import StateEntity
+from ._state_entity import StateEntity

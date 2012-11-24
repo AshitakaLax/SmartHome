@@ -1,6 +1,6 @@
-from .smarthomeitem import SmartHomeItem
-from .container import Container
-
+from ._smarthomeitem import SmartHomeItem
+from ._container import Container
+from ._rename import renamemodule
 
 __all__ = []
 
@@ -8,8 +8,7 @@ def _export(clsorfunc):
     __all__.append(clsorfunc.__name__)
     return clsorfunc
 
-
-@_export
+@renamemodule
 class Area(SmartHomeItem, Container):
     """
     Area(universe[, description[, localname[, local_id]]]) -> obj

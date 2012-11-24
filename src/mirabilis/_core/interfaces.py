@@ -1,14 +1,11 @@
+from ._rename import renamemodule
+
 import abc
 
-
-__all__ = []
-
-def _export(clsorfunc):
-    __all__.append(clsorfunc.__name__)
-    return clsorfunc
+__all__ = ["SmartHomeItemInterface"]
 
 
-@_export
+@renamemodule
 class SmartHomeItemInterface(object):
     """
     UniverseObjectInterface (abstract class)

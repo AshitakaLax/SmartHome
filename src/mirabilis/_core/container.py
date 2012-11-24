@@ -1,13 +1,10 @@
+from ._rename import renamemodule
 from .smarthomeitem import SmartHomeItem
 
-__all__ = []
-
-def _export(clsorfunc):
-    __all__.append(clsorfunc.__name__)
-    return clsorfunc
+__all__ = ["Container"]
 
 
-@_export
+@renamemodule
 class Container(object):
     """
     Container (abstract class)

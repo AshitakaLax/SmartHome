@@ -1,10 +1,18 @@
-from .smarthomeitem import SmartHomeItem
-from .container import Container
+from ._smarthomeitem import SmartHomeItem
+from ._container import Container
 
 
-__all__ = ["Area"]
+__all__ = []
+
+def _export(clsorfunc):
+    from _renamemodules import dorename
+    if dorename:
+        clsorfunc.__module__ = __package__
+    __all__.append(clsorfunc.__name__)
+    return clsorfunc
 
 
+@_export
 class Area(SmartHomeItem, Container):
     """
     Area(universe[, description[, localname[, local_id]]]) -> obj
@@ -23,7 +31,7 @@ class Area(SmartHomeItem, Container):
     
     Public instance attributes:
     
-    (inherited from class Containable)
+    (inherited from class SmartHomeItem)
     """
     
     def __init__(self, universe, description=None, 

@@ -1,9 +1,17 @@
-from .container import Container
+from ._container import Container
 
 
-__all__ = ["Universe"]
+__all__ = []
+
+def _export(clsorfunc):
+    from _renamemodules import dorename
+    if dorename:
+        clsorfunc.__module__ = __package__
+    __all__.append(clsorfunc.__name__)
+    return clsorfunc
 
 
+@_export
 class Universe(Container):
     """
     Universe() -> obj
@@ -21,7 +29,7 @@ class Universe(Container):
     # Private instance attributes:
     # 
     # _next_global_id: (int) the next ID to be assigned
-    # _objects_by_global_id: (dict of Containable[int]) 
+    # _objects_by_global_id: (dict of SmartHomeItem[int]) 
     #                        dictionary of ALL smart home objects by ID
     # _eventhandlers: (dict of set[tuple])
     #     Each value is a list of functions.
@@ -57,7 +65,7 @@ class Universe(Container):
     
     def object_with_global_id(self, global_id):
         """
-        obj.object_with_global_id(global_id) -> (Containable)
+        obj.object_with_global_id(global_id) -> (SmartHomeItem)
         
         return the item with the specified global id
         
@@ -72,7 +80,7 @@ class Universe(Container):
         assign a unique ID to containable without making it a root object or
         assigning to its _container attribute
     
-        containable: (Containable) the containable object
+        containable: (SmartHomeItem) the containable object
         """
         containable._universe = self
         
@@ -92,7 +100,7 @@ class Universe(Container):
         
         If it still has a container relationship, that will be unlinked.
         
-        containable: (Containable) the thing to delete from the universe
+        containable: (SmartHomeItem) the thing to delete from the universe
         """
         assert containable.readytoquituniverse(), \
             "containable not ready to be removed; try removing the thing " \
@@ -100,7 +108,7 @@ class Universe(Container):
         self._removeitemfromuniverse(containable)
     
     def _removeitemfromuniverse(self, containable):
-        assert isinstance(containable, Containable)
+        assert isinstance(containable, SmartHomeItem)
         containable.finalize()
         #if containable._container:
         #    containable._container.removeitem(containable)
@@ -143,4 +151,4 @@ class Universe(Container):
             func(event)
 
 
-from .physicaldevice import PhysicalDevice
+from ._physicaldevice import PhysicalDevice

@@ -1,24 +1,34 @@
-__all__ = ["Container"]
+from ._smarthomeitem import SmartHomeItem
+
+__all__ = []
+
+def _export(clsorfunc):
+    from _renamemodules import dorename
+    if dorename:
+        clsorfunc.__module__ = __package__
+    __all__.append(clsorfunc.__name__)
+    return clsorfunc
 
 
+@_export
 class Container(object):
     """
-    ItemHolder (abstract class)
+    Container (abstract class)
  
     a class for things that hold other items
     """
 
     # Private instance attributes:
     # 
-    # _dictofitemstokeys: (dict of frozenset[Containable])
+    # _dictofitemstokeys: (dict of frozenset[SmartHomeItem])
     #                     this stores a cache of the keys into _itemsbykey,
     #                     indexed by the value; ALL items associated with 
     #                     this holder MUST be stored as keys into this 
     #                     dictionary, even if their "local keys" are an empty
     #                     set
-    # _itemsbykeycache: (dict of Containable[object]) 
+    # _itemsbykeycache: (dict of SmartHomeItem[object]) 
     #                   may pair every item with an object which need only be 
-    #                   unique within the _ItemHolder instance; items without 
+    #                   unique within the Container instance; items without 
     #                   any keys will be omitted from this dictionary
         
     # must call this __init__ method to initialize the variables
@@ -45,7 +55,7 @@ class Container(object):
         
         add an item to this holder
         
-        item: (Containable) the thing to be added
+        item: (SmartHomeItem) the thing to be added
         addkeys: (iterable) the keys--numeric, string, or other type--for 
                             accessing the item locally from its holder
         newlocalname: (str or <None>) a new local name to set on item
@@ -73,7 +83,7 @@ class Container(object):
         
         remove an item from the holder
         
-        item: (Containable) the thing to be removed
+        item: (SmartHomeItem) the thing to be removed
         """
         assert item in self
         for key in self._dictofitemstokeys[item]:
@@ -87,10 +97,7 @@ class Container(object):
         
         get keys for the item specified
         
-        item: (Containable) what to get the keys for
+        item: (SmartHomeItem) what to get the keys for
         """
         assert item in self._dictofitemstokeys.keys()
         return set(self._dictofitemstokeys[item])
-
-
-from .smarthomeitem import SmartHomeItem

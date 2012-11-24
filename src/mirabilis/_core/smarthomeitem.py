@@ -1,9 +1,18 @@
-from .interfaces import SmartHomeItemInterface
+from ._interfaces import SmartHomeItemInterface
 
 
-__all__ = ["SmartHomeItem"]
+__all__ = []
+
+def _export(clsorfunc):
+    from _renamemodules import dorename
+    if dorename:
+        clsorfunc.__module__ = __package__
+    __all__.append(clsorfunc.__name__)
+    return clsorfunc
 
 
+
+@_export
 class SmartHomeItem(SmartHomeItemInterface):
     """
     SmartHomeItem (abstract class)
@@ -26,6 +35,7 @@ class SmartHomeItem(SmartHomeItemInterface):
     # 
     # _universe: (Universe or <None>) the universe containing this object
     # _global_id: (int or <None>) the global ID for this object
+    # _container: (Container or <None>) the container of this object 
     
     def __init__(self, universe, description=None, 
                        localname=None, local_id=None):
@@ -42,7 +52,7 @@ class SmartHomeItem(SmartHomeItemInterface):
         """
         self._universe = None  # written to by Universe object
         self._global_id = None  # written to by Universe object
-        self._container = None  # written to by ItemHolder objects
+        self._container = None  # written to by Container objects
         self.description = description
         self.localname = localname
         self.local_id = local_id
@@ -99,7 +109,7 @@ class SmartHomeItem(SmartHomeItemInterface):
     @property
     def container(self):
         """
-        container: (ItemHolder or <None>) whatever is containing this object
+        container: (Container or <None>) whatever is containing this object
         
         read-only property
         """
@@ -112,7 +122,7 @@ class SmartHomeItem(SmartHomeItemInterface):
         
         read-only property
         """
-        assert self.container, "the item is not in any ItemHolder object"
+        assert self.container, "the item is not in any Container object"
         return self.container.getitemkeys(self)
     
     def updatekeys(self, newkeys):
@@ -127,7 +137,7 @@ class SmartHomeItem(SmartHomeItemInterface):
                             local_id
         """
         container = self.container
-        assert container, "the item is not in any ItemHolder object"
+        assert container, "the item is not in any Container object"
         container.removeitem(self)
         newkeys = set(newkeys)
         if self.name is not None:
@@ -191,5 +201,5 @@ class SmartHomeItem(SmartHomeItemInterface):
                                     new_local_id=new_local_id)
 
 
-from .container import Container
-from .universe import Universe
+from ._container import Container
+from ._universe import Universe

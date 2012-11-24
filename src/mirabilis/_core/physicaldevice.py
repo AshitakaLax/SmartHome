@@ -1,9 +1,16 @@
 import abc
 
-from .smarthomeitem import SmartHomeItem
+from ._smarthomeitem import SmartHomeItem
 
 
-__all__ = ["PhysicalDevice"]
+__all__ = []
+
+def _export(clsorfunc):
+    from _renamemodules import dorename
+    if dorename:
+        clsorfunc.__module__ = __package__
+    __all__.append(clsorfunc.__name__)
+    return clsorfunc
 
 
 # enforces that add_state_entity can only be called during execution of 
@@ -18,6 +25,7 @@ class PhysicalDeviceClass(abc.ABCMeta):
         return instance
 
 
+@_export
 class PhysicalDevice(SmartHomeItem):
     """
     PhysicalDevice (abstract class)
@@ -27,7 +35,7 @@ class PhysicalDevice(SmartHomeItem):
     
     Public instance attributes:
     
-    (inherited from class Containable)
+    (inherited from class SmartHomeItem)
     """
     
     __metaclass__ = PhysicalDeviceClass
@@ -72,7 +80,7 @@ class PhysicalDevice(SmartHomeItem):
             state_entity._device = None
             self.universe._removeitemfromuniverse(state_entity)
         self._state_entities = set()
-        Containable.finalize(self)
+        SmartHomeItem.finalize(self)
         
     def update_entities(self):
         """
@@ -84,5 +92,5 @@ class PhysicalDevice(SmartHomeItem):
         raise NotImplementedError()
     
 
-from .universe import Universe
-from .state_entity import StateEntity
+from ._universe import Universe
+from ._state_entity import StateEntity

@@ -12,8 +12,6 @@ pprint(universe.objectsdict)
 
 print list(universe)
 
-universe["MEB"][3][3143]["power strip and sensors"].update_entities()
-
 print universe["MEB"][3][3143]["power strip and sensors"]
 
 print

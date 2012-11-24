@@ -43,13 +43,24 @@ void PulseGarage(void)
 }
 /**
 *	reads the trigger whether the GFan is on or off
-* 	NOTE: possible issue with optocouplers sensing it is off when
+*	We need to oversample for 100 ms made up. we really need it for 0.0166666
+*	so for good measure we can try 32ms
+*	16Mhz clock 0.0000000625 seconds
+*	0.032/0.0000000625 seconds.
+*	so we need at least 512000 cycles need uint32_t
 *	really it is on.
 *	returns 1 for on and 0 for off.
 */
 uint8_t ReadGFan(void)
 {
-	return G_FAN_TRIGGER_READ;
+	uint32_t counter = 0;
+	uint8_t result = 0;
+	while(result == 0 && counter < 600000)
+	{
+		result = G_FAN_TRIGGER_READ;
+		counter++;
+	}
+	return result;
 }
 
 /**
@@ -59,8 +70,15 @@ uint8_t ReadGFan(void)
 *	returns 1 for on and 0 for off.
 */
 uint8_t ReadWHeat(void)
-{
-	return W_HEAT_TRIGGER_READ;
+{	
+uint32_t counter = 0;
+	uint8_t result = 0;
+	while(result == 0 && counter < 600000)
+	{
+		result = W_HEAT_TRIGGER_READ;
+		counter++;
+	}
+	return result;
 }
 /**
 *	reads the trigger whether the GFan is on or off
@@ -70,7 +88,14 @@ uint8_t ReadWHeat(void)
 */
 uint8_t ReadYCool(void)
 {
-	return Y_COOL_TRIGGER_READ;
+	uint32_t counter = 0;
+	uint8_t result = 0;
+	while(result == 0 && counter < 600000)
+	{
+		result = Y_COOL_TRIGGER_READ;
+		counter++;
+	}
+	return result;
 }
 /**
 *	Sets the state of the relay

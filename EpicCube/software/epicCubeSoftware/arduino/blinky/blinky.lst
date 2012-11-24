@@ -1,0 +1,259 @@
+   1               		.file	"blinky.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.main,"ax",@progbits
+  17               	.global	main
+  19               	main:
+  20               	.LFB2:
+  21               	.LSM0:
+  22 0000 1F93      		push r17
+  23 0002 CF93      		push r28
+  24 0004 DF93      		push r29
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LSM1:
+  28 0006 569A      		sbi 42-32,6
+  29               	.LSM2:
+  30 0008 8FEF      		ldi r24,lo8(-1)
+  31 000a 8093 0000 		sts dutyCount,r24
+  32               	.LSM3:
+  33 000e 82E0      		ldi r24,lo8(2)
+  34 0010 90E0      		ldi r25,hi8(2)
+  35 0012 0E94 0000 		call PWMNew
+  36               	.LSM4:
+  37 0016 82E0      		ldi r24,lo8(2)
+  38 0018 90E0      		ldi r25,hi8(2)
+  39 001a 0E94 0000 		call PWMStart
+  40               	.LSM5:
+  41 001e 6091 0000 		lds r22,dutyCount
+  42 0022 82E0      		ldi r24,lo8(2)
+  43 0024 90E0      		ldi r25,hi8(2)
+  44 0026 70E0      		ldi r23,lo8(0)
+  45 0028 0E94 0000 		call PWMDuty
+  46               	.LSM6:
+  47 002c 83E0      		ldi r24,lo8(3)
+  48 002e 90E0      		ldi r25,hi8(3)
+  49 0030 0E94 0000 		call PWMNew
+  50               	.LSM7:
+  51 0034 83E0      		ldi r24,lo8(3)
+  52 0036 90E0      		ldi r25,hi8(3)
+  53 0038 0E94 0000 		call PWMStart
+  54               	.LSM8:
+  55 003c 6091 0000 		lds r22,dutyCount
+  56 0040 83E0      		ldi r24,lo8(3)
+  57 0042 90E0      		ldi r25,hi8(3)
+  58 0044 70E0      		ldi r23,lo8(0)
+  59 0046 0E94 0000 		call PWMDuty
+  60               	.LSM9:
+  61 004a 86E1      		ldi r24,lo8(22)
+  62 004c 90E0      		ldi r25,hi8(22)
+  63 004e 0E94 0000 		call PWMNew
+  64               	.LSM10:
+  65 0052 86E1      		ldi r24,lo8(22)
+  66 0054 90E0      		ldi r25,hi8(22)
+  67 0056 0E94 0000 		call PWMStart
+  68               	.LSM11:
+  69 005a 6091 0000 		lds r22,dutyCount
+  70 005e 86E1      		ldi r24,lo8(22)
+  71 0060 90E0      		ldi r25,hi8(22)
+  72 0062 70E0      		ldi r23,lo8(0)
+  73 0064 0E94 0000 		call PWMDuty
+  74               	.LSM12:
+  75 0068 87E1      		ldi r24,lo8(23)
+  76 006a 90E0      		ldi r25,hi8(23)
+  77 006c 0E94 0000 		call PWMNew
+  78               	.LSM13:
+  79 0070 87E1      		ldi r24,lo8(23)
+  80 0072 90E0      		ldi r25,hi8(23)
+  81 0074 0E94 0000 		call PWMStart
+  82               	.LSM14:
+  83 0078 6091 0000 		lds r22,dutyCount
+  84 007c 87E1      		ldi r24,lo8(23)
+  85 007e 90E0      		ldi r25,hi8(23)
+  86 0080 70E0      		ldi r23,lo8(0)
+  87 0082 0E94 0000 		call PWMDuty
+  88               	.LSM15:
+  89 0086 88E1      		ldi r24,lo8(24)
+  90 0088 90E0      		ldi r25,hi8(24)
+  91 008a 0E94 0000 		call PWMNew
+  92               	.LSM16:
+  93 008e 88E1      		ldi r24,lo8(24)
+  94 0090 90E0      		ldi r25,hi8(24)
+  95 0092 0E94 0000 		call PWMStart
+  96               	.LSM17:
+  97 0096 6091 0000 		lds r22,dutyCount
+  98 009a 88E1      		ldi r24,lo8(24)
+  99 009c 90E0      		ldi r25,hi8(24)
+ 100 009e 70E0      		ldi r23,lo8(0)
+ 101 00a0 0E94 0000 		call PWMDuty
+ 102               	.LSM18:
+ 103 00a4 84E0      		ldi r24,lo8(4)
+ 104 00a6 90E0      		ldi r25,hi8(4)
+ 105 00a8 0E94 0000 		call PWMNew
+ 106               	.LSM19:
+ 107 00ac 84E0      		ldi r24,lo8(4)
+ 108 00ae 90E0      		ldi r25,hi8(4)
+ 109 00b0 0E94 0000 		call PWMStart
+ 110               	.LSM20:
+ 111 00b4 6091 0000 		lds r22,dutyCount
+ 112 00b8 84E0      		ldi r24,lo8(4)
+ 113 00ba 90E0      		ldi r25,hi8(4)
+ 114 00bc 70E0      		ldi r23,lo8(0)
+ 115 00be 0E94 0000 		call PWMDuty
+ 116               	.LSM21:
+ 117 00c2 81E1      		ldi r24,lo8(17)
+ 118 00c4 90E0      		ldi r25,hi8(17)
+ 119 00c6 0E94 0000 		call PWMNew
+ 120               	.LSM22:
+ 121 00ca 81E1      		ldi r24,lo8(17)
+ 122 00cc 90E0      		ldi r25,hi8(17)
+ 123 00ce 0E94 0000 		call PWMStart
+ 124               	.LSM23:
+ 125 00d2 6091 0000 		lds r22,dutyCount
+ 126 00d6 81E1      		ldi r24,lo8(17)
+ 127 00d8 90E0      		ldi r25,hi8(17)
+ 128 00da 70E0      		ldi r23,lo8(0)
+ 129 00dc 0E94 0000 		call PWMDuty
+ 130               	.LSM24:
+ 131 00e0 82E1      		ldi r24,lo8(18)
+ 132 00e2 90E0      		ldi r25,hi8(18)
+ 133 00e4 0E94 0000 		call PWMNew
+ 134               	.LSM25:
+ 135 00e8 82E1      		ldi r24,lo8(18)
+ 136 00ea 90E0      		ldi r25,hi8(18)
+ 137 00ec 0E94 0000 		call PWMStart
+ 138               	.LSM26:
+ 139 00f0 6091 0000 		lds r22,dutyCount
+ 140 00f4 82E1      		ldi r24,lo8(18)
+ 141 00f6 90E0      		ldi r25,hi8(18)
+ 142 00f8 70E0      		ldi r23,lo8(0)
+ 143 00fa 0E94 0000 		call PWMDuty
+ 144               	.LSM27:
+ 145 00fe 83E1      		ldi r24,lo8(19)
+ 146 0100 90E0      		ldi r25,hi8(19)
+ 147 0102 0E94 0000 		call PWMNew
+ 148               	.LSM28:
+ 149 0106 83E1      		ldi r24,lo8(19)
+ 150 0108 90E0      		ldi r25,hi8(19)
+ 151 010a 0E94 0000 		call PWMStart
+ 152               	.LSM29:
+ 153 010e 6091 0000 		lds r22,dutyCount
+ 154 0112 83E1      		ldi r24,lo8(19)
+ 155 0114 90E0      		ldi r25,hi8(19)
+ 156 0116 70E0      		ldi r23,lo8(0)
+ 157 0118 0E94 0000 		call PWMDuty
+ 158               	.LSM30:
+ 159 011c 1092 0000 		sts count,__zero_reg__
+ 160 0120 1092 0000 		sts (count)+1,__zero_reg__
+ 161 0124 1092 0000 		sts (count)+2,__zero_reg__
+ 162 0128 1092 0000 		sts (count)+3,__zero_reg__
+ 163 012c 10E0      		ldi r17,lo8(0)
+ 164               	.LVL0:
+ 165               	.LSM31:
+ 166 012e CFEF      		ldi r28,lo8(255)
+ 167 0130 D0E0      		ldi r29,hi8(255)
+ 168               	.L7:
+ 169               	.LSM32:
+ 170 0132 8091 0000 		lds r24,count
+ 171 0136 9091 0000 		lds r25,(count)+1
+ 172 013a A091 0000 		lds r26,(count)+2
+ 173 013e B091 0000 		lds r27,(count)+3
+ 174 0142 8051      		subi r24,lo8(10000)
+ 175 0144 9742      		sbci r25,hi8(10000)
+ 176 0146 A040      		sbci r26,hlo8(10000)
+ 177 0148 B040      		sbci r27,hhi8(10000)
+ 178 014a 00F4      		brsh .L2
+ 179               	.LSM33:
+ 180 014c 1123      		tst r17
+ 181 014e 01F4      		brne .L3
+ 182               	.LSM34:
+ 183 0150 5E9A      		sbi 43-32,6
+ 184 0152 00C0      		rjmp .L4
+ 185               	.L3:
+ 186               	.LSM35:
+ 187 0154 5E98      		cbi 43-32,6
+ 188               	.L4:
+ 189               	.LSM36:
+ 190 0156 8091 0000 		lds r24,count
+ 191 015a 9091 0000 		lds r25,(count)+1
+ 192 015e A091 0000 		lds r26,(count)+2
+ 193 0162 B091 0000 		lds r27,(count)+3
+ 194 0166 0196      		adiw r24,1
+ 195 0168 A11D      		adc r26,__zero_reg__
+ 196 016a B11D      		adc r27,__zero_reg__
+ 197 016c 8093 0000 		sts count,r24
+ 198 0170 9093 0000 		sts (count)+1,r25
+ 199 0174 A093 0000 		sts (count)+2,r26
+ 200 0178 B093 0000 		sts (count)+3,r27
+ 201 017c 00C0      		rjmp .L7
+ 202               	.L2:
+ 203               	.LSM37:
+ 204 017e 1095      		com r17
+ 205               	.LSM38:
+ 206 0180 1092 0000 		sts count,__zero_reg__
+ 207 0184 1092 0000 		sts (count)+1,__zero_reg__
+ 208 0188 1092 0000 		sts (count)+2,__zero_reg__
+ 209 018c 1092 0000 		sts (count)+3,__zero_reg__
+ 210               	.LSM39:
+ 211 0190 8091 0000 		lds r24,dutyCount
+ 212 0194 8F5F      		subi r24,lo8(-(1))
+ 213 0196 8093 0000 		sts dutyCount,r24
+ 214               	.LSM40:
+ 215 019a 6091 0000 		lds r22,dutyCount
+ 216 019e 82E0      		ldi r24,lo8(2)
+ 217 01a0 90E0      		ldi r25,hi8(2)
+ 218 01a2 70E0      		ldi r23,lo8(0)
+ 219 01a4 0E94 0000 		call PWMDuty
+ 220               	.LSM41:
+ 221 01a8 8091 0000 		lds r24,dutyCount
+ 222 01ac BE01      		movw r22,r28
+ 223 01ae 681B      		sub r22,r24
+ 224 01b0 7109      		sbc r23,__zero_reg__
+ 225 01b2 83E0      		ldi r24,lo8(3)
+ 226 01b4 90E0      		ldi r25,hi8(3)
+ 227 01b6 0E94 0000 		call PWMDuty
+ 228               	.LSM42:
+ 229 01ba 6091 0000 		lds r22,dutyCount
+ 230 01be 86E1      		ldi r24,lo8(22)
+ 231 01c0 90E0      		ldi r25,hi8(22)
+ 232 01c2 70E0      		ldi r23,lo8(0)
+ 233 01c4 0E94 0000 		call PWMDuty
+ 234               	.LSM43:
+ 235 01c8 6091 0000 		lds r22,dutyCount
+ 236 01cc 87E1      		ldi r24,lo8(23)
+ 237 01ce 90E0      		ldi r25,hi8(23)
+ 238 01d0 70E0      		ldi r23,lo8(0)
+ 239 01d2 0E94 0000 		call PWMDuty
+ 240               	.LSM44:
+ 241 01d6 6091 0000 		lds r22,dutyCount
+ 242 01da 81E1      		ldi r24,lo8(17)
+ 243 01dc 90E0      		ldi r25,hi8(17)
+ 244 01de 70E0      		ldi r23,lo8(0)
+ 245 01e0 0E94 0000 		call PWMDuty
+ 246 01e4 00C0      		rjmp .L7
+ 247               	.LFE2:
+ 249               		.comm count,4,1
+ 250               		.comm dutyCount,1,1
+ 275               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 blinky.c
+C:\Users\laptop\AppData\Local\Temp/cchRIUci.s:2      *ABS*:0000003f __SREG__
+C:\Users\laptop\AppData\Local\Temp/cchRIUci.s:3      *ABS*:0000003e __SP_H__
+C:\Users\laptop\AppData\Local\Temp/cchRIUci.s:4      *ABS*:0000003d __SP_L__
+C:\Users\laptop\AppData\Local\Temp/cchRIUci.s:5      *ABS*:00000034 __CCP__
+C:\Users\laptop\AppData\Local\Temp/cchRIUci.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\laptop\AppData\Local\Temp/cchRIUci.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\laptop\AppData\Local\Temp/cchRIUci.s:19     .text.main:00000000 main
+                            *COM*:00000001 dutyCount
+                            *COM*:00000004 count
+
+UNDEFINED SYMBOLS
+PWMNew
+PWMStart
+PWMDuty
+__do_clear_bss

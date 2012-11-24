@@ -1,0 +1,880 @@
+   1               		.file	"PWMTeensyTwoPlusPlus.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.PWMNew,"ax",@progbits
+  17               	.global	PWMNew
+  19               	PWMNew:
+  20               	.LFB6:
+  21               	.LSM0:
+  22               	.LVL0:
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25 0000 982F      		mov r25,r24
+  26               	.LSM1:
+  27 0002 8250      		subi r24,lo8(-(-2))
+  28               	.LVL1:
+  29 0004 8230      		cpi r24,lo8(2)
+  30 0006 00F4      		brsh .L2
+  31               	.LSM2:
+  32 0008 9230      		cpi r25,lo8(2)
+  33 000a 01F4      		brne .L3
+  34               	.LSM3:
+  35 000c 279A      		sbi 36-32,7
+  36               	.LSM4:
+  37 000e 84B5      		in r24,68-32
+  38 0010 8068      		ori r24,lo8(-128)
+  39 0012 00C0      		rjmp .L18
+  40               	.L3:
+  41               	.LSM5:
+  42 0014 509A      		sbi 42-32,0
+  43               	.LSM6:
+  44 0016 84B5      		in r24,68-32
+  45 0018 8062      		ori r24,lo8(32)
+  46               	.L18:
+  47 001a 84BD      		out 68-32,r24
+  48               	.LSM7:
+  49 001c 84B5      		in r24,68-32
+  50 001e 8360      		ori r24,lo8(3)
+  51 0020 84BD      		out 68-32,r24
+  52 0022 0895      		ret
+  53               	.L2:
+  54               	.LSM8:
+  55 0024 892F      		mov r24,r25
+  56 0026 8651      		subi r24,lo8(-(-22))
+  57 0028 8230      		cpi r24,lo8(2)
+  58 002a 00F4      		brsh .L6
+  59               	.LSM9:
+  60 002c 9731      		cpi r25,lo8(23)
+  61 002e 01F4      		brne .L7
+  62               	.LSM10:
+  63 0030 259A      		sbi 36-32,5
+  64               	.LSM11:
+  65 0032 8091 8000 		lds r24,128
+  66 0036 8068      		ori r24,lo8(-128)
+  67 0038 00C0      		rjmp .L19
+  68               	.L7:
+  69               	.LSM12:
+  70 003a 269A      		sbi 36-32,6
+  71               	.LSM13:
+  72 003c 8091 8000 		lds r24,128
+  73 0040 8062      		ori r24,lo8(32)
+  74               	.L19:
+  75 0042 8093 8000 		sts 128,r24
+  76               	.LSM14:
+  77 0046 8091 8000 		lds r24,128
+  78 004a 8160      		ori r24,lo8(1)
+  79 004c 8093 8000 		sts 128,r24
+  80               	.LSM15:
+  81 0050 8091 8100 		lds r24,129
+  82 0054 8860      		ori r24,lo8(8)
+  83 0056 8093 8100 		sts 129,r24
+  84 005a 0895      		ret
+  85               	.L6:
+  86               	.LSM16:
+  87 005c 9831      		cpi r25,lo8(24)
+  88 005e 01F0      		breq .L9
+  89 0060 9430      		cpi r25,lo8(4)
+  90 0062 01F4      		brne .L17
+  91 0064 00C0      		rjmp .L21
+  92               	.L9:
+  93               	.LSM17:
+  94 0066 249A      		sbi 36-32,4
+  95               	.LSM18:
+  96 0068 8091 B000 		lds r24,176
+  97 006c 8068      		ori r24,lo8(-128)
+  98 006e 8093 B000 		sts 176,r24
+  99 0072 00C0      		rjmp .L12
+ 100               	.L21:
+ 101               	.LSM19:
+ 102 0074 519A      		sbi 42-32,1
+ 103               	.LSM20:
+ 104 0076 8091 B100 		lds r24,177
+ 105 007a 8062      		ori r24,lo8(32)
+ 106 007c 8093 B100 		sts 177,r24
+ 107               	.L12:
+ 108               	.LSM21:
+ 109 0080 8091 B000 		lds r24,176
+ 110 0084 8360      		ori r24,lo8(3)
+ 111 0086 8093 B000 		sts 176,r24
+ 112 008a 0895      		ret
+ 113               	.L17:
+ 114               	.LSM22:
+ 115 008c 892F      		mov r24,r25
+ 116 008e 8151      		subi r24,lo8(-(-17))
+ 117 0090 8330      		cpi r24,lo8(3)
+ 118 0092 00F4      		brsh .L16
+ 119               	.LSM23:
+ 120 0094 9331      		cpi r25,lo8(19)
+ 121 0096 01F4      		brne .L13
+ 122               	.LSM24:
+ 123 0098 3C9A      		sbi 39-32,4
+ 124               	.LSM25:
+ 125 009a 8091 9000 		lds r24,144
+ 126 009e 8068      		ori r24,lo8(-128)
+ 127 00a0 00C0      		rjmp .L20
+ 128               	.L13:
+ 129               	.LSM26:
+ 130 00a2 9231      		cpi r25,lo8(18)
+ 131 00a4 01F4      		brne .L15
+ 132               	.LSM27:
+ 133 00a6 3D9A      		sbi 39-32,5
+ 134               	.LSM28:
+ 135 00a8 8091 9000 		lds r24,144
+ 136 00ac 8062      		ori r24,lo8(32)
+ 137 00ae 00C0      		rjmp .L20
+ 138               	.L15:
+ 139               	.LSM29:
+ 140 00b0 3E9A      		sbi 39-32,6
+ 141               	.LSM30:
+ 142 00b2 8091 9000 		lds r24,144
+ 143 00b6 8860      		ori r24,lo8(8)
+ 144               	.L20:
+ 145 00b8 8093 9000 		sts 144,r24
+ 146               	.LSM31:
+ 147 00bc 8091 9000 		lds r24,144
+ 148 00c0 8160      		ori r24,lo8(1)
+ 149 00c2 8093 9000 		sts 144,r24
+ 150               	.LSM32:
+ 151 00c6 8091 9100 		lds r24,145
+ 152 00ca 8860      		ori r24,lo8(8)
+ 153 00cc 8093 9100 		sts 145,r24
+ 154               	.L16:
+ 155 00d0 0895      		ret
+ 156               	.LFE6:
+ 158               		.section	.text.PWMStartTimer,"ax",@progbits
+ 159               	.global	PWMStartTimer
+ 161               	PWMStartTimer:
+ 162               	.LFB8:
+ 163               	.LSM33:
+ 164               	.LVL2:
+ 165               	/* prologue: function */
+ 166               	/* frame size = 0 */
+ 167               	.LSM34:
+ 168 0000 8823      		tst r24
+ 169 0002 01F4      		brne .L23
+ 170               	.LSM35:
+ 171 0004 85B5      		in r24,69-32
+ 172               	.LVL3:
+ 173 0006 8E7F      		andi r24,lo8(-2)
+ 174 0008 85BD      		out 69-32,r24
+ 175               	.LSM36:
+ 176 000a 85B5      		in r24,69-32
+ 177 000c 8D7F      		andi r24,lo8(-3)
+ 178 000e 85BD      		out 69-32,r24
+ 179               	.LSM37:
+ 180 0010 85B5      		in r24,69-32
+ 181 0012 8B7F      		andi r24,lo8(-5)
+ 182 0014 85BD      		out 69-32,r24
+ 183               	.LSM38:
+ 184 0016 6130      		cpi r22,lo8(1)
+ 185 0018 01F4      		brne .L24
+ 186               	.LSM39:
+ 187 001a 85B5      		in r24,69-32
+ 188 001c 8160      		ori r24,lo8(1)
+ 189 001e 00C0      		rjmp .L52
+ 190               	.L24:
+ 191               	.LSM40:
+ 192 0020 6230      		cpi r22,lo8(2)
+ 193 0022 01F4      		brne .L26
+ 194               	.LSM41:
+ 195 0024 85B5      		in r24,69-32
+ 196 0026 8260      		ori r24,lo8(2)
+ 197               	.L52:
+ 198 0028 85BD      		out 69-32,r24
+ 199 002a 0895      		ret
+ 200               	.L26:
+ 201               	.LSM42:
+ 202 002c 6330      		cpi r22,lo8(3)
+ 203 002e 01F4      		brne .L27
+ 204               	.LSM43:
+ 205 0030 85B5      		in r24,69-32
+ 206 0032 8360      		ori r24,lo8(3)
+ 207 0034 00C0      		rjmp .L52
+ 208               	.L27:
+ 209               	.LSM44:
+ 210 0036 6430      		cpi r22,lo8(4)
+ 211 0038 01F4      		brne .L28
+ 212               	.LSM45:
+ 213 003a 85B5      		in r24,69-32
+ 214 003c 8460      		ori r24,lo8(4)
+ 215 003e 00C0      		rjmp .L52
+ 216               	.L28:
+ 217               	.LSM46:
+ 218 0040 6530      		cpi r22,lo8(5)
+ 219 0042 01F4      		brne .L29
+ 220               	.LSM47:
+ 221 0044 85B5      		in r24,69-32
+ 222 0046 8560      		ori r24,lo8(5)
+ 223 0048 00C0      		rjmp .L52
+ 224               	.L29:
+ 225               	.LSM48:
+ 226 004a 6630      		cpi r22,lo8(6)
+ 227 004c 01F4      		brne .L30
+ 228               	.LSM49:
+ 229 004e 85B5      		in r24,69-32
+ 230 0050 8660      		ori r24,lo8(6)
+ 231 0052 00C0      		rjmp .L52
+ 232               	.L30:
+ 233               	.LSM50:
+ 234 0054 6730      		cpi r22,lo8(7)
+ 235 0056 01F0      		breq .+2
+ 236 0058 00C0      		rjmp .L51
+ 237               	.LSM51:
+ 238 005a 85B5      		in r24,69-32
+ 239 005c 8760      		ori r24,lo8(7)
+ 240 005e 00C0      		rjmp .L52
+ 241               	.LVL4:
+ 242               	.L23:
+ 243               	.LSM52:
+ 244 0060 8130      		cpi r24,lo8(1)
+ 245 0062 01F4      		brne .L31
+ 246               	.LSM53:
+ 247 0064 8091 8100 		lds r24,129
+ 248               	.LVL5:
+ 249 0068 8E7F      		andi r24,lo8(-2)
+ 250 006a 8093 8100 		sts 129,r24
+ 251               	.LSM54:
+ 252 006e 8091 8100 		lds r24,129
+ 253 0072 8D7F      		andi r24,lo8(-3)
+ 254 0074 8093 8100 		sts 129,r24
+ 255               	.LSM55:
+ 256 0078 8091 8100 		lds r24,129
+ 257 007c 8B7F      		andi r24,lo8(-5)
+ 258 007e 8093 8100 		sts 129,r24
+ 259               	.LSM56:
+ 260 0082 6130      		cpi r22,lo8(1)
+ 261 0084 01F4      		brne .L32
+ 262               	.LSM57:
+ 263 0086 8091 8100 		lds r24,129
+ 264 008a 8160      		ori r24,lo8(1)
+ 265 008c 00C0      		rjmp .L53
+ 266               	.L32:
+ 267               	.LSM58:
+ 268 008e 6230      		cpi r22,lo8(2)
+ 269 0090 01F4      		brne .L33
+ 270               	.LSM59:
+ 271 0092 8091 8100 		lds r24,129
+ 272 0096 8260      		ori r24,lo8(2)
+ 273 0098 00C0      		rjmp .L53
+ 274               	.L33:
+ 275               	.LSM60:
+ 276 009a 6330      		cpi r22,lo8(3)
+ 277 009c 01F4      		brne .L34
+ 278               	.LSM61:
+ 279 009e 8091 8100 		lds r24,129
+ 280 00a2 8360      		ori r24,lo8(3)
+ 281 00a4 00C0      		rjmp .L53
+ 282               	.L34:
+ 283               	.LSM62:
+ 284 00a6 6430      		cpi r22,lo8(4)
+ 285 00a8 01F4      		brne .L35
+ 286               	.LSM63:
+ 287 00aa 8091 8100 		lds r24,129
+ 288 00ae 8460      		ori r24,lo8(4)
+ 289 00b0 00C0      		rjmp .L53
+ 290               	.L35:
+ 291               	.LSM64:
+ 292 00b2 6530      		cpi r22,lo8(5)
+ 293 00b4 01F4      		brne .L36
+ 294               	.LSM65:
+ 295 00b6 8091 8100 		lds r24,129
+ 296 00ba 8560      		ori r24,lo8(5)
+ 297 00bc 00C0      		rjmp .L53
+ 298               	.L36:
+ 299               	.LSM66:
+ 300 00be 6630      		cpi r22,lo8(6)
+ 301 00c0 01F4      		brne .L37
+ 302               	.LSM67:
+ 303 00c2 8091 8100 		lds r24,129
+ 304 00c6 8660      		ori r24,lo8(6)
+ 305 00c8 00C0      		rjmp .L53
+ 306               	.L37:
+ 307               	.LSM68:
+ 308 00ca 6730      		cpi r22,lo8(7)
+ 309 00cc 01F0      		breq .+2
+ 310 00ce 00C0      		rjmp .L51
+ 311               	.LSM69:
+ 312 00d0 8091 8100 		lds r24,129
+ 313 00d4 8760      		ori r24,lo8(7)
+ 314               	.L53:
+ 315 00d6 8093 8100 		sts 129,r24
+ 316 00da 0895      		ret
+ 317               	.LVL6:
+ 318               	.L31:
+ 319               	.LSM70:
+ 320 00dc 8230      		cpi r24,lo8(2)
+ 321 00de 01F4      		brne .L38
+ 322               	.LSM71:
+ 323 00e0 8091 B100 		lds r24,177
+ 324               	.LVL7:
+ 325 00e4 8E7F      		andi r24,lo8(-2)
+ 326 00e6 8093 B100 		sts 177,r24
+ 327               	.LSM72:
+ 328 00ea 8091 B100 		lds r24,177
+ 329 00ee 8D7F      		andi r24,lo8(-3)
+ 330 00f0 8093 B100 		sts 177,r24
+ 331               	.LSM73:
+ 332 00f4 8091 B100 		lds r24,177
+ 333 00f8 8B7F      		andi r24,lo8(-5)
+ 334 00fa 8093 B100 		sts 177,r24
+ 335               	.LSM74:
+ 336 00fe 6130      		cpi r22,lo8(1)
+ 337 0100 01F4      		brne .L39
+ 338               	.LSM75:
+ 339 0102 8091 B100 		lds r24,177
+ 340 0106 8160      		ori r24,lo8(1)
+ 341 0108 00C0      		rjmp .L55
+ 342               	.L39:
+ 343               	.LSM76:
+ 344 010a 6230      		cpi r22,lo8(2)
+ 345 010c 01F4      		brne .L40
+ 346               	.LSM77:
+ 347 010e 8091 B100 		lds r24,177
+ 348 0112 8260      		ori r24,lo8(2)
+ 349 0114 00C0      		rjmp .L55
+ 350               	.L40:
+ 351               	.LSM78:
+ 352 0116 6330      		cpi r22,lo8(3)
+ 353 0118 01F4      		brne .L41
+ 354               	.LSM79:
+ 355 011a 8091 B100 		lds r24,177
+ 356 011e 8360      		ori r24,lo8(3)
+ 357 0120 00C0      		rjmp .L55
+ 358               	.L41:
+ 359               	.LSM80:
+ 360 0122 6430      		cpi r22,lo8(4)
+ 361 0124 01F4      		brne .L42
+ 362               	.LSM81:
+ 363 0126 8091 B100 		lds r24,177
+ 364 012a 8460      		ori r24,lo8(4)
+ 365 012c 00C0      		rjmp .L55
+ 366               	.L42:
+ 367               	.LSM82:
+ 368 012e 6530      		cpi r22,lo8(5)
+ 369 0130 01F4      		brne .L43
+ 370               	.LSM83:
+ 371 0132 8091 B100 		lds r24,177
+ 372 0136 8560      		ori r24,lo8(5)
+ 373 0138 00C0      		rjmp .L55
+ 374               	.L43:
+ 375               	.LSM84:
+ 376 013a 6630      		cpi r22,lo8(6)
+ 377 013c 01F4      		brne .L44
+ 378               	.LSM85:
+ 379 013e 8091 B100 		lds r24,177
+ 380 0142 8660      		ori r24,lo8(6)
+ 381 0144 00C0      		rjmp .L55
+ 382               	.L44:
+ 383               	.LSM86:
+ 384 0146 6730      		cpi r22,lo8(7)
+ 385 0148 01F0      		breq .+2
+ 386 014a 00C0      		rjmp .L51
+ 387               	.LSM87:
+ 388 014c 8091 B100 		lds r24,177
+ 389 0150 8760      		ori r24,lo8(7)
+ 390               	.L55:
+ 391 0152 8093 B100 		sts 177,r24
+ 392 0156 0895      		ret
+ 393               	.LVL8:
+ 394               	.L38:
+ 395               	.LSM88:
+ 396 0158 8330      		cpi r24,lo8(3)
+ 397 015a 01F4      		brne .L51
+ 398               	.LSM89:
+ 399 015c 8091 9100 		lds r24,145
+ 400               	.LVL9:
+ 401 0160 8E7F      		andi r24,lo8(-2)
+ 402 0162 8093 9100 		sts 145,r24
+ 403               	.LSM90:
+ 404 0166 8091 9100 		lds r24,145
+ 405 016a 8D7F      		andi r24,lo8(-3)
+ 406 016c 8093 9100 		sts 145,r24
+ 407               	.LSM91:
+ 408 0170 8091 9100 		lds r24,145
+ 409 0174 8B7F      		andi r24,lo8(-5)
+ 410 0176 8093 9100 		sts 145,r24
+ 411               	.LSM92:
+ 412 017a 6130      		cpi r22,lo8(1)
+ 413 017c 01F4      		brne .L45
+ 414               	.LSM93:
+ 415 017e 8091 9100 		lds r24,145
+ 416 0182 8160      		ori r24,lo8(1)
+ 417 0184 00C0      		rjmp .L54
+ 418               	.L45:
+ 419               	.LSM94:
+ 420 0186 6230      		cpi r22,lo8(2)
+ 421 0188 01F4      		brne .L46
+ 422               	.LSM95:
+ 423 018a 8091 9100 		lds r24,145
+ 424 018e 8260      		ori r24,lo8(2)
+ 425 0190 00C0      		rjmp .L54
+ 426               	.L46:
+ 427               	.LSM96:
+ 428 0192 6330      		cpi r22,lo8(3)
+ 429 0194 01F4      		brne .L47
+ 430               	.LSM97:
+ 431 0196 8091 9100 		lds r24,145
+ 432 019a 8360      		ori r24,lo8(3)
+ 433 019c 00C0      		rjmp .L54
+ 434               	.L47:
+ 435               	.LSM98:
+ 436 019e 6430      		cpi r22,lo8(4)
+ 437 01a0 01F4      		brne .L48
+ 438               	.LSM99:
+ 439 01a2 8091 9100 		lds r24,145
+ 440 01a6 8460      		ori r24,lo8(4)
+ 441 01a8 00C0      		rjmp .L54
+ 442               	.L48:
+ 443               	.LSM100:
+ 444 01aa 6530      		cpi r22,lo8(5)
+ 445 01ac 01F4      		brne .L49
+ 446               	.LSM101:
+ 447 01ae 8091 9100 		lds r24,145
+ 448 01b2 8560      		ori r24,lo8(5)
+ 449 01b4 00C0      		rjmp .L54
+ 450               	.L49:
+ 451               	.LSM102:
+ 452 01b6 6630      		cpi r22,lo8(6)
+ 453 01b8 01F4      		brne .L50
+ 454               	.LSM103:
+ 455 01ba 8091 9100 		lds r24,145
+ 456 01be 8660      		ori r24,lo8(6)
+ 457               	.L54:
+ 458 01c0 8093 9100 		sts 145,r24
+ 459 01c4 0895      		ret
+ 460               	.L50:
+ 461               	.LSM104:
+ 462 01c6 6730      		cpi r22,lo8(7)
+ 463 01c8 01F4      		brne .L51
+ 464               	.LSM105:
+ 465 01ca 8091 9100 		lds r24,145
+ 466 01ce 8760      		ori r24,lo8(7)
+ 467 01d0 8093 9100 		sts 145,r24
+ 468               	.LVL10:
+ 469               	.L51:
+ 470 01d4 0895      		ret
+ 471               	.LFE8:
+ 473               		.section	.text.PWMStart,"ax",@progbits
+ 474               	.global	PWMStart
+ 476               	PWMStart:
+ 477               	.LFB7:
+ 478               	.LSM106:
+ 479               	.LVL11:
+ 480               	/* prologue: function */
+ 481               	/* frame size = 0 */
+ 482 0000 982F      		mov r25,r24
+ 483               	.LSM107:
+ 484 0002 8250      		subi r24,lo8(-(-2))
+ 485               	.LVL12:
+ 486 0004 8230      		cpi r24,lo8(2)
+ 487 0006 00F4      		brsh .L57
+ 488               	.LSM108:
+ 489 0008 80E0      		ldi r24,lo8(0)
+ 490 000a 00C0      		rjmp .L64
+ 491               	.L57:
+ 492               	.LSM109:
+ 493 000c 892F      		mov r24,r25
+ 494 000e 8651      		subi r24,lo8(-(-22))
+ 495 0010 8230      		cpi r24,lo8(2)
+ 496 0012 00F4      		brsh .L59
+ 497               	.LSM110:
+ 498 0014 81E0      		ldi r24,lo8(1)
+ 499               	.L64:
+ 500 0016 65E0      		ldi r22,lo8(5)
+ 501 0018 00C0      		rjmp .L63
+ 502               	.L59:
+ 503               	.LSM111:
+ 504 001a 9831      		cpi r25,lo8(24)
+ 505 001c 01F0      		breq .L60
+ 506 001e 9430      		cpi r25,lo8(4)
+ 507 0020 01F4      		brne .L61
+ 508               	.L60:
+ 509               	.LSM112:
+ 510 0022 82E0      		ldi r24,lo8(2)
+ 511 0024 67E0      		ldi r22,lo8(7)
+ 512               	.L63:
+ 513 0026 0E94 0000 		call PWMStartTimer
+ 514               	.LVL13:
+ 515 002a 0895      		ret
+ 516               	.LVL14:
+ 517               	.L61:
+ 518               	.LSM113:
+ 519 002c 9151      		subi r25,lo8(-(-17))
+ 520 002e 9330      		cpi r25,lo8(3)
+ 521 0030 00F4      		brsh .L62
+ 522               	.LSM114:
+ 523 0032 83E0      		ldi r24,lo8(3)
+ 524 0034 65E0      		ldi r22,lo8(5)
+ 525 0036 0E94 0000 		call PWMStartTimer
+ 526               	.LVL15:
+ 527               	.L62:
+ 528 003a 0895      		ret
+ 529               	.LFE7:
+ 531               		.section	.text.PWMStopTimer,"ax",@progbits
+ 532               	.global	PWMStopTimer
+ 534               	PWMStopTimer:
+ 535               	.LFB9:
+ 536               	.LSM115:
+ 537               	.LVL16:
+ 538               	/* prologue: function */
+ 539               	/* frame size = 0 */
+ 540               	.LSM116:
+ 541 0000 8823      		tst r24
+ 542 0002 01F4      		brne .L66
+ 543               	.LSM117:
+ 544 0004 85B5      		in r24,69-32
+ 545               	.LVL17:
+ 546 0006 8E7F      		andi r24,lo8(-2)
+ 547 0008 85BD      		out 69-32,r24
+ 548               	.LSM118:
+ 549 000a 85B5      		in r24,69-32
+ 550 000c 8D7F      		andi r24,lo8(-3)
+ 551 000e 85BD      		out 69-32,r24
+ 552               	.LSM119:
+ 553 0010 85B5      		in r24,69-32
+ 554 0012 8B7F      		andi r24,lo8(-5)
+ 555 0014 85BD      		out 69-32,r24
+ 556 0016 0895      		ret
+ 557               	.LVL18:
+ 558               	.L66:
+ 559               	.LSM120:
+ 560 0018 8130      		cpi r24,lo8(1)
+ 561 001a 01F4      		brne .L68
+ 562               	.LSM121:
+ 563 001c 8091 8100 		lds r24,129
+ 564               	.LVL19:
+ 565 0020 8E7F      		andi r24,lo8(-2)
+ 566 0022 8093 8100 		sts 129,r24
+ 567               	.LSM122:
+ 568 0026 8091 8100 		lds r24,129
+ 569 002a 8D7F      		andi r24,lo8(-3)
+ 570 002c 8093 8100 		sts 129,r24
+ 571               	.LSM123:
+ 572 0030 8091 8100 		lds r24,129
+ 573 0034 8B7F      		andi r24,lo8(-5)
+ 574 0036 8093 8100 		sts 129,r24
+ 575 003a 0895      		ret
+ 576               	.LVL20:
+ 577               	.L68:
+ 578               	.LSM124:
+ 579 003c 8230      		cpi r24,lo8(2)
+ 580 003e 01F4      		brne .L69
+ 581               	.LSM125:
+ 582 0040 8091 B100 		lds r24,177
+ 583               	.LVL21:
+ 584 0044 8E7F      		andi r24,lo8(-2)
+ 585 0046 8093 B100 		sts 177,r24
+ 586               	.LSM126:
+ 587 004a 8091 B100 		lds r24,177
+ 588 004e 8D7F      		andi r24,lo8(-3)
+ 589 0050 8093 B100 		sts 177,r24
+ 590               	.LSM127:
+ 591 0054 8091 B100 		lds r24,177
+ 592 0058 8B7F      		andi r24,lo8(-5)
+ 593 005a 8093 B100 		sts 177,r24
+ 594 005e 0895      		ret
+ 595               	.LVL22:
+ 596               	.L69:
+ 597               	.LSM128:
+ 598 0060 8330      		cpi r24,lo8(3)
+ 599 0062 01F4      		brne .L70
+ 600               	.LSM129:
+ 601 0064 8091 9100 		lds r24,145
+ 602               	.LVL23:
+ 603 0068 8E7F      		andi r24,lo8(-2)
+ 604 006a 8093 9100 		sts 145,r24
+ 605               	.LSM130:
+ 606 006e 8091 9100 		lds r24,145
+ 607 0072 8D7F      		andi r24,lo8(-3)
+ 608 0074 8093 9100 		sts 145,r24
+ 609               	.LSM131:
+ 610 0078 8091 9100 		lds r24,145
+ 611 007c 8B7F      		andi r24,lo8(-5)
+ 612 007e 8093 9100 		sts 145,r24
+ 613               	.LVL24:
+ 614               	.L70:
+ 615 0082 0895      		ret
+ 616               	.LFE9:
+ 618               		.section	.text.PWMEnableDisablePin,"ax",@progbits
+ 619               	.global	PWMEnableDisablePin
+ 621               	PWMEnableDisablePin:
+ 622               	.LFB10:
+ 623               	.LSM132:
+ 624               	.LVL25:
+ 625               	/* prologue: function */
+ 626               	/* frame size = 0 */
+ 627 0000 982F      		mov r25,r24
+ 628               	.LSM133:
+ 629 0002 8250      		subi r24,lo8(-(-2))
+ 630               	.LVL26:
+ 631 0004 8230      		cpi r24,lo8(2)
+ 632 0006 00F4      		brsh .L72
+ 633               	.LSM134:
+ 634 0008 9230      		cpi r25,lo8(2)
+ 635 000a 01F4      		brne .L73
+ 636               	.LSM135:
+ 637 000c 6623      		tst r22
+ 638 000e 01F0      		breq .L74
+ 639               	.LSM136:
+ 640 0010 84B5      		in r24,68-32
+ 641 0012 8068      		ori r24,lo8(-128)
+ 642 0014 00C0      		rjmp .L94
+ 643               	.L74:
+ 644               	.LSM137:
+ 645 0016 84B5      		in r24,68-32
+ 646 0018 8F77      		andi r24,lo8(127)
+ 647 001a 00C0      		rjmp .L94
+ 648               	.L73:
+ 649               	.LSM138:
+ 650 001c 6623      		tst r22
+ 651 001e 01F0      		breq .L76
+ 652               	.LSM139:
+ 653 0020 84B5      		in r24,68-32
+ 654 0022 8062      		ori r24,lo8(32)
+ 655 0024 00C0      		rjmp .L94
+ 656               	.L76:
+ 657               	.LSM140:
+ 658 0026 84B5      		in r24,68-32
+ 659 0028 8F7D      		andi r24,lo8(-33)
+ 660               	.L94:
+ 661 002a 84BD      		out 68-32,r24
+ 662 002c 0895      		ret
+ 663               	.L72:
+ 664               	.LSM141:
+ 665 002e 892F      		mov r24,r25
+ 666 0030 8651      		subi r24,lo8(-(-22))
+ 667 0032 8230      		cpi r24,lo8(2)
+ 668 0034 00F4      		brsh .L77
+ 669               	.LSM142:
+ 670 0036 9731      		cpi r25,lo8(23)
+ 671 0038 01F4      		brne .L78
+ 672               	.LSM143:
+ 673 003a 6623      		tst r22
+ 674 003c 01F0      		breq .L79
+ 675               	.LSM144:
+ 676 003e 8091 8000 		lds r24,128
+ 677 0042 8068      		ori r24,lo8(-128)
+ 678 0044 00C0      		rjmp .L95
+ 679               	.L79:
+ 680               	.LSM145:
+ 681 0046 8091 8000 		lds r24,128
+ 682 004a 8F77      		andi r24,lo8(127)
+ 683 004c 00C0      		rjmp .L95
+ 684               	.L78:
+ 685               	.LSM146:
+ 686 004e 6623      		tst r22
+ 687 0050 01F0      		breq .L80
+ 688               	.LSM147:
+ 689 0052 8091 8000 		lds r24,128
+ 690 0056 8062      		ori r24,lo8(32)
+ 691 0058 00C0      		rjmp .L95
+ 692               	.L80:
+ 693               	.LSM148:
+ 694 005a 8091 8000 		lds r24,128
+ 695 005e 8F7D      		andi r24,lo8(-33)
+ 696               	.L95:
+ 697 0060 8093 8000 		sts 128,r24
+ 698 0064 0895      		ret
+ 699               	.L77:
+ 700               	.LSM149:
+ 701 0066 9831      		cpi r25,lo8(24)
+ 702 0068 01F0      		breq .L81
+ 703 006a 9430      		cpi r25,lo8(4)
+ 704 006c 01F4      		brne .L92
+ 705 006e 00C0      		rjmp .L97
+ 706               	.L81:
+ 707               	.LSM150:
+ 708 0070 6623      		tst r22
+ 709 0072 01F0      		breq .L85
+ 710               	.LSM151:
+ 711 0074 8091 B000 		lds r24,176
+ 712 0078 8068      		ori r24,lo8(-128)
+ 713 007a 00C0      		rjmp .L96
+ 714               	.L97:
+ 715               	.LSM152:
+ 716 007c 6623      		tst r22
+ 717 007e 01F0      		breq .L85
+ 718               	.LSM153:
+ 719 0080 8091 B000 		lds r24,176
+ 720 0084 8062      		ori r24,lo8(32)
+ 721 0086 00C0      		rjmp .L96
+ 722               	.L85:
+ 723               	.LSM154:
+ 724 0088 8091 B000 		lds r24,176
+ 725 008c 8F77      		andi r24,lo8(127)
+ 726               	.L96:
+ 727 008e 8093 B000 		sts 176,r24
+ 728 0092 0895      		ret
+ 729               	.L92:
+ 730               	.LSM155:
+ 731 0094 892F      		mov r24,r25
+ 732 0096 8151      		subi r24,lo8(-(-17))
+ 733 0098 8330      		cpi r24,lo8(3)
+ 734 009a 00F4      		brsh .L91
+ 735               	.LSM156:
+ 736 009c 9331      		cpi r25,lo8(19)
+ 737 009e 01F4      		brne .L86
+ 738               	.LSM157:
+ 739 00a0 6623      		tst r22
+ 740 00a2 01F0      		breq .L87
+ 741               	.LSM158:
+ 742 00a4 8091 9000 		lds r24,144
+ 743 00a8 8068      		ori r24,lo8(-128)
+ 744 00aa 00C0      		rjmp .L93
+ 745               	.L87:
+ 746               	.LSM159:
+ 747 00ac 8091 9000 		lds r24,144
+ 748 00b0 8F77      		andi r24,lo8(127)
+ 749 00b2 00C0      		rjmp .L93
+ 750               	.L86:
+ 751               	.LSM160:
+ 752 00b4 9231      		cpi r25,lo8(18)
+ 753 00b6 01F4      		brne .L88
+ 754               	.LSM161:
+ 755 00b8 6623      		tst r22
+ 756 00ba 01F0      		breq .L89
+ 757               	.LSM162:
+ 758 00bc 8091 9000 		lds r24,144
+ 759 00c0 8062      		ori r24,lo8(32)
+ 760 00c2 00C0      		rjmp .L93
+ 761               	.L89:
+ 762               	.LSM163:
+ 763 00c4 8091 9000 		lds r24,144
+ 764 00c8 8F7D      		andi r24,lo8(-33)
+ 765 00ca 00C0      		rjmp .L93
+ 766               	.L88:
+ 767               	.LSM164:
+ 768 00cc 6623      		tst r22
+ 769 00ce 01F0      		breq .L90
+ 770               	.LSM165:
+ 771 00d0 8091 9000 		lds r24,144
+ 772 00d4 8860      		ori r24,lo8(8)
+ 773               	.L93:
+ 774 00d6 8093 9000 		sts 144,r24
+ 775 00da 0895      		ret
+ 776               	.L90:
+ 777               	.LSM166:
+ 778 00dc 8091 9000 		lds r24,144
+ 779 00e0 877F      		andi r24,lo8(-9)
+ 780 00e2 8093 9000 		sts 144,r24
+ 781               	.L91:
+ 782 00e6 0895      		ret
+ 783               	.LFE10:
+ 785               		.section	.text.PWMDuty,"ax",@progbits
+ 786               	.global	PWMDuty
+ 788               	PWMDuty:
+ 789               	.LFB11:
+ 790               	.LSM167:
+ 791               	.LVL27:
+ 792               	/* prologue: function */
+ 793               	/* frame size = 0 */
+ 794 0000 282F      		mov r18,r24
+ 795               	.LSM168:
+ 796 0002 8250      		subi r24,lo8(-(-2))
+ 797               	.LVL28:
+ 798 0004 8230      		cpi r24,lo8(2)
+ 799 0006 00F4      		brsh .L99
+ 800               	.LSM169:
+ 801 0008 2230      		cpi r18,lo8(2)
+ 802 000a 01F4      		brne .L100
+ 803               	.LSM170:
+ 804 000c 67BD      		out 71-32,r22
+ 805 000e 0895      		ret
+ 806               	.L100:
+ 807               	.LSM171:
+ 808 0010 68BD      		out 72-32,r22
+ 809 0012 0895      		ret
+ 810               	.L99:
+ 811               	.LSM172:
+ 812 0014 822F      		mov r24,r18
+ 813 0016 8651      		subi r24,lo8(-(-22))
+ 814 0018 8230      		cpi r24,lo8(2)
+ 815 001a 00F4      		brsh .L102
+ 816 001c 70E0      		ldi r23,lo8(0)
+ 817               	.LSM173:
+ 818 001e 2731      		cpi r18,lo8(23)
+ 819 0020 01F4      		brne .L103
+ 820               	.LSM174:
+ 821 0022 7093 8900 		sts (136)+1,r23
+ 822 0026 6093 8800 		sts 136,r22
+ 823               	.LVL29:
+ 824 002a 0895      		ret
+ 825               	.LVL30:
+ 826               	.L103:
+ 827               	.LSM175:
+ 828 002c 7093 8B00 		sts (138)+1,r23
+ 829 0030 6093 8A00 		sts 138,r22
+ 830               	.LVL31:
+ 831 0034 0895      		ret
+ 832               	.LVL32:
+ 833               	.L102:
+ 834               	.LSM176:
+ 835 0036 2831      		cpi r18,lo8(24)
+ 836 0038 01F0      		breq .L104
+ 837 003a 2430      		cpi r18,lo8(4)
+ 838 003c 01F4      		brne .L110
+ 839 003e 00C0      		rjmp .L111
+ 840               	.L104:
+ 841               	.LSM177:
+ 842 0040 6093 B300 		sts 179,r22
+ 843 0044 0895      		ret
+ 844               	.L111:
+ 845               	.LSM178:
+ 846 0046 6093 B400 		sts 180,r22
+ 847 004a 0895      		ret
+ 848               	.L110:
+ 849               	.LSM179:
+ 850 004c 822F      		mov r24,r18
+ 851 004e 8151      		subi r24,lo8(-(-17))
+ 852 0050 8330      		cpi r24,lo8(3)
+ 853 0052 00F4      		brsh .L109
+ 854               	.LSM180:
+ 855 0054 2331      		cpi r18,lo8(19)
+ 856 0056 01F4      		brne .L107
+ 857               	.LSM181:
+ 858 0058 862F      		mov r24,r22
+ 859 005a 90E0      		ldi r25,lo8(0)
+ 860 005c 9093 9900 		sts (152)+1,r25
+ 861 0060 8093 9800 		sts 152,r24
+ 862 0064 0895      		ret
+ 863               	.L107:
+ 864 0066 70E0      		ldi r23,lo8(0)
+ 865               	.LSM182:
+ 866 0068 2231      		cpi r18,lo8(18)
+ 867 006a 01F4      		brne .L108
+ 868               	.LSM183:
+ 869 006c 7093 9B00 		sts (154)+1,r23
+ 870 0070 6093 9A00 		sts 154,r22
+ 871               	.LVL33:
+ 872 0074 0895      		ret
+ 873               	.LVL34:
+ 874               	.L108:
+ 875               	.LSM184:
+ 876 0076 7093 9D00 		sts (156)+1,r23
+ 877 007a 6093 9C00 		sts 156,r22
+ 878               	.LVL35:
+ 879               	.L109:
+ 880 007e 0895      		ret
+ 881               	.LFE11:
+ 947               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 PWMTeensyTwoPlusPlus.c
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:2      *ABS*:0000003f __SREG__
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:3      *ABS*:0000003e __SP_H__
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:4      *ABS*:0000003d __SP_L__
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:5      *ABS*:00000034 __CCP__
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:19     .text.PWMNew:00000000 PWMNew
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:161    .text.PWMStartTimer:00000000 PWMStartTimer
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:476    .text.PWMStart:00000000 PWMStart
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:534    .text.PWMStopTimer:00000000 PWMStopTimer
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:621    .text.PWMEnableDisablePin:00000000 PWMEnableDisablePin
+C:\Users\laptop\AppData\Local\Temp/ccmBDmni.s:788    .text.PWMDuty:00000000 PWMDuty
+
+NO UNDEFINED SYMBOLS

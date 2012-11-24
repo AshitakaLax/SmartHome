@@ -1,4 +1,4 @@
-from .container import Container
+from ._container import Container
 
 
 __all__ = ["Universe"]
@@ -143,4 +143,4 @@ class Universe(Container):
             func(event)
 
 
-from .physicaldevice import PhysicalDevice
+from ._physicaldevice import PhysicalDevice

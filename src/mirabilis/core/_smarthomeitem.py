@@ -1,4 +1,4 @@
-from .interfaces import SmartHomeItemInterface
+from ._interfaces import SmartHomeItemInterface
 
 
 __all__ = ["SmartHomeItem"]
@@ -191,5 +191,5 @@ class SmartHomeItem(SmartHomeItemInterface):
                                     new_local_id=new_local_id)
 
 
-from .container import Container
-from .universe import Universe
+from ._container import Container
+from ._universe import Universe

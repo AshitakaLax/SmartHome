@@ -1,6 +1,6 @@
 import abc
 
-from .smarthomeitem import SmartHomeItem
+from ._smarthomeitem import SmartHomeItem
 
 
 __all__ = ["PhysicalDevice"]
@@ -84,5 +84,5 @@ class PhysicalDevice(SmartHomeItem):
         raise NotImplementedError()
     
 
-from .universe import Universe
-from .state_entity import StateEntity
+from ._universe import Universe
+from ._state_entity import StateEntity

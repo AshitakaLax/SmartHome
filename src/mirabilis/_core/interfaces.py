@@ -4,9 +4,6 @@ import abc
 __all__ = []
 
 def _export(clsorfunc):
-    from _renamemodules import dorename
-    if dorename:
-        clsorfunc.__module__ = __package__
     __all__.append(clsorfunc.__name__)
     return clsorfunc
 

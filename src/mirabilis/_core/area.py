@@ -1,13 +1,10 @@
-from ._smarthomeitem import SmartHomeItem
-from ._container import Container
+from .smarthomeitem import SmartHomeItem
+from .container import Container
 
 
 __all__ = []
 
 def _export(clsorfunc):
-    from _renamemodules import dorename
-    if dorename:
-        clsorfunc.__module__ = __package__
     __all__.append(clsorfunc.__name__)
     return clsorfunc
 

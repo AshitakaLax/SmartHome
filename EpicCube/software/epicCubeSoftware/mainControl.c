@@ -54,11 +54,12 @@ uint16_t convertAsciiToInt(char*temp, uint16_t size);
 uint8_t verbose = 1;
 uint8_t invalidInput = 0;
 //Simple delay command
-static void delay(uint16_t us)
+/**
+static void (uint16_t us)
 {
 	while(us) us--;
 }
-
+**/
 
 int main(void)
 {
@@ -186,9 +187,11 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		if(buf[6] == '?')// status request is Damper?## check to see if open or closed returns 1 for closed and 0 for open.
 		{
 			//not this will work for up to 9 dampers
-			Command = buf[8] - '0';// convert ascii value to decimal
-			Status = CheckDamper(Command);
-			send_str((char*)(Status + '0'));// returns the status
+			//Command = buf[8] - '0';// convert ascii value to decimal
+			Command = (uint8_t)buf[8] - (uint8_t)'0';//unsigned 8 bit makes command a value from 0 - 9
+			char val = CheckDamper(Command);
+			usb_serial_putchar(val);
+			//send_str((char*)(Status + '0'));// returns the status
 			send_str(PSTR("\r\n"));
 			return;
 		}
@@ -202,23 +205,18 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			
 			if(((uint8_t)buf[6] - (uint8_t)'0') == 1)
 			{
+				if(verbose==1)
+				{
+					send_str(PSTR("10 or greater \n\r"));
+				}
 				Command = Command + 10; // adds the correct value 0 - 15;
 			}
 			if(buf[8] == '0')// open
 			{
 				if(verbose)
 				{
-					/**
-					char tempBuf[2];
-					//itoa(Command, tempBuf,10);
-					
-					tempBuf[0] = (char)tempCommand + '0';//
-					tempBuf[1] = (char)(Command - 10) + '0';
 					send_str(PSTR("Starting to open Damper"));
-					usb_serial_write(tempBuf, 2);
-					//usb_serial_write(itemBuf, 2);
-					send_str(PSTR("\r\n"));
-					**/
+					
 				}
 				OpenDamper(Command);
 				if(verbose)
@@ -229,7 +227,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			}
 			else // Close Damper
 			{
-			if(verbose)
+				if(verbose)
 				{				
 					char tempBuf[2];
 					//itoa(Command, tempBuf,10);
@@ -317,7 +315,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 				SetHVAC(0);
 				if(verbose)
 				{	
-					send_str(PSTR("Server controlled off\r\n"));
+					send_str(PSTR("Thermostat controlled\r\n"));
 				}
 			}
 			else if(buf[4] == '2')// Blower on
@@ -346,7 +344,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			{
 				SetGFan(1);
 				SetWHeat(0);// may be overridden by Furnace
-				SetYCool(0);// may be overridden by Furnace
+				SetYCool(1);// may be overridden by Furnace
 				SetHVAC(1);
 				if(verbose)
 				{	
@@ -490,10 +488,89 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		}
 		
 	}
+	else if(buf[0] == 'A')// AllFanStatus Section 
+	{
+		AllFanStatus();
+	}	
+	else if(buf[0] == 'V')// Verbose Section 
+	{
+		if(verbose)//verbose is 1
+			verbose = 0;
+		else
+			verbose = 1;
+		DampVerbose(verbose);
+	}
+	else if(buf[0] == 'I')//test input
+	{
+		//syntax Input0 or Input1
+		//This section is to test input values repeatedly
+		//on the following inputs PD1 and PD2
+		// to do this we will test our macros
+		
+		send_str(PSTR("PD1 or pin 4\r\n"));
+		send_str(PSTR("PD2 or pin 5\r\n"));
+		if(buf[5] == '0')//test open
+		{
+			DDRD &= ~(1<<2);
+			uint8_t val;
+			val = PIND & (1<<2);
+			if(val != 0)
+			{
+				send_str(PSTR("OpenBUSHIGH == 1"));
+			}
+			else
+			{
+				send_str(PSTR("OpenBUSHIGH == 0"));
+			}
+			usb_serial_putchar((val+'0'));
+		}
+		else
+		{
+			if(ISBUTTONCLOSEBUSHIGH != 0)
+			{
+				send_str(PSTR("CloseBUSHIGH == 1"));
+			}
+			else
+			{
+				send_str(PSTR("CloseBUSHIGH == 0"));
+			}
+		}
+		send_str(PSTR("\r\n"));
+	}	else if(buf[0] == 'M')//test Motor
+	{
+		//syntax Motor
+		//pins used are 
+		//PB6 - Enable Enabled LOW = pulled low to enable
+		//PB5 -	Step
+		//PB4 - Direction
+		
+		send_str(PSTR("PB6 enable\r\n"));
+		send_str(PSTR("PB5 Step\r\n"));
+		send_str(PSTR("PB4 Direction\r\n"));
+		
+		MOTORDIRLOW;
+		MOTORENABLELOW;//ENABLE
+		
+		for(uint16_t stepcount = 0; stepcount < 1000; stepcount++)
+		{
+			MOTORSTEPHIGH;
+		send_str(PSTR("Step High\r\n"));
+			_delay_ms(15);
+			MOTORSTEPLOW;
+		send_str(PSTR("Step Low\r\n"));
+			_delay_ms(15);
+			if(stepcount == 500)
+			{
+				MOTORDIRHIGH;
+			}
+		}
+		MOTORENABLEHIGH;
+		send_str(PSTR("disabled motor\r\n"));
+	}
 	if((buf[0] == '-' && buf[1] == 'h') || buf[0] == '?' || invalidInput)// Help Section
 	{
 		// -help Damper
-		if(buf[6] == 'D')
+		if(buf[6] == 'D' && num > 5)
 		{
 			send_str(PSTR("Damper Help\r\n"));
 			send_str(PSTR("Damper?## - issues a status request to damper (00-15)\r\n"));
@@ -549,6 +626,55 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			send_str(PSTR("TEMP## - issues a status request to TEMP\r\n"));
 			send_str(PSTR("   (##) - Represents a number from 0 - 63\r\n"));
 			send_str(PSTR("returns a number from 0 to 1024 as the ADC value\r\n"));
+		}		
+		else if(buf[6] == 'S')// -help Sprinkler
+		{
+			send_str(PSTR("Sprinkler Help\r\n"));
+			send_str(PSTR("Sprinkler## - issues a status request to Sprinkler\r\n"));
+			send_str(PSTR("   	   (#) - Represents a the station as a number from 0 - 5\r\n"));
+			send_str(PSTR("   	    (#) - Represents 0 or 1, 1 = Open/on and 0 for Closed or Off \r\n"));
+			send_str(PSTR("Doesn't return anything, due to station remaining on for 10+ mins\r\n"));
+			send_str(PSTR("Server is in charge of when it is on, and off.\r\n"));
+			send_str(PSTR("Example1:\r\n"));
+			send_str(PSTR("\tCommand: Sprinkler31 This will turn on(1) the station(3) \r\n"));
+		}	
+		else if(buf[6] == 'F')// -help FAN
+		{
+			send_str(PSTR("Fan or FAN Help\r\n"));
+			send_str(PSTR("To prevent damage to circuit, we have software protection of the fans\r\n"));
+			send_str(PSTR("This means you can only control one fan at a time. \r\n\r\n"));
+			send_str(PSTR("Fan?## - issues a status request about a specific Fan\r\n"));
+			send_str(PSTR("   (#) - Represents a the Specific fan as a number: 0,2,3,4\r\n"));
+			send_str(PSTR("    (#) - Represents 's' for fan Speed or 'o' for fan on or off\r\n"));
+			send_str(PSTR("a Fan 's'speed query will return a number from 0 - 9 based on the duty cycle\r\n"));
+			send_str(PSTR("a Fan 'o'on/off query will return 1 if it is on and 0 if it is off.\r\n"));
+			send_str(PSTR("Fan### - issues a command to a specific Fan\r\n"));
+			send_str(PSTR("  (#) - Represents a the Specific fan as a number: 0,2,3,4\r\n"));
+			send_str(PSTR("   (#) - Represents a number 0 or 1, for off or on respectively\r\n"));
+			send_str(PSTR("    (#) - Represents a number from 0 to 9 for the speed. 0 slow and 9 fastest\r\n"));
+			send_str(PSTR("Don't care when setting to off Fan#0x<-don't care\r\n"));
+			send_str(PSTR("Example1:\r\n"));
+			send_str(PSTR("\tStatus: Fan?2s This will turn the speed (0-9) of fan 2.\r\n"));
+			send_str(PSTR("Example2:\r\n"));
+			send_str(PSTR("\tStatus: Fan?4o This will turn either 0 or 1 whether Fan 4 is on or off.\r\n"));
+			send_str(PSTR("Example3:\r\n"));
+			send_str(PSTR("\tCommand: Fan40x This will turn Fan 4 off and enabling.\r\n"));
+			send_str(PSTR("Example4:\r\n"));
+			send_str(PSTR("\tCommand: Fan015 This will turn Fan 4 on(if not on)(and/or) change the speed to 5.\r\n"));
+		}
+		else if(buf[6] == 'A')// -help AllFAN
+		{
+			send_str(PSTR("AllFan Help\r\n"));
+			send_str(PSTR("Returns the status of all the Fans\r\n"));
+			send_str(PSTR("Format: \"FanNumber:on/off:speed,\"\r\n"));
+			send_str(PSTR("Example: 0:0:0,2:0:0,3:1:7,4:0:0\r\n"));
+			send_str(PSTR("The result is that fan 3 is on at speed 7\r\n"));
+			
+		}
+		else if(buf[6] == 'V')// -help Verbose
+		{
+			send_str(PSTR("Verbose Help\r\n"));
+			send_str(PSTR("Changes whether in Verbose Mode or not\r\n"));
 		}
 		else{
 		//help commands so write a bunch of things that help people.
@@ -556,20 +682,25 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		send_str(PSTR("HELP when you say to yourself,\"I don't know what to do\"\r\n"));
 		send_str(PSTR("List of available commands\r\n\r\n"));
 		send_str(PSTR("-help:\t\tprovides this menu\r\n"));
+		send_str(PSTR("Verbose:\t\This toggles the Verbose state\r\n"));
 		send_str(PSTR("Damper###:\tTurns on and off Damper\r\n"));
 		send_str(PSTR("Damper?##:\tReplies whether damper is open or closed\r\n"));
 		send_str(PSTR("Temp##:\tgets the temperature value of the specific sensor\r\n"));
 		send_str(PSTR("HVAC?:\t\tReturns HVAC status\r\n"));
 		send_str(PSTR("HVAC#:\t\tSets the HVAC to a specific state\r\n"));
 		send_str(PSTR("Garage:\t\tPulses the Garage open or closed\r\n"));
-		send_str(PSTR("Sprinkler###:\tturns on/off section of sprinklers\r\n"));
-		send_str(PSTR("Sprinkler?:\tGets status of sprinkler\r\n"));
+		send_str(PSTR("Sprinkler##:\tturns on/off section of sprinklers\r\n"));
+		send_str(PSTR("FAN?##:\treturns either speed of a fan or if it is on.\r\n"));
+		send_str(PSTR("FAN###:\teither turns on or changes the specfic fan speed.\r\n"));
+		send_str(PSTR("AllFAN:\treturns status of all the fans\r\n"));
 		send_str(PSTR("***************************************\r\n"));
 		send_str(PSTR("for more specific help use: \"-help <command>\r\n"));
-		send_str(PSTR("<command> = Damper, Temp, HVAC, Garage, Sprinkler\r\n"));
+		send_str(PSTR("<command> = Damper, Temp, HVAC, Garage, Sprinkler, Fan, AllFAN\r\n"));
 		send_str(PSTR("example: \"-help HVAC\"\r\n"));
 		invalidInput = 0;
 		}
+		//buf[6] = '0';//prevent repeat help commands
+		
 	}
 		send_str(PSTR("\r\n"));
 }

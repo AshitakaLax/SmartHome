@@ -19,6 +19,7 @@
 void InitializeFans(void);
 uint8_t SetFan(char FanChar, char FanSpeedchar);
 char FanStatus(char FanChar);
+void AllFanStatus();
 uint8_t TurnFanOff(char FanChar);
 uint8_t CharToSpeed(char speed);
 char FanSpeedStatus(char FanChar);

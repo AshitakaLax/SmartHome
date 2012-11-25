@@ -1,5 +1,6 @@
 from ._rename import renamemodule
-from .smarthomeitem import SmartHomeItem
+from ._smarthomeitem import SmartHomeItem
+
 
 __all__ = ["Container"]
 

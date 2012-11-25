@@ -1,5 +1,6 @@
-from ._rename import renamemodule
 from datetime import datetime
+
+from ._rename import renamemodule
 
 
 __all__ = []

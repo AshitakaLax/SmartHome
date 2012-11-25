@@ -2,13 +2,10 @@ from ._rename import renamemodule
 from ._container import Container
 
 
-__all__ = []
+__all__ = ["Universe"]
 
-def _export(clsorfunc):
-    __all__.append(clsorfunc.__name__)
-    return renamemodule(clsorfunc)
 
-@_export
+@renamemodule
 class Universe(Container):
     """
     Universe() -> obj

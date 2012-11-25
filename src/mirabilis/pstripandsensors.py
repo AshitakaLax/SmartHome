@@ -3,8 +3,7 @@ from .core import PhysicalDevice, RStateEntity, RWStateEntity
 class PStripAndSensors(PhysicalDevice):
     def __init__(self, universe, localname=None, local_id=None):
         PhysicalDevice.__init__(self, universe, localname, local_id)
-        
-        description = "the on/off state of an outlet "
+        #description = "the on/off state of an outlet "
         self.outlet1onoff = RWStateEntity(self._writestate)
         self.outlet2onoff = RWStateEntity(self._writestate)
         self.outlet3onoff = RWStateEntity(self._writestate)

@@ -1,6 +1,6 @@
 from .core import *
 from .pstripandsensors import PStripAndSensors
-
+from .epic_cube import EpicCube
 
 def create():
     universe = Universe()
@@ -18,7 +18,8 @@ def create():
     
     vlsi = Area(universe, "VLSI test room")
     lab.additem(vlsi, "vlsi", 1)
-
+    
+    # power strip and sensors
     pstrip = PStripAndSensors(universe, "Todd's smart power strip")
     lab.additem(pstrip, "power strip and sensors", 2)
     
@@ -27,5 +28,8 @@ def create():
 
     pstrip.outlet1onoff.move(vlsi, new_local_id=1)
     pstrip.outlet3onoff.move(universe["MEB"]["level 3"], "Light")
+    
+    # epic cube
+    ecube = EpicCube(universe, "Levi's Epic Cube")
     
     return universe

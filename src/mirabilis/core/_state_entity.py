@@ -70,9 +70,9 @@ class RStateEntityBase(SmartHomeItemInterface):
     def __init__(self):
         self._state = RStateEntity.UNINITIALIZED
     
-    def _update(self, newstate):
+    def update(self, newstate):
         """
-        obj._update(newstate)
+        obj.update(newstate)
         
         record a new value observed by the device
         

@@ -1,19 +1,24 @@
-from .create import create
+def main():
+    from .create import create
 
-universe = create()
+    universe = create()
 
-from pprint import pprint
+    from pprint import pprint
 
-lab = universe["MEB"]["level 3"]["Room 3143"]
-print lab
-print list(lab)
+    lab = universe["MEB"]["level 3"]["Room 3143"]
+    print lab
+    print list(lab)
 
-pprint(universe.objectsdict)
+    pprint(universe.objectsdict)
 
-print list(universe)
+    print list(universe)
 
-print universe["MEB"][3][3143]["power strip and sensors"]
+    print universe["MEB"][3][3143]["power strip and sensors"]
 
-print
-for x in universe.objects_dict.values():
-    print x, repr(x.path)
+    print
+    for x in universe.objectsdict.values():
+        print x, repr(x.path)
+
+
+if __name__ == "__main__":
+    main()

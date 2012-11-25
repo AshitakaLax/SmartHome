@@ -8,7 +8,7 @@ __all__ = ["SmartHomeItemInterface"]
 @renamemodule
 class SmartHomeItemInterface(object):
     """
-    UniverseObjectInterface (abstract class)
+    SmartHomeItemInterface (abstract class)
     """
     
     @property

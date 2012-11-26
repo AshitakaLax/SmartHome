@@ -7,7 +7,26 @@ from ._areagroup import Area
 from ._rename import renamemodule
 
 
-__all__ = ["PhysicalDevice"]
+__all__ = ["PhysicalDevice", "BoundMethod"]
+
+
+@renamemodule
+class BoundMethod:
+    """
+    BoundMethod(obj, methodname) -> boundmethodobj
+    
+    simulate a callable bound method
+    
+    obj: (object) the object having the method
+    methodname: (str) the name of the method
+    """
+    
+    def __init__(self, obj, methodname):
+        self.obj = obj
+        self.methodname = methodname
+    
+    def __call__(self, *args, **kwargs):
+        return getattr(self.obj, self.methodname)(*args, **kwargs)
 
 
 # enforces that add_state_entity can only be called during execution of 

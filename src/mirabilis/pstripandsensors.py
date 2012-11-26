@@ -1,16 +1,17 @@
-from .core import PhysicalDevice, RStateEntity, RWStateEntity
+from .core import PhysicalDevice, RStateEntity, RWStateEntity, BoundMethod
+
 
 class PStripAndSensors(PhysicalDevice):
     def __init__(self, universe, localname=None, local_id=None):
         PhysicalDevice.__init__(self, universe, localname, local_id)
         description = "the on/off state of outlet #{}"
-        self.outlet1onoff = RWStateEntity(self._writestate, 
+        self.outlet1onoff = RWStateEntity(BoundMethod(self, "_writestate"), 
                                           description.format(1))
-        self.outlet2onoff = RWStateEntity(self._writestate, 
+        self.outlet2onoff = RWStateEntity(BoundMethod(self, "_writestate"), 
                                           description.format(2))
-        self.outlet3onoff = RWStateEntity(self._writestate, 
+        self.outlet3onoff = RWStateEntity(BoundMethod(self, "_writestate"), 
                                           description.format(3))
-        self.outlet4onoff = RWStateEntity(self._writestate, 
+        self.outlet4onoff = RWStateEntity(BoundMethod(self, "_writestate"), 
                                           description.format(4))
         self.add_state_entity(self.outlet1onoff)
         self.add_state_entity(self.outlet2onoff)

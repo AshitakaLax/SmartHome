@@ -49,12 +49,18 @@ class Universe(Container):
     def objectsdict(self):
         """
         objectsdict: (dict of SmartHomeItem[int]) items indexed by global ID
+        
+        (read only)
         """
         return self._objects_by_global_id.copy()
     
     @property
     def devices(self):
-        """devices: (set) the devices existing in this universe"""
+        """
+        devices: (set) the devices existing in this universe
+        
+        (read only)
+        """
         return self._devices.copy()
     
     def object_with_global_id(self, global_id):

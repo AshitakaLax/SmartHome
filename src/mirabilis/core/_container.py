@@ -36,11 +36,32 @@ class Container(object):
         return self._itemsbykeycache[index]
     
     def __contains__(self, item):
-        return item in self._dictofitemstokeys.keys()
+        return item in self._dictofitemstokeys.iterkeys()
     
     def __iter__(self):
-        return iter(self._dictofitemstokeys.keys())
+        return iter(self.items)
         
+    @property
+    def childkeys(self):
+        """
+        childkeys: (iterator of set) the child keys of the container
+        """
+        return self._dictofitemstokeys.itervalues()
+    
+    @property
+    def items(self):
+        """
+        items: (iterator of SmartHomeItem)
+        """
+        return self._dictofitemstokeys.iterkeys()
+    
+    @property
+    def itemskeys(self):
+        """
+        itemskeys: (iterator of tuple of (SmartHomeItem, set))
+        """
+        return self._dictofitemstokeys.iteritems()
+    
     def additem(self, item, newlocalname=None, new_local_id=None,
                       addkeys=frozenset()):
         """

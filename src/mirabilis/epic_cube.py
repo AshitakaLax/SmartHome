@@ -2,7 +2,8 @@ from .core import (PhysicalDevice,
                    RStateEntity, 
                    RWStateEntity, 
                    WStateEntity, 
-                   Group)
+                   Group,
+                   BoundMethod)
 
 
 # these variables must always be iterable
@@ -37,6 +38,8 @@ class EpicCubeDevice(PhysicalDevice):
                        container=None):
         PhysicalDevice.__init__(self, universe, localname, local_id, container)
         
+        Method = BoundMethod
+
         maingroupdescription = "the group holding the components and " \
             "subgroups of the Epic Cube device"
         self.maingroup = Group(universe, 
@@ -51,7 +54,8 @@ class EpicCubeDevice(PhysicalDevice):
         self.dampers = {}
         for number in _DAMPER_NUMS:
             description = "Epic Cube damper #{}".format(number)
-            damper = RWStateEntity(self._writedamperstate, description)
+            damper = RWStateEntity(Method(self, "_writedamperstate"), 
+                                   description)
             damper.__dampernumber = number
             self.dampers[number] = damper
             self.add_state_entity(damper)
@@ -62,14 +66,14 @@ class EpicCubeDevice(PhysicalDevice):
         self.add_state_entity(self.hvacstatus)
         self.maingroup.additem(self.hvacstatus)
         
-        self.hvac_command = WStateEntity(self._write_hvac_command,
+        self.hvac_command = WStateEntity(Method(self, "_write_hvac_command"),
                                          "HVAC command sender for the Epic "
                                              "Cube",
                                          "HVAC command")
         self.add_state_entity(self.hvac_command)
         self.maingroup.additem(self.hvac_command)
         
-        self.garage = WStateEntity(self._writegaragestate, 
+        self.garage = WStateEntity(Method(self, "_writegaragestate"), 
                                    "garage opener/closer for the Epic Cube",
                                    "garage")
         self.add_state_entity(self.garage)
@@ -97,7 +101,8 @@ class EpicCubeDevice(PhysicalDevice):
         self.sprinklers = {}
         for number in _SPRINKLER_NUMS:
             description = "Epic Cube sprinkler #{}".format(number)
-            sprinkler = WStateEntity(self._writesprinklerstate, description)
+            sprinkler = WStateEntity(Method(self, "_writesprinklerstate"), 
+                                     description)
             sprinkler.__sprinklernumber = number
             self.sprinklers[number] = sprinkler
             self.add_state_entity(sprinkler)
@@ -112,7 +117,7 @@ class EpicCubeDevice(PhysicalDevice):
         self.fans = {}
         for number in _FAN_NUMS:
             description = "Epic Cube fan #{}".format(number)
-            fan = RWStateEntity(self._writefanstate, description)
+            fan = RWStateEntity(Method(self, "_writefanstate"), description)
             fan.__fan_number = number
             self.fans[number] = fan
             self.add_state_entity(fan)

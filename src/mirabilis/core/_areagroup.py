@@ -1,4 +1,3 @@
-from ._universe import Universe
 from ._smarthomeitem import SmartHomeItem
 from ._container import Container
 from ._rename import renamemodule
@@ -40,9 +39,9 @@ class Group(SmartHomeItem, Container):
         Container.__init__(self)
     
     def additem(self, item, *args, **kwargs):
-        assert isinstance(item, (Group, StateEntity), \
+        assert isinstance(item, (Group, StateEntity)), \
             "A Group instance can only hold other groups and state entities"
-        return Container.additem(item, *args, **kwargs)
+        return Container.additem(self, item, *args, **kwargs)
 
 
 @renamemodule
@@ -75,10 +74,12 @@ class Area(SmartHomeItem, Container):
     
     def __init__(self, universe=None, description=None, 
                        localname=None, local_id=None, container=None):
-        assert isinstance(container, (Universe, Area))
+        if container:
+            assert isinstance(container, (Universe, Area))
         SmartHomeItem.__init__(self, universe, description, 
                                      localname, local_id, container)
         Container.__init__(self)
 
 
+from ._universe import Universe
 from ._state_entity import StateEntity

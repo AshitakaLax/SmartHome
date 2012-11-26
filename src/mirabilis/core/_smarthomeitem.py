@@ -71,7 +71,8 @@ class SmartHomeItem(SmartHomeItemInterface):
             if container:
                 assert isinstance(container, (Area, Group))
         if container:
-            container.additem(self, localname=localname, local_id=local_id)
+            container.additem(self, newlocalname=localname, 
+                                    new_local_id=local_id)
                 
     def __repr__(self):
         fmtstr = "<{0.__class__.__module__}.{0.__class__.__name__} " \
@@ -107,7 +108,8 @@ class SmartHomeItem(SmartHomeItemInterface):
         c = self
         parents = []
         while isinstance(c, SmartHomeItem):
-            parents.append(c.localname or c.local_id or "<unnamed>")
+            name = c.localname or c.local_id
+            parents.append(name if name is not None else "<unnamed>")
             c = c.container
         if isinstance(c, Universe):
             front = "/"
@@ -115,7 +117,7 @@ class SmartHomeItem(SmartHomeItemInterface):
             front = "<floating>/"
         else:
             raise AssertionError()  # not reached
-        return front + "/".join(x for x in reversed(parents))
+        return front + "/".join(str(x) for x in reversed(parents))
     
     @property
     def container(self):
@@ -196,21 +198,22 @@ class SmartHomeItem(SmartHomeItemInterface):
         assert self.container
         self.container.removeitem(self)
     
-    def move(self, newholder, newlocalname=None, new_local_id=None):
+    def move(self, container, newlocalname=None, new_local_id=None):
         """
-        obj.move(newholder)
+        obj.move(container[, newlocalname[, new_local_id]])
         
         moves the item to a new container
         
-        newholder: (Container or <None>)
+        container: (Container or <None>)
         """
-        assert isinstance(newholder, (Container, type(None)))
+        assert isinstance(container, (Container, type(None)))
         if self.container:
             self.removefromcontainer()
-        if newholder:
-            newholder.additem(self, newlocalname=newlocalname, 
+        if container is not None:
+            container.additem(self, newlocalname=newlocalname, 
                                     new_local_id=new_local_id)
 
 
+from ._container import Container
 from ._areagroup import Area, Group
 from ._universe import Universe

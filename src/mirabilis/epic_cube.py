@@ -81,24 +81,24 @@ class EpicCube(PhysicalDevice):
             self.add_state_entity(entity)
         
     def setupincontainer(self, container):
-        self.move(container, localname="EpicCube device")
+        self.move(container, newlocalname="EpicCube device")
         maingroup = Group(container=container, localname="EpicCube")
         #maingroup = container
         dampergroup = Group(container=maingroup, localname="dampers")
         for id, damper in self.dampers.items():
-            damper.move(dampergroup, local_id=id)
-        self.hvacstatus.move(maingroup, localname="HVAC status")
-        self.hvac_command.move(maingroup, localname="HVAC command")
-        self.garage.move(maingroup, localname="garage")
+            damper.move(dampergroup, new_local_id=id)
+        self.hvacstatus.move(maingroup, newlocalname="HVAC status")
+        self.hvac_command.move(maingroup, newlocalname="HVAC command")
+        self.garage.move(maingroup, newlocalname="garage")
         tempsensorgroup = Group(container=maingroup, localname="temp sensors")
         for id, sensor in self.tempsensors.items():
-            sensor.move(tempsensorgroup, local_id=id)
+            sensor.move(tempsensorgroup, new_local_id=id)
         sprinklergroup = Group(container=maingroup, localname="sprinklers")
         for id, sprinkler in self.sprinklers.items():
-            sprinkler.move(sprinklergroup, local_id=id)
+            sprinkler.move(sprinklergroup, new_local_id=id)
         fangroup = Group(container=maingroup, localname="fans")
         for id, fan in self.fans.items():
-            fan.move(fangroup, local_id=id)
+            fan.move(fangroup, new_local_id=id)
         
     def _send(self, command):
         raise NotImplementedError()

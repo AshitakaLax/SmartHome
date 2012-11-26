@@ -3,7 +3,41 @@ from ._container import Container
 from ._rename import renamemodule
 
 
-__all__ = ["Area"]
+__all__ = ["Area", "Group"]
+
+
+@renamemodule
+class Group(SmartHomeItem, Container):
+    """
+    Group(universe[, description[, localname[, local_id]]]) -> obj
+    
+    A Group object can only hold other groups and state entities.
+    
+    It can also be directly contained in another container.
+    
+    universe: (Universe) the universe where the object is located
+    description: (str on <None>) a description of the group
+    localname: (str or <None>) the local name of the group in its container
+                               -- optional (default: None)
+    local_id: (int or <None>) the local ID number of the group in its 
+                              container -- optional (default: None)
+    
+    Public instance attributes:
+    
+    (inherited from class SmartHomeItem)
+    """
+    
+    def __init__(self, universe, description=None, 
+                       localname=None, local_id=None):
+        SmartHomeItem.__init__(self, universe, description, 
+                                     localname, local_id)
+        Container.__init__(self)
+    
+    def additem(self, item, *args, **kwargs):
+        assert isinstance(item, (Group, StateEntity), \
+            "Group instance can only hold other groups and state entities"
+        return Container.additem(item, *args, **kwargs)
+            
 
 
 @renamemodule
@@ -11,17 +45,18 @@ class Area(SmartHomeItem, Container):
     """
     Area(universe[, description[, localname[, local_id]]]) -> obj
     
-    An Area object can hold other areas, physical devices, and state entities.
+    An Area object can hold other instances of Area, Group, PhysicalDevices, 
+    and StateEntity.
     
-    It can also be directly contained in another area or as a root item in a
-    universe.
+    It can also be directly contained in another area (but not in a group) 
+    or as a root item in its universe.
     
     universe: (Universe) the universe where the object is located
-    description: (str on <None>)
-    localname: (str or <None>) the local name of the area in its container
+    description: (str on <None>) a description of the group
+    localname: (str or <None>) the local name of the group in its container
                                -- optional (default: None)
-    local_id: (int or <None>) the local ID number of the area in its container
-                             -- optional (default: None)
+    local_id: (int or <None>) the local ID number of the group in its 
+                              container -- optional (default: None)
     
     Public instance attributes:
     
@@ -35,3 +70,4 @@ class Area(SmartHomeItem, Container):
         Container.__init__(self)
 
 
+from ._state_entity import StateEntity

@@ -4,7 +4,7 @@ package mirabilis.core
 This package defines the core objects needed on which to build an automation 
 ecosystem.
 
-It is meant to be used as though it were a single module.
+The package is meant to be used as though it were a single module.
 
 All submodules in this package begin with an underscore and are intended for
 internal use only--do not import them.
@@ -13,7 +13,7 @@ internal use only--do not import them.
 _imports = ["_smarthomeitem",
             "_container", 
             "_universe", 
-            "_area",
+            "_areagroup",
             "_physicaldevice",
             "_events",
             "_state_entity"]

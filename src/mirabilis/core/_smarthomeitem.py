@@ -30,10 +30,14 @@ class SmartHomeItem(SmartHomeItemInterface):
     # _global_id: (int or <None>) the global ID for this object
     # _container: (Container or <None>) the container of this object 
     
-    def __init__(self, universe, description=None, 
-                       localname=None, local_id=None):
+    def __init__(self, universe=None, description=None,
+                       localname=None, local_id=None, container=None):
         """
-        obj.__init__(universe[, description[, localname[, local_id]]])
+        obj.__init__(universe
+                     [, description
+                     [, localname
+                     [, local_id
+                     [, container]]]])
         
         universe: (Universe or <None>) the universe where this is being created
         description: (str or <None>) a description of the object -- 
@@ -42,6 +46,9 @@ class SmartHomeItem(SmartHomeItemInterface):
                                    its container
         local_id: (int or <None>) the preferred local ID of the object in its 
                                   container
+        container: (Area or Group) where to add the item after creating it;
+                                   if universe is None, then universe will be
+                                   taken from container.universe
         """
         self._universe = None  # written to by Universe object
         self._global_id = None  # written to by Universe object
@@ -50,11 +57,22 @@ class SmartHomeItem(SmartHomeItemInterface):
         self.localname = localname
         self.local_id = local_id
         
+        
         assert isinstance(universe, (Universe, type(None)))
+        if container and not universe:
+            if isinstance(container, SmartHomeItem):
+                universe = container.universe
+            elif isinstance(container, Universe):
+                universe = container
+            else:
+                raise AssertionError("not reached")
         if universe:
             universe._registeritem(self)
-    
-    
+            if container:
+                assert isinstance(container, (Area, Group))
+        if container:
+            container.additem(self, localname=localname, local_id=local_id)
+                
     def __repr__(self):
         fmtstr = "<{0.__class__.__module__}.{0.__class__.__name__} " \
                  "gloabl_id:{0.global_id} description:{0.description!r}>"
@@ -194,5 +212,5 @@ class SmartHomeItem(SmartHomeItemInterface):
                                     new_local_id=new_local_id)
 
 
-from ._container import Container
+from ._areagroup import Area, Group
 from ._universe import Universe

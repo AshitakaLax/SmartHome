@@ -11,7 +11,7 @@ def create():
     floor = Area(universe)
     universe["MEB"].additem(floor, "level 3", 3)
     
-    lab = Area(universe, "Senior Hardware Labratory")
+    lab = Area(universe, "Senior Hardware Lab")
     universe["MEB"]["level 3"].additem(lab, "Room 3143", 3143)
     
     # now the stuff IN the senior hardware lab
@@ -31,6 +31,6 @@ def create():
     
     # epic cube
     epic_cube = EpicCube(universe, "Levi's Epic Cube")
-    epic_cube.move_entities_to_container(lab)
+    epic_cube.setupincontainer(lab)
     
     return universe

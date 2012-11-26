@@ -1,7 +1,10 @@
 import abc
 
-from ._rename import renamemodule
+from ._container import Container
+from ._universe import Universe
 from ._smarthomeitem import SmartHomeItem
+from ._areagroup import Area
+from ._rename import renamemodule
 
 
 __all__ = ["PhysicalDevice"]
@@ -35,17 +38,23 @@ class PhysicalDevice(SmartHomeItem):
     
     __metaclass__ = PhysicalDeviceClass
     
-    def __init__(self, universe, localname=None, local_id=None):
+    def __init__(self, universe=None, localname=None, local_id=None, 
+                       container=None):
         """
-        obj.__init__(universe[, localname[, local_id]])
+        obj.__init__([universe[, localname[, local_id[, container]]]])
         
-        universe: (Universe) the universe where the object is located
+        universe: (Universe or <None>) the universe where the object is located
         localname: (str or <None>) the local name of the device within its
                                    container
         local_id: (int or <None>) the local ID number of the device within its 
                                   container
+        container: (Universe or Area or <None>) where to add the device after
+                                                creating it
+        
+        Either universe or container must be specified.
         """
-        assert isinstance(universe, Universe)
+        if container:
+            assert isinstance(container, (Universe, Area))
         SmartHomeItem.__init__(self, universe, localname, local_id)
         self._initialized = False  # also written to by metaclass
         self._state_entities = set()
@@ -61,9 +70,10 @@ class PhysicalDevice(SmartHomeItem):
         assert not self._initialized, \
             "this method can only be called during execution of __init__()"
         assert isinstance(state_entity, StateEntity)
+        if not state_entity.universe:
+            self.universe._registeritem(state_entity)
         self._state_entities.add(state_entity)
         state_entity._device = self
-        self.universe._registeritem(state_entity)
     
     def finalize(self):
         """
@@ -85,9 +95,14 @@ class PhysicalDevice(SmartHomeItem):
         of its entities
         """
         raise NotImplementedError()
+        
+    @property
+    def entities(self):
+        return iter(self._state_entities)
     
     def move_entities_to_container(self, container):
-        for entity in self._state_entities:
+        assert isinstance(container, Container)
+        for entity in self.entities:
             entity.move(container)
     
 

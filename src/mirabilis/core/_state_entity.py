@@ -26,7 +26,8 @@ class StateEntity(SmartHomeItem):
 
     def __init__(self, description=None, localname=None, local_id=None):
         """
-        obj.__init__([description[, localname[, local_id]]]) -> obj
+        obj.__init__([description[, localname[, local_id]]]) 
+            -> obj
     
         description: (str or <None>) a description of the state entity
         localname: (str or <None>) the name of the entity 

@@ -1,4 +1,8 @@
-from .core import PhysicalDevice, RStateEntity, RWStateEntity, WStateEntity
+from .core import (PhysicalDevice, 
+                   RStateEntity, 
+                   RWStateEntity, 
+                   WStateEntity,
+                   Group)
 
 
 # these variables must always be iterable
@@ -74,22 +78,42 @@ class EpicCube(PhysicalDevice):
             self.add_state_entity(entity)
     
     def setupincontainer(self, container):
+        """
+        obj.setupincontainer(container)
+        
+        set up a newly-created EpicCube instance in a specific container
+        
+        container: (Universe or Area) where to set it up
+        """
+        universe = self.universe
         self.move(container, newlocalname="EpicCube device")
-        maingroup = Group(container=container, localname="EpicCube")
-        #maingroup = container
-        dampergroup = Group(container=maingroup, localname="dampers")
+        
+        maingroup = Group(universe)
+        container.additem(maingroup, "EpicCube")
+        
+        dampergroup = Group(universe)
+        maingroup.additem(dampergroup, "dampers")
         for id, damper in self.dampers.items():
             damper.move(dampergroup, new_local_id=id)
+            
         self.hvacstatus.move(maingroup, newlocalname="HVAC status")
+        
         self.hvac_command.move(maingroup, newlocalname="HVAC command")
+        
         self.garage.move(maingroup, newlocalname="garage")
-        tempsensorgroup = Group(container=maingroup, localname="temp sensors")
+        
+        tempsensorgroup = Group(universe)
+        maingroup.additem(tempsensorgroup, "temp sensors")
         for id, sensor in self.tempsensors.items():
             sensor.move(tempsensorgroup, new_local_id=id)
-        sprinklergroup = Group(container=maingroup, localname="sprinklers")
+        
+        sprinklergroup = Group(universe)
+        maingroup.additem(sprinklergroup, "sprinklers")
         for id, sprinkler in self.sprinklers.items():
             sprinkler.move(sprinklergroup, new_local_id=id)
-        fangroup = Group(container=maingroup, localname="fans")
+        
+        fangroup = Group(universe)
+        maingroup.additem(fangroup, "fans")
         for id, fan in self.fans.items():
             fan.move(fangroup, new_local_id=id)
         

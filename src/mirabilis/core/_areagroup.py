@@ -34,9 +34,9 @@ class Group(SmartHomeItem, Container):
         Container.__init__(self)
     
     def additem(self, item, *args, **kwargs):
-        assert isinstance(item, (Group, StateEntity), \
+        assert isinstance(item, (Group, StateEntity)), \
             "Group instance can only hold other groups and state entities"
-        return Container.additem(item, *args, **kwargs)
+        return Container.additem(self, item, *args, **kwargs)
             
 
 

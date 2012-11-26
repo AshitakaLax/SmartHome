@@ -86,6 +86,10 @@ class PhysicalDevice(SmartHomeItem):
         """
         raise NotImplementedError()
     
+    def move_entities_to_container(self, container):
+        for entity in self._state_entities:
+            entity.move(container)
+    
 
 from ._universe import Universe
 from ._state_entity import StateEntity

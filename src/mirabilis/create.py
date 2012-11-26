@@ -30,6 +30,7 @@ def create():
     pstrip.outlet3onoff.move(universe["MEB"]["level 3"], "Light")
     
     # epic cube
-    ecube = EpicCube(universe, "Levi's Epic Cube")
+    epic_cube = EpicCube(universe, "Levi's Epic Cube")
+    epic_cube.move_entities_to_container(lab)
     
     return universe

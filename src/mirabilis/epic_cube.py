@@ -7,6 +7,7 @@ _TEMP_SENSOR_NUMS = range(64)
 _SPRINKLER_NUMS = range(6)
 _FAN_NUMS = [0, 2, 3, 4]
 
+
 class EpicCube(PhysicalDevice):
     """
     EpicCube(universe[, localname[, local_id]]) -> obj
@@ -35,12 +36,18 @@ class EpicCube(PhysicalDevice):
             entity = RWStateEntity(self._writedamperstate, description)
             entity.__dampernumber = number
             self.dampers[number] = entity
+            self.add_state_entity(entity)
         
         self.hvacstatus = RStateEntity("EpicCube HVAC status")
+        self.add_state_entity(self.hvacstatus)
+        
         self.hvac_command = WStateEntity(self._write_hvac_command,
                                          "EpicCube HVAC command sender")
+        self.add_state_entity(self.hvac_command)
+        
         self.garage = WStateEntity(self._writegaragestate, 
                                    "EpicCube garage opener")
+        self.add_state_entity(self.garage)
 
         self.tempsensors = {}
         for number in _TEMP_SENSOR_NUMS:
@@ -48,6 +55,7 @@ class EpicCube(PhysicalDevice):
             entity = RStateEntity(description)
             entity.__sensornumber = number
             self.tempsensors[number] = entity
+            self.add_state_entity(entity)
         
         self.sprinklers = {}
         for number in _SPRINKLER_NUMS:
@@ -55,23 +63,22 @@ class EpicCube(PhysicalDevice):
             entity = WStateEntity(self._writesprinklerstate, description)
             entity.__sprinklernumber = number
             self.sprinklers[number] = entity
+            self.add_state_entity(entity)
         
-        self.fans = {number: EpicCube.Fan(RWStateEntity(self._writestate),
-                                          RWStateEntity(self._writestate))
-                     for number in _FAN_NUMS}
         self.fans = {}
         for number in _FAN_NUMS:
             description = "EpicCube fan #{}".format(number)
             entity = RWStateEntity(self._writefanstate, description)
             entity.__fan_number = number
             self.fans[number] = entity
+            self.add_state_entity(entity)
         
     def _send(self, command):
-        raise NotImplementedError
+        raise NotImplementedError()
     
     # may return empty string
     def _receive(self):
-        raise NotImplementedError
+        raise NotImplementedError()
         
     def _sendreceive(self, value):
         self._send(value)
@@ -133,7 +140,7 @@ class EpicCube(PhysicalDevice):
         assert 1 <= int(newstate) <= 5
         self._send("HVAC{}".format(newstate))
     
-    def _writegarage(self, state_entity, newstate):
+    def _writegaragestate(self, state_entity, newstate):
         self._send("Garage")
     
     def _writesprinklerstate(self, state_entity, newstate):

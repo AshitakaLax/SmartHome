@@ -57,7 +57,7 @@ class SmartHomeItem(SmartHomeItemInterface):
     
     def __repr__(self):
         fmtstr = "<{0.__class__.__module__}.{0.__class__.__name__} " \
-                 "gloabl_id:{0.global_id}>"
+                 "gloabl_id:{0.global_id} description:{0.description!r}>"
         return fmtstr.format(self)
     
     @property

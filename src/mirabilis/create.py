@@ -31,6 +31,6 @@ def create():
     
     # epic cube
     epic_cube = EpicCube(universe, "Levi's Epic Cube")
-    epic_cube.move_entities_to_container(lab)
+    epic_cube.setupincontainer(lab)
     
     return universe

@@ -13,9 +13,9 @@ _SPRINKLER_NUMS = range(6)
 _FAN_NUMS = [0, 2, 3, 4]
 
 
-class EpicCube(PhysicalDevice):
+class EpicCubeDevice(PhysicalDevice):
     """
-    EpicCube([universe[, localname[, local_id[, container]]]]) -> obj
+    EpicCubeDevice([universe[, localname[, local_id[, container]]]]) -> obj
     
     universe: (Universe or <None>)
     localname: (str)
@@ -24,6 +24,7 @@ class EpicCube(PhysicalDevice):
     
     instance variables:
     
+    maingroup: (Group) a group containing subgroups for each category of thing
     dampers: (dict of RWStateEntity[int])
     hvacstatus: (RStateEntity)
     hvac_command: (WStateEntity)
@@ -37,68 +38,89 @@ class EpicCube(PhysicalDevice):
                        container=None):
         PhysicalDevice.__init__(self, universe, localname, local_id, container)
         
+        maingroupdescription = "the group holding the components and " \
+            "subgroups of the Epic Cube device"
+        self.maingroup = Group(universe, 
+                               description=maingroupdescription,
+                               localname="Epic Cube")
+        
+        dampergroupdescription = "group holding the damper state entities " \
+            "for the Epic Cube device"
+        dampergroup = Group(container=self.maingroup, 
+                            description=dampergroupdescription,
+                            localname="dampers")
         self.dampers = {}
         for number in _DAMPER_NUMS:
-            description = "EpicCube damper #{}".format(number)
-            entity = RWStateEntity(self._writedamperstate, description)
-            entity.__dampernumber = number
-            self.dampers[number] = entity
-            self.add_state_entity(entity)
+            description = "Epic Cube damper #{}".format(number)
+            damper = RWStateEntity(self._writedamperstate, description)
+            damper.__dampernumber = number
+            self.dampers[number] = damper
+            self.add_state_entity(damper)
+            dampergroup.additem(damper, "damper #{}".format(number), number)
         
-        self.hvacstatus = RStateEntity("EpicCube HVAC status")
+        self.hvacstatus = RStateEntity("HVAC status for the Epic Cube", 
+                                       "HVAC status")
         self.add_state_entity(self.hvacstatus)
+        self.maingroup.additem(self.hvacstatus)
         
         self.hvac_command = WStateEntity(self._write_hvac_command,
-                                         "EpicCube HVAC command sender")
+                                         "HVAC command sender for the Epic "
+                                             "Cube",
+                                         "HVAC command")
         self.add_state_entity(self.hvac_command)
+        self.maingroup.additem(self.hvac_command)
         
         self.garage = WStateEntity(self._writegaragestate, 
-                                   "EpicCube garage opener")
+                                   "garage opener/closer for the Epic Cube",
+                                   "garage")
         self.add_state_entity(self.garage)
-
+        self.maingroup.additem(self.garage)
+        
+        tempsensorgroup = Group(container=self.maingroup, 
+                                description="group for the temperature " \
+                                    "sensors of the Epic Cube device",
+                                localname="temperature sensors")
         self.tempsensors = {}
         for number in _TEMP_SENSOR_NUMS:
-            description = "EpicCube temperature sensor #{}".format(number)
-            entity = RStateEntity(description)
-            entity.__sensornumber = number
-            self.tempsensors[number] = entity
-            self.add_state_entity(entity)
+            description = "Epic Cube temperature sensor #{}".format(number)
+            tempsensor = RStateEntity(description)
+            tempsensor.__sensornumber = number
+            self.tempsensors[number] = tempsensor
+            self.add_state_entity(tempsensor)
+            tempsensorgroup.additem(tempsensor, 
+                                    "sensor #{}".format(number),
+                                    number)
         
+        sprinklergroup = Group(container=self.maingroup, 
+                               description="group for the sprinklers of the " \
+                                    "Epic Cube device",
+                               localname="sprinklers")
         self.sprinklers = {}
         for number in _SPRINKLER_NUMS:
-            description = "EpicCube sprinkler #{}".format(number)
-            entity = WStateEntity(self._writesprinklerstate, description)
-            entity.__sprinklernumber = number
-            self.sprinklers[number] = entity
-            self.add_state_entity(entity)
+            description = "Epic Cube sprinkler #{}".format(number)
+            sprinkler = WStateEntity(self._writesprinklerstate, description)
+            sprinkler.__sprinklernumber = number
+            self.sprinklers[number] = sprinkler
+            self.add_state_entity(sprinkler)
+            sprinklergroup.additem(sprinkler, 
+                                   "sprinkler #{}".format(number),
+                                   number)
         
+        fangroup = Group(container=self.maingroup, 
+                         description="group for the fans of the Epic Cube " \
+                             "device",
+                         localname="fans")
         self.fans = {}
         for number in _FAN_NUMS:
-            description = "EpicCube fan #{}".format(number)
-            entity = RWStateEntity(self._writefanstate, description)
-            entity.__fan_number = number
-            self.fans[number] = entity
-            self.add_state_entity(entity)
+            description = "Epic Cube fan #{}".format(number)
+            fan = RWStateEntity(self._writefanstate, description)
+            fan.__fan_number = number
+            self.fans[number] = fan
+            self.add_state_entity(fan)
+            fangroup.additem(fan, "fan #{}".format(number), number)
         
-    def setupincontainer(self, container):
-        self.move(container, newlocalname="EpicCube device")
-        maingroup = Group(container=container, localname="EpicCube")
-        #maingroup = container
-        dampergroup = Group(container=maingroup, localname="dampers")
-        for id, damper in self.dampers.items():
-            damper.move(dampergroup, new_local_id=id)
-        self.hvacstatus.move(maingroup, newlocalname="HVAC status")
-        self.hvac_command.move(maingroup, newlocalname="HVAC command")
-        self.garage.move(maingroup, newlocalname="garage")
-        tempsensorgroup = Group(container=maingroup, localname="temp sensors")
-        for id, sensor in self.tempsensors.items():
-            sensor.move(tempsensorgroup, new_local_id=id)
-        sprinklergroup = Group(container=maingroup, localname="sprinklers")
-        for id, sprinkler in self.sprinklers.items():
-            sprinkler.move(sprinklergroup, new_local_id=id)
-        fangroup = Group(container=maingroup, localname="fans")
-        for id, fan in self.fans.items():
-            fan.move(fangroup, new_local_id=id)
+        if container:
+            container.additem(self.maingroup)
         
     def _send(self, command):
         raise NotImplementedError()

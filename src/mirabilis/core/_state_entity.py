@@ -21,13 +21,12 @@ class StateEntity(SmartHomeItem):
 
     Public instance attributes:
     
-    description: (str or <None>) a description of the state entity
+    Inheritance from SmartHomeItem
     """
 
     def __init__(self, description=None, localname=None, local_id=None):
         """
-        obj.__init__([description[, localname[, local_id]]]) 
-            -> obj
+        obj.__init__([description[, localname[, local_id]]]) -> obj
     
         description: (str or <None>) a description of the state entity
         localname: (str or <None>) the name of the entity 
@@ -35,8 +34,8 @@ class StateEntity(SmartHomeItem):
         local_id: (int or <None>) the local ID for the entity -- optional
                                  (defaults to None)
         """
-        SmartHomeItem.__init__(self, None, localname, local_id)  # no universe
-        self.description = description
+        # no universe
+        SmartHomeItem.__init__(self, None, description, localname, local_id)
         self._device = None  # written to by PhysicalDevice objects
     
     @property

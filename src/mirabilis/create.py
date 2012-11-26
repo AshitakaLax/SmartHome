@@ -1,6 +1,6 @@
 from .core import *
 from .pstripandsensors import PStripAndSensors
-from .epic_cube import EpicCube
+from .epic_cube import EpicCubeDevice
 
 def create():
     universe = Universe()
@@ -30,7 +30,7 @@ def create():
     pstrip.outlet3onoff.move(universe["MEB"]["level 3"], "Light")
     
     # epic cube
-    epic_cube = EpicCube(universe, "Levi's Epic Cube")
-    epic_cube.setupincontainer(lab)
+    epic_cube = EpicCubeDevice(universe, "Levi's Epic Cube", container=lab)
+    #epic_cube.setupincontainer(lab)
     
     return universe

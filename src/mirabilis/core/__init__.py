@@ -10,7 +10,8 @@ All submodules in this package begin with an underscore and are intended for
 internal use only--do not import them.
 """
 
-_imports = ["_smarthomeitem",
+_imports = ["_interfaces",
+            "_smarthomeitem",
             "_container", 
             "_universe", 
             "_areagroup",

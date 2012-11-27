@@ -1,0 +1,1605 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package mirabilis.core</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mirabilis.html"><font color="#ffffff">mirabilis</font></a>.core</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/christopher/Documents/University Stuff/2012-Senior Project/smarthome/src/mirabilis/core/__init__.py">/Users/christopher/Documents/University Stuff/2012-Senior Project/smarthome/src/mirabilis/core/__init__.py</a></font></td></tr></table>
+    <p><tt>package&nbsp;mirabilis.core<br>
+&nbsp;<br>
+This&nbsp;package&nbsp;defines&nbsp;the&nbsp;core&nbsp;objects&nbsp;needed&nbsp;on&nbsp;which&nbsp;to&nbsp;build&nbsp;an&nbsp;automation&nbsp;<br>
+ecosystem.<br>
+&nbsp;<br>
+The&nbsp;package&nbsp;is&nbsp;meant&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;though&nbsp;it&nbsp;were&nbsp;a&nbsp;single&nbsp;module.<br>
+&nbsp;<br>
+All&nbsp;submodules&nbsp;in&nbsp;this&nbsp;package&nbsp;begin&nbsp;with&nbsp;an&nbsp;underscore&nbsp;and&nbsp;are&nbsp;intended&nbsp;for<br>
+internal&nbsp;use&nbsp;only--do&nbsp;not&nbsp;import&nbsp;them.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="mirabilis.core._areagroup.html">_areagroup</a><br>
+<a href="mirabilis.core._container.html">_container</a><br>
+<a href="mirabilis.core._events.html">_events</a><br>
+</td><td width="25%" valign=top><a href="mirabilis.core._interfaces.html">_interfaces</a><br>
+<a href="mirabilis.core._physicaldevice.html">_physicaldevice</a><br>
+<a href="mirabilis.core._rename.html">_rename</a><br>
+</td><td width="25%" valign=top><a href="mirabilis.core._smarthomeitem.html">_smarthomeitem</a><br>
+<a href="mirabilis.core._state_entity.html">_state_entity</a><br>
+<a href="mirabilis.core._universe.html">_universe</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#Container">Container</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#Universe">Universe</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#Event">Event</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#StateChangedEvent">StateChangedEvent</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mirabilis.core.html#ValueWrittenEvent">ValueWrittenEvent</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#Area">Area</a>(<a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>, <a href="mirabilis.core.html#Container">Container</a>)
+</font></dt><dt><font face="helvetica, arial"><a href="mirabilis.core.html#Group">Group</a>(<a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>, <a href="mirabilis.core.html#Container">Container</a>)
+</font></dt><dt><font face="helvetica, arial"><a href="mirabilis.core.html#PhysicalDevice">PhysicalDevice</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mirabilis.core.html#StateEntity">StateEntity</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#RStateEntity">RStateEntity</a>(<a href="mirabilis.core.html#StateEntity">StateEntity</a>, RStateEntityBase)
+</font></dt><dt><font face="helvetica, arial"><a href="mirabilis.core.html#RWStateEntity">RWStateEntity</a>(<a href="mirabilis.core.html#StateEntity">StateEntity</a>, RStateEntityBase, WStateEntityBase)
+</font></dt><dt><font face="helvetica, arial"><a href="mirabilis.core.html#WStateEntity">WStateEntity</a>(<a href="mirabilis.core.html#StateEntity">StateEntity</a>, WStateEntityBase)
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="mirabilis.core.html#BoundMethod">BoundMethod</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Area">class <strong>Area</strong></a>(<a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>, <a href="mirabilis.core.html#Container">Container</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Area">Area</a>([universe[,&nbsp;description[,&nbsp;localname[,&nbsp;local_id[,&nbsp;container]]]]])&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+An&nbsp;<a href="#Area">Area</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;can&nbsp;hold&nbsp;other&nbsp;instances&nbsp;of&nbsp;<a href="#Area">Area</a>,&nbsp;<a href="#Group">Group</a>,&nbsp;PhysicalDevices,&nbsp;<br>
+and&nbsp;<a href="#StateEntity">StateEntity</a>.<br>
+&nbsp;<br>
+It&nbsp;can&nbsp;also&nbsp;be&nbsp;directly&nbsp;contained&nbsp;in&nbsp;another&nbsp;area&nbsp;(but&nbsp;not&nbsp;in&nbsp;a&nbsp;group)&nbsp;<br>
+or&nbsp;as&nbsp;a&nbsp;root&nbsp;item&nbsp;in&nbsp;its&nbsp;universe.<br>
+&nbsp;<br>
+universe:&nbsp;(<a href="#Universe">Universe</a>)&nbsp;the&nbsp;universe&nbsp;where&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;located<br>
+description:&nbsp;(str&nbsp;on&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;group<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;name&nbsp;of&nbsp;the&nbsp;group&nbsp;in&nbsp;its&nbsp;container<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;optional&nbsp;(default:&nbsp;None)<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;ID&nbsp;number&nbsp;of&nbsp;the&nbsp;group&nbsp;in&nbsp;its&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container&nbsp;--&nbsp;optional&nbsp;(default:&nbsp;None)<br>
+container:&nbsp;(<a href="#Universe">Universe</a>&nbsp;or&nbsp;<a href="#Area">Area</a>&nbsp;or&nbsp;&lt;None&gt;)&nbsp;where&nbsp;to&nbsp;add&nbsp;the&nbsp;<a href="#Area">Area</a>&nbsp;after<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creating&nbsp;it<br>
+&nbsp;<br>
+Either&nbsp;universe&nbsp;or&nbsp;container&nbsp;must&nbsp;be&nbsp;specified.<br>
+&nbsp;<br>
+Public&nbsp;instance&nbsp;attributes:<br>
+&nbsp;<br>
+(inherited&nbsp;from&nbsp;class&nbsp;<a href="#SmartHomeItem">SmartHomeItem</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#Area">Area</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="mirabilis.core.html#Container">Container</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Area-__init__"><strong>__init__</strong></a>(self, universe<font color="#909090">=None</font>, description<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>, container<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><a name="Area-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Area-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#Area-finalize">finalize</a>()<br>
+&nbsp;<br>
+called&nbsp;before&nbsp;ejecting&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;unvirse<br>
+&nbsp;<br>
+THIS&nbsp;METHOD&nbsp;SHOULD&nbsp;ONLY&nbsp;BE&nbsp;CALLED&nbsp;BY&nbsp;METHODS&nbsp;OF&nbsp;CLASS&nbsp;<a href="#Universe">Universe</a>!</tt></dd></dl>
+
+<dl><dt><a name="Area-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#Area-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="Area-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#Area-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="Area-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#Area-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;item&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="Area-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="Area-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#Area-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="mirabilis.core.html#Container">Container</a>:<br>
+<dl><dt><a name="Area-__contains__"><strong>__contains__</strong></a>(self, item)</dt></dl>
+
+<dl><dt><a name="Area-__getitem__"><strong>__getitem__</strong></a>(self, index)</dt></dl>
+
+<dl><dt><a name="Area-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Area-additem"><strong>additem</strong></a>(self, item, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>, addkeys<font color="#909090">=frozenset([])</font>)</dt><dd><tt>obj.<a href="#Area-additem">additem</a>(item[,&nbsp;newlocalname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;new_local_id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;addkeys]]])<br>
+&nbsp;<br>
+add&nbsp;an&nbsp;item&nbsp;to&nbsp;this&nbsp;holder<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;the&nbsp;thing&nbsp;to&nbsp;be&nbsp;added<br>
+addkeys:&nbsp;(iterable)&nbsp;the&nbsp;keys--numeric,&nbsp;string,&nbsp;or&nbsp;other&nbsp;type--for&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accessing&nbsp;the&nbsp;item&nbsp;locally&nbsp;from&nbsp;its&nbsp;holder<br>
+newlocalname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;new&nbsp;local&nbsp;name&nbsp;to&nbsp;set&nbsp;on&nbsp;item<br>
+new_local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;new&nbsp;local&nbsp;ID&nbsp;to&nbsp;set&nbsp;on&nbsp;item</tt></dd></dl>
+
+<dl><dt><a name="Area-getitemkeys"><strong>getitemkeys</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Area-getitemkeys">getitemkeys</a>(item)&nbsp;-&gt;&nbsp;(set)<br>
+&nbsp;<br>
+get&nbsp;keys&nbsp;for&nbsp;the&nbsp;item&nbsp;specified<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;what&nbsp;to&nbsp;get&nbsp;the&nbsp;keys&nbsp;for</tt></dd></dl>
+
+<dl><dt><a name="Area-removeitem"><strong>removeitem</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Area-removeitem">removeitem</a>(item)<br>
+&nbsp;<br>
+remove&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;holder<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;the&nbsp;thing&nbsp;to&nbsp;be&nbsp;removed</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#Container">Container</a>:<br>
+<dl><dt><strong>childkeys</strong></dt>
+<dd><tt>childkeys:&nbsp;(iterator&nbsp;of&nbsp;set)&nbsp;the&nbsp;child&nbsp;keys&nbsp;of&nbsp;the&nbsp;container</tt></dd>
+</dl>
+<dl><dt><strong>items</strong></dt>
+<dd><tt>items:&nbsp;(iterator&nbsp;of&nbsp;SmartHomeItem)</tt></dd>
+</dl>
+<dl><dt><strong>itemskeys</strong></dt>
+<dd><tt>itemskeys:&nbsp;(iterator&nbsp;of&nbsp;tuple&nbsp;of&nbsp;(SmartHomeItem,&nbsp;set))</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BoundMethod">class <strong>BoundMethod</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BoundMethod">BoundMethod</a>(obj,&nbsp;methodname)&nbsp;-&gt;&nbsp;boundmethodobj<br>
+&nbsp;<br>
+simulate&nbsp;a&nbsp;callable&nbsp;bound&nbsp;method<br>
+&nbsp;<br>
+obj:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;having&nbsp;the&nbsp;method<br>
+methodname:&nbsp;(str)&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;method<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BoundMethod-__call__"><strong>__call__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="BoundMethod-__init__"><strong>__init__</strong></a>(self, obj, methodname)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Container">class <strong>Container</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Container">Container</a>&nbsp;(abstract&nbsp;class)<br>
+&nbsp;<br>
+a&nbsp;class&nbsp;for&nbsp;things&nbsp;that&nbsp;hold&nbsp;other&nbsp;items<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Container-__contains__"><strong>__contains__</strong></a>(self, item)</dt></dl>
+
+<dl><dt><a name="Container-__getitem__"><strong>__getitem__</strong></a>(self, index)</dt></dl>
+
+<dl><dt><a name="Container-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>#&nbsp;must&nbsp;call&nbsp;this&nbsp;__init__&nbsp;method&nbsp;to&nbsp;initialize&nbsp;the&nbsp;variables</tt></dd></dl>
+
+<dl><dt><a name="Container-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Container-additem"><strong>additem</strong></a>(self, item, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>, addkeys<font color="#909090">=frozenset([])</font>)</dt><dd><tt>obj.<a href="#Container-additem">additem</a>(item[,&nbsp;newlocalname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;new_local_id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;addkeys]]])<br>
+&nbsp;<br>
+add&nbsp;an&nbsp;item&nbsp;to&nbsp;this&nbsp;holder<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;the&nbsp;thing&nbsp;to&nbsp;be&nbsp;added<br>
+addkeys:&nbsp;(iterable)&nbsp;the&nbsp;keys--numeric,&nbsp;string,&nbsp;or&nbsp;other&nbsp;type--for&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accessing&nbsp;the&nbsp;item&nbsp;locally&nbsp;from&nbsp;its&nbsp;holder<br>
+newlocalname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;new&nbsp;local&nbsp;name&nbsp;to&nbsp;set&nbsp;on&nbsp;item<br>
+new_local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;new&nbsp;local&nbsp;ID&nbsp;to&nbsp;set&nbsp;on&nbsp;item</tt></dd></dl>
+
+<dl><dt><a name="Container-getitemkeys"><strong>getitemkeys</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Container-getitemkeys">getitemkeys</a>(item)&nbsp;-&gt;&nbsp;(set)<br>
+&nbsp;<br>
+get&nbsp;keys&nbsp;for&nbsp;the&nbsp;item&nbsp;specified<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;what&nbsp;to&nbsp;get&nbsp;the&nbsp;keys&nbsp;for</tt></dd></dl>
+
+<dl><dt><a name="Container-removeitem"><strong>removeitem</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Container-removeitem">removeitem</a>(item)<br>
+&nbsp;<br>
+remove&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;holder<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;the&nbsp;thing&nbsp;to&nbsp;be&nbsp;removed</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>childkeys</strong></dt>
+<dd><tt>childkeys:&nbsp;(iterator&nbsp;of&nbsp;set)&nbsp;the&nbsp;child&nbsp;keys&nbsp;of&nbsp;the&nbsp;container</tt></dd>
+</dl>
+<dl><dt><strong>items</strong></dt>
+<dd><tt>items:&nbsp;(iterator&nbsp;of&nbsp;SmartHomeItem)</tt></dd>
+</dl>
+<dl><dt><strong>itemskeys</strong></dt>
+<dd><tt>itemskeys:&nbsp;(iterator&nbsp;of&nbsp;tuple&nbsp;of&nbsp;(SmartHomeItem,&nbsp;set))</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Event">class <strong>Event</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Event">Event</a>&nbsp;(abstract&nbsp;class)<br>
+&nbsp;<br>
+Instance&nbsp;attribute:<br>
+&nbsp;<br>
+timestamp:&nbsp;(datetime)&nbsp;the&nbsp;time&nbsp;the&nbsp;event&nbsp;occurred<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Event-__init__"><strong>__init__</strong></a>(self, timestamp<font color="#909090">=None</font>)</dt><dd><tt><a href="#Event">Event</a>.<a href="#Event-__init__">__init__</a>(self[,&nbsp;timestamp])<br>
+&nbsp;<br>
+timestamp:&nbsp;(datetime)&nbsp;when&nbsp;the&nbsp;event&nbsp;happened</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Event-makedispatchtuple"><strong>makedispatchtuple</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>cls.<a href="#Event-makedispatchtuple">makedispatchtuple</a>()&nbsp;-&gt;&nbsp;(tuple)<br>
+&nbsp;<br>
+use&nbsp;this&nbsp;to&nbsp;make&nbsp;a&nbsp;dispatch&nbsp;tuple</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>dispatchtuple</strong></dt>
+<dd><tt>dispatchtuple:&nbsp;(tuple)&nbsp;the&nbsp;tuple&nbsp;that&nbsp;should&nbsp;be&nbsp;used&nbsp;for&nbsp;dispatching&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;event</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Group">class <strong>Group</strong></a>(<a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>, <a href="mirabilis.core.html#Container">Container</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Group">Group</a>([universe[,&nbsp;description[,&nbsp;localname[,&nbsp;local_id[,&nbsp;container]]]]])&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+A&nbsp;<a href="#Group">Group</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;can&nbsp;only&nbsp;hold&nbsp;other&nbsp;groups&nbsp;and&nbsp;state&nbsp;entities.<br>
+&nbsp;<br>
+It&nbsp;can&nbsp;also&nbsp;be&nbsp;directly&nbsp;contained&nbsp;in&nbsp;another&nbsp;container.<br>
+&nbsp;<br>
+universe:&nbsp;(<a href="#Universe">Universe</a>&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe&nbsp;where&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;located<br>
+description:&nbsp;(str&nbsp;on&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;group<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;name&nbsp;of&nbsp;the&nbsp;group&nbsp;in&nbsp;its&nbsp;container<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;optional&nbsp;(default:&nbsp;None)<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;ID&nbsp;number&nbsp;of&nbsp;the&nbsp;group&nbsp;in&nbsp;its&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container&nbsp;--&nbsp;optional&nbsp;(default:&nbsp;None)<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)&nbsp;where&nbsp;to&nbsp;add&nbsp;the&nbsp;<a href="#Group">Group</a>&nbsp;instance&nbsp;after&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creating&nbsp;it<br>
+&nbsp;<br>
+Either&nbsp;universe&nbsp;or&nbsp;container&nbsp;must&nbsp;be&nbsp;specified.<br>
+&nbsp;<br>
+Public&nbsp;instance&nbsp;attributes:<br>
+&nbsp;<br>
+(inherited&nbsp;from&nbsp;class&nbsp;<a href="#SmartHomeItem">SmartHomeItem</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#Group">Group</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="mirabilis.core.html#Container">Container</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Group-__init__"><strong>__init__</strong></a>(self, universe<font color="#909090">=None</font>, description<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>, container<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Group-additem"><strong>additem</strong></a>(self, item, *args, **kwargs)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><a name="Group-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Group-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#Group-finalize">finalize</a>()<br>
+&nbsp;<br>
+called&nbsp;before&nbsp;ejecting&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;unvirse<br>
+&nbsp;<br>
+THIS&nbsp;METHOD&nbsp;SHOULD&nbsp;ONLY&nbsp;BE&nbsp;CALLED&nbsp;BY&nbsp;METHODS&nbsp;OF&nbsp;CLASS&nbsp;<a href="#Universe">Universe</a>!</tt></dd></dl>
+
+<dl><dt><a name="Group-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#Group-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="Group-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#Group-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="Group-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#Group-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;item&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="Group-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="Group-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#Group-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="mirabilis.core.html#Container">Container</a>:<br>
+<dl><dt><a name="Group-__contains__"><strong>__contains__</strong></a>(self, item)</dt></dl>
+
+<dl><dt><a name="Group-__getitem__"><strong>__getitem__</strong></a>(self, index)</dt></dl>
+
+<dl><dt><a name="Group-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Group-getitemkeys"><strong>getitemkeys</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Group-getitemkeys">getitemkeys</a>(item)&nbsp;-&gt;&nbsp;(set)<br>
+&nbsp;<br>
+get&nbsp;keys&nbsp;for&nbsp;the&nbsp;item&nbsp;specified<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;what&nbsp;to&nbsp;get&nbsp;the&nbsp;keys&nbsp;for</tt></dd></dl>
+
+<dl><dt><a name="Group-removeitem"><strong>removeitem</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Group-removeitem">removeitem</a>(item)<br>
+&nbsp;<br>
+remove&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;holder<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;the&nbsp;thing&nbsp;to&nbsp;be&nbsp;removed</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#Container">Container</a>:<br>
+<dl><dt><strong>childkeys</strong></dt>
+<dd><tt>childkeys:&nbsp;(iterator&nbsp;of&nbsp;set)&nbsp;the&nbsp;child&nbsp;keys&nbsp;of&nbsp;the&nbsp;container</tt></dd>
+</dl>
+<dl><dt><strong>items</strong></dt>
+<dd><tt>items:&nbsp;(iterator&nbsp;of&nbsp;SmartHomeItem)</tt></dd>
+</dl>
+<dl><dt><strong>itemskeys</strong></dt>
+<dd><tt>itemskeys:&nbsp;(iterator&nbsp;of&nbsp;tuple&nbsp;of&nbsp;(SmartHomeItem,&nbsp;set))</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PhysicalDevice">class <strong>PhysicalDevice</strong></a>(<a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#PhysicalDevice">PhysicalDevice</a>&nbsp;(abstract&nbsp;class)<br>
+&nbsp;<br>
+A&nbsp;device&nbsp;is&nbsp;something&nbsp;that&nbsp;can&nbsp;be&nbsp;directly&nbsp;communicated&nbsp;with,&nbsp;which&nbsp;may<br>
+monitor&nbsp;and/or&nbsp;control&nbsp;one&nbsp;or&nbsp;more&nbsp;state&nbsp;entities.<br>
+&nbsp;<br>
+Public&nbsp;instance&nbsp;attributes:<br>
+&nbsp;<br>
+(inherited&nbsp;from&nbsp;class&nbsp;<a href="#SmartHomeItem">SmartHomeItem</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#PhysicalDevice">PhysicalDevice</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PhysicalDevice-__init__"><strong>__init__</strong></a>(self, universe<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>, container<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#PhysicalDevice-__init__">__init__</a>([universe[,&nbsp;localname[,&nbsp;local_id[,&nbsp;container]]]])<br>
+&nbsp;<br>
+universe:&nbsp;(<a href="#Universe">Universe</a>&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe&nbsp;where&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;located<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;name&nbsp;of&nbsp;the&nbsp;device&nbsp;within&nbsp;its<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;ID&nbsp;number&nbsp;of&nbsp;the&nbsp;device&nbsp;within&nbsp;its&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container<br>
+container:&nbsp;(<a href="#Universe">Universe</a>&nbsp;or&nbsp;<a href="#Area">Area</a>&nbsp;or&nbsp;&lt;None&gt;)&nbsp;where&nbsp;to&nbsp;add&nbsp;the&nbsp;device&nbsp;after<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creating&nbsp;it<br>
+&nbsp;<br>
+Either&nbsp;universe&nbsp;or&nbsp;container&nbsp;must&nbsp;be&nbsp;specified.</tt></dd></dl>
+
+<dl><dt><a name="PhysicalDevice-add_state_entity"><strong>add_state_entity</strong></a>(self, state_entity)</dt><dd><tt>obj.<a href="#PhysicalDevice-add_state_entity">add_state_entity</a>(state_entity)<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;can&nbsp;only&nbsp;be&nbsp;called&nbsp;during&nbsp;execution&nbsp;of&nbsp;the&nbsp;__init__&nbsp;method<br>
+and&nbsp;should&nbsp;only&nbsp;be&nbsp;called&nbsp;by&nbsp;subclasses&nbsp;of&nbsp;class&nbsp;<a href="#PhysicalDevice">PhysicalDevice</a>.</tt></dd></dl>
+
+<dl><dt><a name="PhysicalDevice-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#PhysicalDevice-finalize">finalize</a>()<br>
+&nbsp;<br>
+prepare&nbsp;to&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="PhysicalDevice-move_entities_to_container"><strong>move_entities_to_container</strong></a>(self, container)</dt></dl>
+
+<dl><dt><a name="PhysicalDevice-update_entities"><strong>update_entities</strong></a>(self)</dt><dd><tt>obj.<a href="#PhysicalDevice-update_entities">update_entities</a>()<br>
+&nbsp;<br>
+when&nbsp;the&nbsp;universe&nbsp;calls&nbsp;this&nbsp;method,&nbsp;the&nbsp;device&nbsp;must&nbsp;update&nbsp;the&nbsp;status<br>
+of&nbsp;its&nbsp;entities</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>entities</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset([])</dl>
+
+<dl><dt><strong>__metaclass__</strong> = &lt;class 'mirabilis.core.PhysicalDeviceClass'&gt;<dd><tt>metaclass&nbsp;for&nbsp;class&nbsp;<a href="#PhysicalDevice">PhysicalDevice</a></tt></dl>
+
+<hr>
+Methods inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><a name="PhysicalDevice-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PhysicalDevice-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#PhysicalDevice-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="PhysicalDevice-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#PhysicalDevice-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="PhysicalDevice-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#PhysicalDevice-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;item&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="PhysicalDevice-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="PhysicalDevice-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#PhysicalDevice-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RStateEntity">class <strong>RStateEntity</strong></a>(<a href="mirabilis.core.html#StateEntity">StateEntity</a>, RStateEntityBase)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#RStateEntity">RStateEntity</a>([description[,&nbsp;localname[,&nbsp;local_id]]])&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+A&nbsp;readable&nbsp;state&nbsp;entity.<br>
+&nbsp;<br>
+description:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;state&nbsp;entity<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;entity&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;optional&nbsp;(defaults&nbsp;to&nbsp;None)<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;ID&nbsp;for&nbsp;the&nbsp;entity&nbsp;--&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(defaults&nbsp;to&nbsp;None)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#RStateEntity">RStateEntity</a></dd>
+<dd><a href="mirabilis.core.html#StateEntity">StateEntity</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd>RStateEntityBase</dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="RStateEntity-__init__"><strong>__init__</strong></a>(self, description<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mirabilis.core.html#StateEntity">StateEntity</a>:<br>
+<dl><dt><a name="RStateEntity-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#RStateEntity-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;ejected&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#StateEntity">StateEntity</a>:<br>
+<dl><dt><strong>device</strong></dt>
+<dd><tt>device:&nbsp;(PhysicalDevice&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;device&nbsp;associated&nbsp;with&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entity<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><a name="RStateEntity-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RStateEntity-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#RStateEntity-finalize">finalize</a>()<br>
+&nbsp;<br>
+called&nbsp;before&nbsp;ejecting&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;unvirse<br>
+&nbsp;<br>
+THIS&nbsp;METHOD&nbsp;SHOULD&nbsp;ONLY&nbsp;BE&nbsp;CALLED&nbsp;BY&nbsp;METHODS&nbsp;OF&nbsp;CLASS&nbsp;<a href="#Universe">Universe</a>!</tt></dd></dl>
+
+<dl><dt><a name="RStateEntity-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#RStateEntity-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="RStateEntity-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#RStateEntity-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="RStateEntity-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="RStateEntity-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#RStateEntity-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Methods inherited from RStateEntityBase:<br>
+<dl><dt><a name="RStateEntity-read"><strong>read</strong></a>(self)</dt><dd><tt>obj.<a href="#RStateEntity-read">read</a>()&nbsp;-&gt;&nbsp;most&nbsp;current&nbsp;state&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="RStateEntity-update"><strong>update</strong></a>(self, newstate)</dt><dd><tt>obj.<a href="#RStateEntity-update">update</a>(newstate)<br>
+&nbsp;<br>
+record&nbsp;a&nbsp;new&nbsp;value&nbsp;observed&nbsp;by&nbsp;the&nbsp;device<br>
+&nbsp;<br>
+newstate:&nbsp;the&nbsp;newest&nbsp;value&nbsp;to&nbsp;be&nbsp;recorded</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from RStateEntityBase:<br>
+<dl><dt><strong>UNINITIALIZED</strong> = &lt;object object&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RWStateEntity">class <strong>RWStateEntity</strong></a>(<a href="mirabilis.core.html#StateEntity">StateEntity</a>, RStateEntityBase, WStateEntityBase)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#RWStateEntity">RWStateEntity</a>(writerfunc[,&nbsp;description[,&nbsp;localname[,&nbsp;local_id]]])&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+A&nbsp;readable&nbsp;and&nbsp;writable&nbsp;state&nbsp;entity.<br>
+&nbsp;<br>
+writerfunc:&nbsp;(function)&nbsp;the&nbsp;function&nbsp;to&nbsp;call&nbsp;with&nbsp;the&nbsp;entity&nbsp;when&nbsp;a&nbsp;change<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;needs&nbsp;to&nbsp;be&nbsp;written&nbsp;out;&nbsp;it&nbsp;takes&nbsp;as&nbsp;arguments&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;state&nbsp;entity&nbsp;first&nbsp;and&nbsp;the&nbsp;value&nbsp;to&nbsp;set&nbsp;second<br>
+description:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;state&nbsp;entity<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;entity&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;optional&nbsp;(defaults&nbsp;to&nbsp;None)<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;ID&nbsp;for&nbsp;the&nbsp;entity&nbsp;--&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(defaults&nbsp;to&nbsp;None)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#RWStateEntity">RWStateEntity</a></dd>
+<dd><a href="mirabilis.core.html#StateEntity">StateEntity</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd>RStateEntityBase</dd>
+<dd>WStateEntityBase</dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="RWStateEntity-__init__"><strong>__init__</strong></a>(self, writerfunc, description<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset([])</dl>
+
+<hr>
+Methods inherited from <a href="mirabilis.core.html#StateEntity">StateEntity</a>:<br>
+<dl><dt><a name="RWStateEntity-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#RWStateEntity-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;ejected&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#StateEntity">StateEntity</a>:<br>
+<dl><dt><strong>device</strong></dt>
+<dd><tt>device:&nbsp;(PhysicalDevice&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;device&nbsp;associated&nbsp;with&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entity<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><a name="RWStateEntity-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RWStateEntity-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#RWStateEntity-finalize">finalize</a>()<br>
+&nbsp;<br>
+called&nbsp;before&nbsp;ejecting&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;unvirse<br>
+&nbsp;<br>
+THIS&nbsp;METHOD&nbsp;SHOULD&nbsp;ONLY&nbsp;BE&nbsp;CALLED&nbsp;BY&nbsp;METHODS&nbsp;OF&nbsp;CLASS&nbsp;<a href="#Universe">Universe</a>!</tt></dd></dl>
+
+<dl><dt><a name="RWStateEntity-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#RWStateEntity-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="RWStateEntity-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#RWStateEntity-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="RWStateEntity-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="RWStateEntity-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#RWStateEntity-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Methods inherited from RStateEntityBase:<br>
+<dl><dt><a name="RWStateEntity-read"><strong>read</strong></a>(self)</dt><dd><tt>obj.<a href="#RWStateEntity-read">read</a>()&nbsp;-&gt;&nbsp;most&nbsp;current&nbsp;state&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="RWStateEntity-update"><strong>update</strong></a>(self, newstate)</dt><dd><tt>obj.<a href="#RWStateEntity-update">update</a>(newstate)<br>
+&nbsp;<br>
+record&nbsp;a&nbsp;new&nbsp;value&nbsp;observed&nbsp;by&nbsp;the&nbsp;device<br>
+&nbsp;<br>
+newstate:&nbsp;the&nbsp;newest&nbsp;value&nbsp;to&nbsp;be&nbsp;recorded</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from RStateEntityBase:<br>
+<dl><dt><strong>UNINITIALIZED</strong> = &lt;object object&gt;</dl>
+
+<hr>
+Methods inherited from WStateEntityBase:<br>
+<dl><dt><a name="RWStateEntity-rewrite"><strong>rewrite</strong></a>(self)</dt><dd><tt>obj.<a href="#RWStateEntity-rewrite">rewrite</a>()<br>
+&nbsp;<br>
+re-write&nbsp;the&nbsp;last&nbsp;value&nbsp;written&nbsp;another&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="RWStateEntity-write"><strong>write</strong></a>(self, newvalue)</dt><dd><tt>obj.<a href="#RWStateEntity-write">write</a>(newvalue)<br>
+&nbsp;<br>
+try&nbsp;to&nbsp;set&nbsp;a&nbsp;new&nbsp;value&nbsp;of&nbsp;newvalue&nbsp;on&nbsp;something</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from WStateEntityBase:<br>
+<dl><dt><strong>lastwrite</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from WStateEntityBase:<br>
+<dl><dt><strong>NEVER_WRITTEN</strong> = &lt;object object&gt;</dl>
+
+<dl><dt><strong>NoPriorWritesError</strong> = &lt;class 'mirabilis.core._state_entity.NoPriorWritesError'&gt;</dl>
+
+<dl><dt><strong>__metaclass__</strong> = &lt;class 'abc.ABCMeta'&gt;<dd><tt>Metaclass&nbsp;for&nbsp;defining&nbsp;Abstract&nbsp;Base&nbsp;Classes&nbsp;(ABCs).<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;metaclass&nbsp;to&nbsp;create&nbsp;an&nbsp;ABC.&nbsp;&nbsp;An&nbsp;ABC&nbsp;can&nbsp;be&nbsp;subclassed<br>
+directly,&nbsp;and&nbsp;then&nbsp;acts&nbsp;as&nbsp;a&nbsp;mix-in&nbsp;class.&nbsp;&nbsp;You&nbsp;can&nbsp;also&nbsp;register<br>
+unrelated&nbsp;concrete&nbsp;classes&nbsp;(even&nbsp;built-in&nbsp;classes)&nbsp;and&nbsp;unrelated<br>
+ABCs&nbsp;as&nbsp;'virtual&nbsp;subclasses'&nbsp;--&nbsp;these&nbsp;and&nbsp;their&nbsp;descendants&nbsp;will<br>
+be&nbsp;considered&nbsp;subclasses&nbsp;of&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;by&nbsp;the&nbsp;built-in<br>
+issubclass()&nbsp;function,&nbsp;but&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;won't&nbsp;show&nbsp;up&nbsp;in<br>
+their&nbsp;MRO&nbsp;(Method&nbsp;Resolution&nbsp;Order)&nbsp;nor&nbsp;will&nbsp;method<br>
+implementations&nbsp;defined&nbsp;by&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;be&nbsp;callable&nbsp;(not<br>
+even&nbsp;via&nbsp;super()).</tt></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SmartHomeItem">class <strong>SmartHomeItem</strong></a>(<a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SmartHomeItem">SmartHomeItem</a>&nbsp;(abstract&nbsp;class)<br>
+&nbsp;<br>
+root&nbsp;class&nbsp;for&nbsp;<a href="#Area">Area</a>,&nbsp;<a href="#PhysicalDevice">PhysicalDevice</a>,&nbsp;and&nbsp;<a href="#StateEntity">StateEntity</a><br>
+&nbsp;<br>
+Instances&nbsp;of&nbsp;this&nbsp;class&nbsp;are&nbsp;objects&nbsp;that&nbsp;can&nbsp;be&nbsp;located&nbsp;inside&nbsp;the&nbsp;<br>
+boundaries&nbsp;of&nbsp;a&nbsp;<a href="#Container">Container</a>&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+&nbsp;<br>
+Public&nbsp;instance&nbsp;attributes:<br>
+&nbsp;<br>
+description:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;this&nbsp;item<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;preferred&nbsp;local&nbsp;name&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;in&nbsp;its&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;preferred&nbsp;local&nbsp;ID&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;in&nbsp;its&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SmartHomeItem-__init__"><strong>__init__</strong></a>(self, universe<font color="#909090">=None</font>, description<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>, container<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#SmartHomeItem-__init__">__init__</a>(universe<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;description<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;localname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;local_id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;container]]]])<br>
+&nbsp;<br>
+universe:&nbsp;(<a href="#Universe">Universe</a>&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe&nbsp;where&nbsp;this&nbsp;is&nbsp;being&nbsp;created<br>
+description:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;--&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;(default:&nbsp;None)<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;preferred&nbsp;local&nbsp;name&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;its&nbsp;container<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;preferred&nbsp;local&nbsp;ID&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;in&nbsp;its&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container<br>
+container:&nbsp;(<a href="#Area">Area</a>&nbsp;or&nbsp;<a href="#Group">Group</a>)&nbsp;where&nbsp;to&nbsp;add&nbsp;the&nbsp;item&nbsp;after&nbsp;creating&nbsp;it;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;universe&nbsp;is&nbsp;None,&nbsp;then&nbsp;universe&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;taken&nbsp;from&nbsp;container.universe</tt></dd></dl>
+
+<dl><dt><a name="SmartHomeItem-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SmartHomeItem-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#SmartHomeItem-finalize">finalize</a>()<br>
+&nbsp;<br>
+called&nbsp;before&nbsp;ejecting&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;unvirse<br>
+&nbsp;<br>
+THIS&nbsp;METHOD&nbsp;SHOULD&nbsp;ONLY&nbsp;BE&nbsp;CALLED&nbsp;BY&nbsp;METHODS&nbsp;OF&nbsp;CLASS&nbsp;<a href="#Universe">Universe</a>!</tt></dd></dl>
+
+<dl><dt><a name="SmartHomeItem-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#SmartHomeItem-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="SmartHomeItem-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#SmartHomeItem-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="SmartHomeItem-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#SmartHomeItem-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;item&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="SmartHomeItem-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="SmartHomeItem-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#SmartHomeItem-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SmartHomeItemInterface">class <strong>SmartHomeItemInterface</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SmartHomeItemInterface">SmartHomeItemInterface</a>&nbsp;(abstract&nbsp;class)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;global&nbsp;ID&nbsp;of&nbsp;this&nbsp;object&nbsp;in&nbsp;its&nbsp;universe<br>
+&nbsp;<br>
+(read&nbsp;only)</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe&nbsp;where&nbsp;this&nbsp;object&nbsp;belongs<br>
+&nbsp;<br>
+(read&nbsp;only)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StateChangedEvent">class <strong>StateChangedEvent</strong></a>(<a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#StateChangedEvent">StateChangedEvent</a>(entity,&nbsp;newstate,&nbsp;oldstate[,&nbsp;timestamp])&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+entity:&nbsp;(<a href="#StateEntity">StateEntity</a>)&nbsp;the&nbsp;entity&nbsp;involved&nbsp;in&nbsp;the&nbsp;event<br>
+newstate:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;new&nbsp;state&nbsp;of&nbsp;the&nbsp;entity<br>
+oldstate:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;old&nbsp;state&nbsp;of&nbsp;the&nbsp;entity<br>
+timestamp:&nbsp;(datetime)&nbsp;when&nbsp;the&nbsp;event&nbsp;happened<br>
+&nbsp;<br>
+Instance&nbsp;attributes:<br>
+&nbsp;<br>
+(inherits&nbsp;instance&nbsp;attributes&nbsp;of&nbsp;<a href="#StateEntityEvent">StateEntityEvent</a>)<br>
+&nbsp;<br>
+newstate:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;new&nbsp;state&nbsp;of&nbsp;the&nbsp;entity<br>
+oldstate:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;previous&nbsp;state&nbsp;of&nbsp;the&nbsp;entity<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#StateChangedEvent">StateChangedEvent</a></dd>
+<dd><a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a></dd>
+<dd><a href="mirabilis.core.html#Event">Event</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="StateChangedEvent-__init__"><strong>__init__</strong></a>(self, entity, newstate, oldstate, timestamp<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Class methods inherited from <a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a>:<br>
+<dl><dt><a name="StateChangedEvent-makedispatchtuple"><strong>makedispatchtuple</strong></a>(cls, entity)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>cls.<a href="#StateChangedEvent-makedispatchtuple">makedispatchtuple</a>(entity)&nbsp;-&gt;&nbsp;(tuple)<br>
+&nbsp;<br>
+use&nbsp;this&nbsp;to&nbsp;make&nbsp;a&nbsp;dispatch&nbsp;tuple&nbsp;for&nbsp;an&nbsp;event<br>
+&nbsp;<br>
+entity:&nbsp;(<a href="#StateEntity">StateEntity</a>)&nbsp;the&nbsp;entity&nbsp;for&nbsp;which&nbsp;the&nbsp;event&nbsp;took&nbsp;place</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a>:<br>
+<dl><dt><strong>dispatchtuple</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#Event">Event</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StateEntity">class <strong>StateEntity</strong></a>(<a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#StateEntity">StateEntity</a>&nbsp;(abstract&nbsp;class)<br>
+&nbsp;<br>
+An&nbsp;entity&nbsp;is&nbsp;some&nbsp;kind&nbsp;of&nbsp;thing&nbsp;controlled&nbsp;by&nbsp;or&nbsp;associated&nbsp;with&nbsp;a&nbsp;device<br>
+&nbsp;<br>
+Public&nbsp;instance&nbsp;attributes:<br>
+&nbsp;<br>
+Inheritance&nbsp;from&nbsp;<a href="#SmartHomeItem">SmartHomeItem</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#StateEntity">StateEntity</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="StateEntity-__init__"><strong>__init__</strong></a>(self, description<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#StateEntity-__init__">__init__</a>([description[,&nbsp;localname[,&nbsp;local_id]]])&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+description:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;state&nbsp;entity<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;entity&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;optional&nbsp;(defaults&nbsp;to&nbsp;None)<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;ID&nbsp;for&nbsp;the&nbsp;entity&nbsp;--&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(defaults&nbsp;to&nbsp;None)</tt></dd></dl>
+
+<dl><dt><a name="StateEntity-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#StateEntity-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;ejected&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>device</strong></dt>
+<dd><tt>device:&nbsp;(PhysicalDevice&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;device&nbsp;associated&nbsp;with&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entity<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><a name="StateEntity-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="StateEntity-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#StateEntity-finalize">finalize</a>()<br>
+&nbsp;<br>
+called&nbsp;before&nbsp;ejecting&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;unvirse<br>
+&nbsp;<br>
+THIS&nbsp;METHOD&nbsp;SHOULD&nbsp;ONLY&nbsp;BE&nbsp;CALLED&nbsp;BY&nbsp;METHODS&nbsp;OF&nbsp;CLASS&nbsp;<a href="#Universe">Universe</a>!</tt></dd></dl>
+
+<dl><dt><a name="StateEntity-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#StateEntity-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="StateEntity-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#StateEntity-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="StateEntity-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="StateEntity-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#StateEntity-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StateEntityEvent">class <strong>StateEntityEvent</strong></a>(<a href="mirabilis.core.html#Event">Event</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#StateEntityEvent">StateEntityEvent</a>&nbsp;(abstract&nbsp;class)<br>
+&nbsp;<br>
+Instance&nbsp;attribute:<br>
+&nbsp;<br>
+(inherits&nbsp;instance&nbsp;attributes&nbsp;of&nbsp;<a href="#Event">Event</a>)<br>
+&nbsp;<br>
+entity:&nbsp;(<a href="#StateEntity">StateEntity</a>)&nbsp;the&nbsp;entity&nbsp;involved&nbsp;in&nbsp;the&nbsp;event<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a></dd>
+<dd><a href="mirabilis.core.html#Event">Event</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="StateEntityEvent-__init__"><strong>__init__</strong></a>(self, entity, timestamp<font color="#909090">=None</font>)</dt><dd><tt><a href="#Event">Event</a>.<a href="#StateEntityEvent-__init__">__init__</a>(self[,&nbsp;timestamp])<br>
+&nbsp;<br>
+entity:&nbsp;(<a href="#StateEntity">StateEntity</a>)&nbsp;the&nbsp;entity&nbsp;involved&nbsp;in&nbsp;the&nbsp;event<br>
+timestamp:&nbsp;(datetime)&nbsp;when&nbsp;the&nbsp;event&nbsp;happened</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="StateEntityEvent-makedispatchtuple"><strong>makedispatchtuple</strong></a>(cls, entity)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>cls.<a href="#StateEntityEvent-makedispatchtuple">makedispatchtuple</a>(entity)&nbsp;-&gt;&nbsp;(tuple)<br>
+&nbsp;<br>
+use&nbsp;this&nbsp;to&nbsp;make&nbsp;a&nbsp;dispatch&nbsp;tuple&nbsp;for&nbsp;an&nbsp;event<br>
+&nbsp;<br>
+entity:&nbsp;(<a href="#StateEntity">StateEntity</a>)&nbsp;the&nbsp;entity&nbsp;for&nbsp;which&nbsp;the&nbsp;event&nbsp;took&nbsp;place</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>dispatchtuple</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#Event">Event</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Universe">class <strong>Universe</strong></a>(<a href="mirabilis.core.html#Container">Container</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Universe">Universe</a>()&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;root&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;containing&nbsp;references&nbsp;to&nbsp;all&nbsp;necessary&nbsp;objects&nbsp;to<br>
+piece&nbsp;together&nbsp;a&nbsp;complete&nbsp;and&nbsp;entire&nbsp;picture&nbsp;of&nbsp;the&nbsp;system.<br>
+&nbsp;<br>
+A&nbsp;<a href="#Universe">Universe</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;may&nbsp;contain&nbsp;references&nbsp;to&nbsp;<a href="#Area">Area</a>&nbsp;objects,&nbsp;but&nbsp;it&nbsp;does&nbsp;not<br>
+have&nbsp;a&nbsp;parent/child&nbsp;relationship&nbsp;with&nbsp;them.<br>
+&nbsp;<br>
+Normally,&nbsp;it&nbsp;should&nbsp;be&nbsp;only&nbsp;be&nbsp;necessary&nbsp;to&nbsp;create&nbsp;one&nbsp;<a href="#Universe">Universe</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;per<br>
+running&nbsp;application.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#Universe">Universe</a></dd>
+<dd><a href="mirabilis.core.html#Container">Container</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Universe-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Universe-object_with_global_id"><strong>object_with_global_id</strong></a>(self, global_id)</dt><dd><tt>obj.<a href="#Universe-object_with_global_id">object_with_global_id</a>(global_id)&nbsp;-&gt;&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)<br>
+&nbsp;<br>
+return&nbsp;the&nbsp;item&nbsp;with&nbsp;the&nbsp;specified&nbsp;global&nbsp;id<br>
+&nbsp;<br>
+global_id:&nbsp;(int)&nbsp;the&nbsp;global&nbsp;ID&nbsp;of&nbsp;the&nbsp;item&nbsp;in&nbsp;question</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>devices</strong></dt>
+<dd><tt>devices:&nbsp;(set)&nbsp;the&nbsp;devices&nbsp;existing&nbsp;in&nbsp;this&nbsp;universe<br>
+&nbsp;<br>
+(read&nbsp;only)</tt></dd>
+</dl>
+<dl><dt><strong>objectsdict</strong></dt>
+<dd><tt>objectsdict:&nbsp;(dict&nbsp;of&nbsp;SmartHomeItem[int])&nbsp;items&nbsp;indexed&nbsp;by&nbsp;global&nbsp;ID<br>
+&nbsp;<br>
+(read&nbsp;only)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="mirabilis.core.html#Container">Container</a>:<br>
+<dl><dt><a name="Universe-__contains__"><strong>__contains__</strong></a>(self, item)</dt></dl>
+
+<dl><dt><a name="Universe-__getitem__"><strong>__getitem__</strong></a>(self, index)</dt></dl>
+
+<dl><dt><a name="Universe-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Universe-additem"><strong>additem</strong></a>(self, item, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>, addkeys<font color="#909090">=frozenset([])</font>)</dt><dd><tt>obj.<a href="#Universe-additem">additem</a>(item[,&nbsp;newlocalname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;new_local_id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[,&nbsp;addkeys]]])<br>
+&nbsp;<br>
+add&nbsp;an&nbsp;item&nbsp;to&nbsp;this&nbsp;holder<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;the&nbsp;thing&nbsp;to&nbsp;be&nbsp;added<br>
+addkeys:&nbsp;(iterable)&nbsp;the&nbsp;keys--numeric,&nbsp;string,&nbsp;or&nbsp;other&nbsp;type--for&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accessing&nbsp;the&nbsp;item&nbsp;locally&nbsp;from&nbsp;its&nbsp;holder<br>
+newlocalname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;new&nbsp;local&nbsp;name&nbsp;to&nbsp;set&nbsp;on&nbsp;item<br>
+new_local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;new&nbsp;local&nbsp;ID&nbsp;to&nbsp;set&nbsp;on&nbsp;item</tt></dd></dl>
+
+<dl><dt><a name="Universe-getitemkeys"><strong>getitemkeys</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Universe-getitemkeys">getitemkeys</a>(item)&nbsp;-&gt;&nbsp;(set)<br>
+&nbsp;<br>
+get&nbsp;keys&nbsp;for&nbsp;the&nbsp;item&nbsp;specified<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;what&nbsp;to&nbsp;get&nbsp;the&nbsp;keys&nbsp;for</tt></dd></dl>
+
+<dl><dt><a name="Universe-removeitem"><strong>removeitem</strong></a>(self, item)</dt><dd><tt>obj.<a href="#Universe-removeitem">removeitem</a>(item)<br>
+&nbsp;<br>
+remove&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;holder<br>
+&nbsp;<br>
+item:&nbsp;(<a href="#SmartHomeItem">SmartHomeItem</a>)&nbsp;the&nbsp;thing&nbsp;to&nbsp;be&nbsp;removed</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#Container">Container</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>childkeys</strong></dt>
+<dd><tt>childkeys:&nbsp;(iterator&nbsp;of&nbsp;set)&nbsp;the&nbsp;child&nbsp;keys&nbsp;of&nbsp;the&nbsp;container</tt></dd>
+</dl>
+<dl><dt><strong>items</strong></dt>
+<dd><tt>items:&nbsp;(iterator&nbsp;of&nbsp;SmartHomeItem)</tt></dd>
+</dl>
+<dl><dt><strong>itemskeys</strong></dt>
+<dd><tt>itemskeys:&nbsp;(iterator&nbsp;of&nbsp;tuple&nbsp;of&nbsp;(SmartHomeItem,&nbsp;set))</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ValueWrittenEvent">class <strong>ValueWrittenEvent</strong></a>(<a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#StateChangedEvent">StateChangedEvent</a>(entity,&nbsp;newstate,&nbsp;oldstate[,&nbsp;timestamp])&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+entity:&nbsp;(<a href="#StateEntity">StateEntity</a>)&nbsp;the&nbsp;entity&nbsp;involved&nbsp;in&nbsp;the&nbsp;event<br>
+value:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;value&nbsp;written&nbsp;to&nbsp;the&nbsp;entity<br>
+lastvaluewrite:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;last&nbsp;value&nbsp;written&nbsp;to&nbsp;the&nbsp;entity<br>
+timestamp:&nbsp;(datetime)&nbsp;when&nbsp;the&nbsp;event&nbsp;happened<br>
+&nbsp;<br>
+Instance&nbsp;attributes:<br>
+&nbsp;<br>
+(inherits&nbsp;instance&nbsp;attributes&nbsp;of&nbsp;<a href="#StateEntityEvent">StateEntityEvent</a>)<br>
+&nbsp;<br>
+value:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;new&nbsp;state&nbsp;of&nbsp;the&nbsp;entity<br>
+lastvaluewrite:&nbsp;(<a href="__builtin__.html#object">object</a>)&nbsp;the&nbsp;previous&nbsp;state&nbsp;of&nbsp;the&nbsp;entity<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#ValueWrittenEvent">ValueWrittenEvent</a></dd>
+<dd><a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a></dd>
+<dd><a href="mirabilis.core.html#Event">Event</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ValueWrittenEvent-__init__"><strong>__init__</strong></a>(self, entity, value, lastvaluewrite<font color="#909090">=None</font>, timestamp<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Class methods inherited from <a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a>:<br>
+<dl><dt><a name="ValueWrittenEvent-makedispatchtuple"><strong>makedispatchtuple</strong></a>(cls, entity)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>cls.<a href="#ValueWrittenEvent-makedispatchtuple">makedispatchtuple</a>(entity)&nbsp;-&gt;&nbsp;(tuple)<br>
+&nbsp;<br>
+use&nbsp;this&nbsp;to&nbsp;make&nbsp;a&nbsp;dispatch&nbsp;tuple&nbsp;for&nbsp;an&nbsp;event<br>
+&nbsp;<br>
+entity:&nbsp;(<a href="#StateEntity">StateEntity</a>)&nbsp;the&nbsp;entity&nbsp;for&nbsp;which&nbsp;the&nbsp;event&nbsp;took&nbsp;place</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#StateEntityEvent">StateEntityEvent</a>:<br>
+<dl><dt><strong>dispatchtuple</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#Event">Event</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WStateEntity">class <strong>WStateEntity</strong></a>(<a href="mirabilis.core.html#StateEntity">StateEntity</a>, WStateEntityBase)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#WStateEntity">WStateEntity</a>(writerfunc[,&nbsp;description[,&nbsp;localname[,&nbsp;local_id]]])&nbsp;-&gt;&nbsp;obj<br>
+&nbsp;<br>
+A&nbsp;writable&nbsp;state&nbsp;entity.<br>
+&nbsp;<br>
+writerfunc:&nbsp;(function)&nbsp;the&nbsp;function&nbsp;to&nbsp;call&nbsp;with&nbsp;the&nbsp;entity&nbsp;when&nbsp;a&nbsp;change<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;needs&nbsp;to&nbsp;be&nbsp;written&nbsp;out;&nbsp;it&nbsp;takes&nbsp;as&nbsp;arguments&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;state&nbsp;entity&nbsp;first&nbsp;and&nbsp;the&nbsp;value&nbsp;to&nbsp;set&nbsp;second<br>
+description:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;state&nbsp;entity<br>
+localname:&nbsp;(str&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;entity&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;optional&nbsp;(defaults&nbsp;to&nbsp;None)<br>
+local_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;local&nbsp;ID&nbsp;for&nbsp;the&nbsp;entity&nbsp;--&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(defaults&nbsp;to&nbsp;None)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mirabilis.core.html#WStateEntity">WStateEntity</a></dd>
+<dd><a href="mirabilis.core.html#StateEntity">StateEntity</a></dd>
+<dd><a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a></dd>
+<dd>WStateEntityBase</dd>
+<dd><a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="WStateEntity-__init__"><strong>__init__</strong></a>(self, writerfunc, description<font color="#909090">=None</font>, localname<font color="#909090">=None</font>, local_id<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset([])</dl>
+
+<hr>
+Methods inherited from <a href="mirabilis.core.html#StateEntity">StateEntity</a>:<br>
+<dl><dt><a name="WStateEntity-readytoquituniverse"><strong>readytoquituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#WStateEntity-readytoquituniverse">readytoquituniverse</a>()&nbsp;-&gt;&nbsp;(bool)<br>
+&nbsp;<br>
+return&nbsp;whether&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;ready&nbsp;to&nbsp;be&nbsp;ejected&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#StateEntity">StateEntity</a>:<br>
+<dl><dt><strong>device</strong></dt>
+<dd><tt>device:&nbsp;(PhysicalDevice&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;device&nbsp;associated&nbsp;with&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entity<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><a name="WStateEntity-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="WStateEntity-finalize"><strong>finalize</strong></a>(self)</dt><dd><tt>obj.<a href="#WStateEntity-finalize">finalize</a>()<br>
+&nbsp;<br>
+called&nbsp;before&nbsp;ejecting&nbsp;an&nbsp;item&nbsp;from&nbsp;the&nbsp;unvirse<br>
+&nbsp;<br>
+THIS&nbsp;METHOD&nbsp;SHOULD&nbsp;ONLY&nbsp;BE&nbsp;CALLED&nbsp;BY&nbsp;METHODS&nbsp;OF&nbsp;CLASS&nbsp;<a href="#Universe">Universe</a>!</tt></dd></dl>
+
+<dl><dt><a name="WStateEntity-move"><strong>move</strong></a>(self, container, newlocalname<font color="#909090">=None</font>, new_local_id<font color="#909090">=None</font>)</dt><dd><tt>obj.<a href="#WStateEntity-move">move</a>(container[,&nbsp;newlocalname[,&nbsp;new_local_id]])<br>
+&nbsp;<br>
+moves&nbsp;the&nbsp;item&nbsp;to&nbsp;a&nbsp;new&nbsp;container<br>
+&nbsp;<br>
+container:&nbsp;(<a href="#Container">Container</a>&nbsp;or&nbsp;&lt;None&gt;)</tt></dd></dl>
+
+<dl><dt><a name="WStateEntity-quituniverse"><strong>quituniverse</strong></a>(self)</dt><dd><tt>obj.<a href="#WStateEntity-quituniverse">quituniverse</a>()<br>
+&nbsp;<br>
+remove&nbsp;the&nbsp;item&nbsp;from&nbsp;the&nbsp;universe</tt></dd></dl>
+
+<dl><dt><a name="WStateEntity-removefromcontainer"><strong>removefromcontainer</strong></a>(self)</dt><dd><tt>obj.removefromconainer()<br>
+&nbsp;<br>
+removes&nbsp;the&nbsp;item&nbsp;from&nbsp;its&nbsp;current&nbsp;container<br>
+&nbsp;<br>
+raises&nbsp;an&nbsp;exception&nbsp;if&nbsp;it's&nbsp;not&nbsp;in&nbsp;any&nbsp;container</tt></dd></dl>
+
+<dl><dt><a name="WStateEntity-updatekeys"><strong>updatekeys</strong></a>(self, newkeys)</dt><dd><tt>obj.<a href="#WStateEntity-updatekeys">updatekeys</a>(newkeys)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;keys&nbsp;of&nbsp;this&nbsp;item&nbsp;through&nbsp;its&nbsp;container.<br>
+newkeys&nbsp;will&nbsp;be&nbsp;automatically&nbsp;supplemented&nbsp;with&nbsp;the&nbsp;name&nbsp;and&nbsp;local_id&nbsp;<br>
+properties&nbsp;if&nbsp;they&nbsp;are&nbsp;not&nbsp;None.<br>
+&nbsp;<br>
+newkeys:&nbsp;(iterable)&nbsp;the&nbsp;new&nbsp;keys&nbsp;to&nbsp;use,&nbsp;in&nbsp;addition&nbsp;to&nbsp;localname&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;local_id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItem">SmartHomeItem</a>:<br>
+<dl><dt><strong>container</strong></dt>
+<dd><tt>container:&nbsp;(Container&nbsp;or&nbsp;&lt;None&gt;)&nbsp;whatever&nbsp;is&nbsp;containing&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>global_id</strong></dt>
+<dd><tt>global_id:&nbsp;(int&nbsp;or&nbsp;&lt;None&gt;)&nbsp;the&nbsp;universe-wide&nbsp;ID&nbsp;for&nbsp;this&nbsp;item&nbsp;<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>keys:&nbsp;(set)&nbsp;the&nbsp;set&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;locally&nbsp;identify&nbsp;this&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>path</strong></dt>
+<dd><tt>path:&nbsp;(str)&nbsp;a&nbsp;slash-separated&nbsp;path&nbsp;of&nbsp;the&nbsp;names&nbsp;leading&nbsp;up&nbsp;to&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<dl><dt><strong>universe</strong></dt>
+<dd><tt>universe:&nbsp;(Universe)&nbsp;the&nbsp;universe&nbsp;for&nbsp;this&nbsp;object<br>
+&nbsp;<br>
+read-only&nbsp;property</tt></dd>
+</dl>
+<hr>
+Methods inherited from WStateEntityBase:<br>
+<dl><dt><a name="WStateEntity-rewrite"><strong>rewrite</strong></a>(self)</dt><dd><tt>obj.<a href="#WStateEntity-rewrite">rewrite</a>()<br>
+&nbsp;<br>
+re-write&nbsp;the&nbsp;last&nbsp;value&nbsp;written&nbsp;another&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="WStateEntity-write"><strong>write</strong></a>(self, newvalue)</dt><dd><tt>obj.<a href="#WStateEntity-write">write</a>(newvalue)<br>
+&nbsp;<br>
+try&nbsp;to&nbsp;set&nbsp;a&nbsp;new&nbsp;value&nbsp;of&nbsp;newvalue&nbsp;on&nbsp;something</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from WStateEntityBase:<br>
+<dl><dt><strong>lastwrite</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from WStateEntityBase:<br>
+<dl><dt><strong>NEVER_WRITTEN</strong> = &lt;object object&gt;</dl>
+
+<dl><dt><strong>NoPriorWritesError</strong> = &lt;class 'mirabilis.core._state_entity.NoPriorWritesError'&gt;</dl>
+
+<dl><dt><strong>__metaclass__</strong> = &lt;class 'abc.ABCMeta'&gt;<dd><tt>Metaclass&nbsp;for&nbsp;defining&nbsp;Abstract&nbsp;Base&nbsp;Classes&nbsp;(ABCs).<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;metaclass&nbsp;to&nbsp;create&nbsp;an&nbsp;ABC.&nbsp;&nbsp;An&nbsp;ABC&nbsp;can&nbsp;be&nbsp;subclassed<br>
+directly,&nbsp;and&nbsp;then&nbsp;acts&nbsp;as&nbsp;a&nbsp;mix-in&nbsp;class.&nbsp;&nbsp;You&nbsp;can&nbsp;also&nbsp;register<br>
+unrelated&nbsp;concrete&nbsp;classes&nbsp;(even&nbsp;built-in&nbsp;classes)&nbsp;and&nbsp;unrelated<br>
+ABCs&nbsp;as&nbsp;'virtual&nbsp;subclasses'&nbsp;--&nbsp;these&nbsp;and&nbsp;their&nbsp;descendants&nbsp;will<br>
+be&nbsp;considered&nbsp;subclasses&nbsp;of&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;by&nbsp;the&nbsp;built-in<br>
+issubclass()&nbsp;function,&nbsp;but&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;won't&nbsp;show&nbsp;up&nbsp;in<br>
+their&nbsp;MRO&nbsp;(Method&nbsp;Resolution&nbsp;Order)&nbsp;nor&nbsp;will&nbsp;method<br>
+implementations&nbsp;defined&nbsp;by&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;be&nbsp;callable&nbsp;(not<br>
+even&nbsp;via&nbsp;super()).</tt></dl>
+
+<hr>
+Data descriptors inherited from <a href="mirabilis.core.html#SmartHomeItemInterface">SmartHomeItemInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ['SmartHomeItemInterface', 'SmartHomeItem', 'Container', 'Universe', 'Area', 'Group', 'PhysicalDevice', 'BoundMethod', 'Event', 'StateEntityEvent', 'StateChangedEvent', 'ValueWrittenEvent', 'StateEntity', 'RStateEntity', 'WStateEntity', 'RWStateEntity']</td></tr></table>
+</body></html>

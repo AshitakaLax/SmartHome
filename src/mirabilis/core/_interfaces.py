@@ -14,11 +14,17 @@ class SmartHomeItemInterface(object):
     @property
     @abc.abstractmethod
     def universe(self):
-        """universe: (Universe) the universe where this object belongs"""
+        """
+        universe: (Universe or <None>) the universe where this object belongs
+        
+        (read only)
+        """
     
     @property
     @abc.abstractmethod
     def global_id(self):
         """
         global_id: (int or <None>) the global ID of this object in its universe
+        
+        (read only)
         """

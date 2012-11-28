@@ -74,7 +74,11 @@ class PhysicalDevice(SmartHomeItem):
         """
         if container:
             assert isinstance(container, (Universe, Area))
-        SmartHomeItem.__init__(self, universe, localname, local_id)
+        if not universe:
+            universe = container if isinstance(container, Universe) \
+                                 else container.universe
+        SmartHomeItem.__init__(self, universe, localname, local_id, 
+                               container)
         self._initialized = False  # also written to by metaclass
         self._state_entities = set()
         self.universe._registerdevice(self)
@@ -86,13 +90,14 @@ class PhysicalDevice(SmartHomeItem):
         This method can only be called during execution of the __init__ method
         and should only be called by subclasses of class PhysicalDevice.
         """
-        assert not self._initialized, \
-            "this method can only be called during execution of __init__()"
-        assert isinstance(state_entity, StateEntity)
-        if not state_entity.universe:
-            self.universe._registeritem(state_entity)
-        self._state_entities.add(state_entity)
-        state_entity._device = self
+        with self.universe.writelock:
+            assert not self._initialized, \
+                "this method can only be called during execution of __init__()"
+            assert isinstance(state_entity, StateEntity)
+            if not state_entity.universe:
+                self.universe._registeritem(state_entity)
+            self._state_entities.add(state_entity)
+            state_entity._device = self
     
     def finalize(self):
         """
@@ -100,11 +105,12 @@ class PhysicalDevice(SmartHomeItem):
         
         prepare to be removed from the universe
         """
-        for state_entity in self._state_entities:
-            state_entity._device = None
-            self.universe._removeitemfromuniverse(state_entity)
-        self._state_entities = set()
-        SmartHomeItem.finalize(self)
+        with self.universe.writelock:
+            for state_entity in self._state_entities:
+                state_entity._device = None
+                self.universe._removeitemfromuniverse(state_entity)
+            self._state_entities = set()
+            SmartHomeItem.finalize(self)
         
     def update_entities(self):
         """
@@ -126,9 +132,10 @@ class PhysicalDevice(SmartHomeItem):
         
         moves all the entities associated with this device into container
         """
-        assert isinstance(container, Container)
-        for entity in self.entities:
-            entity.move(container)
+        with self.universe.writelock:
+            assert isinstance(container, Container)
+            for entity in self.entities:
+                entity.move(container)
     
     @property
     def pollinginterval(self):

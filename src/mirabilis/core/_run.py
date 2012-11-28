@@ -4,6 +4,7 @@ import threading
 import time
 import datetime
 import pdb
+import cPickle as cpickle  # ugly camel case!
 
 
 class SocketOpeningError(Exception):
@@ -12,7 +13,7 @@ class SocketOpeningError(Exception):
 
 class _Cell(object):
     """
-    Cell([initialvalue]) -> obj
+    _Cell([initialvalue]) -> obj
     
     initialvalue: (object) the first object reference to store 
                            -- optional (defaults to None)
@@ -32,10 +33,12 @@ REQUEST_SEP = "\n"
 
 class Runner(object):
     def __init__(self, universe):
-        self.universe = universe
-        self.schedule = {}  # dict of (device or function)[next polling time]
-        self.serversocket = None
-        self.serverthread = Thread(target=self.runserver, name="server")
+        self._universe = universe
+        self._schedule = {}  # dict of (device or function)[next polling time]
+        self._serversocket = None
+        self._serverport = 5348 #  ASCII codes for SH (Smart Home) in hex
+        self._serverthread = threading.Thread(target=self._runserver, 
+                                              name="server")
     
     def run(self):
         #timers = {}
@@ -45,20 +48,20 @@ class Runner(object):
         #
         #for t in timers.itervalues():
         #    t.start()
-        self.serverthread.start()
-        self.mainloop()
+        self._serverthread.start()
+        self._mainloop()
     
-    def runserver(self):
+    def _runserver(self):
         while True:
-            self.serve()
+            self._serve()
             time.sleep(0.1)
     
-    def prepserversocket(self):
-        assert not self.serversocket
+    def _prepserversocket(self):
+        assert not self._serversocket
         
         HOST = None  # Symbolic name meaning all available interfaces
         for res in socket.getaddrinfo(HOST, 
-                                      self._port, 
+                                      self._serverport, 
                                       socket.AF_UNSPEC,
                                       socket.SOCK_STREAM, 
                                       0, 
@@ -74,16 +77,17 @@ class Runner(object):
                 if s:
                     s.close()
             else:
-                self.serversocket = s
+                assert s
+                self._serversocket = s
                 break
     
-        if not self.serversocket:
+        if not self._serversocket:
             raise SocketOpeningError("could not open socket")
         
     
-    def serve(self):
-        if not self.serversocket:
-            self.prepserversocket()
+    def _serve(self):
+        if not self._serversocket:
+            self._prepserversocket()
         
         alldata = _Cell('')
         def receiveall(conn):
@@ -92,7 +96,6 @@ class Runner(object):
                 recv = conn.recv(1024)
                 print "recv was", repr(recv)
                 alldata.value += recv
-                conn.send(recv)
             if REQUEST_SEP in alldata.value:
                 (first, sep, rest) = alldata.value.partition(REQUEST_SEP)
                 alldata.value = rest
@@ -101,23 +104,28 @@ class Runner(object):
             return alldata.value
         
         try:
-            (conn, addr) = self.serversocket.accept()
+            (conn, addr) = self._serversocket.accept()
             try:
                 data = receiveall(conn)
-                response = self.processrequest(data)
+                response = self._processrequest(data)
                 assert isinstance(response, str)
+                print "response is", repr(response)
                 conn.sendall(response)
             finally:
                 conn.close()
         except:
-            self.serversocket.close()
-            self.serversocket = None
+            if self._serversocket:
+                self._serversocket.close()
+                self._serversocket = None
             raise
     
-    def processrequest(self, data):
-        raise NotImplementedError()
+    def _processrequest(self, data):
+        print "_processrequest; data is", repr(data)
+        with self._universe.readlock:
+            return cpickle.dumps(self._universe, 2)
         
-    def mainloop(mainloopinfo):
+    def _mainloop(mainloopinfo):
+        time.sleep(10000)
          # 2 things to do:
          # check schedule and start threads to poll devices
          # read socket and response to commands

@@ -40,9 +40,9 @@ class Universe(Container):
         self._initdevicetracking()
         self._initeventdispatching()
     
-        self._readerthreads = set()
+        self._readerthreads = []
         self._modifylock = threading.Condition()
-        self._writerthread = None
+        self._writerthread = []
     
     class _ReadLockContextManager(object):
         def __init__(self, universe):
@@ -65,6 +65,13 @@ class Universe(Container):
             self._universe._releasewrite()
     
     @property
+    def universe(self):
+        """
+        universe: (Universe) the same object
+        """
+        return self
+    
+    @property
     def readlock(self):
         """
         readlock: (context manager) use this with a "with" statement
@@ -81,9 +88,9 @@ class Universe(Container):
     # locking
     def _lockread(self):
         with self._modifylock:
-            while self.writerthread:
+            while self._writerthread:
                 self._modifylock.wait()
-            self._readerthreads.add(threading.current_thread())
+            self._readerthreads.append(threading.current_thread())
     
     def _releaseread(self):
         with self._modifylock:
@@ -94,15 +101,23 @@ class Universe(Container):
     
     def _lockwrite(self):
         with self._modifylock:
-            while self._readerthreads:
+            import traceback
+            #traceback.print_stack()
+            while self._readerthreads or \
+                    not (set(self._writerthread) <= \
+                         set([threading.current_thread()])):
                 self._modifylock.wait()
-            self._writerthread = threading.current_thread()
+            self._writerthread.append(threading.current_thread())
     
     def _releasewrite(self):
         with self._modifylock:
             assert not self._readerthreads
-            assert self._writerthread == threading.current_thread()
-            self._writerthread = None
+            assert threading.current_thread() in self._writerthread
+            if threading.current_thread() not in self._writerthread: 
+                print self._writerthread
+                print threading.current_thread()
+                raise AssertionError()
+            self._writerthread.remove(threading.current_thread())
             self._modifylock.notify_all()
             
     ###########################
@@ -177,14 +192,15 @@ class Universe(Container):
         self._removeitemfromuniverse(containable)
     
     def _removeitemfromuniverse(self, containable):
-        assert isinstance(containable, SmartHomeItem)
-        containable.finalize()
-        #if containable._container:
-        #    containable._container.removeitem(containable)
-        #    assert containable._container is None
-        del self._objects_by_global_id[containable._global_id]
-        containable._global_id = None
-        containable._universe = None
+        with self.writelock:
+            assert isinstance(containable, SmartHomeItem)
+            containable.finalize()
+            #if containable._container:
+            #    containable._container.removeitem(containable)
+            #    assert containable._container is None
+            del self._objects_by_global_id[containable._global_id]
+            containable._global_id = None
+            containable._universe = None
     
     ###########################
     # DEVICE TRACKING SECTION #
@@ -194,8 +210,9 @@ class Universe(Container):
         self._devices = set()
     
     def _registerdevice(self, device):
-        assert isinstance(device, PhysicalDevice)
-        self._devices.add(device)
+        with self.writelock:
+            assert isinstance(device, PhysicalDevice)
+            self._devices.add(device)
     
     #############################
     # EVENT DISPATCHING SECTION #
@@ -209,7 +226,8 @@ class Universe(Container):
         """
         obj.registereventhandler(dispatchtuple, function)
         """
-        self._eventhandlers.setdefault(dispatchtuple, set()).add(function)
+        with self.writelock:
+            self._eventhandlers.setdefault(dispatchtuple, set()).add(function)
     
     def postevent(self, event):
         """
@@ -230,6 +248,9 @@ class Universe(Container):
     def __getstate__(self):
         odict = self.__dict__.copy()
         del odict["_event_threads"]
+        del odict["_readerthreads"]
+        del odict["_writerthread"]
+        del odict["_modifylock"]
         return odict
     
     # for pickle serialization, remove unpicklable objects
@@ -237,5 +258,9 @@ class Universe(Container):
         self.__dict__.update(odict)
         self._event_threads = None
     
+    def run(self):
+        Runner(self).run()
+    
 
 from ._physicaldevice import PhysicalDevice
+from ._run import Runner

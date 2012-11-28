@@ -67,12 +67,16 @@ class SmartHomeItem(SmartHomeItemInterface):
             else:
                 raise AssertionError("not reached")
         if universe:
-            universe._registeritem(self)
-            if container:
-                assert isinstance(container, (Area, Group))
+            with universe.writelock:
+                universe._registeritem(self)
+                if container:
+                    assert isinstance(container, (Area, Group))
         if container:
-            container.additem(self, newlocalname=localname, 
-                                    new_local_id=local_id)
+            if not universe:
+                universe = getattr(container, "universe", container)
+            with universe.writelock:
+                container.additem(self, newlocalname=localname, 
+                                        new_local_id=local_id)
                 
     def __repr__(self):
         fmtstr = "<{0.__class__.__module__}.{0.__class__.__name__} " \
@@ -149,15 +153,16 @@ class SmartHomeItem(SmartHomeItemInterface):
         newkeys: (iterable) the new keys to use, in addition to localname and 
                             local_id
         """
-        container = self.container
-        assert container, "the item is not in any Container object"
-        container.removeitem(self)
-        newkeys = set(newkeys)
-        if self.name is not None:
-            newkeys.add(self.name)
-        if self.local_id is not None:
-            newkeys.add(self.local_id)
-        container.additem(self, newkeys)
+        with self.universe.writelock:
+            container = self.container
+            assert container, "the item is not in any Container object"
+            container.removeitem(self)
+            newkeys = set(newkeys)
+            if self.name is not None:
+                newkeys.add(self.name)
+            if self.local_id is not None:
+                newkeys.add(self.local_id)
+            container.additem(self, newkeys)
     
     def readytoquituniverse(self):
         """
@@ -195,8 +200,9 @@ class SmartHomeItem(SmartHomeItemInterface):
         
         raises an exception if it's not in any container
         """
-        assert self.container
-        self.container.removeitem(self)
+        with self.universe.writelock:
+            assert self.container
+            self.container.removeitem(self)
     
     def move(self, container, newlocalname=None, new_local_id=None):
         """
@@ -206,12 +212,13 @@ class SmartHomeItem(SmartHomeItemInterface):
         
         container: (Container or <None>)
         """
-        assert isinstance(container, (Container, type(None)))
-        if self.container:
-            self.removefromcontainer()
-        if container is not None:
-            container.additem(self, newlocalname=newlocalname, 
-                                    new_local_id=new_local_id)
+        with self.universe.writelock:
+            assert isinstance(container, (Container, type(None)))
+            if self.container:
+                self.removefromcontainer()
+            if container is not None:
+                container.additem(self, newlocalname=newlocalname, 
+                                        new_local_id=new_local_id)
 
 
 from ._container import Container

@@ -8,7 +8,7 @@ def test():
     HOST = "127.0.0.1"    # The remote host
     #HOST = "155.99.163.104"
     #HOST = "155.98.69.177"
-    PORT = 50001              # The same port as used by the server
+    PORT = 5348              # The same port as used by the server
     sock = None
     for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC, 
                                               socket.SOCK_STREAM):
@@ -29,9 +29,15 @@ def test():
     if sock is None:
         print "could not open socket"
         return 1
-    sock.sendall("Hello, world\nthis\nis\nmy\nlucky\nday")
-    data = s.recv(1024)
-    print "Received", repr(data)
+    sock.sendall("dump_pickle\n")
+    data = ''
+    recvd = True
+    while recvd:
+        recvd = s.recv(1024)
+        data += recvd
+    print "Received:"
+    print
+    print repr(data)
     #print "sleeping..."
     #time.sleep(15)
     sock.close()

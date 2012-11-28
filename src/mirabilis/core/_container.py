@@ -40,7 +40,15 @@ class Container(object):
     
     def __iter__(self):
         return iter(self.items)
-        
+    
+    @property
+    def universe(self):
+        """
+        universe: (Universe) the universe of this container, which may be 
+                             itself
+        """
+        raise NotImplementedError()
+    
     @property
     def childkeys(self):
         """
@@ -77,21 +85,23 @@ class Container(object):
         newlocalname: (str or <None>) a new local name to set on item
         new_local_id: (int or <None>) a new local ID to set on item
         """
-        assert not item._container
-        assert isinstance(item, SmartHomeItem)
-        if newlocalname is not None:
-            item.localname = newlocalname
-        if new_local_id is not None:
-            item.local_id = new_local_id
-        keys = {x for x in [item.localname, item.local_id]
-                  if x is not None}
-        keys = frozenset(keys.union(addkeys))
-        self._dictofitemstokeys[item] = keys
-        for key in keys:
-            if key in self._itemsbykeycache.keys():
-                raise KeyError("the key {!r} is already in use".format(key))
-            self._itemsbykeycache[key] = item
-        item._container = self
+        with self.universe.writelock:
+            assert not item._container
+            assert isinstance(item, SmartHomeItem)
+            if newlocalname is not None:
+                item.localname = newlocalname
+            if new_local_id is not None:
+                item.local_id = new_local_id
+            keys = {x for x in [item.localname, item.local_id]
+                      if x is not None}
+            keys = frozenset(keys.union(addkeys))
+            self._dictofitemstokeys[item] = keys
+            for key in keys:
+                if key in self._itemsbykeycache.keys():
+                    raise \
+                        KeyError("the key {!r} is already in use".format(key))
+                self._itemsbykeycache[key] = item
+            item._container = self
     
     def removeitem(self, item):
         """
@@ -101,11 +111,12 @@ class Container(object):
         
         item: (SmartHomeItem) the thing to be removed
         """
-        assert item in self
-        for key in self._dictofitemstokeys[item]:
-            del self._itemsbykeycache[key]
-        del self._dictofitemstokeys[item]
-        item._container = None
+        with self.universe.writelock:
+            assert item in self
+            for key in self._dictofitemstokeys[item]:
+                del self._itemsbykeycache[key]
+            del self._dictofitemstokeys[item]
+            item._container = None
     
     def getitemkeys(self, item):
         """
@@ -115,5 +126,6 @@ class Container(object):
         
         item: (SmartHomeItem) what to get the keys for
         """
-        assert item in self._dictofitemstokeys.keys()
-        return set(self._dictofitemstokeys[item])
+        with self.universe.readlock:
+            assert item in self._dictofitemstokeys.keys()
+            return set(self._dictofitemstokeys[item])

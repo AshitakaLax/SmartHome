@@ -1,11 +1,10 @@
-from .lock import Lock
-
 from .core import (PhysicalDevice, 
                    RStateEntity, 
                    RWStateEntity, 
                    WStateEntity, 
                    Group,
-                   BoundMethod)
+                   BoundMethod,
+                   Lock)
 
 
 # these variables must always be iterable
@@ -129,6 +128,15 @@ class EpicCubeDevice(PhysicalDevice):
             container.additem(self.maingroup)
         
         self._lock = Lock()
+    
+    def __getstate__(self):
+        odict = self.__dict__.copy()
+        del odict["_lock"]
+        return odict
+        
+    def __setstate__(self, odict):
+        self.__dict__.update(odict)
+        self._lock = None
         
     # code for talking to the Epic Cube goes here
     # self._lock should be locked before calling this method
@@ -152,7 +160,7 @@ class EpicCubeDevice(PhysicalDevice):
             return self._lowlevelreceive()
         
     def _sendreceive(self, value):
-        with self._lock  # automatically acquire and release the lock
+        with self._lock:  # automatically acquire and release the lock
             self._send(value)
             return self._receive()
     

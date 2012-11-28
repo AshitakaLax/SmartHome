@@ -37,5 +37,14 @@ def main():
     print "Successfully dumped to", repr(filename) + "."
 
 
+def main2():
+    from .create import create
+    
+    universe = create()
+    
+    universe.run()
+
+
 if __name__ == "__main__":
-    main()
+    #main()
+    main2()

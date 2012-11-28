@@ -78,10 +78,11 @@ class RStateEntityBase(SmartHomeItemInterface):
         
         newstate: the newest value to be recorded
         """
-        (laststate, self._state) = (self._state, newstate)
-        if newstate != laststate:
-            event = StateChangedEvent(self, newstate, laststate)
-            self.universe.postevent(event)
+        with self.universe.writelock:
+            (laststate, self._state) = (self._state, newstate)
+            if newstate != laststate:
+                event = StateChangedEvent(self, newstate, laststate)
+                self.universe.postevent(event)
     
     def read(self):
         """
@@ -131,10 +132,14 @@ class WStateEntityBase(SmartHomeItemInterface):
         
         try to set a new value of newvalue on something
         """
-        self._writerfunc(self, newvalue)
-        (oldwrite, self._lastwrite) = (self._lastwrite, newvalue)
-        # post event, regardless of whether old and new writes are equal values
-        self.universe.postevent(ValueWrittenEvent(self, newvalue, oldwrite))
+        with self.universe.writelock:
+            self._writerfunc(self, newvalue)
+            (oldwrite, self._lastwrite) = (self._lastwrite, newvalue)
+            # post event, regardless of whether old and new writes are equal 
+            # values
+            self.universe.postevent(ValueWrittenEvent(self, 
+                                                      newvalue, 
+                                                      oldwrite))
     
     def rewrite(self):
         """

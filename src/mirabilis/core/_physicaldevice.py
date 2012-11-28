@@ -110,19 +110,47 @@ class PhysicalDevice(SmartHomeItem):
         """
         obj.update_entities()
         
-        when the universe calls this method, the device must update the status
-        of its entities
+        When the universe calls this method, the device must update the status
+        of its entities.
         """
         raise NotImplementedError()
         
     @property
     def entities(self):
+        """entities: (iterator) the state entities contained in the device"""
         return iter(self._state_entities)
     
     def move_entities_to_container(self, container):
+        """
+        obj.move_entities_to_container(container)
+        
+        moves all the entities associated with this device into container
+        """
         assert isinstance(container, Container)
         for entity in self.entities:
             entity.move(container)
+    
+    @property
+    def pollinginterval(self):
+        """pollinginterval: (float) how often to poll the device for changes"""
+        raise NotImplementedError()
+    
+    @property
+    def shouldpollafterwrite(self):
+        """
+        shouldpollafterwrite: (bool) 
+        
+        If this is True, then whenever a value is written to one of a device's
+        entities, the polling interval is restarted so that the device is
+        immediately polled for an updated status.
+        
+        If this is False, then even after a value is written to one of a 
+        device's entities, the device will not be polled until the next 
+        regularly scheduled polling time.
+        """
+        raise NotImplementedError()
+        
+        
     
 
 from ._universe import Universe

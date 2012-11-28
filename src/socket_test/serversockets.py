@@ -30,7 +30,7 @@ class SocketOpeningError(Exception):
     pass
 
 
-REQ_SEP = "\n"
+REQ_SEP = "\t"
 
 
 class HostConnectionThread(threading.Thread):
@@ -72,7 +72,9 @@ class HostConnectionThread(threading.Thread):
             try:
                 s = socket.socket(af, socktype, proto)
                 s.bind(sa)
+                print "listening"
                 s.listen(1)
+                print "done listening"
             except socket.error:
                 if s:
                     s.close()
@@ -88,25 +90,28 @@ class HostConnectionThread(threading.Thread):
             recv = None
             while recv != '' and REQ_SEP not in alldata.value:
                 recv = conn.recv(1024)
+                print "recv was", repr(recv)
                 alldata.value += recv
                 conn.send(recv)
             if REQ_SEP in alldata.value:
                 (first, sep, rest) = alldata.value.partition(REQ_SEP)
                 alldata.value = rest
+                print "returning", repr(first)
                 return first
             return alldata.value
         
         try:
-            (conn, addr) = sock.accept()
-            print "Connected by", addr
-            print conn, type(conn)
-            try:
-                data = receiveall(conn)
-                response = self._processfunc(data)
-                assert isinstance(response, str)
-                conn.sendall(response)
-            finally:
-                conn.close()
+            while True:
+                (conn, addr) = sock.accept()
+                print "Connected by", addr
+                print conn, type(conn)
+                try:
+                    data = receiveall(conn)
+                    response = self._processfunc(data)
+                    assert isinstance(response, str)
+                    conn.sendall(response)
+                finally:
+                    conn.close()
         finally:
             sock.close()
             

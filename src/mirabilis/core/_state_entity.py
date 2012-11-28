@@ -81,7 +81,7 @@ class RStateEntityBase(SmartHomeItemInterface):
         (laststate, self._state) = (self._state, newstate)
         if newstate != laststate:
             event = StateChangedEvent(self, newstate, laststate)
-            self.universe._postevent(event)
+            self.universe.postevent(event)
     
     def read(self):
         """
@@ -134,7 +134,7 @@ class WStateEntityBase(SmartHomeItemInterface):
         self._writerfunc(self, newvalue)
         (oldwrite, self._lastwrite) = (self._lastwrite, newvalue)
         # post event, regardless of whether old and new writes are equal values
-        self.universe._postevent(ValueWrittenEvent(self, newvalue, oldwrite))
+        self.universe.postevent(ValueWrittenEvent(self, newvalue, oldwrite))
     
     def rewrite(self):
         """

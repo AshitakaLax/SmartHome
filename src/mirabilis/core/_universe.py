@@ -1,3 +1,6 @@
+import threading
+
+from ._lock import Lock
 from ._rename import renamemodule
 from ._container import Container
 
@@ -32,15 +35,81 @@ class Universe(Container):
     
     def __init__(self):
         Container.__init__(self)
-        self._initobjecttracking()
+        
+        self._init_object_tracking()
         self._initdevicetracking()
         self._initeventdispatching()
     
+        self._readerthreads = set()
+        self._modifylock = threading.Condition()
+        self._writerthread = None
+    
+    class _ReadLockContextManager(object):
+        def __init__(self, universe):
+            self._universe = universe
+            
+        def __enter__(self):
+            self._universe._lockread()
+        
+        def __exit__(self, *args):
+            self._universe._releaseread()
+    
+    class _WriteLockContextManager(object):
+        def __init__(self, universe):
+            self._universe = universe
+        
+        def __enter__(self):
+            self._universe._lockwrite()
+        
+        def __exit__(self, *args):
+            self._universe._releasewrite()
+    
+    @property
+    def readlock(self):
+        """
+        readlock: (context manager) use this with a "with" statement
+        """
+        return Universe._ReadLockContextManager(self)
+    
+    @property
+    def writelock(self):
+        """
+        writelock: (context manager) use this with a "with" statement
+        """
+        return Universe._WriteLockContextManager(self)
+    
+    # locking
+    def _lockread(self):
+        with self._modifylock:
+            while self.writerthread:
+                self._modifylock.wait()
+            self._readerthreads.add(threading.current_thread())
+    
+    def _releaseread(self):
+        with self._modifylock:
+            assert not self._writerthread
+            assert threading.current_thread() in self._readerthreads
+            self._readerthreads.remove(threading.current_thread())
+            self._modifylock.notify_all()
+    
+    def _lockwrite(self):
+        with self._modifylock:
+            while self._readerthreads:
+                self._modifylock.wait()
+            self._writerthread = threading.current_thread()
+    
+    def _releasewrite(self):
+        with self._modifylock:
+            assert not self._readerthreads
+            assert self._writerthread == threading.current_thread()
+            self._writerthread = None
+            self._modifylock.notify_all()
+            
     ###########################
     # OBJECT TRACKING SECTION #
     ###########################
     
-    def _initobjecttracking(self):
+    def _init_object_tracking(self):
         self._next_global_id = 1  # 0 is reserved for future use
         self._objects_by_global_id = {}
         
@@ -134,21 +203,39 @@ class Universe(Container):
     
     def _initeventdispatching(self):
         self._eventhandlers = {}
+        self._event_threads = []
         
-    def _registereventhandler(self, dispatchtuple, function):
+    def registereventhandler(self, dispatchtuple, function):
         """
-        obj._registereventhandler(dispatchtuple, function)
+        obj.registereventhandler(dispatchtuple, function)
         """
         self._eventhandlers.setdefault(dispatchtuple, set()).add(function)
     
-    def _postevent(self, event):
+    def postevent(self, event):
         """
-        obj._postevent(event)
+        obj.postevent(event)
         
         event: (Event)
         """
         for func in self._eventhandlers.get(event.dispatchtuple, []):
-            func(event)
-
+            threadnum = len(self._event_threads) + 1
+            thread = threading.Thread(None, 
+                                      func, 
+                                      "eventhandler{}".format(threadnum), 
+                                      (event,))
+            self._event_threads.append(thread)
+            thread.start()
+    
+    # for pickle serialization, remove unpicklable objects
+    def __getstate__(self):
+        odict = self.__dict__.copy()
+        del odict["_event_threads"]
+        return odict
+    
+    # for pickle serialization, remove unpicklable objects
+    def __setstate__(self, odict):
+        self.__dict__.update(odict)
+        self._event_threads = None
+    
 
 from ._physicaldevice import PhysicalDevice

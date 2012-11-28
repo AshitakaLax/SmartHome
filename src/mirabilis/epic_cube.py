@@ -1,3 +1,5 @@
+from .lock import Lock
+
 from .core import (PhysicalDevice, 
                    RStateEntity, 
                    RWStateEntity, 
@@ -126,16 +128,33 @@ class EpicCubeDevice(PhysicalDevice):
         if container:
             container.additem(self.maingroup)
         
-    def _send(self, command):
+        self._lock = Lock()
+        
+    # code for talking to the Epic Cube goes here
+    # self._lock should be locked before calling this method
+    def _lowlevelsend(self, command):
+        assert self._lock.islocked
         raise NotImplementedError()
+    
+    # code for talking to the Epic Cube goes here
+    # self._lock should be locked before calling this method
+    def _lowlevelreceive(self):
+        assert self._lock.islocked
+        raise NotImplementedError()
+        
+    def _send(self, command):
+        with self._lock:  # automatically acquire and release the lock
+            self._lowlevelsend(command)
     
     # may return empty string
     def _receive(self):
-        raise NotImplementedError()
+        with self._lock:  # automatically acquire and release the lock
+            return self._lowlevelreceive()
         
     def _sendreceive(self, value):
-        self._send(value)
-        return self._receive()
+        with self._lock  # automatically acquire and release the lock
+            self._send(value)
+            return self._receive()
     
     def _updatedampers(self):
         for dampernum in sorted(self.dampers.keys()):
@@ -207,3 +226,21 @@ class EpicCubeDevice(PhysicalDevice):
         onoff = "0" if newstate == "-1" else "1"
         speed = "0" if newstate == "-1" else newstate
         self._write("Fan{}{}{}".format(fan_number, onoff, speed))
+    
+    @property
+    def pollinginterval(self):
+        """"
+        pollinginterval: (float)
+        
+        see documentation for PhysicalDevice.pollinginterval
+        """
+        return 5.0
+    
+    @property
+    def shouldpollafterwrite(self):
+        """"
+        shouldpollafterwrite: (bool)
+        
+        see documentation for PhysicalDevice.shouldpollafterwrite
+        """
+        return True

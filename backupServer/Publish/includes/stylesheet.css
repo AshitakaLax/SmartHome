@@ -1,0 +1,186 @@
+/* This stylesheet was designed and developed by Chris Converse, Codify Design Studio */
+
+@charset "UTF-8";
+
+/* Text Formatting */
+
+body {
+	font-family: Arial;
+	font-size: 12px;
+	margin: 0px;
+	padding: 20px;
+	color: #555;
+	background: #68230b;
+}
+.page { font-size: 1em; }
+
+h1 { font-size: 2em; color: #9e472a; margin: 0px 0px .5em 0px; font-weight: normal; }
+h2 { font-size: 1.6em; color: #9e472a; margin: 0px 0px .5em 0px; }
+h3 { font-size: 1.25em; color: #9e472a; margin: 0em 0px .25em 0px; }
+p { margin: 0px 0px 1em 0px; font-size: 1em; }
+li { margin: 0px 0px 10px 0px; }
+a img { border: none; }
+a { color: #f52d1b; }
+a:hover { color: #00a2ed; }
+
+.content_sidebar h3 { color: #68230b; margin-bottom: 10px; }
+.content_sidebar p, .content_sidebar li { color: #733e34; }
+.content_sidebar a { color: #00a2ed; }
+.content_sidebar a:hover { color: #f52d1b; }
+.content_sidebar figure { display: block; margin: 0px; padding: 0px; }
+.content_sidebar figure .figure_photo {
+	background: url(../images/sidebar_photo_large.jpg) right 0px;
+	margin: 0px;
+	height: 175px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;  }
+.content_sidebar figure figcaption { font-size: .9em; display: block; color: #000; margin: 3px 0px 15px 0px; }
+
+/* Layout */
+
+.page { position: relative; margin: 0px auto 0px auto; max-width: 980px; }
+.page header {
+	display: block;
+	position: relative;
+	height: 175px;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background: url(../images/banner_large.jpg) no-repeat 0px 0px;
+}
+.page header a.logo {
+	position: absolute;
+	top: 45px;
+	left: 45px;
+	display: block;
+	width: 180px;
+	height: 105px;
+	background: url(../images/logo_large.png) no-repeat 0px 0px;
+}
+.page .page_content { background-color: #fff; padding: 1px 0px 1px 0px; }
+.page .page_content .page_content_container_left { width: 70%; float: left; margin: 0px; padding: 0px; }
+.page .page_content .page_content_container_right { width: 30%; float: left; margin: 0px; padding: 0px; }
+.page .page_content .content {
+	margin: 15px 20px 20px 20px;
+	padding: 0px;
+}
+.page .page_content .content_sidebar {
+	margin: 15px 20px 20px 0px;
+	padding: 10px;
+	border: 1px solid #591508;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	background: #f6ebda;
+}
+.page nav { position: absolute; top: 77px; right: 20px; text-align: right; }
+.page nav a {
+	border: 1px solid #fff;
+	border-radius: 16px;
+	color: #ffffff;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 7px 20px 7px 20px;
+	text-decoration: none;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0px 2px 4px 2px;
+	background-color: rgba(104,35,11,.6);
+	
+	font-size: 1.15em;
+}
+.page nav a:hover { background-color: rgba(0,0,0,.5); color: #fff; }
+.page footer {
+	display: block;
+	border-top: 1px solid #ddd;
+	padding: 15px 10px 15px 20px;
+	font-size: .9em;
+	color: #757575;
+	background-color: #fff;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	-moz-box-shadow: 0px 5px 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 5px 3px rgba(0,0,0,0.3);
+	box-shadow: 0px 5px 3px rgba(0,0,0,0.3);
+	background: -moz-linear-gradient(top, #ffffff 60%, #cccccc 90%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#ffffff), color-stop(90%,#cccccc));
+}
+
+.clear_both { clear: both; line-height: 1px; }
+
+/* Rules Sensitive to Screen Size */
+
+/* Small Screen Rules */
+@media screen and (min-width: 150px) and (max-width: 500px) {	
+	body { padding: 10px; }
+	.page { margin: 0px; padding: 0px; font-size: 1.2em }
+	.page header { height: 50px; background-image: url(../images/banner_small.jpg); }
+	.page header a.logo {
+		top: 3px;
+		left: 25px;
+		margin: 0px auto 0px auto;
+		width: 127px;
+		height: 38px;
+		background: url(../images/logo_small.png) no-repeat 0px 0px;
+	}
+	.page .page_content .page_content_container_left { width: inherit; float: none; margin: 0px; }
+	.page .page_content .page_content_container_right { width: inherit; float: none; margin: 0px; }
+	.page .page_content .content { margin: 10px 10px 20px 10px; }
+	.page .page_content .content_sidebar { margin: 0px 10px 15px 10px; }
+	.page .page_content .content_sidebar figure { width: 30%; float: right; margin-left: 15px; }
+	.page .page_content .content_sidebar figure .figure_photo { background: url(../images/sidebar_photo_small.jpg) right 0px; height: 100px; }
+	.page .page_content .content_sidebar figure figcaption { font-size: .8em; text-align: right; }
+	.page nav {
+		position: inherit;
+		padding: 15px 0px 1px 0px;
+		text-align: left;
+	}
+	.page nav a {
+		color: #fff;
+		border: 1px solid #68230b;
+		padding: 7px 10px 7px 10px;
+		font-weight: bold;
+		font-size: 1em;
+		display: block;
+		margin: 0px 10px 15px 10px;
+		background: #68230b url(../images/mobile_link_arrow.png) no-repeat right 50%;
+	}
+	.page nav a:hover { color: #fff; background-color: #972015; }
+	.page footer { font-size: .8em; }
+}
+
+/* Medium Screen Rules */
+@media screen and (min-width: 501px) and (max-width: 800px) {
+	body { padding: 10px; }
+	.page { margin: 0px; padding: 0px; font-size: 1.15em }
+	.page header { height: 90px; background-image: url(../images/banner_medium.jpg); padding: 10px 50px 0px 75px; }
+	.page header a.logo {
+		top: 20px;
+		left: 25px;
+		width: 90px;
+		height: 55px;
+		background: url(../images/logo_medium.png) no-repeat 0px 0px;
+	}
+	.page nav { top: 30px; }
+	.page nav a {
+		border-color: #fff;
+		margin-left: 10px;
+		padding: 5px 10px 5px 10px;
+		font-size: .9em;
+	}
+	.page .content_sidebar figure .figure_photo { background: url(../images/sidebar_photo_medium.jpg) right 0px; height: 150px; }
+	.page .content_sidebar figure figcaption { font-size: .8em; }
+}
+
+/* Large Screen Rules */
+@media screen and (min-width: 801px) and (max-width: 10000px) {
+	body { padding: 20px; }	
+}

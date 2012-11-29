@@ -1,0 +1,8 @@
+/* This stylesheet was designed and developed by Chris Converse, Codify Design Studio */
+
+@charset "UTF-8";
+
+/* Style overrides for Internet Explorer 6, 7, 8 */
+
+.page nav a { background-color: none; }
+.page nav a:hover { background-color: #682209; }

@@ -1,10 +1,12 @@
 import socket
 
 import threading
+from datetime import datetime, timedelta
 import time
-import datetime
 import pdb
 import cPickle as cpickle  # ugly camel case!
+
+from ._print import printlock, printfunc
 
 
 class SocketOpeningError(Exception):
@@ -34,22 +36,44 @@ REQUEST_SEP = "\n"
 class Runner(object):
     def __init__(self, universe):
         self._universe = universe
-        self._schedule = {}  # dict of (device or function)[next polling time]
+        self._schedule = {}  # dict of (next polling time)[device or function]
+        self._devicethreads = {}
+        # must have lock to modify _schedule or _devicethreads
+        self._schedulelock = threading.Lock()
+
         self._serversocket = None
         self._serverport = 5348 #  ASCII codes for SH (Smart Home) in hex
         self._serverthread = threading.Thread(target=self._runserver, 
                                               name="server")
     
     def run(self):
-        #timers = {}
-        #for d in self.devices:
-        #    timer[d] = threading.Timer(d.pollinginterval,
-        #                               d.update_entities)
-        #
-        #for t in timers.itervalues():
-        #    t.start()
         self._serverthread.start()
-        self._mainloop()
+        
+        with self._schedulelock:
+            for device in self._universe.devices:
+                self._schedule[device] = datetime.now()
+        
+        number = 1
+        while True:
+            with printlock:
+                printfunc("main thread: running main loop", number)
+            self._mainloopiteration(number)
+            with printlock:
+                printfunc("main thread: sleeping 10 seconds")
+            time.sleep(10.0)
+            number += 1
+    
+    def _updatedevicereschedule(self, device):
+        with printlock:
+            printfunc("in thread to update device", device)
+        device.update_entities()
+        with self._schedulelock:
+            delta = timedelta(0, device.pollinginterval)
+            self._schedule[device] = datetime.now() + delta
+            del self._devicethreads[device]
+        with printlock:
+            printfunc("in thread done updating device", device)
+            
     
     def _runserver(self):
         while True:
@@ -67,7 +91,6 @@ class Runner(object):
                                       0, 
                                       socket.AI_PASSIVE):
             (af, socktype, proto, canonname, sa) = res
-            print res
             s = None
             try:
                 s = socket.socket(af, socktype, proto)
@@ -94,12 +117,10 @@ class Runner(object):
             recv = None
             while recv != '' and REQUEST_SEP not in alldata.value:
                 recv = conn.recv(1024)
-                print "recv was", repr(recv)
                 alldata.value += recv
             if REQUEST_SEP in alldata.value:
                 (first, sep, rest) = alldata.value.partition(REQUEST_SEP)
                 alldata.value = rest
-                print "returning", repr(first)
                 return first
             return alldata.value
         
@@ -109,7 +130,6 @@ class Runner(object):
                 data = receiveall(conn)
                 response = self._processrequest(data)
                 assert isinstance(response, str)
-                print "response is", repr(response)
                 conn.sendall(response)
             finally:
                 conn.close()
@@ -120,12 +140,43 @@ class Runner(object):
             raise
     
     def _processrequest(self, data):
-        print "_processrequest; data is", repr(data)
         with self._universe.readlock:
             return cpickle.dumps(self._universe, 2)
         
-    def _mainloop(mainloopinfo):
-        time.sleep(10000)
-         # 2 things to do:
-         # check schedule and start threads to poll devices
-         # read socket and response to commands
+    def _mainloopiteration(self, number):
+        with printlock:
+            printfunc("starting main loop iteration #{}".format(number))
+            printfunc("schedule is {}".format(self._schedule))
+            theadcount = len(self._devicethreads)
+            printfunc("there are {} device threads".format(theadcount))
+            for thread in self._devicethreads.values():
+                printfunc("{}: {}".format(thread, 
+                                          "alive" if thread.is_alive() 
+                                          else "dead"))
+        servicedevices = set()
+        now = datetime.now()
+        with printlock:
+            printfunc("preparing to get schedule lock... ", end="")
+        with self._schedulelock:
+            print "got lock"
+            with printlock:
+                printfunc("got schedule lock")
+            for device, time in self._schedule.items():
+                if time - now <= timedelta(0):
+                    with printlock:
+                        printfunc("time for device", device, "to be updated")
+                    del self._schedule[device]
+                    servicedevices.add(device)
+                    threadname = "thread for {}".format(device)
+                    target = self._updatedevicereschedule
+                    thread = threading.Thread(name=threadname,
+                                              target=target,
+                                              args=[device])
+                    assert device not in self._devicethreads.keys()
+                    self._devicethreads[device] = thread
+            with printlock:
+                printfunc("releasing schedule lock")
+        for device in servicedevices:
+            with printlock:
+                printfunc("starting thread for device", device)
+            self._devicethreads[device].start()

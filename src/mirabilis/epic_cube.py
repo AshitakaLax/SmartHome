@@ -4,7 +4,9 @@ from .core import (PhysicalDevice,
                    WStateEntity, 
                    Group,
                    BoundMethod,
-                   Lock)
+                   Lock,
+                   printfunc,
+                   printlock)
 
 
 # these variables must always be iterable
@@ -161,8 +163,8 @@ class EpicCubeDevice(PhysicalDevice):
         
     def _sendreceive(self, value):
         with self._lock:  # automatically acquire and release the lock
-            self._send(value)
-            return self._receive()
+            self._lowlevelsend(value)
+            return self._lowlevelreceive()
     
     def _updatedampers(self):
         for dampernum in sorted(self.dampers.keys()):
@@ -205,6 +207,11 @@ class EpicCubeDevice(PhysicalDevice):
                 fans[fan_number].update(speed)
         
     def update_entities(self):
+        with printlock:
+            printfunc("in update_entities; bypassing update code")
+            import traceback
+            traceback.print_stack()
+        return
         self._updatedampers()
         self._updatehvacstatus()
         # garage not updated

@@ -1,9 +1,8 @@
 import threading
 
-from ._lock import Lock
 from ._rename import renamemodule
 from ._container import Container
-
+from ._print import printfunc, printlock
 
 __all__ = ["Universe"]
 
@@ -41,8 +40,8 @@ class Universe(Container):
         self._initeventdispatching()
     
         self._readerthreads = []
-        self._modifylock = threading.Condition()
         self._writerthread = []
+        self._modifylock = threading.Condition()
     
     class _ReadLockContextManager(object):
         def __init__(self, universe):
@@ -102,7 +101,6 @@ class Universe(Container):
     def _lockwrite(self):
         with self._modifylock:
             import traceback
-            #traceback.print_stack()
             while self._readerthreads or \
                     not (set(self._writerthread) <= \
                          set([threading.current_thread()])):
@@ -114,9 +112,10 @@ class Universe(Container):
             assert not self._readerthreads
             assert threading.current_thread() in self._writerthread
             if threading.current_thread() not in self._writerthread: 
-                print self._writerthread
-                print threading.current_thread()
-                raise AssertionError()
+                with printlock:
+                    printfunc(self._writerthread)
+                    printfunc(threading.current_thread())
+                    raise AssertionError()
             self._writerthread.remove(threading.current_thread())
             self._modifylock.notify_all()
             

@@ -1,8 +1,10 @@
+from ._rename import renamemodule
 import threading
 
 __all__ = ["Lock"]
 
 
+@renamemodule
 class Lock(object):
     """
     Lock() -> obj

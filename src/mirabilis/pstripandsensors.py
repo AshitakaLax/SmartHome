@@ -1,4 +1,5 @@
 from .core import PhysicalDevice, RStateEntity, RWStateEntity, BoundMethod
+from .core import printlock, printfunc
 
 
 class PStripAndSensors(PhysicalDevice):
@@ -37,8 +38,27 @@ class PStripAndSensors(PhysicalDevice):
 
     def _writestate(self, state_entity, newstate):
         fmtstr = "this is {}, changing state of {} to {!r}"
-        print fmtstr.format(self, state_entity, newstate)
+        with printlock:
+            printfunc(fmtstr.format(self, state_entity, newstate))
     
     def update_entities(self):
         # code for polling the powerstrip's status and updating its entities
         pass
+    
+    @property
+    def pollinginterval(self):
+        """"
+        pollinginterval: (float)
+        
+        see documentation for PhysicalDevice.pollinginterval
+        """
+        return 5.0
+    
+    @property
+    def shouldpollafterwrite(self):
+        """"
+        shouldpollafterwrite: (bool)
+        
+        see documentation for PhysicalDevice.shouldpollafterwrite
+        """
+        return True

@@ -1,3 +1,5 @@
 # Python complied files
 *.pyc
 *.pyo
+*.sqlite3
+*.sqllite3

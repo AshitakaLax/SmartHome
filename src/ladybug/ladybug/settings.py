@@ -11,12 +11,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'ladybug.sqllite3',      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'ladybug.sqllite3',             # Or path to database file if using sqlite3.
+        'USER': '',                             # Not used with sqlite3.
+        'PASSWORD': '',                         # Not used with sqlite3.
+        'HOST': '',                             # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                             # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -114,10 +114,10 @@ PROJECT_DIR = abspath(dirname(__file__))
 SITE_DIR = abspath(dirname(PROJECT_DIR))
 
 MAKO_TEMPLATE_DIRS = (
-    join(SITE_DIR, "store", "mako_templates"),
+    join(SITE_DIR, "website", "mako_templates"),
 )
 
-MAKO_MODULE_DIR = join(SITE_DIR, "store", "mako_modules")
+MAKO_MODULE_DIR = join(SITE_DIR, "website", "mako_modules")
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -170,7 +170,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
-    "librezon.context_processors.users",
-    "librezon.context_processors.django_template_constructs",
-    "store.context_processors.cart_items_count",
+    #"librezon.context_processors.users",
+    #"librezon.context_processors.django_template_constructs",
+    #"store.context_processors.cart_items_count",
 )

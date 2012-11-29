@@ -96,29 +96,34 @@ def select_template(template_name_list):
             return lookup.get_template(template_name)
         except TopLevelLookupException:
             pass
-
-    raise TemplateDoesNotExist, 'mako templates: '+', '.join(template_name_list)
+    else:
+        raise TemplateDoesNotExist, \
+              'mako templates: ' + ', '.join(template_name_list)
 
 def get_template(template_name):
     try:
         return lookup.get_template(template_name)
     except TopLevelLookupException:
-        raise TemplateDoesNotExist, 'mako templates: '+template_name
+        raise TemplateDoesNotExist, 'mako templates: ' + template_name
 
-def render_to_response(template_name, dictionary=None,
-        context_instance=None):
+
+def render(template_name, dictionary=None, context=None):
     if isinstance(template_name, (list, tuple)):
         template = select_template(template_name)
     else:
         template = get_template(template_name)
 
     dictionary = dictionary or {}
-    if context_instance is None:
-        context_instance = Context(dictionary)
+    if context is None:
+        context = Context(dictionary)
     else:
-        context_instance.update(dictionary)
+        context.update(dictionary)
     data = {}
-    [data.update(d) for d in context_instance]
-    return HttpResponse(template.render(**data))
+    [data.update(d) for d in context]
+    return template.render(**data)
+
+
+def render_to_response(template_name, dictionary=None, context=None):
+    return HttpResponse(render(template_name, dictionary, context))
 
 

@@ -5,7 +5,7 @@ from ._interfaces import SmartHomeItemInterface
 from ._smarthomeitem import SmartHomeItem
 
 
-__all__ = []
+__all__ = ["UNINITIALIZED", "NEVER_WRITTEN"]
 
 def _export(thing):
     __all__.append(thing.__name__)
@@ -57,6 +57,21 @@ class StateEntity(SmartHomeItem):
         return not self._device and SmartHomeItem.readytoquituniverse(self)    
 
 
+class _Uninitialized(object):
+    def __repr__(self):
+        return "<{}.UNINITIALIZED>".format(__package__)
+
+
+class _NeverWritten(object):
+    def __repr__(self):
+        return "<{}.NEVER_WRITTEN>".format(__package__)
+
+
+
+UNINITIALIZED = _Uninitialized()
+NEVER_WRITTEN = _NeverWritten()
+
+
 @renamemodule
 class RStateEntityBase(SmartHomeItemInterface):
     """
@@ -65,10 +80,8 @@ class RStateEntityBase(SmartHomeItemInterface):
     a readable state entity
     """
     
-    UNINITIALIZED = object()
-    
     def __init__(self):
-        self._state = RStateEntity.UNINITIALIZED
+        self._state = UNINITIALIZED
     
     def update(self, newstate):
         """
@@ -100,9 +113,7 @@ class WStateEntityBase(SmartHomeItemInterface):
     """
     
     __metaclass__ = abc.ABCMeta
-    
-    NEVER_WRITTEN = object()
-    
+        
     def __init__(self, writerfunc):
         """
         obj.__init__(writerfunc)
@@ -113,14 +124,14 @@ class WStateEntityBase(SmartHomeItemInterface):
                                operation
         """
         self._writerfunc = writerfunc
-        self._lastwrite = WStateEntityBase.NEVER_WRITTEN
+        self._lastwrite = NEVER_WRITTEN
     
     class NoPriorWritesError(Exception):
         pass
     
     @property
     def lastwrite(self):
-        if self._lastwrite is WStateEntityBase._NEVER_WRITTEN:
+        if self._lastwrite is NEVER_WRITTEN:
             errmsg = "can't access this property until a value has been " \
                      "written using write()"
             raise WStateEntityBase.NoPriorWritesError(errmsg)

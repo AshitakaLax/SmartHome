@@ -1,4 +1,4 @@
-# Django settings for smarthomeweb project.
+# Django settings for ladybug project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'NAME': 'ladybug.sqllite3',      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -24,7 +24,7 @@ DATABASES = {
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Denver'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -78,7 +78,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'yp)r7gdp1kn79p&amp;*g(3$1b-wwvjnk4-!q@92=g*v5@&amp;y*mln%8'
+SECRET_KEY = 'q#u+j3$#=d^%so$y*_+fyhimj^+6j52k)gc&amp;h+l3r72+e&amp;-!wj'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -97,16 +97,27 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'smarthomeweb.urls'
+ROOT_URLCONF = 'ladybug.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'smarthomeweb.wsgi.application'
+WSGI_APPLICATION = 'ladybug.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+
+from os.path import abspath, join, dirname
+
+PROJECT_DIR = abspath(dirname(__file__))
+SITE_DIR = abspath(dirname(PROJECT_DIR))
+
+MAKO_TEMPLATE_DIRS = (
+    join(SITE_DIR, "store", "mako_templates"),
+)
+
+MAKO_MODULE_DIR = join(SITE_DIR, "store", "mako_modules")
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -149,3 +160,17 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.request",
+    "librezon.context_processors.users",
+    "librezon.context_processors.django_template_constructs",
+    "store.context_processors.cart_items_count",
+)

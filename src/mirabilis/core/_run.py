@@ -72,7 +72,7 @@ class Runner(object):
             self._schedule[device] = datetime.now() + delta
             del self._devicethreads[device]
         with printlock:
-            printfunc("in thread done updating device", device)
+                printfunc("in thread done updating device", device)
             
     
     def _runserver(self):

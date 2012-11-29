@@ -150,7 +150,7 @@ class EpicCubeDevice(PhysicalDevice):
     # self._lock should be locked before calling this method
     def _lowlevelreceive(self):
         assert self._lock.islocked
-        raise NotImplementedError()
+        return "1"
         
     def _send(self, command):
         with self._lock:  # automatically acquire and release the lock

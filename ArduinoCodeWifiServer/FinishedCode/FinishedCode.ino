@@ -30,6 +30,7 @@ int MotionValue = 0;
 int LaserPin = 6;
 int TripPin = 7;
 int ledPin = 3;
+int lightPin = 8;
 //Declaring software serial 
 SoftwareSerial mySerial(4, 5); //RX, TX
 
@@ -97,7 +98,7 @@ perform its desired controlls
            mySerial.print(" ");
            mySerial.print(count);
            mySerial.print('\n');
-           mySerial.print("allpower\n");
+           //mySerial.print("allpower\n");
          //  if(analogRead(1)<810){
           //mySerial.print("turn ");
           //mySerial.print(stateBuff); 3\n");
@@ -236,13 +237,13 @@ boolean sendPage(char* URL) {
         String txt;
         
         //Check to see if the Laser is tripped or not 
-        if((analogRead(1)<810) && (analogRead(2)<300)){
+        if((analogRead(2)<350) && (analogRead(1) < 480)){
           txt = "Sprinkler System is on";
         }else{
           txt = "Sprinkler System is off";
         }  
         //Display if the lights are on or off
-        if((digitalRead(LaserPin) == HIGH) && (digitalRead(TripPin) == HIGH)){
+        if((digitalRead(LaserPin) == LOW) && (digitalRead(TripPin) == LOW)){
           txtLights = "Lights are on";
         }else{
           txtLights = "Lights are off";
@@ -275,6 +276,12 @@ boolean sendPage(char* URL) {
         WiServer.println("<center>");
         WiServer.print("Sprinkler Detection: ");
         WiServer.print(txt);
+        WiServer.print("night: ");
+        WiServer.print(analogRead(1));
+        WiServer.print("mois: ");
+        WiServer.print(analogRead(2));
+        WiServer.print("temp: ");
+        WiServer.print(analogRead(0));
         WiServer.println("        ");
         WiServer.println("</center>");
         WiServer.println("<center>");
@@ -312,6 +319,7 @@ void setup() {
   //pinMode(ledPin2, OUTPUT);
   //pinMode(ledPin3, OUTPUT);
   pinMode(3, OUTPUT);
+  pinMode(8, OUTPUT);
 
   // Enable Serial output and ask WiServer to generate log messages (optional)
  // Serial.begin(57600);
@@ -329,14 +337,20 @@ void setup() {
 }
 
 void loop(){
-  
+  WiServer.server_task();
+
  // if (mySerial.available())
    //   mySerial.print("turn on 1\n");
     //  if (mySerial.available())
      // Serial.write(mySerial.read());
       //mySerial.print("turn on 1\n");
- //Serial.println(analogRead(1));
-  if((analogRead(2)<150) && (analogRead(0) < 700)){
+ if((digitalRead(LaserPin) == LOW) || (digitalRead(TripPin) == LOW)){
+          digitalWrite(lightPin, HIGH);
+         // delay(1000);
+        }else{
+          digitalWrite(lightPin, LOW);
+        }
+  if((analogRead(2)<350) && (analogRead(1) < 480)){
     digitalWrite(ledPin, HIGH);
           //mySerial.print("turn on 3");
          // mySerial.print('\n');
@@ -347,7 +361,6 @@ void loop(){
 
         }  
   // Run WiServer
-  WiServer.server_task();
-
+  
   delay(10);
 }

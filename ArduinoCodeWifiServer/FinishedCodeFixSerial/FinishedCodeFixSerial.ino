@@ -172,28 +172,17 @@ boolean sendPage(char* URL) {
     //after having change state, return the user to the index page.
     WiServer.print("<HTML><HEAD><meta http-equiv='REFRESH' content='0;url=/'></HEAD></HTML>");
     //Send over software serial commands in order to display the current state of the current sensor and also the current state of the power strip
-    mySerial.print("allpower\n");
+    //mySerial.print("allpower\n");
+    
+       
     return true;
     
   }
   
   if (strcmp(URL, "/") == false) //why is this not true?
-   {
-       while(mySerial.available()){
-        char inChar = (char)mySerial.read();
-        str += (String)inChar;
-        if((str.length() > 8) || (inChar == '\n')){
-       stringComplete = true;
-       break;
-    }
-   newString = str;
-   str = "";
-  }
-   //   if (stringComplete==true){
-    //  Serial.print(str);
- // } 
-    
-  
+   {  
+     mySerial.print("allpower\n");
+     
       WiServer.print("<html>");
       WiServer.print("<center>");
       // WiServer.print("<body><center>Please select the led state:<center>\n<center>");
@@ -281,6 +270,7 @@ boolean sendPage(char* URL) {
         WiServer.println("</center>");
         WiServer.println("<center>");
         WiServer.println("Socket Power Consumption: ");
+        WiServer.println(str);
         WiServer.println(newString);
         str = "";
         WiServer.println("</center>");
@@ -333,21 +323,46 @@ void setup() {
 
 void loop(){
   WiServer.server_task();
-
+  
+ while(mySerial.available()){
+        char inChar = (char)mySerial.read();
+        str += (String)inChar;
+        if((inChar == '\n')){
+       stringComplete = true;
+       break;
+    }
+  newString = str;
+   //str = "";
+  }
+  str = "";
+   while(mySerial.available()){
+        char inChar1 = (char)mySerial.read();
+       // str += (String)inChar;
+        if((inChar1 == '\n')){
+       stringComplete = true;
+       break;
+    }
+   //newString = str;
+   //str = "";
+  }
+    //  if (stringComplete==true){
+    //  Serial.print(str);
+  //}
+  
  // if (mySerial.available())
    //   mySerial.print("turn on 1\n");
     //  if (mySerial.available())
      // Serial.write(mySerial.read());
       //mySerial.print("turn on 1\n");
  if((digitalRead(LaserPin) == HIGH) || (digitalRead(TripPin) == HIGH)){
-          digitalWrite(lightPin, HIGH);
+        //  digitalWrite(ledPin, HIGH); //coment out this because you need to turn on the Lights
          // delay(1000);
          
         }else{
           digitalWrite(lightPin, LOW);
         }
   if((analogRead(2)<350) && (analogRead(5) < 480)){
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(lightPin, HIGH);
           //mySerial.print("turn on 3");
          // mySerial.print('\n');
          

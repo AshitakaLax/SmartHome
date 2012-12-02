@@ -15,7 +15,7 @@
 #include "../include/GlobalVar.h"
 #include "../include/damper_Control.h"
 
-uint8_t dVerbose = 1;
+uint8_t dVerbose = 0;
 /**
 *	initializes all of the dampers outputs.
 */
@@ -54,14 +54,22 @@ void OpenDamper( uint8_t damper)
 	// if already open, return
 	if(DamperStatus == '0')
 	{
-		send_str(PSTR("Damper Status == 0"));
+		if(dVerbose)
+			send_str(PSTR("Damper Status == 0"));
+		else
+			send_str(PSTR("0"));
 		return;
 	}
 	else if(DamperStatus == '1')
-	{
-		send_str(PSTR("DamperStatus == 1, running motor"));
+	{		
+		if(dVerbose)
+			send_str(PSTR("DamperStatus == 1, running motor"));
+		else
+			send_str(PSTR("1"));
+		//send_str(PSTR("DamperStatus == 1, running motor"));
 	}
-	send_str(PSTR("\r\n"));
+	if(dVerbose)
+		send_str(PSTR("\r\n"));
 	// if not run the motor
 	MOTORENABLELOW;
 	MOTORDIRHIGH;
@@ -88,6 +96,8 @@ void OpenDamper( uint8_t damper)
 		{
 			send_str(PSTR(" Damper Open Error:TIMEOUT\r\n"));
 		}
+		else
+			send_str(PSTR("error"));
 	}
 	else
 	{
@@ -95,6 +105,8 @@ void OpenDamper( uint8_t damper)
 		{
 			send_str(PSTR("Damper Closed complete"));
 		}
+		else
+			send_str(PSTR("done"));
 	}
 	MOTORENABLEHIGH;
 }
@@ -119,6 +131,7 @@ void CloseDamper( uint8_t damper)
 	// if already close, return
 	if(DamperStatus == '1')
 	{
+		send_str(PSTR("done"));
 		return;
 	}
 	unsigned int timeout = 0; // make sure the motor doesn't spin 
@@ -142,6 +155,8 @@ void CloseDamper( uint8_t damper)
 		{
 			send_str(PSTR(" Damper Close Error:TIMEOUT\r\n"));
 		}
+		else
+			send_str(PSTR("error"));
 	}
 	MOTORENABLEHIGH;
 }

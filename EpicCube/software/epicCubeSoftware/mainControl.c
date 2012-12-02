@@ -43,15 +43,16 @@
 
 // Teensy 2.0++ 
 #define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n)) // clock rate at 16Mhz
-#define HEX(n) (((n) < 10) ? ((n) + '0') : ((n) + 'A' - 10))
+#define HEX(n) (((n) < 10) ? ((n) + '0') : ((n) + 'A' - 10)) //I think this is unused.
 void initializeGlobal(void);
 void send_str(const char *s);
 uint8_t recv_str(char *buf, uint8_t size);
 void parse_and_execute_command(const char *buf, uint8_t num);// still needs updating
 void convert_by_division(uint16_t value, char *temp);
 uint16_t convertAsciiToInt(char*temp, uint16_t size);
+void toggleVerbose(void);
 //global verbose adds lots of print statements
-uint8_t verbose = 1;
+uint8_t verbose = 0;
 uint8_t invalidInput = 0;
 //Simple delay command
 /**
@@ -88,11 +89,25 @@ int main(void)
 		while (!(usb_serial_get_control() & USB_SERIAL_DTR))// caught error with ";"
 		usb_serial_flush_input();
 
+		//if time permits
+		   // +--------+
+		  // /        /|
+		 // /        / |
+		// +--------+  |
+		// |        |  |
+		// |        |  +
+		// |        | /
+		// |        |/
+		// +--------+
+		
 		send_str(PSTR("\r\n***************************************"));
-		send_str(PSTR("\r\nWelcome to Epic Cube Serial Control Version 0.0.1\r\n"));
+		send_str(PSTR("\r\nWelcome to Epic Cube Serial Control Version 0.1.1\r\n"));
 		send_str(PSTR("***************************************"));
 		send_str(PSTR("\r\nto receive general help type \"-help\"\r\n\r\n>"));
 
+		
+		
+		
 		while (1) 
 		{
 			send_str(PSTR("> "));
@@ -100,7 +115,6 @@ int main(void)
 			if (n == 255) break;
 			send_str(PSTR("\r\n"));
 			parse_and_execute_command(buf, n);
-			
 		}
 	}
 }
@@ -192,7 +206,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			char val = CheckDamper(Command);
 			usb_serial_putchar(val);
 			//send_str((char*)(Status + '0'));// returns the status
-			send_str(PSTR("\r\n"));
+			//send_str(PSTR("\r\n"));
 			return;
 		}
 		else
@@ -251,7 +265,8 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	if(buf[0] == 'H')// HVAC Section should be DONE debug
 	{	
 		if(verbose)
-		send_str(PSTR("entering HVAC\r\n"));// H0V1A2V3?4
+			send_str(PSTR("entering HVAC\r\n"));// H0V1A2V3?4
+			
 		if(buf[4] == '?')// status request
 		{
 			if(GFanStatus == 0)// if furnaced controlled 
@@ -262,17 +277,17 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 				{
 					if(ReadWHeat() == 1)// and heat is on
 					{
-						send_str(PSTR("2\r\n"));
+						send_str(PSTR("2"));
 						return;
 					}
 					else if(ReadYCool() == 1)// and the cooler is on
 					{
-						send_str(PSTR("3\r\n"));
+						send_str(PSTR("3"));
 						return;
 					}
 					else
 					{
-						send_str(PSTR("1\r\n"));//just the blower is on.
+						send_str(PSTR("1"));//just the blower is on.
 						return;
 					}
 				}
@@ -289,12 +304,14 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 
 				if(WHeatStatus == 1)
 				{// 5
-					send_str(PSTR("5\r\n"));// blower and heater.
+					send_str(PSTR("5"));// blower and heater.
 					return;
 				}
 				if(YCoolStatus == 1)// blower and Cooler
 				{
-					send_str(PSTR("6\r\n"));
+					if(verbose)
+						send_str(PSTR("6 Blower and Cooler are on"));
+					send_str(PSTR("6"));
 					return;
 				}
 				if(GFanStatus == 1)
@@ -764,3 +781,14 @@ uint16_t convertAsciiToInt(char*temp, uint16_t size)
   return result;
 }
 
+void toggleVerbose(void)
+{
+	//toggle all of the verbose files
+	if(verbose)//verbose is 1
+		verbose = 0;
+	else
+		verbose = 1;
+	DampVerbose(verbose);
+	
+	
+}

@@ -225,3 +225,6 @@ class RWStateEntity(StateEntity, RStateEntityBase, WStateEntityBase):
         StateEntity.__init__(self, description, localname, local_id)
         RStateEntityBase.__init__(self)
         WStateEntityBase.__init__(self, writerfunc)
+
+
+from ._events import *

@@ -1,0 +1,299 @@
+   1               		.file	"prezense.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__ = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.turn_on_light,"ax",@progbits
+  17               	.global	turn_on_light
+  19               	turn_on_light:
+  20               	.LFB8:
+  21               	.LSM0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	/* stack size = 0 */
+  25               	.L__stack_usage = 0
+  26               	.LSM1:
+  27 0000 81E0      		ldi r24,lo8(1)
+  28 0002 8093 0000 		sts is_light_on,r24
+  29               	.LSM2:
+  30 0006 5E9A      		sbi 43-32,6
+  31               	.LSM3:
+  32 0008 2A9A      		sbi 37-32,2
+  33               	/* epilogue start */
+  34               	.LSM4:
+  35 000a 0895      		ret
+  36               	.LFE8:
+  38               		.section	.text.turn_off_light,"ax",@progbits
+  39               	.global	turn_off_light
+  41               	turn_off_light:
+  42               	.LFB9:
+  43               	.LSM5:
+  44               	/* prologue: function */
+  45               	/* frame size = 0 */
+  46               	/* stack size = 0 */
+  47               	.L__stack_usage = 0
+  48               	.LSM6:
+  49 0000 1092 0000 		sts is_light_on,__zero_reg__
+  50               	.LSM7:
+  51 0004 5E98      		cbi 43-32,6
+  52               	.LSM8:
+  53 0006 2A98      		cbi 37-32,2
+  54               	/* epilogue start */
+  55               	.LSM9:
+  56 0008 0895      		ret
+  57               	.LFE9:
+  59               		.section	.text.delay,"ax",@progbits
+  60               	.global	delay
+  62               	delay:
+  63               	.LFB10:
+  64               	.LSM10:
+  65 0000 0F93      		push r16
+  66 0002 1F93      		push r17
+  67 0004 CF93      		push r28
+  68 0006 DF93      		push r29
+  69               	/* prologue: function */
+  70               	/* frame size = 0 */
+  71               	/* stack size = 4 */
+  72               	.L__stack_usage = 4
+  73               	.LVL0:
+  74               	.LSM11:
+  75 0008 00E0      		ldi r16,lo8(0)
+  76 000a 10E0      		ldi r17,hi8(0)
+  77               	.LSM12:
+  78 000c C0E0      		ldi r28,lo8(0)
+  79 000e D0E0      		ldi r29,hi8(0)
+  80               	.LVL1:
+  81               	.L4:
+  82               	.LSM13:
+  83 0010 80E0      		ldi r24,lo8(__c.1716)
+  84 0012 90E0      		ldi r25,hi8(__c.1716)
+  85 0014 0E94 0000 		call print_P
+  86               	.LSM14:
+  87 0018 CE01      		movw r24,r28
+  88 001a 0E94 0000 		call phex16
+  89               	.LSM15:
+  90 001e 80E0      		ldi r24,lo8(__c.1718)
+  91 0020 90E0      		ldi r25,hi8(__c.1718)
+  92 0022 0E94 0000 		call print_P
+  93               	.LSM16:
+  94 0026 2196      		adiw r28,1
+  95               	.LVL2:
+  96 0028 0150      		subi r16,lo8(-(-1))
+  97 002a 1040      		sbci r17,hi8(-(-1))
+  98               	.LSM17:
+  99 002c 01F4      		brne .L4
+ 100               	.LSM18:
+ 101 002e 80E0      		ldi r24,lo8(__c.1722)
+ 102 0030 90E0      		ldi r25,hi8(__c.1722)
+ 103 0032 0E94 0000 		call print_P
+ 104               	/* epilogue start */
+ 105               	.LSM19:
+ 106 0036 DF91      		pop r29
+ 107 0038 CF91      		pop r28
+ 108               	.LVL3:
+ 109 003a 1F91      		pop r17
+ 110 003c 0F91      		pop r16
+ 111 003e 0895      		ret
+ 112               	.LFE10:
+ 114               		.section	.text.main,"ax",@progbits
+ 115               	.global	main
+ 117               	main:
+ 118               	.LFB11:
+ 119               	.LSM20:
+ 120 0000 1F93      		push r17
+ 121 0002 CF93      		push r28
+ 122 0004 DF93      		push r29
+ 123               	/* prologue: function */
+ 124               	/* frame size = 0 */
+ 125               	/* stack size = 3 */
+ 126               	.L__stack_usage = 3
+ 127               	.LVL4:
+ 128               	.LSM21:
+ 129 0006 569A      		sbi 42-32,6
+ 130               	.LSM22:
+ 131 0008 5E98      		cbi 43-32,6
+ 132               	.LSM23:
+ 133 000a 0E94 0000 		call usb_init
+ 134               	.LSM24:
+ 135 000e 80E4      		ldi r24,lo8(64)
+ 136 0010 0E94 0000 		call analog_reference
+ 137               	.LSM25:
+ 138 0014 209A      		sbi 36-32,0
+ 139               	.LSM26:
+ 140 0016 219A      		sbi 36-32,1
+ 141               	.LSM27:
+ 142 0018 229A      		sbi 36-32,2
+ 143               	.LSM28:
+ 144 001a 299A      		sbi 37-32,1
+ 145               	.LVL5:
+ 146               	.L19:
+ 147               	.LSM29:
+ 148 001c 10E0      		ldi r17,lo8(0)
+ 149               	.L18:
+ 150               	.LVL6:
+ 151               	.LBB2:
+ 152               	.LSM30:
+ 153 001e 80E0      		ldi r24,lo8(0)
+ 154 0020 0E94 0000 		call analog_read
+ 155 0024 EC01      		movw r28,r24
+ 156               	.LVL7:
+ 157               	.LSM31:
+ 158 0026 81E0      		ldi r24,lo8(1)
+ 159               	.LVL8:
+ 160 0028 0E94 0000 		call analog_read
+ 161               	.LVL9:
+ 162               	.LSM32:
+ 163 002c 22E0      		ldi r18,hi8(512)
+ 164 002e C030      		cpi r28,lo8(512)
+ 165 0030 D207      		cpc r29,r18
+ 166 0032 00F0      		brlo .L8
+ 167               	.LVL10:
+ 168               	.LSM33:
+ 169 0034 289A      		sbi 37-32,0
+ 170               	.LSM34:
+ 171 0036 21E0      		ldi r18,lo8(1)
+ 172 0038 00C0      		rjmp .L9
+ 173               	.LVL11:
+ 174               	.L8:
+ 175               	.LSM35:
+ 176 003a 2898      		cbi 37-32,0
+ 177               	.LSM36:
+ 178 003c 20E0      		ldi r18,lo8(0)
+ 179               	.LVL12:
+ 180               	.L9:
+ 181               	.LSM37:
+ 182 003e 32E0      		ldi r19,hi8(512)
+ 183 0040 8030      		cpi r24,lo8(512)
+ 184 0042 9307      		cpc r25,r19
+ 185 0044 00F0      		brlo .L10
+ 186               	.LVL13:
+ 187               	.LSM38:
+ 188 0046 299A      		sbi 37-32,1
+ 189               	.LSM39:
+ 190 0048 81E0      		ldi r24,lo8(1)
+ 191               	.LVL14:
+ 192 004a 00C0      		rjmp .L11
+ 193               	.LVL15:
+ 194               	.L10:
+ 195               	.LSM40:
+ 196 004c 2998      		cbi 37-32,1
+ 197               	.LSM41:
+ 198 004e 80E0      		ldi r24,lo8(0)
+ 199               	.LVL16:
+ 200               	.L11:
+ 201               	.LSM42:
+ 202 0050 1123      		tst r17
+ 203 0052 01F0      		breq .L12
+ 204               	.LSM43:
+ 205 0054 8823      		tst r24
+ 206 0056 01F0      		breq .L13
+ 207               	.LSM44:
+ 208 0058 81E0      		ldi r24,lo8(1)
+ 209               	.LVL17:
+ 210 005a 8093 0000 		sts occupied,r24
+ 211 005e 00C0      		rjmp .L19
+ 212               	.LVL18:
+ 213               	.L13:
+ 214               	.LSM45:
+ 215 0060 1092 0000 		sts occupied,__zero_reg__
+ 216               	.LSM46:
+ 217 0064 0E94 0000 		call turn_off_light
+ 218               	.LVL19:
+ 219 0068 00C0      		rjmp .L19
+ 220               	.LVL20:
+ 221               	.L12:
+ 222               	.LSM47:
+ 223 006a 2223      		tst r18
+ 224 006c 01F0      		breq .L15
+ 225               	.LSM48:
+ 226 006e 0E94 0000 		call turn_on_light
+ 227               	.LVL21:
+ 228               	.LSM49:
+ 229 0072 0E94 0000 		call delay
+ 230               	.LVL22:
+ 231               	.LSM50:
+ 232 0076 11E0      		ldi r17,lo8(1)
+ 233 0078 00C0      		rjmp .L18
+ 234               	.LVL23:
+ 235               	.L15:
+ 236               	.LSM51:
+ 237 007a 8823      		tst r24
+ 238 007c 01F0      		breq .L18
+ 239               	.LSM52:
+ 240 007e 0E94 0000 		call turn_on_light
+ 241               	.LVL24:
+ 242               	.LSM53:
+ 243 0082 81E0      		ldi r24,lo8(1)
+ 244 0084 8093 0000 		sts occupied,r24
+ 245 0088 00C0      		rjmp .L18
+ 246               	.LBE2:
+ 247               	.LFE11:
+ 249               		.section	.text.write_to_usb_debug,"ax",@progbits
+ 250               	.global	write_to_usb_debug
+ 252               	write_to_usb_debug:
+ 253               	.LFB12:
+ 254               	.LSM54:
+ 255               	.LVL25:
+ 256               	/* prologue: function */
+ 257               	/* frame size = 0 */
+ 258               	/* stack size = 0 */
+ 259               	.L__stack_usage = 0
+ 260               	.LSM55:
+ 261 0000 8AE0      		ldi r24,lo8(10)
+ 262               	.LVL26:
+ 263 0002 0E94 0000 		call usb_debug_putchar
+ 264               	.LSM56:
+ 265 0006 0E94 0000 		call usb_debug_flush_output
+ 266               	/* epilogue start */
+ 267               	.LSM57:
+ 268 000a 0895      		ret
+ 269               	.LFE12:
+ 271               	.global	is_light_on
+ 272               	.global	is_light_on
+ 273               		.section .bss
+ 276               	is_light_on:
+ 277 0000 00        		.skip 1,0
+ 278               	.global	occupied
+ 279               	.global	occupied
+ 282               	occupied:
+ 283 0001 00        		.skip 1,0
+ 284               		.section	.progmem.data,"a",@progbits
+ 287               	__c.1722:
+ 288 0000 646F 6E65 		.string	"done\n"
+ 288      0A00 
+ 291               	__c.1718:
+ 292 0006 0A00      		.string	"\n"
+ 295               	__c.1716:
+ 296 0008 3078 00   		.string	"0x"
+ 353               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 prezense.c
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:2      *ABS*:0000003f __SREG__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:3      *ABS*:0000003e __SP_H__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:4      *ABS*:0000003d __SP_L__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:5      *ABS*:00000034 __CCP__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:19     .text.turn_on_light:00000000 turn_on_light
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:276    .bss:00000000 is_light_on
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:41     .text.turn_off_light:00000000 turn_off_light
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:62     .text.delay:00000000 delay
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:295    .progmem.data:00000008 __c.1716
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:291    .progmem.data:00000006 __c.1718
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:287    .progmem.data:00000000 __c.1722
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:117    .text.main:00000000 main
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:282    .bss:00000001 occupied
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwad2Ve.s:252    .text.write_to_usb_debug:00000000 write_to_usb_debug
+
+UNDEFINED SYMBOLS
+print_P
+phex16
+usb_init
+analog_reference
+analog_read
+usb_debug_putchar
+usb_debug_flush_output
+__do_clear_bss

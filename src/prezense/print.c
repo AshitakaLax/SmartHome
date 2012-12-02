@@ -28,11 +28,13 @@
 
 #include "print.h"
 
-void print_P(const char *s)
+void 
+print_P(const char *s)
 {
 	char c;
 
-	while (1) {
+	while (1) 
+	{
 		c = pgm_read_byte(s++);
 		if (!c) 
 		    break;
@@ -42,18 +44,21 @@ void print_P(const char *s)
 	}
 }
 
-void phex1(unsigned char c)
+void 
+phex1(unsigned char c)
 {
 	usb_debug_putchar(c + ((c < 10) ? '0' : 'A' - 10));
 }
 
-void phex(unsigned char c)
+void 
+phex(unsigned char c)
 {
 	phex1(c >> 4);
 	phex1(c & 15);
 }
 
-void phex16(unsigned int i)
+void 
+phex16(unsigned int i)
 {
 	phex(i >> 8);
 	phex(i);

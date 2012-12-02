@@ -64,9 +64,12 @@ class Runner(object):
             number += 1
     
     def _updatedevicereschedule(self, device):
+        import pdb
         with printlock:
             printfunc("in thread to update device", device)
         device.update_entities()
+        with printlock:
+            printfunc("just finished updating device", device) 
         with self._schedulelock:
             delta = timedelta(0, device.pollinginterval)
             self._schedule[device] = datetime.now() + delta

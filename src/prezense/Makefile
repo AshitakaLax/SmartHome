@@ -1,6 +1,6 @@
 # Hey Emacs, this is a -*- makefile -*-
 #----------------------------------------------------------------------------
-# WinAVR Makefile Template written by Eric B. Weddington, Jörg Wunsch, et al.
+# WinAVR Makefile Template written by Eric B. Weddington, JË†rg Wunsch, et al.
 #
 # Released to the Public Domain
 #
@@ -42,7 +42,8 @@
 
 # Target file name (without extension)
 # (was blinky)
-TARGET = lightsensordriver
+#TARGET = lightsensordriver
+TARGET = prezense
 
 
 # List C source files here. (C dependencies are automatically generated.)

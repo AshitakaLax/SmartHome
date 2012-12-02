@@ -1,0 +1,120 @@
+   1               		.file	"delay.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__ = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.main,"ax",@progbits
+  17               	.global	main
+  19               	main:
+  20               	.LFB8:
+  21               	.LSM0:
+  22 0000 0F93      		push r16
+  23 0002 1F93      		push r17
+  24 0004 CF93      		push r28
+  25 0006 DF93      		push r29
+  26               	/* prologue: function */
+  27               	/* frame size = 0 */
+  28               	/* stack size = 4 */
+  29               	.L__stack_usage = 4
+  30               	.LSM1:
+  31 0008 569A      		sbi 42-32,6
+  32               	.LSM2:
+  33 000a 5E9A      		sbi 43-32,6
+  34               	.LSM3:
+  35 000c 0E94 0000 		call usb_init
+  36               	.LSM4:
+  37 0010 80E0      		ldi r24,lo8(__c.1704)
+  38 0012 90E0      		ldi r25,hi8(__c.1704)
+  39 0014 0E94 0000 		call print_P
+  40               	.LVL0:
+  41 0018 00E0      		ldi r16,lo8(0)
+  42 001a 10E0      		ldi r17,hi8(0)
+  43               	.LSM5:
+  44 001c C0E0      		ldi r28,lo8(0)
+  45 001e D0E0      		ldi r29,hi8(0)
+  46               	.LVL1:
+  47               	.L2:
+  48               	.LSM6:
+  49 0020 80E0      		ldi r24,lo8(__c.1706)
+  50 0022 90E0      		ldi r25,hi8(__c.1706)
+  51 0024 0E94 0000 		call print_P
+  52               	.LSM7:
+  53 0028 CE01      		movw r24,r28
+  54 002a 0E94 0000 		call phex16
+  55               	.LSM8:
+  56 002e 80E0      		ldi r24,lo8(__c.1708)
+  57 0030 90E0      		ldi r25,hi8(__c.1708)
+  58 0032 0E94 0000 		call print_P
+  59               	.LSM9:
+  60 0036 2196      		adiw r28,1
+  61               	.LVL2:
+  62 0038 0150      		subi r16,lo8(-(-1))
+  63 003a 1040      		sbci r17,hi8(-(-1))
+  64               	.LSM10:
+  65 003c 01F4      		brne .L2
+  66               	.LSM11:
+  67 003e 80E0      		ldi r24,lo8(__c.1712)
+  68 0040 90E0      		ldi r25,hi8(__c.1712)
+  69 0042 0E94 0000 		call print_P
+  70               	.LSM12:
+  71 0046 5E98      		cbi 43-32,6
+  72               	.L3:
+  73 0048 00C0      		rjmp .L3
+  74               	.LFE8:
+  76               		.section	.text.write_to_usb_debug,"ax",@progbits
+  77               	.global	write_to_usb_debug
+  79               	write_to_usb_debug:
+  80               	.LFB9:
+  81               	.LSM13:
+  82               	.LVL3:
+  83               	/* prologue: function */
+  84               	/* frame size = 0 */
+  85               	/* stack size = 0 */
+  86               	.L__stack_usage = 0
+  87               	.LSM14:
+  88 0000 8AE0      		ldi r24,lo8(10)
+  89               	.LVL4:
+  90 0002 0E94 0000 		call usb_debug_putchar
+  91               	.LSM15:
+  92 0006 0E94 0000 		call usb_debug_flush_output
+  93               	/* epilogue start */
+  94               	.LSM16:
+  95 000a 0895      		ret
+  96               	.LFE9:
+  98               		.section	.progmem.data,"a",@progbits
+ 101               	__c.1712:
+ 102 0000 646F 6E65 		.string	"done\n"
+ 102      0A00 
+ 105               	__c.1708:
+ 106 0006 0A00      		.string	"\n"
+ 109               	__c.1706:
+ 110 0008 3078 00   		.string	"0x"
+ 113               	__c.1704:
+ 114 000b 7374 6172 		.string	"starting\n"
+ 114      7469 6E67 
+ 114      0A00 
+ 147               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 delay.c
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:2      *ABS*:0000003f __SREG__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:3      *ABS*:0000003e __SP_H__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:4      *ABS*:0000003d __SP_L__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:5      *ABS*:00000034 __CCP__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:19     .text.main:00000000 main
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:113    .progmem.data:0000000b __c.1704
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:109    .progmem.data:00000008 __c.1706
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:105    .progmem.data:00000006 __c.1708
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:101    .progmem.data:00000000 __c.1712
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccMTkkct.s:79     .text.write_to_usb_debug:00000000 write_to_usb_debug
+
+UNDEFINED SYMBOLS
+usb_init
+print_P
+phex16
+usb_debug_putchar
+usb_debug_flush_output

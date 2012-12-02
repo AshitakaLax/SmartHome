@@ -8,6 +8,8 @@ from .core import (PhysicalDevice,
                    printfunc,
                    printlock)
 
+from serial import Serial # pyserial
+
 
 # these variables must always be iterable
 _DAMPER_NUMS = range(16)
@@ -130,6 +132,13 @@ class EpicCubeDevice(PhysicalDevice):
             container.additem(self.maingroup)
         
         self._lock = Lock()
+        
+        
+        print "SKIPPING OVER EPIC CUBE SERIAL INITIALIZATION!!!!!"
+        return
+        self._serial = Serial(port="/dev/cu.usbmodem12341", 
+                              baudrate=38400, 
+                              timeout=0)
     
     def __getstate__(self):
         odict = self.__dict__.copy()
@@ -143,14 +152,23 @@ class EpicCubeDevice(PhysicalDevice):
     # code for talking to the Epic Cube goes here
     # self._lock should be locked before calling this method
     def _lowlevelsend(self, command):
+        command = command.strip()
         assert self._lock.islocked
-        raise NotImplementedError()
+        self._serial.write(command)
+        self._serial.write("\n")
+        print "Epic Cube: sent", repr(command)
     
     # code for talking to the Epic Cube goes here
     # self._lock should be locked before calling this method
     def _lowlevelreceive(self):
         assert self._lock.islocked
-        return "1"
+        data = ""
+        part = self._serial.read(256)
+        while part:
+            data += part
+            part = self._serial.read(256)
+        print "Epic Cube: received", repr(data)
+        return data
         
     def _send(self, command):
         with self._lock:  # automatically acquire and release the lock
@@ -208,10 +226,12 @@ class EpicCubeDevice(PhysicalDevice):
         
     def update_entities(self):
         with printlock:
-            printfunc("in update_entities; bypassing update code")
-            import traceback
-            traceback.print_stack()
+            printfunc("in EpicCube.update_entities; bypassing update code")
+            #import traceback
+            #traceback.print_stack()
         return
+        #print self._sendreceive("-help")
+        
         self._updatedampers()
         self._updatehvacstatus()
         # garage not updated

@@ -52,8 +52,10 @@ adc_read(uint8_t mux)
 	ADMUX = aref | (mux & 0x1F);			        // configure mux input
 	ADCSRA = (1<<ADEN) | ADC_PRESCALER | (1<<ADSC);	// start the conversion
 	while (ADCSRA & (1<<ADSC)) ;			        // wait for result
-	low = ADCL;					                    // must read LSB first
-	return (ADCH << 8) | low;			            // must read MSB only once!
+	// must read LSB first
+	low = ADCL;		
+	// must read MSB only once!			                    
+	return (ADCH << 8) | low;
 #endif
 }
 

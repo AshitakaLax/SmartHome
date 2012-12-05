@@ -60,11 +60,17 @@ class StateEntity(SmartHomeItem):
 class _Uninitialized(object):
     def __repr__(self):
         return "<{}.UNINITIALIZED>".format(__package__)
+    
+    def __eq__(self, other):
+        return isinstance(other, _Uninitialized)
 
 
 class _NeverWritten(object):
     def __repr__(self):
         return "<{}.NEVER_WRITTEN>".format(__package__)
+
+    def __eq__(self, other):
+        return isinstance(other, _NeverWritten)
 
 
 

@@ -34,9 +34,12 @@ class PStripAndSensors(PhysicalDevice):
         self.add_state_entity(self.outlet4power)
         
         self.motionsensor = RStateEntity("motion sensing state")
-        self.lasertripwire = RStateEntity("laser trip wire state")
+        #self.lasertripwire = RStateEntity("laser trip wire state")
+        self.lightstatus = RStateEntity("light state")
+        
         self.add_state_entity(self.motionsensor)
-        self.add_state_entity(self.lasertripwire)
+        #self.add_state_entity(self.lasertripwire)
+        self.add_state_entity(self.lightstatus)
     
     def _writestate(self, state_entity, newstate):
         fmtstr = "this is {}, changing state of {} to {!r}"
@@ -50,19 +53,21 @@ class PStripAndSensors(PhysicalDevice):
         thing = urlopen("http://192.168.1.102/")
         data = thing.read()
         thing.close()
-        matches = re.findall("Led \d: (on|off)", data)
-        pdb.set_trace()
+        matches = list(re.finditer("Led \d: (on|off)", data))
+        #pdb.set_trace()
         assert len(matches) == 4
         self.outlet1onoff.update(matches[0].group(1))
         self.outlet2onoff.update(matches[1].group(1))
         self.outlet3onoff.update(matches[2].group(1))
         self.outlet4onoff.update(matches[3].group(1))
         
-        status = re.search("Trip Wire Status: (0|1)", data).group(1)
-        self.lasertripwire.update("TRIPPED" if status == "1" else "RESET")
+        #status = re.search("Trip Wire Status: (0|1)", data).group(1)
+        #self.lasertripwire.update("TRIPPED" if status == "1" else "RESET")
         status = re.search("Motion Sensor Status: (0|1)", data).group(1)
         self.motionsensor.update("MOTION" if status == "1" else "STILL")
         
+        status = re.search("Digital line for turning on lights: (0|1)", data).group(1)
+        self.lightstatus.update("ON" if status == "1" else "OFF")
     
     @property
     def pollinginterval(self):

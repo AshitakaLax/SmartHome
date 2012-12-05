@@ -45,11 +45,9 @@ def connect(command):
     while recvd:
         recvd = s.recv(1024)
         data += recvd
-    print "Received:"
-    print
-    print repr(data)
-    #print "sleeping..."
-    #time.sleep(15)
+    #print "Received:"
+    #print
+    #print repr(data)
     sock.close()
     return data
 
@@ -58,8 +56,13 @@ def index(request):
     raise NotImplementedError("index not implemented")
     
 
-def view(request):
-    pickledata = connect("dump_pickle")
+def view_all(request):
+    response = connect("dump_pickle")
+    if not response.startswith("SUCCESS: dumping pickle\n"):
+        return render_to_response("/base/response.mako",
+                                  {"response": response},
+                                  RequestContext(request))
+    pickledata = response[len("SUCCESS: dumping pickle\n"):]
     universe = cpickle.loads(pickledata)
     #return HttpResponse(repr(universe))
     return render_to_response("/base/basic.mako", 
@@ -69,4 +72,14 @@ def view(request):
 
 
 def change(request):
-    raise NotImplementedError("change not implemented")
+    CHANGE_CMD_TEMPLATE = "write_entity {id}:{datalen}:{data}"
+    
+    global_id = request.POST["global_id"]
+    writedata = request.POST["writedata"]
+    command = CHANGE_CMD_TEMPLATE.format(id=global_id, 
+                                         datalen=len(writedata), 
+                                         data=writedata)
+    response = connect(command)
+    return render_to_response("/base/response.mako",
+                              {"response": response},
+                              RequestContext(request))

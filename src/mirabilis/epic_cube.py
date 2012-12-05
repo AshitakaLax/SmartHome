@@ -9,13 +9,18 @@ from .core import (PhysicalDevice,
                    printlock)
 
 from serial import Serial # pyserial
+import traceback
 
 
 # these variables must always be iterable
 _DAMPER_NUMS = range(16)
+_DAMPER_DIGITS = 2
 _TEMP_SENSOR_NUMS = range(64)
+_TEMP_SENSOR_DIGITS = 2
 _SPRINKLER_NUMS = range(6)
+_SPRINKLER_DIGITS = 1
 _FAN_NUMS = [0, 2, 3, 4]
+_FAN_DIGITS = 1
 
 
 class EpicCubeDevice(PhysicalDevice):
@@ -44,101 +49,123 @@ class EpicCubeDevice(PhysicalDevice):
         PhysicalDevice.__init__(self, universe, localname, local_id, container)
         
         Method = BoundMethod
-
-        maingroupdescription = "the group holding the components and " \
-            "subgroups of the Epic Cube device"
-        self.maingroup = Group(universe, 
-                               description=maingroupdescription,
-                               localname="Epic Cube")
+        if container:
+            maingroupdescription = "the group holding the components and " \
+                "subgroups of the Epic Cube device"
+            self.maingroup = Group(universe, 
+                                   description=maingroupdescription,
+                                   localname="Epic Cube")
+        else:
+            self.maingroup = None
         
         dampergroupdescription = "group holding the damper state entities " \
             "for the Epic Cube device"
-        dampergroup = Group(container=self.maingroup, 
-                            description=dampergroupdescription,
-                            localname="dampers")
+        if container:
+            dampergroup = Group(container=self.maingroup, 
+                                description=dampergroupdescription,
+                                localname="dampers")
         self.dampers = {}
         for number in _DAMPER_NUMS:
-            description = "Epic Cube damper #{}".format(number)
+            number_str = format(number, "0{}".format(_DAMPER_DIGITS))
+            description = "Epic Cube damper #{}".format(number_str)
             damper = RWStateEntity(Method(self, "_writedamperstate"), 
                                    description)
             damper.__dampernumber = number
             self.dampers[number] = damper
             self.add_state_entity(damper)
-            dampergroup.additem(damper, "damper #{}".format(number), number)
+            if container:
+                dampergroup.additem(damper, "damper #{}".format(number_str), number)
         
         self.hvacstatus = RStateEntity("HVAC status for the Epic Cube", 
                                        "HVAC status")
         self.add_state_entity(self.hvacstatus)
-        self.maingroup.additem(self.hvacstatus)
+        if container:
+            self.maingroup.additem(self.hvacstatus)
         
         self.hvac_command = WStateEntity(Method(self, "_write_hvac_command"),
                                          "HVAC command sender for the Epic "
                                              "Cube",
                                          "HVAC command")
         self.add_state_entity(self.hvac_command)
-        self.maingroup.additem(self.hvac_command)
+        if container:
+            self.maingroup.additem(self.hvac_command)
         
         self.garage = WStateEntity(Method(self, "_writegaragestate"), 
                                    "garage opener/closer for the Epic Cube",
                                    "garage")
         self.add_state_entity(self.garage)
-        self.maingroup.additem(self.garage)
-        
-        tempsensorgroup = Group(container=self.maingroup, 
-                                description="group for the temperature " \
-                                    "sensors of the Epic Cube device",
-                                localname="temperature sensors")
+        if container:
+            self.maingroup.additem(self.garage)
+            
+        if container:
+            tempsensorgroup = Group(container=self.maingroup, 
+                                    description="group for the temperature " \
+                                        "sensors of the Epic Cube device",
+                                    localname="temperature sensors")
         self.tempsensors = {}
         for number in _TEMP_SENSOR_NUMS:
-            description = "Epic Cube temperature sensor #{}".format(number)
+            number_str = format(number, "0{}".format(_TEMP_SENSOR_DIGITS))
+            description = "Epic Cube temperature sensor #{}".format(number_str)
             tempsensor = RStateEntity(description)
             tempsensor.__sensornumber = number
             self.tempsensors[number] = tempsensor
             self.add_state_entity(tempsensor)
-            tempsensorgroup.additem(tempsensor, 
-                                    "sensor #{}".format(number),
-                                    number)
+            if container:
+                tempsensorgroup.additem(tempsensor, 
+                                        "sensor #{}".format(number_str),
+                                        number)
         
-        sprinklergroup = Group(container=self.maingroup, 
-                               description="group for the sprinklers of the " \
-                                    "Epic Cube device",
-                               localname="sprinklers")
+        if container:
+            sprinklergroup = Group(container=self.maingroup, 
+                                   description="group for the sprinklers of the " \
+                                        "Epic Cube device",
+                                   localname="sprinklers")
         self.sprinklers = {}
         for number in _SPRINKLER_NUMS:
-            description = "Epic Cube sprinkler #{}".format(number)
+            number_str = format(number, "0{}".format(_SPRINKLER_DIGITS))
+            description = "Epic Cube sprinkler #{}".format(number_str)
             sprinkler = WStateEntity(Method(self, "_writesprinklerstate"), 
                                      description)
             sprinkler.__sprinklernumber = number
             self.sprinklers[number] = sprinkler
             self.add_state_entity(sprinkler)
-            sprinklergroup.additem(sprinkler, 
-                                   "sprinkler #{}".format(number),
-                                   number)
+            if container:
+                sprinklergroup.additem(sprinkler, 
+                                       "sprinkler #{}".format(number_str),
+                                       number)
         
-        fangroup = Group(container=self.maingroup, 
-                         description="group for the fans of the Epic Cube " \
-                             "device",
-                         localname="fans")
+        if container:
+            fangroup = Group(container=self.maingroup, 
+                             description="group for the fans of the Epic Cube " \
+                                 "device",
+                             localname="fans")
         self.fans = {}
         for number in _FAN_NUMS:
-            description = "Epic Cube fan #{}".format(number)
+            number_str = format(number, "0{}".format(_FAN_DIGITS))
+            description = "Epic Cube fan #{}".format(number_str)
             fan = RWStateEntity(Method(self, "_writefanstate"), description)
             fan.__fan_number = number
             self.fans[number] = fan
             self.add_state_entity(fan)
-            fangroup.additem(fan, "fan #{}".format(number), number)
+            if container:
+                fangroup.additem(fan, "fan #{}".format(number_str), number)
         
         if container:
             container.additem(self.maingroup)
         
         self._lock = Lock()
         
-        
-        print "SKIPPING OVER EPIC CUBE SERIAL INITIALIZATION!!!!!"
-        return
-        self._serial = Serial(port="/dev/cu.usbmodem12341", 
-                              baudrate=38400, 
-                              timeout=0)
+        try:
+            self._serial = Serial(port="/dev/cu.usbmodem12341", 
+                                  baudrate=38400, 
+                                  timeout=0)
+        except:
+            print "\a\a\a" 
+            print "WARNING: Initialization of serial communication for Epic Cube failed."
+            print "Traceback:"
+            traceback.print_exc()
+            print "\ncontinuing...\n"
+            self._serial = None
     
     def __getstate__(self):
         odict = self.__dict__.copy()
@@ -226,17 +253,20 @@ class EpicCubeDevice(PhysicalDevice):
         
     def update_entities(self):
         with printlock:
-            printfunc("in EpicCube.update_entities; bypassing update code")
-            #import traceback
-            #traceback.print_stack()
-        return
-        #print self._sendreceive("-help")
+            if self._serial:
+                printfunc("in EpicCube.update_entities; preparing to update...")
+            else:
+                printfunc("in EpicCube.update_entities; bypassing update code")
+                return
         
         self._updatedampers()
         self._updatehvacstatus()
         # garage not updated
         self._updatetempsensors()
         self._updatefans()
+        
+        with printlock:
+            printfunc("EpicCube.update_entities: update completed")
     
     def _writedamperstate(self, state_entity, newstate):
         number = state_entity.__dampernumber

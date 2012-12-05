@@ -31,8 +31,9 @@ def _importstuff():
         try:
             del globals()[modulename]
         except:
-            print(sorted(globals().keys()))
-            raise
+            pass
+            #print(sorted(globals().keys()))
+            #raise
         for name in module.__all__:
             thing = getattr(module, name)
             #if hasattr(thing, "__module__"):

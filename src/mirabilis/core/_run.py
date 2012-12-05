@@ -5,8 +5,12 @@ from datetime import datetime, timedelta
 import time
 import pdb
 import cPickle as cpickle  # ugly camel case!
+import re
+import traceback
 
 from ._print import printlock, printfunc
+from ._state_entity import *
+
 
 
 class SocketOpeningError(Exception):
@@ -131,7 +135,12 @@ class Runner(object):
             (conn, addr) = self._serversocket.accept()
             try:
                 data = receiveall(conn)
-                response = self._processrequest(data)
+                try:
+                    response = self._processrequest(data)
+                except:
+                    print "ERROR processing request"
+                    traceback.print_exc()
+                    response = "FAILURE: error while processing"
                 assert isinstance(response, str)
                 conn.sendall(response)
             finally:
@@ -143,8 +152,34 @@ class Runner(object):
             raise
     
     def _processrequest(self, data):
-        with self._universe.readlock:
-            return cpickle.dumps(self._universe, 2)
+        if data == "dump_pickle":
+            with self._universe.readlock:
+                return "SUCCESS: dumping pickle\n" + \
+                    cpickle.dumps(self._universe, 2)
+        m = re.match("write_entity (\d+):(\d+):", data)
+        if m:
+            global_id = int(m.group(1))
+            newvaluelen = int(m.group(2))
+            newvalue = data[m.end():]
+            if newvaluelen != len(newvalue):
+                return "FAILURE: new value did not match specified length " \
+                    "(write_entity)"
+            item = self._universe.object_with_global_id(global_id)
+            if not isinstance(item, (WStateEntity, RWStateEntity)):
+                return "FAILURE: item is not writable (write_entity)"
+            try:
+                item.write(newvalue)
+            except:
+                print "FAILED in write:"
+                traceback.print_exc()
+                return "FAILURE: an error occured while performing the " \
+                    "write (write_entity)"
+            else:
+                msg = "SUCCESS: wrote {!r} to item {} at {!r}"
+                return msg.format(newvalue, item, item.path)
+        else:
+            return "FAILURE: unrecognized command:\n" + data
+            
         
     def _mainloopiteration(self, number):
         with printlock:

@@ -15,14 +15,27 @@
                 </div>
                 <div id="mainbody">
                     <%block name="mainbody_content">
-                        The main body sholud go here.
+                        The main body should go here.
                     </%block>
                 </div>
                 <%block name="footer">
                     <div id="footer">
                         <%block name="footer_content">
                             <div id="credits">
-                                <%block name="credits"/>
+                                <%block name="credits">
+                                    <hr />
+                                    Smart Home Server credits
+                                    <br />
+                                    <br />
+                                    Coded by Christopher Johnson
+                                    <br />
+                                    Assisted by Levi Balling, Dario Bosnjak, and Todd Rogers
+                                    <br />
+                                    <br />
+                                    Implemented using Python programming language and libraries
+                                    <br />
+                                    Built on Django web framework and Mako templating engine
+                                </%block>
                             </div>
                         </%block>
                     </div>

@@ -3,3 +3,4 @@
 *.pyo
 *.sqlite3
 *.sqllite3
+*.o.d

@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 8
-_modified_time = 1354200605.928905
+_modified_time = 1354741093.882321
 _enable_loop = True
 _template_filename = u'/Users/christopher/Documents/University Stuff/2012-Senior Project/smarthome/src/ladybug/website/mako_templates/base.mako'
 _template_uri = u'/base.mako'
@@ -12,7 +12,7 @@ _source_encoding = 'ascii'
 _exports = [u'css_page_inline', u'footer_content', u'footer', 'title_full', u'mainbody_content', 'django_template', u'credits', 'title_main', u'css_links_page', u'header_javascript', u'css_links_global', u'document', 'bodyattrs']
 
 
-# SOURCE LINE 35
+# SOURCE LINE 48
 
 def precedewithspaceifnotempty(text):
     return (u' ' + text.strip()) if (text and not text.isspace()) else u''
@@ -48,17 +48,17 @@ def render_body(context,**pageargs):
             context['self'].document(**pageargs)
         
 
-        # SOURCE LINE 33
-        __M_writer(u'\n\n')
-        # SOURCE LINE 38
-        __M_writer(u'\n\n')
-        # SOURCE LINE 42
-        __M_writer(u'\n\n')
         # SOURCE LINE 46
         __M_writer(u'\n\n')
-        # SOURCE LINE 48
+        # SOURCE LINE 51
+        __M_writer(u'\n\n')
+        # SOURCE LINE 55
         __M_writer(u'\n\n')
         # SOURCE LINE 59
+        __M_writer(u'\n\n')
+        # SOURCE LINE 61
+        __M_writer(u'\n\n')
+        # SOURCE LINE 72
         __M_writer(u'\n')
         return ''
     finally:
@@ -90,7 +90,7 @@ def render_footer_content(context,**pageargs):
             context['self'].credits(**pageargs)
         
 
-        # SOURCE LINE 25
+        # SOURCE LINE 38
         __M_writer(u'\n                            </div>\n                        ')
         return ''
     finally:
@@ -113,7 +113,7 @@ def render_footer(context,**pageargs):
             context['self'].footer_content(**pageargs)
         
 
-        # SOURCE LINE 27
+        # SOURCE LINE 40
         __M_writer(u'\n                    </div>\n                ')
         return ''
     finally:
@@ -126,9 +126,9 @@ def render_title_full(context):
         capture = context.get('capture', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        # SOURCE LINE 40
+        # SOURCE LINE 53
         __M_writer(u'\n    Smart Home - ')
-        # SOURCE LINE 41
+        # SOURCE LINE 54
         __M_writer(filters.trim(unicode(capture(self.title_main) )))
         __M_writer(u'\n')
         return ''
@@ -143,7 +143,7 @@ def render_mainbody_content(context,**pageargs):
             return render_mainbody_content(context)
         __M_writer = context.writer()
         # SOURCE LINE 17
-        __M_writer(u'\n                        The main body sholud go here.\n                    ')
+        __M_writer(u'\n                        The main body should go here.\n                    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -156,9 +156,9 @@ def render_django_template(context,template_text=None):
         caller = context.get('caller', UNDEFINED)
         request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
-        # SOURCE LINE 50
+        # SOURCE LINE 63
         __M_writer(u'\n    ')
-        # SOURCE LINE 51
+        # SOURCE LINE 64
 
         from django.template import Template, RequestContext
         
@@ -168,7 +168,7 @@ def render_django_template(context,template_text=None):
         context.write(t.render(RequestContext(request)))
             
         
-        # SOURCE LINE 58
+        # SOURCE LINE 71
         __M_writer(u'\n')
         return ''
     finally:
@@ -181,6 +181,8 @@ def render_credits(context,**pageargs):
         def credits():
             return render_credits(context)
         __M_writer = context.writer()
+        # SOURCE LINE 25
+        __M_writer(u'\n                                    <hr />\n                                    Smart Home Server credits\n                                    <br />\n                                    <br />\n                                    Coded by Christopher Johnson\n                                    <br />\n                                    Assisted by Levi Balling, Dario Bosnjak, and Todd Rogers\n                                    <br />\n                                    <br />\n                                    Implemented using Python programming language and libraries\n                                    <br />\n                                    Built on Django web framework and Mako templating engine\n                                ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -191,9 +193,9 @@ def render_title_main(context):
     try:
         AssertionError = context.get('AssertionError', UNDEFINED)
         __M_writer = context.writer()
-        # SOURCE LINE 44
+        # SOURCE LINE 57
         __M_writer(u'\n    ')
-        # SOURCE LINE 45
+        # SOURCE LINE 58
         raise AssertionError("page title must be specified") 
         
         __M_writer(u'\n')
@@ -302,7 +304,7 @@ def render_document(context,**pageargs):
             context['self'].footer(**pageargs)
         
 
-        # SOURCE LINE 29
+        # SOURCE LINE 42
         __M_writer(u'\n            </div>\n        </body>\n    </html>\n')
         return ''
     finally:

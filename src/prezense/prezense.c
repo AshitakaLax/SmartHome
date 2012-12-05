@@ -65,14 +65,31 @@ typedef enum {
 	
 bool is_light_on = false; 
 bool occupied = false;
+bool checking_occupancy = false;
 
+void
+turn_on_checking_occupancy(void)
+{
+	//LED_ON;
+	checking_occupancy = true;
+	PORTB |= 1 << 2;
+}
+
+void
+turn_off_checking_occupancy(void)
+{
+	//LED_OFF;
+	checking_occupancy = false;
+	PORTB &= ~(1 << 2);
+}
+	
 
 void
 turn_on_light(void)
 {
 	is_light_on = true;
 	LED_ON;
-	PORTB |= 1 << 2;
+	PORTB |= 1 << 3;
 }
 
 void
@@ -80,17 +97,62 @@ turn_off_light(void)
 {
 	is_light_on = false;
 	LED_OFF;
-	PORTB &= ~(1 << 2);
+	PORTB &= ~(1 << 3);
 }
+
+void
+update_signals(bool* motion, bool* tripwire)
+{
+    int16_t read_number = analog_read(0); // pin ADC0, I hope
+    int16_t motion_sensor = analog_read(1); // pin ADC1, I hope
+    // print("0x");
+    // phex16(read_number);
+    // print(" 0x");
+    // phex16(motion_sensor);
+        
+    //print(" (0x");
+    //phex16(reference);
+                
+    //if (read_number > reference)
+    if ((unsigned)read_number >= 0x200)
+    {
+		if (tripwire)
+			*tripwire = true;
+        //LED_ON;
+        PORTB |= 1 << 0;
+    }
+    else
+    {
+		if (tripwire)
+			*tripwire = false;
+        //LED_OFF;
+        PORTB &= ~(1 << 0);
+    }
+        
+    if ((unsigned)motion_sensor >= 0x200)
+	{
+		if (motion)
+			*motion = true;
+        PORTB |= 1 << 1;
+	}
+    else
+	{
+		if (motion)
+			*motion = false;
+        PORTB &= ~(1 << 1);
+	}
+}
+
 
 void
 delay(void)
 {
 	unsigned counter = 0;
+	unsigned max = 0x2000;
 	do 
 	{
-		print("0x");
-		phex16(counter);
+		//print("0x");
+		//phex16(counter);
 		
 		// unsigned counter2;
 		// for (counter2 = 0; counter2 < (unsigned)-1; counter2++)
@@ -101,9 +163,18 @@ delay(void)
 		// 	
 		// 	print("\n");
 		// }
-		print("\n");
-		counter++;
-	} while (counter != 0);
+		
+		
+		//print("\n");
+		bool tripwire;
+		update_signals(NULL, &tripwire);
+		
+		if (tripwire)
+			counter = 0;
+		else
+			counter++;
+		
+	} while (counter <= max);
 	print("done\n");
 }
 
@@ -113,7 +184,6 @@ main(void)
 {
 	bool motion = false;
 	bool tripwire = false;
-	bool checking_occupancy = false;
 	
     LED_CONFIG;
     LED_OFF;
@@ -132,50 +202,16 @@ main(void)
     
     analog_reference(1 << REFS0); // VCC voltage reference
     
-    DDRB |= 1 << 0; // output on PORT B 0
-    DDRB |= 1 << 1; // output on PORT B 1
-	DDRB |= 1 << 2; // output on PORT B 2
+    DDRB |= 1 << 0; // output on PORT B 0  tripwire
+    DDRB |= 1 << 1; // output on PORT B 1  motion
+	DDRB |= 1 << 2; // output on PORT B 2  occupancy
+	DDRB |= 1 << 3; // output on PORT B 3  relay
     
     PORTB |= 1 << 1;
     
     while (1)
     {	
-		//bool old_motion = motion;
-		//bool old_tripwire = tripwire;	
-        int16_t read_number = analog_read(0); // pin ADC0, I hope
-        int16_t motion_sensor = analog_read(1); // pin ADC1, I hope
-        // print("0x");
-        // phex16(read_number);
-        // print(" 0x");
-        // phex16(motion_sensor);
-        
-        //print(" (0x");
-        //phex16(reference);
-                
-        //if (read_number > reference)
-        if ((unsigned)read_number >= 0x200)
-        {
-			tripwire = true;
-            //LED_ON;
-            PORTB |= 1 << 0;
-        }
-        else
-        {
-			tripwire = false;
-            //LED_OFF;
-            PORTB &= ~(1 << 0);
-        }
-        
-        if ((unsigned)motion_sensor >= 0x200)
-		{
-			motion = true;
-            PORTB |= 1 << 1;
-		}
-        else
-		{
-			motion = false;
-            PORTB &= ~(1 << 1);
-		}
+		update_signals(&motion, &tripwire);
 		
 		if (checking_occupancy)
 		{
@@ -186,13 +222,13 @@ main(void)
 				occupied = false;
 				turn_off_light();
 			}
-			checking_occupancy = false;
+			turn_off_checking_occupancy();
 		}
 		else if (tripwire)
 		{
 			turn_on_light();
+			turn_on_checking_occupancy();
 			delay();
-			checking_occupancy = true;
 		}
 		else if (motion)
 		{

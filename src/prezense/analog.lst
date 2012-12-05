@@ -136,17 +136,17 @@
  193               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 analog.c
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:2      *ABS*:0000003f __SREG__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:3      *ABS*:0000003e __SP_H__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:4      *ABS*:0000003d __SP_L__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:5      *ABS*:00000034 __CCP__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:6      *ABS*:00000000 __tmp_reg__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:7      *ABS*:00000001 __zero_reg__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:19     .text.analog_reference:00000000 analog_reference
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:135    .data:00000000 aref
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:39     .text.adc_read:00000000 adc_read
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:89     .text.analog_read:00000000 analog_read
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc1jMbUA.s:140    .progmem.data:00000000 pin_to_mux.1409
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:2      *ABS*:0000003f __SREG__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:3      *ABS*:0000003e __SP_H__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:4      *ABS*:0000003d __SP_L__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:5      *ABS*:00000034 __CCP__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:19     .text.analog_reference:00000000 analog_reference
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:135    .data:00000000 aref
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:39     .text.adc_read:00000000 adc_read
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:89     .text.analog_read:00000000 analog_read
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccAJhU6a.s:140    .progmem.data:00000000 pin_to_mux.1409
 
 UNDEFINED SYMBOLS
 __do_copy_data

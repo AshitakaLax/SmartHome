@@ -143,16 +143,16 @@
  206               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 print.c
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:2      *ABS*:0000003f __SREG__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:3      *ABS*:0000003e __SP_H__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:4      *ABS*:0000003d __SP_L__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:5      *ABS*:00000034 __CCP__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:6      *ABS*:00000000 __tmp_reg__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:7      *ABS*:00000001 __zero_reg__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:19     .text.print_P:00000000 print_P
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:78     .text.phex1:00000000 phex1
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:106    .text.phex:00000000 phex
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccwXCd2I.s:135    .text.phex16:00000000 phex16
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:2      *ABS*:0000003f __SREG__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:3      *ABS*:0000003e __SP_H__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:4      *ABS*:0000003d __SP_L__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:5      *ABS*:00000034 __CCP__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:19     .text.print_P:00000000 print_P
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:78     .text.phex1:00000000 phex1
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:106    .text.phex:00000000 phex
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//ccF7pDOD.s:135    .text.phex16:00000000 phex16
 
 UNDEFINED SYMBOLS
 usb_debug_putchar

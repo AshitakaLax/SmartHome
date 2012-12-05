@@ -29,8 +29,8 @@ int LaserValue = 0;
 int MotionValue = 0;
 int LaserPin = 6;
 int TripPin = 7;
-int ledPin = 3;
-int lightPin = 8;
+int lightPin = 3;
+int waterPin = 8;
 //Declaring software serial 
 SoftwareSerial mySerial(4, 5); //RX, TX
 
@@ -232,7 +232,7 @@ boolean sendPage(char* URL) {
           txt = "Sprinkler System is off";
         }  
         //Display if the lights are on or off
-        if((digitalRead(LaserPin) == HIGH) || (digitalRead(TripPin) == HIGH)){
+        if((digitalRead(LaserPin) == LOW)){ //digitalRead(LaserPin) == HIGH) || 
           txtLights = "Lights are on";
         }else{
           txtLights = "Lights are off";
@@ -265,6 +265,10 @@ boolean sendPage(char* URL) {
         WiServer.println("</center>");
         WiServer.println("<center>");
         WiServer.print("Sprinkler Detection: ");
+        WiServer.print("Moisture: ");
+        WiServer.print(analogRead(2));
+        WiServer.print("Light: ");
+        WiServer.print(analogRead(5));
         WiServer.print(txt);
         WiServer.println("        ");
         WiServer.println("</center>");
@@ -354,20 +358,19 @@ void loop(){
     //  if (mySerial.available())
      // Serial.write(mySerial.read());
       //mySerial.print("turn on 1\n");
- if((digitalRead(LaserPin) == HIGH) || (digitalRead(TripPin) == HIGH)){
-        //  digitalWrite(ledPin, HIGH); //coment out this because you need to turn on the Lights
+ if((digitalRead(LaserPin) == LOW)){ //digitalRead(LaserPin) == HIGH) || 
+          digitalWrite(waterPin, HIGH); //coment out this because you need to turn on the Lights
          // delay(1000);
-         
         }else{
-          digitalWrite(lightPin, LOW);
+          digitalWrite(waterPin, LOW);
         }
   if((analogRead(2)<350) && (analogRead(5) < 480)){
-    //digitalWrite(lightPin, HIGH); //coment out this because you need to turn on the Lights
+    digitalWrite(lightPin, HIGH); //coment out this because you need to turn on the Lights
           //mySerial.print("turn on 3");
          // mySerial.print('\n');
          
         }else{
-          digitalWrite(ledPin, LOW);
+          digitalWrite(lightPin, LOW); //lightPin
          // mySerial.print("turn on 3");
          // mySerial.print('\n');
 

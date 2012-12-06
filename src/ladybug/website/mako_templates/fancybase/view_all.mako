@@ -1,4 +1,4 @@
-<%inherit file="/base.mako"/>
+<%inherit file="/fancybase.mako"/>
 
 <%!
     from mirabilis.core import (RStateEntity, 
@@ -16,8 +16,7 @@
     universal view
 </%def>
 
-<%block name="mainbody_content">
-    ##${universe | h}
+<%block name="main_body_content">
     ${displayuniverse()}
 </%block>
 

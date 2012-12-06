@@ -59,13 +59,13 @@ def index(request):
 def view_all(request):
     response = connect("dump_pickle")
     if not response.startswith("SUCCESS: dumping pickle\n"):
-        return render_to_response("/base/response.mako",
+        return render_to_response("/fancybase/response.mako",
                                   {"response": response},
                                   RequestContext(request))
     pickledata = response[len("SUCCESS: dumping pickle\n"):]
     universe = cpickle.loads(pickledata)
     #return HttpResponse(repr(universe))
-    return render_to_response("/base/basic.mako", 
+    return render_to_response("/fancybase/view_all.mako", 
                               {"universe": universe},
                               RequestContext(request))
                               
@@ -80,6 +80,6 @@ def change(request):
                                          datalen=len(writedata), 
                                          data=writedata)
     response = connect(command)
-    return render_to_response("/base/response.mako",
+    return render_to_response("/fancybase/response.mako",
                               {"response": response},
                               RequestContext(request))

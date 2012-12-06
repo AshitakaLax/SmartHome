@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
         <head>
-            <meta charset="UTF-8">
+            <meta charset="UTF-8" />
             <title>${capture(local.title_full) | trim}</title>
             <%block name="css_links_global"/>
             <%block name="css_links_page"/>

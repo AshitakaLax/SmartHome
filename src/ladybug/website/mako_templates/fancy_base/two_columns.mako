@@ -1,4 +1,4 @@
-<%inherit file="/fancybase.mako"/>
+<%inherit file="/fancy_base.mako"/>
 
 <%block name="page_content_columns">
 	<div class="page_content_container_left">

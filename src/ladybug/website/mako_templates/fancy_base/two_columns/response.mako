@@ -1,4 +1,4 @@
-<%inherit file="/fancybase.mako"/>
+<%inherit file="/fancy_base/two_columns.mako"/>
 
 <%! from mirabilis.core import RStateEntity, RWStateEntity, WStateEntity %>
 

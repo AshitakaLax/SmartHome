@@ -56,24 +56,34 @@ def index(request):
     raise NotImplementedError("index not implemented")
 
 
+def getuniverse():
+    response = connect("dump_pickle")
+    if not response.startswith("SUCCESS: dumping pickle\n"):
+        return render_to_response("/fancy_base/two_columns/response.mako",
+                                  {"response": response},
+                                  RequestContext(request))
+    pickledata = response[len("SUCCESS: dumping pickle\n"):]
+    return cpickle.loads(pickledata)
+
+
 def view(request):
-    return render_to_response("/fancybase/view.mako", 
-                              {}, 
+    universe = getuniverse()
+    return render_to_response("/fancy_base/two_columns/view.mako", 
+                              {"universe": universe}, 
                               RequestContext(request))
 
 
 def view_all(request):
-    response = connect("dump_pickle")
-    if not response.startswith("SUCCESS: dumping pickle\n"):
-        return render_to_response("/fancybase/response.mako",
-                                  {"response": response},
-                                  RequestContext(request))
-    pickledata = response[len("SUCCESS: dumping pickle\n"):]
-    universe = cpickle.loads(pickledata)
+    universe = getuniverse()
     #return HttpResponse(repr(universe))
-    return render_to_response("/fancybase/view_all.mako", 
-                              {"universe": universe},
-                              RequestContext(request))
+    try:
+        return render_to_response("/fancy_base/one_column/view_all.mako", 
+                                  {"universe": universe},
+                                  RequestContext(request))
+    except:
+        import traceback
+        traceback.print_exc()
+        raise
 
 
 def change(request):
@@ -85,6 +95,6 @@ def change(request):
                                          datalen=len(writedata), 
                                          data=writedata)
     response = connect(command)
-    return render_to_response("/fancybase/response.mako",
+    return render_to_response("/fancy_base/two_columns/response.mako",
                               {"response": response},
                               RequestContext(request))

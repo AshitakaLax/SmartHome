@@ -20,7 +20,7 @@ def create():
     lab.additem(vlsi, "vlsi")
     
     # epic cube
-    epic_cube = EpicCubeDevice(universe, "Levi's Epic Cube") #, container=lab)
+    epic_cube = EpicCubeDevice(universe, "Levi's Epic Cube", container=lab)
     lab.additem(epic_cube, "Epic Cube Device")
     
     

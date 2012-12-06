@@ -53,7 +53,7 @@ class EpicCubeDevice(PhysicalDevice):
         if container:
             maingroupdescription = "the group holding the components and " \
                 "subgroups of the Epic Cube device"
-            self.maingroup = Group(universe, 
+            self.maingroup = Group(container=container,
                                    description=maingroupdescription,
                                    localname="Epic Cube")
         else:
@@ -150,10 +150,7 @@ class EpicCubeDevice(PhysicalDevice):
             self.add_state_entity(fan)
             if container:
                 fangroup.additem(fan, "fan #{}".format(number_str), number)
-        
-        if container:
-            container.additem(self.maingroup)
-        
+                
         self._lock = Lock()
         
         try:

@@ -1,4 +1,4 @@
-<%inherit file="/fancybase.mako"/>
+<%inherit file="/fancy_base/one_column.mako"/>
 
 <%!
     from mirabilis.core import (RStateEntity, 
@@ -13,17 +13,12 @@
 
 
 <%def name="title_main()">
-    universal view
+    View All
 </%def>
 
 <%block name="main_body_content">
     ${displayuniverse()}
 </%block>
-
-<%block name="sidebar">
-    ## remove sidebar
-</%block>
-
 
 <%def name="displayitem(smarthomeitem)">
     ## Global ID: ${smarthomeitem.global_id}
@@ -62,6 +57,7 @@
         
             <form action="${url('website.views.change')}" method="post">
                 ${prefix}
+                <br />
                 ${csrf_protect()}
                 <input type="hidden" name="global_id" value="${smarthomeitem.global_id}" />
                 <input type="text" name="writedata" value="${display | h}" ${readonly} />
@@ -88,8 +84,21 @@
             path = smarthomeitem.path
             itemsbypath.setdefault(path, [])
             itemsbypath[path].append(smarthomeitem)
+        
+        def altrepr(string):
+            assert isinstance(string, str)
+            x = repr(string)
+            if x[0] == x[-1] == "'" and '"' not in x:
+                return '"{}"'.format(x[1:-1])
+            else:
+                return x
     %>
     <table border="1">
+        <tr>
+            <th>Path</th>
+            <th>Object</th>
+            <th>Last Read or Written Value</th>
+        </tr>
         % for path in sorted(itemsbypath.keys()):
             <% 
                 assert len(itemsbypath[path])
@@ -97,7 +106,7 @@
             %>
             <tr>
                 <td class="pathname" rowspan="${len(itemsbypath[path])}">
-                    ${path | h}
+                    ${altrepr(path) | h}
                 </td>
                 ${displayitem(myiter.next())}
             </tr>

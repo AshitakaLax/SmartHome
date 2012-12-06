@@ -148,7 +148,7 @@ void
 delay(void)
 {
 	unsigned counter = 0;
-	unsigned max = 0x2000;
+	unsigned max = 0x3800;
 	do 
 	{
 		//print("0x");

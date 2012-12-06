@@ -98,10 +98,10 @@
         #print UNINITIALIZED, ":", id(UNINITIALIZED)
         #print display, ":", id(display)
         #print UNINITIALIZED == display
-        if display in (UNINITIALIZED, NEVER_WRITTEN):
+        if display == UNINITIALIZED or display == NEVER_WRITTEN:
             display = ""
         else:
-            display = repr(display) + repr(type(display))
+            display = str(display)  # + repr(type(display))
             #display = ""
     %>
         
@@ -110,10 +110,14 @@
         <input type="hidden" name="global_id" value="${smarthomeitem.global_id}" />
         % if setting is None:
             <input type="text" name="writedata" value="${display | h}" ${readonly} />
-            <input type="submit" value="Change" />
+            % if not readonly:
+                <input type="submit" value="Change" />
+            % endif
         % else:
             <input type="hidden" name="writedata" value="${setting}" />
-            <input type="submit" value="Change to ${setting}">
+            % if not readonly:
+                <input type="submit" value="Change to ${setting}">
+            % endif
         % endif
     </form>
 </%def>

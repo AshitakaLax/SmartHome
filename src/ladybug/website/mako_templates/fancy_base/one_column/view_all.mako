@@ -51,7 +51,7 @@
                 if display in (UNINITIALIZED, NEVER_WRITTEN):
                     display = ""
                 else:
-                    display = repr(display) + repr(type(display))
+                    display = str(display)  # + repr(type(display))
                     #display = ""
             %>
         

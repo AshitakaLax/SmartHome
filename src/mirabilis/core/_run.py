@@ -40,7 +40,7 @@ REQUEST_SEP = "\n"
 class Runner(object):
     def __init__(self, universe):
         self._mainverbose = False
-        self._deviceverbose = False
+        self._deviceverbose = True
         
         self._checkinterval = 0.1
         
@@ -80,6 +80,12 @@ class Runner(object):
                 break
     
     def _updatedevicereschedule(self, device):
+        with self._schedulelock:
+            delta = timedelta(0, device.pollinginterval)
+            self._schedule[device] = datetime.now() + delta
+            del self._devicethreads[device]
+        if self._deviceverbose:
+            printsync("DEVICE: {}: rescheduled device".format(device))
         if self._deviceverbose:
             msg = "\nDEVICE: {}: in thread to update device"
             printsync(msg.format(device))
@@ -87,12 +93,6 @@ class Runner(object):
         if self._deviceverbose:
             msg = "DEVICE: {}: just finished updating device"
             printsync(msg.format(device))
-        with self._schedulelock:
-            delta = timedelta(0, device.pollinginterval)
-            self._schedule[device] = datetime.now() + delta
-            del self._devicethreads[device]
-        if self._deviceverbose:
-            printsync("DEVICE: {}: rescheduled device".format(device))
     
     def _runserver(self):
         while True:

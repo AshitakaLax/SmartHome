@@ -2,11 +2,12 @@ import re
 import pdb
 from urllib import urlopen
 import traceback
+import time
 
 from .core import PhysicalDevice, RStateEntity, RWStateEntity, BoundMethod
-from .core import printsync
+from .core import printsync, printlock
 
-_verbose = False
+_verbose = True
 
 class PStripAndSensors(PhysicalDevice):
     def __init__(self, universe, localname=None, local_id=None):
@@ -57,9 +58,11 @@ class PStripAndSensors(PhysicalDevice):
                 thing = urlopen("http://192.168.1.102/")
             except IOError:
                 msg = "PStripAndSensors.update_entities: error"
-                printsync("DEVICE: {}: {}".format(self, msg))
-                traceback.print_exc()
-                printsync("DEVICE: {}: trying again...".format(self))
+                with printlock:
+                    print "DEVICE: {}: {}".format(self, msg)
+                    traceback.print_exc()
+                    print "DEVICE: {}: trying again...".format(self)
+                time.sleep(5)
             else:
                 break
         data = thing.read()
@@ -72,13 +75,23 @@ class PStripAndSensors(PhysicalDevice):
         self.outlet3onoff.update(matches[2].group(1))
         self.outlet4onoff.update(matches[3].group(1))
         
+        pattern = r"Socket Power Consumption:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)"
+        match = re.search(pattern, data)
+        if not match:
+            print "could not locate power consumption; data is:", data
+        self.outlet1power.update(match.group(1))
+        self.outlet2power.update(match.group(2))
+        self.outlet3power.update(match.group(3))
+        self.outlet4power.update(match.group(4))
+        
         #status = re.search("Trip Wire Status: (0|1)", data).group(1)
         #self.lasertripwire.update("TRIPPED" if status == "1" else "RESET")
         status = re.search("Motion Sensor Status: (0|1)", data).group(1)
         self.motionsensor.update("MOTION" if status == "1" else "STILL")
         
-        status = re.search("Digital line for turning on lights: (0|1)", data).group(1)
-        self.lightstatus.update("ON" if status == "1" else "OFF")
+        status = re.search("Digital line for turning on lights: (0|1)", 
+                           data).group(1)
+        self.lightstatus.update(status)
     
     @property
     def pollinginterval(self):

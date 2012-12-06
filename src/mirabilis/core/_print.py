@@ -3,14 +3,14 @@ import sys
 from ._rename import renamemodule
 from ._lock import Lock
 
-__all__ = ["printsync"]
+__all__ = ["printsync", "printlock"]
 
 
-_printlock = Lock()
+printlock = Lock()
 
 @renamemodule
 def printsync(*args, **kwargs):
-    with _printlock:
+    with printlock:
         sep = kwargs.get("sep")
         sep = sep if sep is not None else " "
         end = kwargs.get("end")

@@ -9,6 +9,10 @@ from .core import (PhysicalDevice,
 
 from serial import Serial # pyserial
 import traceback
+import time
+
+
+_sendreceiveverbose = False
 
 
 # these variables must always be iterable
@@ -18,7 +22,7 @@ _TEMP_SENSOR_NUMS = range(64)
 _TEMP_SENSOR_DIGITS = 2
 _SPRINKLER_NUMS = range(6)
 _SPRINKLER_DIGITS = 1
-_FAN_NUMS = [0, 2, 3, 4]
+_FAN_NUMS = [1, 2, 3, 4]
 _FAN_DIGITS = 1
 
 
@@ -75,7 +79,9 @@ class EpicCubeDevice(PhysicalDevice):
             self.dampers[number] = damper
             self.add_state_entity(damper)
             if container:
-                dampergroup.additem(damper, "damper #{}".format(number_str), number)
+                dampergroup.additem(damper, 
+                                    "damper #{}".format(number_str), 
+                                    number)
         
         self.hvacstatus = RStateEntity("HVAC status for the Epic Cube", 
                                        "HVAC status")
@@ -100,7 +106,7 @@ class EpicCubeDevice(PhysicalDevice):
             
         if container:
             tempsensorgroup = Group(container=self.maingroup, 
-                                    description="group for the temperature " \
+                                    description="group for the temperature " 
                                         "sensors of the Epic Cube device",
                                     localname="temperature sensors")
         self.tempsensors = {}
@@ -118,8 +124,8 @@ class EpicCubeDevice(PhysicalDevice):
         
         if container:
             sprinklergroup = Group(container=self.maingroup, 
-                                   description="group for the sprinklers of the " \
-                                        "Epic Cube device",
+                                   description="group for the sprinklers of "
+                                               "the Epic Cube device",
                                    localname="sprinklers")
         self.sprinklers = {}
         for number in _SPRINKLER_NUMS:
@@ -157,11 +163,18 @@ class EpicCubeDevice(PhysicalDevice):
             self._serial = Serial(port="/dev/cu.usbmodem12341", 
                                   baudrate=38400, 
                                   timeout=0)
+            #self._send("-help")
+            printsync("Epic Cube: sleeping 1 second")
+            time.sleep(1)
+            data = [""]
+            printsync("Epic Cube: doing extra receive for start up")
+            self._receive()
         except:
-            print "\a\a\a" 
-            print "WARNING: Initialization of serial communication for Epic Cube failed."
+            printsync("\a\a\a")
+            printsync("WARNING: Initialization of serial communication for "
+                      "Epic Cube failed.")
             traceback.print_exc()
-            print "\ncontinuing...\n"
+            printsync("\ncontinuing...\n")
             self._serial = None
     
     def __getstate__(self):
@@ -179,8 +192,11 @@ class EpicCubeDevice(PhysicalDevice):
         command = command.strip()
         assert self._lock.islocked
         self._serial.write(command)
+        if _sendreceiveverbose:
+            printsync("Epic Cube: sent", repr(command + "\n"))
+        time.sleep(0.01)        
+        self._lowlevelreceive()
         self._serial.write("\n")
-        print "Epic Cube: sent", repr(command)
     
     # code for talking to the Epic Cube goes here
     # self._lock should be locked before calling this method
@@ -191,37 +207,43 @@ class EpicCubeDevice(PhysicalDevice):
         while part:
             data += part
             part = self._serial.read(256)
-        print "Epic Cube: received", repr(data)
+        data = data.strip().strip(">").strip()
+        if _sendreceiveverbose:
+            printsync("Epic Cube: received", repr(data))
         return data
         
-    def _send(self, command):
+    def _send(self, command, delay=0.1):
         with self._lock:  # automatically acquire and release the lock
             self._lowlevelsend(command)
+            time.sleep(delay)
+            self._lowlevelreceive()
     
     # may return empty string
     def _receive(self):
         with self._lock:  # automatically acquire and release the lock
             return self._lowlevelreceive()
         
-    def _sendreceive(self, value):
+    def _sendreceive(self, value, delay=0.1):
         with self._lock:  # automatically acquire and release the lock
             self._lowlevelsend(value)
+            time.sleep(delay)
             return self._lowlevelreceive()
     
     def _updatedampers(self):
         for dampernum in sorted(self.dampers.keys()):
             assert 0 <= dampernum < 100
             response = self._sendreceive("Damper?{:02}".format(dampernum))
-            if response in "01":
-                self.dampers[dampernum].update(response)
+            if response in tuple("01"):
+                status = "OPEN" if response == "0" else "CLOSED"
+                self.dampers[dampernum].update(status)
             else:
                 text = "got {!r} back from damper controller".format(response)
                 raise AssertionError(text)
     
     def _updatehvacstatus(self):
-        response = self._sendreceive("HVAC?")
-        if response in "1234567":
-            self.hvac.update(response)
+        response = self._sendreceive("HVAC?", 1)
+        if response in tuple("1234567"):
+            self.hvacstatus.update(response)
         else:
             text = "got {!r} back from HVAC controller".format(response)
             raise AssertionError(text)
@@ -230,10 +252,13 @@ class EpicCubeDevice(PhysicalDevice):
         for sensornum in sorted(self.tempsensors.keys()):
             tempsensor = self.tempsensors[sensornum]
             assert 0 <= sensornum < 100
-            response = self._sendreceive("TEMP{:02}".format(sensornum))
+            response = self._sendreceive("Temp{:02}".format(sensornum))
             response = int(response)
-            assert 0 <= response <= 1024
-            self.tempsensors[sensornum].update(response)
+            if not 0 <= response <= 1024:
+                pass
+                #printsync("Epic Cube: WARNING: temp value {} not between "
+                #          ">= 0 and < 1024".format(response))
+            self.tempsensors[sensornum].update(repr(response))
     
     def _updatefans(self):
         fan_nums = sorted(self.fans.keys())
@@ -246,7 +271,7 @@ class EpicCubeDevice(PhysicalDevice):
             else:
                 speed = int(speed)
                 assert 0 <= speed <= 9
-                fans[fan_number].update(speed)
+                self.fans[fan_number].update(repr(speed))
         
     def update_entities(self):
         if not self._serial:
@@ -267,7 +292,7 @@ class EpicCubeDevice(PhysicalDevice):
     
     def _writedamperstate(self, state_entity, newstate):
         number = state_entity.__dampernumber
-        assert newstate in "01"
+        assert newstate in tuple("01")
         self._send("Damper{:02}{}".format(number, newstate))
     
     def _write_hvac_command(self, state_entity, newstate):

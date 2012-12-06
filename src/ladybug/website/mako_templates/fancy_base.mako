@@ -56,7 +56,7 @@
 </html>
 
 <%def name="page_description()">
-    This page is part of the website of the 2012 Smart Home senior project team at the University of Utah.
+    This page is part of the website of the 2012 computer engineering Smart Home senior project team at the University of Utah.
 </%def>
 
 <%!

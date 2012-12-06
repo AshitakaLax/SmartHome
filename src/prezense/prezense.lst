@@ -233,8 +233,8 @@
  251               	.LVL16:
  252               	.LBE2:
  253               	.LSM43:
- 254 0038 80E2      		ldi r24,hi8(8193)
- 255 003a 0130      		cpi r16,lo8(8193)
+ 254 0038 88E3      		ldi r24,hi8(14337)
+ 255 003a 0130      		cpi r16,lo8(14337)
  256 003c 1807      		cpc r17,r24
  257 003e 00F0      		brlo .L20
  258               	.LSM44:
@@ -397,24 +397,24 @@
  507               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 prezense.c
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:2      *ABS*:0000003f __SREG__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:3      *ABS*:0000003e __SP_H__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:4      *ABS*:0000003d __SP_L__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:5      *ABS*:00000034 __CCP__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:6      *ABS*:00000000 __tmp_reg__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:7      *ABS*:00000001 __zero_reg__
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:19     .text.turn_on_checking_occupancy:00000000 turn_on_checking_occupancy
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:420    .bss:00000002 checking_occupancy
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:39     .text.turn_off_checking_occupancy:00000000 turn_off_checking_occupancy
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:58     .text.turn_on_light:00000000 turn_on_light
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:408    .bss:00000000 is_light_on
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:80     .text.turn_off_light:00000000 turn_off_light
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:101    .text.update_signals:00000000 update_signals
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:204    .text.delay:00000000 delay
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:425    .progmem.data:00000000 __c.1733
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:278    .text.main:00000000 main
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:414    .bss:00000001 occupied
-/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc356NuE.s:384    .text.write_to_usb_debug:00000000 write_to_usb_debug
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:2      *ABS*:0000003f __SREG__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:3      *ABS*:0000003e __SP_H__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:4      *ABS*:0000003d __SP_L__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:5      *ABS*:00000034 __CCP__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:19     .text.turn_on_checking_occupancy:00000000 turn_on_checking_occupancy
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:420    .bss:00000002 checking_occupancy
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:39     .text.turn_off_checking_occupancy:00000000 turn_off_checking_occupancy
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:58     .text.turn_on_light:00000000 turn_on_light
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:408    .bss:00000000 is_light_on
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:80     .text.turn_off_light:00000000 turn_off_light
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:101    .text.update_signals:00000000 update_signals
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:204    .text.delay:00000000 delay
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:425    .progmem.data:00000000 __c.1733
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:278    .text.main:00000000 main
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:414    .bss:00000001 occupied
+/var/folders/vt/5kqx_n_d7dzctt580b1smrdm0000gp/T//cc0zr0Ly.s:384    .text.write_to_usb_debug:00000000 write_to_usb_debug
 
 UNDEFINED SYMBOLS
 analog_read

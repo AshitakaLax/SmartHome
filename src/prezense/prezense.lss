@@ -411,7 +411,7 @@ delay(void)
  278:	1f 4f       	sbci	r17, 0xFF	; 255
 		
 	} while (counter <= max);
- 27a:	80 e2       	ldi	r24, 0x20	; 32
+ 27a:	88 e3       	ldi	r24, 0x38	; 56
  27c:	01 30       	cpi	r16, 0x01	; 1
  27e:	18 07       	cpc	r17, r24
  280:	98 f3       	brcs	.-26     	; 0x268 <delay+0x24>

@@ -1,4 +1,6 @@
-#def main():
+from .create import create
+
+#def main2():
 #    from .create import create
 #    
 #    import cPickle
@@ -37,14 +39,12 @@
 #    print "Successfully dumped to", repr(filename) + "."
 
 
-def main2():
-    from .create import create
-    
+def main():
+    print "MIRABILIS: starting up..."
     universe = create()
-    
     universe.run()
+    print "MIRABILIS: quitting."
 
 
 if __name__ == "__main__":
-    #main()
-    main2()
+    main()

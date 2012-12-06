@@ -54,7 +54,13 @@ def connect(command):
 
 def index(request):
     raise NotImplementedError("index not implemented")
-    
+
+
+def view(request):
+    return render_to_response("/fancybase/view.mako", 
+                              {}, 
+                              RequestContext(request))
+
 
 def view_all(request):
     response = connect("dump_pickle")
@@ -68,7 +74,6 @@ def view_all(request):
     return render_to_response("/fancybase/view_all.mako", 
                               {"universe": universe},
                               RequestContext(request))
-                              
 
 
 def change(request):

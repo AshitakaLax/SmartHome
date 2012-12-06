@@ -20,6 +20,10 @@
     ${displayuniverse()}
 </%block>
 
+<%block name="sidebar">
+    ## remove sidebar
+</%block>
+
 
 <%def name="displayitem(smarthomeitem)">
     ## Global ID: ${smarthomeitem.global_id}

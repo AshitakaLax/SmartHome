@@ -1,4 +1,4 @@
-<%inherit file="/base.mako"/>
+<%inherit file="/fancybase.mako"/>
 
 <%! from mirabilis.core import RStateEntity, RWStateEntity, WStateEntity %>
 
@@ -7,7 +7,7 @@
     Response
 </%def>
 
-<%block name="mainbody_content">
+<%block name="main_body_content">
     Server returned:
     
     <pre>${repr(response)}</pre>

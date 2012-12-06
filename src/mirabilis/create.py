@@ -33,10 +33,10 @@ def create():
     lab.additem(pstrip.outlet3onoff, "outlet 3 ON-OFF")
     lab.additem(pstrip.outlet4onoff, "outlet 4 ON-OFF")
     
-    lab.additem(pstrip.outlet1power, "outlet 1 Power")
-    lab.additem(pstrip.outlet2power, "outlet 2 Power")
-    lab.additem(pstrip.outlet3power, "outlet 3 Power")
-    lab.additem(pstrip.outlet4power, "outlet 4 Power")
+    lab.additem(pstrip.outlet1power, "outlet 1 power")
+    lab.additem(pstrip.outlet2power, "outlet 2 power")
+    lab.additem(pstrip.outlet3power, "outlet 3 power")
+    lab.additem(pstrip.outlet4power, "outlet 4 power")
     
     vlsi.additem(pstrip.motionsensor, "motion sensor")
     vlsi.additem(pstrip.lightstatus, "light ON-OFF")

@@ -2,7 +2,7 @@ import threading
 
 from ._rename import renamemodule
 from ._container import Container
-from ._print import printfunc, printlock
+from ._print import printsync
 
 __all__ = ["Universe"]
 
@@ -112,10 +112,9 @@ class Universe(Container):
             assert not self._readerthreads
             assert threading.current_thread() in self._writerthread
             if threading.current_thread() not in self._writerthread: 
-                with printlock:
-                    printfunc(self._writerthread)
-                    printfunc(threading.current_thread())
-                    raise AssertionError()
+                printsync(self._writerthread)
+                printsync(threading.current_thread())
+                raise AssertionError()
             self._writerthread.remove(threading.current_thread())
             self._modifylock.notify_all()
             

@@ -1,10 +1,12 @@
 import re
 import pdb
 from urllib import urlopen
+import traceback
 
 from .core import PhysicalDevice, RStateEntity, RWStateEntity, BoundMethod
-from .core import printlock, printfunc
+from .core import printsync
 
+_verbose = False
 
 class PStripAndSensors(PhysicalDevice):
     def __init__(self, universe, localname=None, local_id=None):
@@ -43,14 +45,23 @@ class PStripAndSensors(PhysicalDevice):
     
     def _writestate(self, state_entity, newstate):
         fmtstr = "this is {}, changing state of {} to {!r}"
-        with printlock:
-            printfunc(fmtstr.format(self, state_entity, newstate))
+        if _verbose:
+            printsync(fmtstr.format(self, state_entity, newstate))
     
     def update_entities(self):
         # code for polling the powerstrip's status and updating its entities
-        with printlock:
-            printfunc("starting to update device", self)
-        thing = urlopen("http://192.168.1.102/")
+        if _verbose:
+            printsync("starting to update device", self)
+        while True:
+            try:
+                thing = urlopen("http://192.168.1.102/")
+            except IOError:
+                msg = "PStripAndSensors.update_entities: error"
+                printsync("DEVICE: {}: {}".format(self, msg))
+                traceback.print_exc()
+                printsync("DEVICE: {}: trying again...".format(self))
+            else:
+                break
         data = thing.read()
         thing.close()
         matches = list(re.finditer("Led \d: (on|off)", data))

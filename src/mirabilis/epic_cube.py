@@ -5,8 +5,7 @@ from .core import (PhysicalDevice,
                    Group,
                    BoundMethod,
                    Lock,
-                   printfunc,
-                   printlock)
+                   printsync)
 
 from serial import Serial # pyserial
 import traceback
@@ -22,6 +21,8 @@ _SPRINKLER_DIGITS = 1
 _FAN_NUMS = [0, 2, 3, 4]
 _FAN_DIGITS = 1
 
+
+_verbose = False
 
 class EpicCubeDevice(PhysicalDevice):
     """
@@ -162,7 +163,6 @@ class EpicCubeDevice(PhysicalDevice):
         except:
             print "\a\a\a" 
             print "WARNING: Initialization of serial communication for Epic Cube failed."
-            print "Traceback:"
             traceback.print_exc()
             print "\ncontinuing...\n"
             self._serial = None
@@ -252,12 +252,12 @@ class EpicCubeDevice(PhysicalDevice):
                 fans[fan_number].update(speed)
         
     def update_entities(self):
-        with printlock:
-            if self._serial:
-                printfunc("in EpicCube.update_entities; preparing to update...")
-            else:
-                printfunc("in EpicCube.update_entities; bypassing update code")
-                return
+        if not self._serial:
+            if _verbose:
+                printsync("in EpicCube.update_entities; bypassing update code")
+            return
+        msg = "EpicCube.update_entities: preparing to update..."
+        printsync("DEVICE: {}: {}".format(self, msg))
         
         self._updatedampers()
         self._updatehvacstatus()
@@ -265,8 +265,8 @@ class EpicCubeDevice(PhysicalDevice):
         self._updatetempsensors()
         self._updatefans()
         
-        with printlock:
-            printfunc("EpicCube.update_entities: update completed")
+        msg = "EpicCube.update_entities: update completed"
+        printsync("DEVICE: {}: {}".format(self, msg))
     
     def _writedamperstate(self, state_entity, newstate):
         number = state_entity.__dampernumber

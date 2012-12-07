@@ -12,8 +12,6 @@ import traceback
 import time
 
 
-_sendreceiveverbose = False
-
 
 # these variables must always be iterable
 _DAMPER_NUMS = range(16)
@@ -27,6 +25,8 @@ _FAN_DIGITS = 1
 
 
 _verbose = False
+_sendreceiveverbose = False
+
 
 class EpicCubeDevice(PhysicalDevice):
     """
@@ -164,10 +164,12 @@ class EpicCubeDevice(PhysicalDevice):
                                   baudrate=38400, 
                                   timeout=0)
             #self._send("-help")
-            printsync("Epic Cube: sleeping 1 second")
+            if _sendreceiveverbose:
+                printsync("Epic Cube: sleeping 1 second")
             time.sleep(1)
             data = [""]
-            printsync("Epic Cube: doing extra receive for start up")
+            if _sendreceiveverbose:
+                printsync("Epic Cube: doing extra receive for start up")
             self._receive()
         except:
             printsync("\a\a\a")
@@ -242,11 +244,24 @@ class EpicCubeDevice(PhysicalDevice):
     
     def _updatehvacstatus(self):
         response = self._sendreceive("HVAC?", 1)
-        if response in tuple("1234567"):
-            self.hvacstatus.update(response)
+        if response == "1":
+            status = "1 (furnace controller blower on)"
+        elif response == "2":
+            status = "2 (furnace controller blower and heating on)"
+        elif response == "3":
+            status = "3 (furnace controller blower and AC on)"
+        elif response == "4":
+            status = "4 (server controller blower on)"
+        elif response == "5":
+            status = "5 (server controller blower on)"
+        elif response == "6":
+            status = "6 (server controller blower on)"
+        elif response == "7":
+            status = "7 (all off)"
         else:
-            text = "got {!r} back from HVAC controller".format(response)
-            raise AssertionError(text)
+            raise AssertionError("got strange result to _updatehvacstatus: " +
+                                 repr(response))
+        self.hvacstatus.update(status)
     
     def _updatetempsensors(self):
         for sensornum in sorted(self.tempsensors.keys()):
@@ -278,8 +293,9 @@ class EpicCubeDevice(PhysicalDevice):
             if _verbose:
                 printsync("in EpicCube.update_entities; bypassing update code")
             return
-        msg = "EpicCube.update_entities: preparing to update..."
-        printsync("DEVICE: {}: {}".format(self, msg))
+        if _verbose:
+            msg = "EpicCube.update_entities: preparing to update..."
+            printsync("DEVICE: {}: {}".format(self, msg))
         
         self._updatedampers()
         self._updatehvacstatus()
@@ -287,13 +303,16 @@ class EpicCubeDevice(PhysicalDevice):
         self._updatetempsensors()
         self._updatefans()
         
-        msg = "EpicCube.update_entities: update completed"
-        printsync("DEVICE: {}: {}".format(self, msg))
+        if _verbose:
+            msg = "EpicCube.update_entities: update completed"
+            printsync("DEVICE: {}: {}".format(self, msg))
     
     def _writedamperstate(self, state_entity, newstate):
         number = state_entity.__dampernumber
-        assert newstate in tuple("01")
-        self._send("Damper{:02}{}".format(number, newstate))
+        assert newstate in ["OPEN", "CLOSED"]
+        newstatebin = "0" if newstate == "OPEN" else "1"
+        self._send("Damper{:02}{}".format(number, newstatebin), 10.0)
+        #state_entity.update(newstate)
     
     def _write_hvac_command(self, state_entity, newstate):
         assert 1 <= int(newstate) <= 5

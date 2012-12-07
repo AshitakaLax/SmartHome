@@ -40,7 +40,7 @@ REQUEST_SEP = "\n"
 class Runner(object):
     def __init__(self, universe):
         self._mainverbose = False
-        self._deviceverbose = True
+        self._deviceverbose = False
         
         self._checkinterval = 0.1
         

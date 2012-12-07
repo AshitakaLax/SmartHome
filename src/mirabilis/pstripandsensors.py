@@ -49,6 +49,9 @@ class PStripAndSensors(PhysicalDevice):
         
         self.sprinklers = RStateEntity("Dario sprinkler system")
         self.add_state_entity(self.sprinklers)
+        
+        self.temperature = RStateEntity("temperature")
+        self.add_state_entity(self.temperature)
     
     def _writeoutletonoffstate(self, state_entity, newstate):
         fmtstr = "this is {}, changing state of {} to {!r}"
@@ -121,6 +124,11 @@ class PStripAndSensors(PhysicalDevice):
         
         status = re.search("Sprinkler System is (on|off)", data).group(1)
         self.sprinklers.update(status.upper())
+        
+        temperature = re.search("Temperature Reading:\s+((.|\n)+)(?<=\*F)", data)
+        assert temperature
+        temperature = temperature.group(1).replace("Fehrenhite", "Fahrenheit")
+        self.temperature.update(temperature)
     
     @property
     def pollinginterval(self):

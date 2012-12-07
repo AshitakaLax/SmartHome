@@ -22,6 +22,10 @@
         pstripandsensors = lab["Power Strip and Sensors"]
     %>
     <h1>Home Control</h1>
+    
+    <h2>Temperature</h2>
+    <div>Current temperature: ${pstripandsensors.temperature.read() | h}</div>
+    
     <h2>Outlets</h2>
     <div style="margin-left: 25px">
         <h3>On/off Status</h3>

@@ -6,3 +6,4 @@
 *.o.d
 mako_modules
 .DS_Store
+*~

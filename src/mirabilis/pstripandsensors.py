@@ -7,7 +7,7 @@ import time
 from .core import PhysicalDevice, RStateEntity, RWStateEntity, BoundMethod
 from .core import printsync, printlock
 
-_verbose = True
+_verbose = False
 
 class PStripAndSensors(PhysicalDevice):
     def __init__(self, universe, localname=None, local_id=None):
@@ -46,6 +46,9 @@ class PStripAndSensors(PhysicalDevice):
         self.add_state_entity(self.motionsensor)
         #self.add_state_entity(self.lasertripwire)
         self.add_state_entity(self.lightstatus)
+        
+        self.sprinklers = RStateEntity("Dario sprinkler system")
+        self.add_state_entity(self.sprinklers)
     
     def _writeoutletonoffstate(self, state_entity, newstate):
         fmtstr = "this is {}, changing state of {} to {!r}"
@@ -66,7 +69,6 @@ class PStripAndSensors(PhysicalDevice):
                 time.sleep(5)
             thing.close()
             state_entity.update(newstate)
-                
     
     def update_entities(self):
         # code for polling the powerstrip's status and updating its entities
@@ -89,8 +91,12 @@ class PStripAndSensors(PhysicalDevice):
         thing.close()
         matches = list(re.finditer("Led \d: (on|off)", data))
         #pdb.set_trace()
-        assert len(matches) == 4
-        self.outlet1onoff.update(matches[0].group(1).upper())
+        if len(matches) != 4:
+            printsync("PStripAndSensors: ERROR: got wrong " \
+                "number of outlet statuses:")
+            printsync(repr(data))
+            assert False
+        self.outlet1onoff.update(matches[0].group(1).upper()), 
         self.outlet2onoff.update(matches[1].group(1).upper())
         self.outlet3onoff.update(matches[2].group(1).upper())
         self.outlet4onoff.update(matches[3].group(1).upper())
@@ -112,6 +118,9 @@ class PStripAndSensors(PhysicalDevice):
         status = re.search("Digital line for turning on lights: (0|1)", 
                            data).group(1)
         self.lightstatus.update(status)
+        
+        status = re.search("Sprinkler System is (on|off)", data).group(1)
+        self.sprinklers.update(status.upper())
     
     @property
     def pollinginterval(self):

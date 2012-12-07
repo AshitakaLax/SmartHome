@@ -12,7 +12,7 @@
     
     <pre>${repr(response)}</pre>
     
-    <a href="${url('website.views.view_all')}">Return to View All</a>
+    <a href="${url('website.views.view')}">Return to Main</a>
 </%block>
 
 

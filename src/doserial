@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cat /dev/cu.usbmodem12341 & cat - >/dev/cu.usbmodem12341
+kill %1 %2

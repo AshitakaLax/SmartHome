@@ -232,15 +232,17 @@ class EpicCubeDevice(PhysicalDevice):
             return self._lowlevelreceive()
     
     def _updatedampers(self):
-        for dampernum in sorted(self.dampers.keys()):
-            assert 0 <= dampernum < 100
-            response = self._sendreceive("Damper?{:02}".format(dampernum))
-            if response in tuple("01"):
-                status = "OPEN" if response == "0" else "CLOSED"
-                self.dampers[dampernum].update(status)
-            else:
-                text = "got {!r} back from damper controller".format(response)
-                raise AssertionError(text)
+        if _verbose:
+            printsync("Epic Cube: skipping updating dampers")
+        #for dampernum in sorted(self.dampers.keys()):
+        #    assert 0 <= dampernum < 100
+        #    response = self._sendreceive("Damper?{:02}".format(dampernum))
+        #    if response in tuple("01"):
+        #        status = "OPEN" if response == "0" else "CLOSED"
+        #        self.dampers[dampernum].update(status)
+        #    else:
+        #        text = "got {!r} back from damper controller".format(response)
+        #        raise AssertionError(text)
     
     def _updatehvacstatus(self):
         response = self._sendreceive("HVAC?", 1)
@@ -264,16 +266,18 @@ class EpicCubeDevice(PhysicalDevice):
         self.hvacstatus.update(status)
     
     def _updatetempsensors(self):
-        for sensornum in sorted(self.tempsensors.keys()):
-            tempsensor = self.tempsensors[sensornum]
-            assert 0 <= sensornum < 100
-            response = self._sendreceive("Temp{:02}".format(sensornum))
-            response = int(response)
-            if not 0 <= response <= 1024:
-                pass
-                #printsync("Epic Cube: WARNING: temp value {} not between "
-                #          ">= 0 and < 1024".format(response))
-            self.tempsensors[sensornum].update(repr(response))
+        if _verbose:
+            printsync("Epic Cube: skipping updating temperature sensors")
+        #for sensornum in sorted(self.tempsensors.keys()):
+        #    tempsensor = self.tempsensors[sensornum]
+        #    assert 0 <= sensornum < 100
+        #    response = self._sendreceive("Temp{:02}".format(sensornum), )
+        #    response = int(response)
+        #    if not 0 <= response <= 1024:
+        #        pass
+        #        #printsync("Epic Cube: WARNING: temp value {} not between "
+        #        #          ">= 0 and < 1024".format(response))
+        #    self.tempsensors[sensornum].update(repr(response))
     
     def _updatefans(self):
         fan_nums = sorted(self.fans.keys())
@@ -281,12 +285,12 @@ class EpicCubeDevice(PhysicalDevice):
         assert len(response) == len(fan_nums)
         for responsepart in response:
             fan_number, onoff, speed = map(int, responsepart.split(":"))
-            if onoff == "0":
-                fans[fan_number].update(-1)
+            if onoff == 0:
+                self.fans[fan_number].update("OFF")
             else:
                 speed = int(speed)
                 assert 0 <= speed <= 9
-                self.fans[fan_number].update(repr(speed))
+                self.fans[fan_number].update(repr(speed + 1))
         
     def update_entities(self):
         if not self._serial:
@@ -319,19 +323,26 @@ class EpicCubeDevice(PhysicalDevice):
         self._send("HVAC{}".format(newstate))
     
     def _writegaragestate(self, state_entity, newstate):
+        if _verbose:
+            printsync("Epic Cube: toggling garage door")
         self._send("Garage")
     
     def _writesprinklerstate(self, state_entity, newstate):
+        if newstate == "ON":
+            newstate = "1"
+        elif newstate == "OFF":
+            newstate = "0"
         assert newstate in tuple("01")
-        assert 0 <= sprinklernumber <= 9
+        #assert 0 <= sprinklernumber <= 9
         self._send("Sprinkler{}{}".format(state_entity.__sprinklernumber,
                                           newstate))
     
     def _writefanstate(self, state_entity, newstate):
         fan_number = state_entity.__fan_number
-        onoff = "0" if newstate == "-1" else "1"
-        speed = "0" if newstate == "-1" else newstate
-        self._write("Fan{}{}{}".format(fan_number, onoff, speed))
+        onoff = "0" if newstate == "OFF" else "1"
+        speed = "0" if newstate == "OFF" else repr(int(newstate) - 1)
+        self._send("Fan{}{}{}".format(fan_number, onoff, speed))
+        state_entity.update(newstate)
     
     @property
     def pollinginterval(self):

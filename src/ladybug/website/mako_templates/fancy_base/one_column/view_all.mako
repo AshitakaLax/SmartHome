@@ -54,15 +54,19 @@
                     display = str(display)  # + repr(type(display))
                     #display = ""
             %>
-        
-            <form action="${url('website.views.change')}" method="post">
-                ${prefix}
-                <br />
-                ${csrf_protect()}
-                <input type="hidden" name="global_id" value="${smarthomeitem.global_id}" />
-                <input type="text" name="writedata" value="${display | h}" ${readonly} />
-                <input type="submit" value="Change" />
-            </form>
+            
+            <%doc>
+                <form action="${url('website.views.change')}" method="post">
+                    ${prefix}
+                    <br />
+                    ${csrf_protect()}
+                    <input type="hidden" name="global_id" value="${smarthomeitem.global_id}" />
+                    <input type="text" name="writedata" value="${display | h}" ${readonly} />
+                    <input type="submit" value="Change" />
+                </form>
+            </%doc>
+            ${prefix}
+            ${display | h}
         % endif
     </td>
 </%def>

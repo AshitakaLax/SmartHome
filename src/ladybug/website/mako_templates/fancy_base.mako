@@ -41,8 +41,7 @@
                     <%block name="page_content_columns"/>
     				<nav>
                         <%block name="navigation_contents">
-        					<a href="${url('website.views.index')}">Main</a>
-                            <a href="${url('website.views.view')}">View</a>
+        					<a href="${url('website.views.view')}">Main</a>
         					<a href="${url('website.views.view_all')}">View All</a>
                         </%block>
     				</nav>

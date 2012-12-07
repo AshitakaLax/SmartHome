@@ -21,19 +21,22 @@
         epic_cube = lab["Epic Cube Device"] 
         pstripandsensors = lab["Power Strip and Sensors"]
     %>
-    <h1>Outlets</h1>
-    <h2>On/off Status</h2>
-    <div>Outlet 1: ${outletchangeform(pstripandsensors.outlet1onoff)}</div>
-    <div>Outlet 2: ${outletchangeform(pstripandsensors.outlet2onoff)}</div>
-    <div>Outlet 3: ${outletchangeform(pstripandsensors.outlet3onoff)}</div>
-    <div>Outlet 4: ${outletchangeform(pstripandsensors.outlet4onoff)}</div>
-    <h2>Power consumption</h2>
-    <div>Outlet 1: ${pstripandsensors.outlet1power.read() | h}</div>
-    <div>Outlet 2: ${pstripandsensors.outlet2power.read() | h}</div>
-    <div>Outlet 3: ${pstripandsensors.outlet3power.read() | h}</div>
-    <div>Outlet 4: ${pstripandsensors.outlet4power.read() | h}</div>
+    <h1>Home Control</h1>
+    <h2>Outlets</h2>
+    <div style="margin-left: 25px">
+        <h3>On/off Status</h3>
+        <div>Outlet 1: ${outletchangeform(pstripandsensors.outlet1onoff)}</div>
+        <div>Outlet 2: ${outletchangeform(pstripandsensors.outlet2onoff)}</div>
+        <div>Outlet 3: ${outletchangeform(pstripandsensors.outlet3onoff)}</div>
+        <div>Outlet 4: ${outletchangeform(pstripandsensors.outlet4onoff)}</div>
+        <h3>Power consumption</h3>
+        <div>Outlet 1: ${pstripandsensors.outlet1power.read() | h}</div>
+        <div>Outlet 2: ${pstripandsensors.outlet2power.read() | h}</div>
+        <div>Outlet 3: ${pstripandsensors.outlet3power.read() | h}</div>
+        <div>Outlet 4: ${pstripandsensors.outlet4power.read() | h}</div>
+    </div>
     
-    <h1>Room occupied status</h1>
+    <h2>Room occupied status</h2>
     % if "UNINITIALIZED" in repr(pstripandsensors.lightstatus.read()):
         <div>Room occupancy is in an indeterminate state.</div>
     % elif pstripandsensors.lightstatus.read() in (True, "True", "1"):
@@ -42,7 +45,7 @@
         <div>Room is vacant and automatic light is therefore OFF.</div>
     % endif
     
-    <h1>Temperatures</h1>
+    <h2>Temperatures</h2>
     <div>Temperature 1: ${epic_cube.tempsensors[0].read() | h}</div>
     <div>Temperature 2: ${epic_cube.tempsensors[1].read() | h}</div>
     <%doc>
@@ -52,7 +55,7 @@
         % endfor
     </%doc>
     
-    <h1>Heating/Ventilation/Air Conditioning</h1>
+    <h2>Heating/Ventilation/Air Conditioning</h2>
     <div>HVAC status: ${epic_cube.hvacstatus.read()}</div>
     <div>${hvac_change_form(epic_cube.hvac_command, 1, "thermostat controlled")}</div>
     <div>${hvac_change_form(epic_cube.hvac_command, 2, "server controlled, blower on")}</div>
@@ -60,21 +63,67 @@
     <div>${hvac_change_form(epic_cube.hvac_command, 4, "server controlled, blower and AC on")}</div>
     <div>${hvac_change_form(epic_cube.hvac_command, 5, "thermostat controlled")}</div>
     
-        
+    <%doc>
+        <h2>Dampers</h2>
+        % for number, damper in sorted(epic_cube.dampers.items()):
+            <div>Damper ${number}: ${damperchangeform(damper)}</div>
+        % endfor
+    </%doc>
     
-    <h1>Home Control</h1>
-    ##<p>//can change order</p>
-    ##<p>Button to Temperatures</p>   -- can't change thermometers
-    <h2>Outlets</h2>
+    <h2>Garage Door</h2>
+    <form action="${url('website.views.change')}" method="post">
+        ${csrf_protect()}
+        <input type="hidden" name="global_id" value="${epic_cube.garage.global_id}" />
+        <input type="hidden" name="writedata" value="" />
+        <input type="submit" value="Toggle Garage Door" />
+    </form>
     
-    <h2>Dampers</h2>
-    % for number, damper in sorted(epic_cube.dampers.items()):
-        <div>Damper ${number}: ${damperchangeform(damper)}</div>
+    <h2>Sprinklers</h2>
+    <div style="margin-left: 25px">
+        <h3>Sprinklers A control</h3>
+        <div>
+            % for x in range(6):
+                <div>
+                    Sprinkler ${x}: 
+                    ${showsprinklerchangeform(epic_cube.sprinklers[x], "ON")}
+                    ${showsprinklerchangeform(epic_cube.sprinklers[x], "OFF")}
+                </div>
+            % endfor
+        </div>
+        <h3>Autonomous sprinkler B monitoring</h3>
+        Sprinklers are ${pstripandsensors.sprinklers.read()}
+    </div>
+    <h2>
+    
+    <h2>Fan Control</h2>
+    % for x in range(1, 4 + 1):
+        <div>
+            Current state: ${epic_cube.fans[x].read()}.
+            Change to: 
+            % for newstate in ["OFF"] + list(map(repr, range(1, 10 + 1))):
+                ${showfanchangeform(epic_cube.fans[x], newstate)}
+            % endfor
+        </div>
     % endfor
-    
-    <p>Button for HVAC</p>
-    <p>&nbsp;</p>
 </%block>
+
+<%def name="showfanchangeform(fan, newstate)">
+    <form style="display: inline;" action="${url('website.views.change')}" method="post">
+        ${csrf_protect()}
+        <input type="hidden" name="global_id" value="${fan.global_id}" />
+        <input type="hidden" name="writedata" value="${newstate}" />
+        <input type="submit" value="${newstate}" />
+    </form>
+</%def>
+
+<%def name="showsprinklerchangeform(sprinkler, onoroff)">
+    <form style="display: inline;" action="${url('website.views.change')}" method="post">
+        ${csrf_protect()}
+        <input type="hidden" name="global_id" value="${sprinkler.global_id}" />
+        <input type="hidden" name="writedata" value="${onoroff}" />
+        <input type="submit" value="Turn ${onoroff}" />
+    </form>
+</%def>
 
 <%! 
     def invnumbool(s):

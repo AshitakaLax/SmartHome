@@ -49,9 +49,11 @@
         <div>Room is vacant and automatic light is therefore OFF.</div>
     % endif
     
-    <h2>Temperatures</h2>
-    <div>Temperature 1: ${epic_cube.tempsensors[0].read() | h}</div>
-    <div>Temperature 2: ${epic_cube.tempsensors[1].read() | h}</div>
+    <%doc>
+        <h2>Temperatures</h2>
+        <div>Temperature 1: ${epic_cube.tempsensors[0].read() | h}</div>
+        <div>Temperature 2: ${epic_cube.tempsensors[1].read() | h}</div>
+    </%doc>
     <%doc>
         <h2>Damper Stats(which dampers are open or closed)</h2>
         % for number, damper in sorted(epic_cube.dampers.items()):
@@ -100,9 +102,10 @@
     <h2>
     
     <h2>Fan Control</h2>
-    % for x in range(1, 4 + 1):
+    ##% for x in [0, 2, 3, 4]:
+    % for x in [0]:
         <div>
-            Current state: ${epic_cube.fans[x].read()}.
+            Fan ${x}: ${epic_cube.fans[x].read()}.
             Change to: 
             % for newstate in ["OFF"] + list(map(repr, range(1, 10 + 1))):
                 ${showfanchangeform(epic_cube.fans[x], newstate)}

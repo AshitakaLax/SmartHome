@@ -20,7 +20,7 @@ _TEMP_SENSOR_NUMS = range(64)
 _TEMP_SENSOR_DIGITS = 2
 _SPRINKLER_NUMS = range(6)
 _SPRINKLER_DIGITS = 1
-_FAN_NUMS = [1, 2, 3, 4]
+_FAN_NUMS = [0, 2, 3, 4]
 _FAN_DIGITS = 1
 
 
@@ -245,7 +245,7 @@ class EpicCubeDevice(PhysicalDevice):
         #        raise AssertionError(text)
     
     def _updatehvacstatus(self):
-        response = self._sendreceive("HVAC?", 1)
+        response = self._sendreceive("HVAC?", 3)
         if response == "1":
             status = "1 (furnace controller blower on)"
         elif response == "2":
@@ -261,7 +261,7 @@ class EpicCubeDevice(PhysicalDevice):
         elif response == "7":
             status = "7 (all off)"
         else:
-            raise AssertionError("got strange result to _updatehvacstatus: " +
+            raise AssertionError("got strange result in _updatehvacstatus: " +
                                  repr(response))
         self.hvacstatus.update(status)
     
@@ -285,6 +285,8 @@ class EpicCubeDevice(PhysicalDevice):
         assert len(response) == len(fan_nums)
         for responsepart in response:
             fan_number, onoff, speed = map(int, responsepart.split(":"))
+            if fan_number == 1:
+                fan_number = 0
             if onoff == 0:
                 self.fans[fan_number].update("OFF")
             else:
@@ -343,6 +345,7 @@ class EpicCubeDevice(PhysicalDevice):
         speed = "0" if newstate == "OFF" else repr(int(newstate) - 1)
         self._send("Fan{}{}{}".format(fan_number, onoff, speed))
         state_entity.update(newstate)
+        printsync("writing fan state to", newstate)
     
     @property
     def pollinginterval(self):

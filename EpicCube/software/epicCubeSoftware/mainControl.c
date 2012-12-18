@@ -34,8 +34,10 @@
 #include "include/usb_serial.h"//added to test the built with it.
 #include "include/HVACGarage.h"// works and compiles
 #include "include/damper_Control.h"
+#include "sampling.h"
 #include "include/tempSense.h"
 #include "include/Sprinkler.h"
+#include "include/analog.h"
 #include "include/PWMTeensyTwoPlusPlus.h"
 #include <stdlib.h>
 
@@ -50,7 +52,10 @@ uint8_t recv_str(char *buf, uint8_t size);
 void parse_and_execute_command(const char *buf, uint8_t num);// still needs updating
 void convert_by_division(uint16_t value, char *temp);
 uint16_t convertAsciiToInt(char*temp, uint16_t size);
+uint16_t ReadADCTemp(uint8_t pin);
 void toggleVerbose(void);
+
+static uint8_t aref = (1<<REFS0);// default reference
 //global verbose adds lots of print statements
 uint8_t verbose = 0;
 uint8_t invalidInput = 0;
@@ -78,6 +83,7 @@ int main(void)
 	InitializeDamper();
 	InitializeSprinkler();
 	InitializeFans();
+	InitializeTemperature();
 	// still need to initialize fans
 
 	usb_init();
@@ -393,7 +399,9 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 	**/
 	if(buf[0] == 'T') // Temperature Section (DEBUG)
 	{
-			//disable all other Devices and enable this
+		for(int i = 0; i < 30; i++)
+		{
+		//disable all other Devices and enable this
 		//disable Damper
 		DAMPER_ENABLE_OFF;
 		
@@ -408,6 +416,7 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		convert_by_division(ADCResult, tempResultStr);
 		usb_serial_write(tempResultStr, 4);
 		send_str(PSTR("\r\n"));
+		}
 		return;
 	}
 	else if(buf[0] == 'G')// Garage Section DONE
@@ -553,7 +562,103 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 			}
 		}
 		send_str(PSTR("\r\n"));
-	}	else if(buf[0] == 'M')//test Motor
+	}
+	else if(buf[0] == 'W')//test input
+	{
+		
+	}
+	else if(buf[0] == 'Z')
+	{
+		uint16_t zTemp0 = ReadADCTemp(0);
+		uint16_t zTemp1 = ReadADCTemp(1);
+		uint16_t zTemp2 = ReadADCTemp(2);
+		uint16_t zTemp3 = ReadADCTemp(3);
+		char tempResultStr0[4];
+		char tempResultStr1[4];
+		char tempResultStr2[4];
+		char tempResultStr3[4];
+		//zTemp0 = 1024;
+		//zTemp1 = 523;
+		//zTemp2 = 23;
+		//zTemp3 = 5;
+		char* tempStringZ;
+		
+		//		itoa(zTemp0, tempStringZ, 10);
+		
+		//result is best left positive till C# level for easier conversion.
+		convert_by_division(zTemp0, tempResultStr0);
+		convert_by_division(zTemp1, tempResultStr1);
+		convert_by_division(zTemp2, tempResultStr2);
+		convert_by_division(zTemp3, tempResultStr3);
+		
+		//1023
+//		zTemp0 = 389;
+	
+		uint8_t z10 = zTemp1 / 1024;//  D = 1bin or 1 dec
+	uint8_t temp = zTemp1 % 1024;// temp = 10bin and 2 dec
+	
+	uint8_t z9 = temp / 512;//  D = 1bin or 1 dec
+	temp = temp % 512;// temp = 10bin and 2 dec
+	
+	uint8_t z8 = temp / 256;//  D = 1bin or 1 dec
+	temp = temp % 256;// temp = 10bin and 2 dec
+	
+	uint8_t z7 = temp / 128;//  D = 1bin or 1 dec
+	temp = temp % 128;// temp = 10bin and 2 dec
+	
+	uint8_t z6 = temp / 64;//  D = 1bin or 1 dec
+	temp = temp % 64;// temp = 10bin and 2 dec
+	
+	uint8_t z5 = temp / 32;//  D = 1bin or 1 dec
+	temp = temp % 32;// temp = 10bin and 2 dec
+	
+	uint8_t z4 = temp / 16;//  D = 1bin or 1 dec
+	temp = temp % 16;// temp = 10bin and 2 dec
+	
+	uint8_t z3 = temp / 8;//  D = 1bin or 1 dec
+	temp = temp % 8;// temp = 10bin and 2 dec
+	
+	uint8_t z2 = temp / 4;// C = (2)/4 = 0
+	temp = temp % 4;// temp = (2)%4 = 2
+	
+	uint8_t z1 = temp / 2;// 1
+	temp = temp % 2;// 0
+	
+	uint8_t z0 = temp; 
+	
+	char tempBuf[11];
+		//itoa(Command, tempBuf,10);
+					
+		tempBuf[0] = (char)z10 + '0';
+		tempBuf[1] = (char)z9 + '0';
+		tempBuf[2] = (char)z8 + '0';
+		tempBuf[3] = (char)z7 + '0';
+		
+		tempBuf[4] = (char)z6 + '0';
+		tempBuf[5] = (char)z5 + '0';
+		tempBuf[6] = (char)z4 + '0';
+		tempBuf[7] = (char)z3 + '0';
+		
+		tempBuf[8] = (char)z2 + '0';
+		tempBuf[9] = (char)z1 + '0';
+		tempBuf[10] = (char)z0 + '0';
+		
+		
+		//printf("number %i", zTemp0);
+		send_str(PSTR("\r\nTemp0 binary\r\n"));
+		usb_serial_write(tempBuf, 11);
+		send_str(PSTR("\r\nTemp0\r\n"));
+		usb_serial_write(tempResultStr0, 4);
+		send_str(PSTR("Temp1\r\n"));
+		usb_serial_write(tempResultStr1, 4);
+		send_str(PSTR("Temp2\r\n"));
+		usb_serial_write(tempResultStr2, 4);
+		send_str(PSTR("Temp3\r\n"));
+		usb_serial_write(tempResultStr3, 4);
+		
+		send_str(PSTR("Temp4\r\n"));
+	}
+	else if(buf[0] == 'M')//test Motor
 	{
 		//syntax Motor
 		//pins used are 
@@ -571,10 +676,10 @@ void parse_and_execute_command(const char *buf, uint8_t num)
 		for(uint16_t stepcount = 0; stepcount < 1000; stepcount++)
 		{
 			MOTORSTEPHIGH;
-		send_str(PSTR("Step High\r\n"));
+			send_str(PSTR("Step High\r\n"));
 			_delay_ms(15);
 			MOTORSTEPLOW;
-		send_str(PSTR("Step Low\r\n"));
+			send_str(PSTR("Step Low\r\n"));
 			_delay_ms(15);
 			if(stepcount == 500)
 			{
@@ -740,10 +845,10 @@ void initializeGlobal(void)
 **/
 void convert_by_division(uint16_t value, char *temp)
 {
-	temp[0] = (value % 10) + '0';
-	temp[1] = (value % 100) / 10 + '0';
-	temp[2] = (value % 1000) / 100 + '0';
-	temp[3] = (value % 1000) / 1000 + '0';
+	temp[3] = (value % 10) + '0';
+	temp[2] = (value % 100) / 10 + '0';
+	temp[1] = (value % 1000) / 100 + '0';
+	temp[0] = (value % 1000) / 1000 + '0';
 }
 
 /**
@@ -780,7 +885,20 @@ uint16_t convertAsciiToInt(char*temp, uint16_t size)
 	}
   return result;
 }
+uint16_t ReadADCTemp(uint8_t pin)// may give errors if so replace with unsigned char.
+{
+	//simple read on the adc analog pin.
+	
+	uint8_t low;
 
+	ADCSRA = (1<<ADEN) | ADC_PRESCALER;		// enable ADC
+	ADCSRB = (1<<ADHSM) | (pin & 0x20);		// high speed mode
+	ADMUX = aref | (pin & 0x1F);			// configure mux input
+	ADCSRA = (1<<ADEN) | ADC_PRESCALER | (1<<ADSC);	// start the conversion
+	while (ADCSRA & (1<<ADSC)) ;			// wait for result
+	low = ADCL;					// must read LSB first
+	return ((ADCH << 8) | low);			// must read MSB only once!
+}
 void toggleVerbose(void)
 {
 	//toggle all of the verbose files

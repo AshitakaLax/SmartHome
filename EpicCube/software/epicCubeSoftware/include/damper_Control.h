@@ -26,15 +26,15 @@
 #define MOTORENABLELOW	(PORTB &= ~(1<<6))
 
 //Pin 23(PB5) Keep for a spare for ideal setup
-#define MOTORDIRHIGH	(PORTB |= (1<<5))
-#define MOTORDIRLOW	(PORTB &= ~(1<<5))
+#define MOTORDIRHIGH	(PORTB |= (1<<4))
+#define MOTORDIRLOW	(PORTB &= ~(1<<4))
 //Pin 24(PB4)
-#define MOTORSTEPHIGH	(PORTB |= (1<<4))
-#define MOTORSTEPLOW	(PORTB &= ~(1<<4))
+#define MOTORSTEPHIGH	(PORTB |= (1<<5))
+#define MOTORSTEPLOW	(PORTB &= ~(1<<5))
 
 #define MOTORENABLECONFIG	(DDRB |= (1<<6))
-#define MOTORDIRCONFIG	(DDRB |= (1<<5))
-#define MOTORSTEPCONFIG	(DDRB |= (1<<4))
+#define MOTORDIRCONFIG	(DDRB |= (1<<4))
+#define MOTORSTEPCONFIG	(DDRB |= (1<<5))
 
 
 void InitializeDamper(void);

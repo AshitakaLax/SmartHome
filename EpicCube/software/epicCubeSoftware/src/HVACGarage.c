@@ -38,7 +38,8 @@ void initializeHVACGarage(void)
 void PulseGarage(void)
 {
 	GARAGE_SWITCH_ON;
-	for(int i = 0; i < 1000; i++);//wait
+	_delay_ms(1000);
+//	for(int i = 0; i < 1000; i++);//wait
 	GARAGE_SWITCH_OFF;
 }
 /**

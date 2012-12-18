@@ -18,10 +18,23 @@
 
 #include "../include/GlobalVar.h"
 #include "../include/tempSense.h"
+#include "../sampling.h"
 
+
+#define HEX(n) (((n) < 10) ? ((n) + '0') : ((n) + 'A' - 10))
 
 static uint8_t aref = (1<<REFS0);// default reference
 
+void InitializeTemperature()
+{
+		//initialize my io pins to input.
+		
+//		analogenable;// this enables the analog input pins.
+	adc_start(ADC_MUX_PIN_F0, ADC_REF_POWER);
+	_delay_ms(1000);
+	adc_read();
+}
+	
 /*
 *	Reads the sensor for this teensy board
 *   sensor is from 0 to 63.
@@ -825,21 +838,101 @@ uint16_t ReadTempSensor(char * SensorNumber)
 		send_str(PSTR("ERRORTEMP\n\r"));
 	return 0;
 }
+
+void analogReference(uint8_t mode)
+{
+	aref = mode & 0xC0;
+}
+uint16_t adcToKelvin(uint16_t adcRaw)
+{
+	uint16_t code = adcRaw;
+	int celsius;
+  if (code <= 289) {
+    celsius = 5 + (code - 289) / 9.82;
+  }
+  if (code > 289 && code <= 342) {
+    celsius = 10 + (code - 342) / 10.60;
+  }
+  if (code > 342 && code <= 398) {
+    celsius = 15 + (code - 398) / 11.12;
+  }
+  if (code > 398 && code <= 455) {
+    celsius = 20 + (code - 455) / 11.36;
+  }
+  if (code > 455 && code <= 512) {
+    celsius = 25 + (code - 512) / 11.32;
+  }
+  if (code > 512 && code <= 566) {
+    celsius = 30 + (code - 566) / 11.00;
+  }
+  if (code > 566 && code <= 619) {
+    celsius = 35 + (code - 619) / 10.44;
+  }
+  if (code > 619 && code <= 667) {
+    celsius = 40 + (code - 667) / 9.73;
+  }
+  if (code > 667) {
+    celsius = 45 + (code - 712) / 8.90;
+  }
+//  fahrenheit = celsius * 1.8 + 32;
+	return celsius + 273;// return kelvin
+  }
 /**
 *	Reads the ADC value on one of the ADC pins
 *	0 - 7 pins. this returns a range from 0 to 1024
 */
 uint16_t ReadADC(uint8_t pin)// may give errors if so replace with unsigned char.
 {
-	//simple read on the adc analog pin.
-	
-	uint8_t low;
 
-	ADCSRA = (1<<ADEN) | ADC_PRESCALER;		// enable ADC
-	ADCSRB = (1<<ADHSM) | (pin & 0x20);		// high speed mode
-	ADMUX = aref | (pin & 0x1F);			// configure mux input
-	ADCSRA = (1<<ADEN) | ADC_PRESCALER | (1<<ADSC);	// start the conversion
-	while (ADCSRA & (1<<ADSC)) ;			// wait for result
-	low = ADCL;					// must read LSB first
-	return ((ADCH << 8) | low);			// must read MSB only once!
+	uint16_t temperature = 0;
+	if(pin == 0)
+		adc_start(ADC_MUX_PIN_F0, ADC_REF_POWER);
+	else if(pin == 1)
+		adc_start(ADC_MUX_PIN_F1, ADC_REF_POWER);
+	else if(pin == 2)
+		adc_start(ADC_MUX_PIN_F2, ADC_REF_POWER);
+	else if(pin == 3)
+		adc_start(ADC_MUX_PIN_F3, ADC_REF_POWER);
+	else if(pin == 4)
+		adc_start(ADC_MUX_PIN_F4, ADC_REF_POWER);
+	else if(pin == 5)
+		adc_start(ADC_MUX_PIN_F5, ADC_REF_POWER);
+	else if(pin == 6)
+		adc_start(ADC_MUX_PIN_F6, ADC_REF_POWER);
+	else if(pin == 7)	
+		adc_start(ADC_MUX_PIN_F7, ADC_REF_POWER);
+	_delay_ms(1);
+	
+	char* stringBuf = "\r\nTemperature Value1: ";
+	char* stringBuf1 = "\r\nTemperature Value2: ";
+	char* stringBuf2 = "\r\nTemperature Value3: ";
+	char buf[4];
+	uint16_t val;
+	
+	uint16_t average  = adc_read();
+
+	for(int i = 0; i < 10; i++)
+	{
+	
+//	val = temperature;
+	val = adc_read();
+		temperature = val;
+		buf[0] = HEX((val >> 8) & 15);
+		buf[1] = HEX((val >> 4) & 15);
+		buf[2] = HEX(val & 15);
+		buf[3] = ' ';
+		usb_serial_write(stringBuf, 21);
+		usb_serial_write((unsigned char *)buf, 4);
+			
+		temperature = adc_read();// 0 - 1024
+		average = (average + temperature) / 2;
+		
+	}
+	
+	//convert to kelvin
+	
+		
+	return adcToKelvin(average);
+	//simple read on the adc analog pin.
+
 }

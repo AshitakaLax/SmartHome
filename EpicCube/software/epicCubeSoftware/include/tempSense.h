@@ -9,7 +9,6 @@
 
 #include <avr/pgmspace.h>
 #include <util/delay.h>
-
 // Pins on and off
 
 
@@ -27,8 +26,13 @@
 #endif
 #endif
 
+
+#define analogenable (DIDR0 = (0xFF))//enable all analog inputs
+
+void InitializeTemperature();
 uint16_t ReadTempSensor(char *SensorNumber);
 uint16_t ReadADC(uint8_t pin);
+void analogReference(uint8_t mode);
 
 
 #endif
